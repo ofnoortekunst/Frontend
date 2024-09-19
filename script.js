@@ -31,14 +31,6 @@ function closeAllSubMenus() {
   });
 };
 
-document.getElementById("sidebar-active").addEventListener('change', function() {
-  const changeColorIcon = document.querySelector('.icon');
-  
-  if (isChecked) {
-    changeColorIcon.innerHTML = '<img alt="bookmark" src="images/bookmark-color-change.png" class="bookmark">Lemmikud';
-  };
-});
-
 document.getElementById('sidebar-active').addEventListener('change', function() {
   const changeColorIcon = document.querySelector('.icon');
 
