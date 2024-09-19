@@ -185,7 +185,7 @@ header {
 
 nav {
   height: 80px;
-  width: 1190px;
+  flex-grow: 1;
   background-color: var(--nav-background);
   display: flex;
   justify-content: flex-end;
