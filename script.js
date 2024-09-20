@@ -13,12 +13,9 @@ function toggleSidebar() {
 function checkWidth() {
   if (window.innerWidth <= 1055) {
     sidebar.classList.add('close');
-    toggleButton.classList.toggle('rotate');
+    toggleButton.classList.add('rotate');
 
     closeAllSubMenus();
-  } else {
-    sidebar.classList.remove('close');
-    toggleButton.classList.toggle('rotate');
   }
 }
 checkWidth();
