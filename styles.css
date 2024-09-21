@@ -1,3 +1,5 @@
+/* Main stuff*/
+
 :root {
   --sidebar-background: #15154b;
   --nav-background: #FAFAFF;
@@ -34,6 +36,39 @@ body {
   'sidebar main'
   'sidebar footer';
 }
+
+main {
+  grid-area: main;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+  font-size: 16px;
+  font-weight: 450;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 30px 0px;
+  height: 80px;
+  width: 100vw;
+  background-color: var(--nav-background);
+  grid-area: navbar;
+}
+
+nav {
+  height: 80px;
+  flex-grow: 1;
+  background-color: var(--nav-background);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--dark-text-color);
+  border-bottom: 2px solid var(--dark-text-color);
+}
+
+
+/* The sidebar */
 
 #sidebar {
   box-sizing: border-box;
@@ -164,35 +199,8 @@ body {
   }
 }
 
-main {
-  grid-area: main;
-  padding: 20px;
-  position: relative;
-  z-index: 2;
-  font-size: 16px;
-  font-weight: 450;
-}
 
-header {
-  display: flex;
-  align-items: center;
-  padding: 30px 0px;
-  height: 80px;
-  width: 100vw;
-  background-color: var(--nav-background);
-  grid-area: navbar;
-}
-
-nav {
-  height: 80px;
-  flex-grow: 1;
-  background-color: var(--nav-background);
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  color: var(--dark-text-color);
-  border-bottom: 2px solid var(--dark-text-color);
-}
+/* The navbar -> sidebar on the right */
 
 .links-container {
   height: 100%;
@@ -397,6 +405,9 @@ nav svg {
   color: var(--dark-text-color);
 }
 
+
+/* Profile section in the header */
+
 .profile {
   display: flex;
   align-items: center;
@@ -454,4 +465,86 @@ nav svg {
   background-color: var(--nav-background);
   font-size: 12px;
   color: var(--gray);
+}
+
+
+/* Footer stuff */
+
+
+.footer {
+  flex-grow: 1;
+  display: flex;
+  height: 250px;
+  flex-direction: column;
+  background-color: var(--gray);
+  grid-area: footer;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+}
+
+.socials-container {
+  display: flex;
+  gap: 45px;
+  background-color: var(--gray);
+  align-items: center;
+  height: 40%;
+  border-bottom: 2px solid black;
+}
+
+.socials-container a svg, .socials-container p svg {
+  height: 32px;
+  width: 32px;
+  margin-right: 10px;
+  background-color: var(--gray);
+  vertical-align: middle;
+  transition: all 0.3s ease;
+}
+
+.socials-container a, .socials-container p {
+  background-color: var(--gray);
+  color: black;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.logo-container {
+  height: 40%;
+  display: flex;
+  align-items: center;
+  background-color: var(--gray);
+}
+
+.logo-container a {
+  background-color: var(--gray);
+}
+
+.dark-logo-footer {
+  width: 250px;
+  height: auto;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dark-logo-footer:hover {
+  transform: scale(1.1);
+}
+
+.socials-container a:hover, .socials-container p:hover {
+  transform: scale(1.1);
+
+  .insta-icon {
+    fill: #FB7833;
+    transform: scale(1.1);
+  }
+
+  .tiktok-icon {
+    fill: #69C9D0;
+    transform: scale(1.1);
+  }
+
+  .gmail-icon {
+    fill: #EA4335;
+    transform: scale(1.1);
+  }
 }
