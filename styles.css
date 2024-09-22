@@ -39,6 +39,7 @@ body {
 
 main {
   grid-area: main;
+  width: 100%;
   padding: 20px;
   position: relative;
   z-index: 2;
@@ -476,17 +477,17 @@ nav svg {
   display: flex;
   height: 250px;
   flex-direction: column;
-  background-color: var(--gray);
+  background-color: var(--nav-background);
   grid-area: footer;
-  z-index: 2;
   justify-content: center;
   align-items: center;
+  border-top: 2px solid var(--dark-text-color);
 }
 
 .socials-container {
   display: flex;
   gap: 45px;
-  background-color: var(--gray);
+  background-color: var(--nav-background);
   align-items: center;
   height: 40%;
   border-bottom: 2px solid black;
@@ -496,27 +497,30 @@ nav svg {
   height: 32px;
   width: 32px;
   margin-right: 10px;
-  background-color: var(--gray);
+  background-color: var(--nav-background);
   vertical-align: middle;
   transition: all 0.3s ease;
 }
 
+.socials-container a {
+  cursor: pointer;
+}
+
 .socials-container a, .socials-container p {
-  background-color: var(--gray);
+  background-color: var(--nav-background);
   color: black;
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 
 .logo-container {
   height: 40%;
   display: flex;
   align-items: center;
-  background-color: var(--gray);
+  background-color: var(--nav-background);
 }
 
 .logo-container a {
-  background-color: var(--gray);
+  background-color: var(--nav-background);
 }
 
 .dark-logo-footer {
