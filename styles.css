@@ -105,7 +105,7 @@ body.sidebar-collapsed {
   fill: var(--text-color);
   background-color: var(--sidebar-background);
   flex-shrink: 0;
-  transition: fill 0.1s ease;
+  transition: fill 0.2s ease;
 }
 
 #sidebar .sidebar-filter {
@@ -118,7 +118,7 @@ body.sidebar-collapsed {
   font-weight: 400;
   background-color: var(--sidebar-background);
   color: var(--text-color);
-  transition: all 0.1s ease;
+  transition: all 0.2s ease;
   padding-left: 2.5em;
 }
 
@@ -142,7 +142,7 @@ body.sidebar-collapsed {
   align-items: center;
   gap: 1em;
   background-color: var(--sidebar-background);
-  transition: all 0.1s ease;
+  transition: all 0.2s ease;
 }
 
 #sidebar a {
@@ -152,13 +152,13 @@ body.sidebar-collapsed {
   display: flex;
   align-items: center;
   background-color: var(--sidebar-background);
-  transition: all 0.1s ease;
+  transition: all 0.2s ease;
 }
 
 #sidebar a span, #sidebar .dropdown span {
   background-color: var(--sidebar-background);
   flex-grow: 1;
-  transition: all 0.1s ease;
+  transition: all 0.2s ease;
 }
 
 #sidebar a:hover, #sidebar .dropdown:hover, #sidebar .sidebar-filter-spec:hover, #sidebar span:hover, #toggle-btn svg:hover{
@@ -230,7 +230,7 @@ nav a {
   align-items: center;
   text-decoration: none;
   color: var(--dark-text-color);
-  transition: all 0.1s ease 0s;
+  transition: all 0.2s ease 0s;
   background-color: var(--nav-background);
 }
 
@@ -311,13 +311,13 @@ nav svg {
 
   .close-sidebar-btn svg {
     fill: var(--text-color);
-    transition: all 0.1s ease;
+    transition: all 0.2s ease;
     cursor: pointer;
   }
 
   .open-sidebar-btn svg {
     fill: var(--dark-text-color);
-    transition: all 0.1s ease;
+    transition: all 0.2s ease;
     cursor: pointer;
   }
 
