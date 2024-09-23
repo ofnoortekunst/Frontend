@@ -4,6 +4,7 @@ const sidebar = document.getElementById('sidebar');
 // Toggle the sidebar button.
 function toggleSidebar() {
   sidebar.classList.toggle('close');
+  document.body.classList.toggle('sidebar-collapsed');
   toggleButton.classList.toggle('rotate');
 
   closeAllSubMenus();
@@ -17,6 +18,7 @@ function checkWidth() {
 
   if (window.innerWidth <= 1090) {
     sidebar.classList.add('close');
+    document.body.classList.add('sidebar-collapsed');
     toggleButton.classList.add('rotate');
 
     closeAllSubMenus();
@@ -51,6 +53,7 @@ function toggleSubMenu(button) {
 
   if (sidebar.classList.contains('close')) {
     sidebar.classList.toggle('close');
+    document.body.classList.toggle('sidebar-collapsed');
     toggleButton.classList.toggle('rotate');
   };
 };
