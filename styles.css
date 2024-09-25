@@ -44,10 +44,13 @@ body {
 main {
   grid-area: main;
   width: 100%;
-  padding: 20px;
-  position: relative;
-  font-size: 16px;
-  font-weight: 450;
+  height: 100vh;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-rows: repeat(auto, 330px);
+  gap: 1rem;
+  justify-content: center;
 }
 
 header {
@@ -481,7 +484,6 @@ nav svg {
 
 /* Footer stuff */
 
-
 .footer {
   width: 100vw;
   display: flex;
@@ -561,4 +563,20 @@ nav svg {
     fill: #EA4335;
     transform: scale(1.1);
   }
+}
+
+
+/* Art containers and stuff inside it */
+
+.art-container {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.test {
+  width: 200px;
+  height: 200px;
+  background-color: red;
 }
