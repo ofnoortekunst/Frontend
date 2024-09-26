@@ -48,7 +48,6 @@ main {
   padding: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-rows: repeat(auto, 330px);
   gap: 1rem;
   justify-content: center;
 }
