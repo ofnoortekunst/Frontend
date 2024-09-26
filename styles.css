@@ -47,7 +47,7 @@ main {
   height: 100vh;
   padding: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr);
   grid-template-rows: repeat(auto, 330px);
   gap: 1rem;
   justify-content: center;
