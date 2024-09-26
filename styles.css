@@ -279,6 +279,7 @@ nav svg {
   height: auto;
   cursor: pointer;
   margin: auto;
+  mix-blend-mode: multiply;
 }
 
 .static-a {
@@ -393,6 +394,7 @@ nav svg {
   cursor: pointer;
   width: 350px;
   height: auto;
+  mix-blend-mode: multiply;
 }
 
 .bookmark {
@@ -488,7 +490,8 @@ nav svg {
   display: flex;
   height: 200px;
   flex-direction: column;
-  background-color: var(--light-gray);
+  background: rgb(2,0,36);
+  background: linear-gradient(0deg, rgb(136, 136, 136) 0%, rgba(220,220,220,1) 30%); 
   grid-area: footer;
   justify-content: center;
   align-items: center;
@@ -498,7 +501,7 @@ nav svg {
 .socials-container {
   display: flex;
   gap: 45px;
-  background-color: var(--light-gray);
+  background-color: transparent;
   align-items: center;
   height: 40%;
   border-bottom: 2px solid black;
@@ -508,7 +511,7 @@ nav svg {
   height: 32px;
   width: 32px;
   margin-right: 10px;
-  background-color: var(--light-gray);
+  background-color: transparent;
   vertical-align: middle;
   transition: all 0.3s ease;
 }
@@ -518,7 +521,7 @@ nav svg {
 }
 
 .socials-container a, .socials-container p {
-  background-color: var(--light-gray);
+  background-color: transparent;
   color: black;
   transition: all 0.3s ease;
 }
@@ -527,11 +530,11 @@ nav svg {
   height: 40%;
   display: flex;
   align-items: center;
-  background-color: var(--light-gray);
+  background-color: transparent;
 }
 
 .logo-container a {
-  background-color: var(--light-gray);
+  background-color: transparent;
 }
 
 .dark-logo-footer {
@@ -539,6 +542,7 @@ nav svg {
   height: auto;
   transition: all 0.3s ease;
   cursor: pointer;
+  mix-blend-mode: multiply;
 }
 
 .dark-logo-footer:hover {
