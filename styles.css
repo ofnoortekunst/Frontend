@@ -4,11 +4,12 @@
   --sidebar-background: #15154b;
   --nav-background: #FAFAFF;
   --hover-color: #a16ae8;
-  --ghost-back: white;
+  --back: white;
   --hover-background: #efefef;
   --dark-text-color: #15154b;
   --text-color: white;
   --gray: #737373;
+  --gray-between: #acacac;
   --light-gray: #dcdcdc;
 }
 
@@ -16,7 +17,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: var(--ghost-back);
+  background-color: var(--back);
+}
+
+html, body {
+  height: 100%;
 }
 
 html {
@@ -30,7 +35,6 @@ html {
 body {
   z-index: 2;
   min-height: 100vh;
-  min-height: 100dvh;
   transition: grid-template-columns 0.3s ease-in-out;
   display: grid;
   grid-template-columns: 250px 1fr;
@@ -44,7 +48,7 @@ body {
 main {
   grid-area: main;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   padding: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -73,12 +77,13 @@ nav {
   border-bottom: 2px solid var(--dark-text-color);
 }
 
-footer {
-  width: 100%;
-}
-
 body.sidebar-collapsed {
   grid-template-columns: 60px 1fr;
+}
+
+footer {
+  width: 100%;
+  grid-area: footer;
 }
 
 
@@ -572,14 +577,55 @@ nav svg {
 /* Art containers and stuff inside it */
 
 .art-container {
-  background-color: black;
+  padding: 1em;
+  background-color: var(--light-gray);
+  border-radius: 5%;
   display: flex;
+  flex-direction: column;
+  gap: 1em;
   justify-content: center;
   align-items: center;
 }
 
-.test {
-  width: 200px;
-  height: 200px;
-  background-color: red;
+.name-and-author, .specifications, .price-and-like, .beginning-price, .amount-of-likes {
+  background-color: transparent;
+}
+
+.name-and-author {
+  font-weight: 550;
+  font-size: 22px;
+}
+
+.art-container hr {
+  height: 2px;
+  background: var(--gray-between);
+  font-size: 0;
+  border: 0;
+  width: 250px;
+}
+
+.specifications, .beginning-price, .amount-of-likes, .amount-of-likes svg {
+  font-size: 16px;
+  font-weight: 425;
+}
+
+.price-and-like {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.amount-of-likes svg {
+  vertical-align: middle;
+  margin-bottom: 7px;
+  fill: var(--dark-text-color);
+  background-color: transparent;
+}
+
+.art-pic {
+  width: 250px;
+  height: 250px;
+  background-color: black;
 }
