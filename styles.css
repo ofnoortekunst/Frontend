@@ -645,7 +645,7 @@ nav svg {
 
 .sorting-bar {
   grid-area: sort;
-  width: 100%;
+  width: auto;
   background-color: var(--back);
   display: flex;
   align-items: center;
@@ -664,6 +664,7 @@ nav svg {
   background-color: var(--back);
   gap: 5px;
   margin-left: 1em;
+  transition: all 0.5s ease;
 }
 
 .search-bar svg {
@@ -680,6 +681,16 @@ nav svg {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 425;
+}
+
+.search-bar input.smaller-input {
+  width: 0px;
+}
+
+.search-bar.smaller-search {
+  width: 36px;
+  border: none;
+  cursor: pointer;
 }
 
 .sorting-options {
