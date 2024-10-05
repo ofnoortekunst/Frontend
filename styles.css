@@ -219,7 +219,7 @@ footer {
 }
 
 
-/* The navbar -> sidebar on the right */
+/* The navbar and navbar -> sidebar on the right */
 
 .links-container {
   height: 100%;
@@ -363,12 +363,6 @@ nav svg {
     z-index: 10;
   }
 
-  nav .lang-btn {
-    width: auto;
-    margin-left: 30px;
-    margin-top: 20px;
-  }
-
   .open-sidebar-btn, .close-sidebar-btn {
     padding-right: 20px;
     padding-left: 20px;
@@ -409,23 +403,6 @@ nav svg {
   margin-right: 5px;
   margin-bottom: 2px;
 }
-
-.lang {
-  width: 22px;
-  height: auto;
-  margin-right: 5px;
-}
-
-.lang-btn {
-  padding: 10px;
-  background-color: rgb(223, 223, 223);
-  border-radius: 30px;
-  box-shadow: rgb(111, 111, 111) 1px 2px 10px;
-  height: 40px;
-  margin-right: 20px;
-  color: var(--dark-text-color);
-}
-
 
 /* Profile section in the header */
 
