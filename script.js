@@ -22,6 +22,10 @@ function checkWidth() {
     toggleButton.classList.add('rotate');
 
     closeAllSubMenus();
+  } else {
+    sidebar.classList.remove('close');
+    document.body.classList.remove('sidebar-collapsed');
+    toggleButton.classList.remove('rotate');
   };
 
   if (window.innerWidth <= 896) {
