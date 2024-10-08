@@ -4,6 +4,7 @@
   --sidebar-background: #15154b;
   --nav-background: #FAFAFF;
   --hover-color: #a16ae8;
+  --dark-hover-color: #915fd1;
   --back: white;
   --hover-background: #efefef;
   --dark-text-color: #15154b;
@@ -231,11 +232,12 @@ footer {
   align-items: center;
   background-color: var(--nav-background);
   font-size: 20px;
+  gap: 30px;
+  margin-right: 0.8em;
 }
 
 nav a {
   height: 100%;
-  padding: 0 20px;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -408,6 +410,37 @@ nav svg {
   height: auto;
   margin-right: 5px;
   margin-bottom: 2px;
+}
+
+.upload-work-button {
+  background-color: var(--hover-color);
+  width: 45px;
+  height: 35px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  transition: all 0.2s ease;
+}
+
+.upload-work-button svg {
+  fill: var(--text-color);
+  vertical-align: middle;
+  background-color: var(--hover-color);
+  padding: 0;
+  transition: transform 0.3s ease, background-color 0.2s ease;
+}
+
+.upload-work-button:hover {
+  transform: scale(1.1);
+  background-color: var(--dark-hover-color);
+}
+
+.upload-work-button:hover svg {
+  transform: rotate(90deg);
+  background-color: var(--dark-hover-color);
 }
 
 /* Profile section in the header */

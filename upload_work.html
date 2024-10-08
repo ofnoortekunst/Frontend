@@ -34,6 +34,9 @@
         </label>
 
         <a href="#" class="home-link"><img class="logo" alt="logo" src="images/pro-logo-transparent.png"></a>
+        <a href="upload_work.html" class="upload-work-button">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+        </a>
         <a href="#">Kontakt</a>
         <a href="#">Abi</a>
         <a href="#">Seaded</a>
@@ -42,32 +45,34 @@
     </nav>
   </header>
   <main>
-    <div class="container">
-      <div class="card">
-        <h3 class="app-subtitle">
-              Lae oma teos
+    <div class="upper-section">
+      <div class="container">
+        <div class="card">
+          <h3 class="app-subtitle">
+                Lae oma teos
           </h3>
-        <label for="fileInput" class="file-label">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-200h80v-167l64 64 56-57-160-160-160 160 57 56 63-63v167ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
-          Vali fail
-        </label>
-        <input type="file" id="fileInput" class="file-input" />
-        <div class="progress-container">
-            <div class="progress-bar" id="progressBar"></div>
-            <div class="progress-text" id="progressText"></div>
+          <label for="fileInput" class="file-label">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-200h80v-167l64 64 56-57-160-160-160 160 57 56 63-63v167ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
+            Vali fail
+          </label>
+          <input type="file" id="fileInput" class="file-input" />
+          <div class="progress-container">
+              <div class="progress-bar" id="progressBar"></div>
+              <div class="progress-text" id="progressText"></div>
+          </div>
+          <div class="file-details">
+              <div class="file-name" id="fileName"></div>
+              <button class="clear-button" id="clearButton">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+              </button>
+          </div>
+          <div class="preview-container" id="previewContainer"></div>
         </div>
-        <div class="file-details">
-            <div class="file-name" id="fileName"></div>
-            <button class="clear-button" id="clearButton">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-            </button>
-        </div>
-        <div class="preview-container" id="previewContainer"></div>
-    </div>
-    <div class="modal" id="myModal">
-        <span class="close" id="closeModal">&times;</span>
-        <img class="modal-content" id="uploadedImageModal">
-    </div>
+      </div>
+      <div class="modal" id="myModal">
+          <span class="close" id="closeModal">&times;</span>
+          <img class="modal-content" id="uploadedImageModal">
+      </div>
       <form>
         <fieldset>
           <legend>Pealkiri:</legend>
@@ -76,39 +81,50 @@
           </div>
         </fieldset>
         <fieldset>
+          <legend>Hind:</legend>
+          <div>
+            <input type="number" placeholder="€" id="price">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <div class="bottom-section">
+      <form>
+        <fieldset>
           <legend>Tehnika:</legend>
           <div>
-            <input type="checkbox" id="acrylic" name="acrylic" checked>
+            <input type="radio" id="acrylic" name="technique" value="acrylic" checked>
             <label for="acrylic">Akrüül</label>
           </div>
           <div>
-            <input type="checkbox" id="oil" name="oil">
+            <input type="radio" id="oil" name="technique" value="oil">
             <label for="oil">Õli</label>
           </div>
           <div>
-            <input type="checkbox" id="pastel" name="pastel">
+            <input type="radio" id="pastel" name="technique" value="pastel">
             <label for="pastel">Pastell</label>
           </div>
           <div>
-            <input type="checkbox" id="pencil" name="pencil">
+            <input type="radio" id="pencil" name="technique" value="pencil">
             <label for="pencil">Pliiats</label>
           </div>
           <div>
             <input type="text" id="art-technique" placeholder="Muu">
           </div>
         </fieldset>
+        <hr>
         <fieldset>
           <legend>Pind:</legend>
           <div>
-            <input type="checkbox" id="paper" name="paper" checked>
+            <input type="radio" id="paper" name="surface" value="paper" checked>
             <label for="paper">Paber</label>
           </div>
           <div>
-            <input type="checkbox" id="cardboard" name="cardboard">
+            <input type="radio" id="cardboard" name="surface" value="cardboard">
             <label for="cardboard">Papp</label>
           </div>
           <div>
-            <input type="checkbox" id="canvass" name="canvass">
+            <input type="radio" id="canvass" name="surface" value="canvass">
             <label for="canvass">Lõuend</label>
           </div>
           <div>
@@ -116,39 +132,35 @@
             <label for="other">Muu</label>
           </div>
         </fieldset>
+        <hr>
         <fieldset>
           <legend>Suurus:</legend>
           <div>
-            <input type="checkbox" id="a3" name="a3" checked>
+            <input type="radio" id="a3" name="size" value="a3" checked>
             <label for="a3">A3</label>
           </div>
           <div>
-            <input type="checkbox" id="a4" name="a4">
+            <input type="radio" id="a4" name="size" value="a4">
             <label for="a4">A4</label>
           </div>
           <div>
-            <input type="checkbox" id="a5" name="a5">
+            <input type="radio" id="a5" name="size" value="a5">
             <label for="a5">A5</label>
           </div>
           <div>
             <input type="text" placeholder="Muu, näiteks 25x45 (cm)" id="art-size">
           </div>
         </fieldset>
+        <hr>
         <fieldset>
           <legend>Hor/Ver:</legend>
           <div>
-            <input type="checkbox" id="horizontal" name="horizontal" checked>
+            <input type="radio" id="horizontal" name="direction" value="horizontal" checked>
             <label for="horizontal">Horisontaalselt</label>
           </div>
           <div>
-            <input type="checkbox" id="vertical" name="vertical">
+            <input type="radio" id="vertical" name="direction" value="vertical">
             <label for="vertical">Vertikaalselt</label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>Hind:</legend>
-          <div>
-            <input type="number" placeholder="€" id="price">
           </div>
         </fieldset>
       </form>

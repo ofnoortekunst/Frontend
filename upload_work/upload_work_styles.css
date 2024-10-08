@@ -4,6 +4,7 @@
   --sidebar-background: #15154b;
   --nav-background: #FAFAFF;
   --hover-color: #a16ae8;
+  --dark-hover-color: #915fd1;
   --back: white;
   --hover-background: #efefef;
   --dark-text-color: #15154b;
@@ -70,16 +71,14 @@ nav {
 }
 
 main {
+  padding: 1rem 10rem;
+  padding-bottom: 1.4rem;
   grid-area: main;
   width: 100%;
-  height: calc(100vh - 80px);
-  background-color: var(--sidebar-background);
+  height: 100%;
   display: flex;
-  justify-content: center;
-
-  @media (max-width: 1085px) {
-    height: calc(100vh - 60px);
-  }
+  flex-direction: column;
+  gap: 1rem;
 }
 
 /* The navbar and navbar -> sidebar on the right */
@@ -92,11 +91,12 @@ main {
   align-items: center;
   background-color: var(--nav-background);
   font-size: 20px;
+  gap: 30px;
+  margin-right: 0.8em;
 }
 
 nav a {
   height: 100%;
-  padding: 0 20px;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -271,6 +271,37 @@ nav svg {
   margin-bottom: 2px;
 }
 
+.upload-work-button {
+  background-color: var(--hover-color);
+  width: 45px;
+  height: 35px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  transition: all 0.2s ease;
+}
+
+.upload-work-button svg {
+  fill: var(--text-color);
+  vertical-align: middle;
+  background-color: var(--hover-color);
+  padding: 0;
+  transition: transform 0.3s ease, background-color 0.2s ease;
+}
+
+.upload-work-button:hover {
+  transform: scale(1.1);
+  background-color: var(--dark-hover-color);
+}
+
+.upload-work-button:hover svg {
+  transform: rotate(90deg);
+  background-color: var(--dark-hover-color);
+}
+
 
 /* Profile section in the header */
 
@@ -421,12 +452,25 @@ nav svg {
 /* Stuff in main */
 
 .container {
-  width: 100%;
+  width: 500px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 1rem;
+}
+
+.upper-section {
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 50px;
+}
+
+.bottom-section {
+  height: 100%;
 }
 
 form {
@@ -439,14 +483,32 @@ fieldset {
   border: none;
   display: flex;
   gap: 30px;
-  border-bottom: 2px solid var(--gray-between);
   padding: 1rem;
+  padding-bottom: 0.1rem;
+}
+
+fieldset:last-child {
+  border: none;
+}
+
+fieldset label {
+  font-size: 16px;
+  font-weight: 400;
 }
 
 input {
   border: 2px solid var(--dark-text-color);
   border-radius: 10px;
   padding: 5px;
+  outline: none;
+}
+
+.bottom-section hr {
+  height: 2px;
+  background: var(--gray-between);
+  font-size: 0;
+  border: 0;
+  width: auto;
 }
 
 
@@ -461,6 +523,7 @@ input {
   border: none;
   border-radius: 10px;
   max-width: 500px;
+  max-height: 500px;
   width: 100%;
   background-color: var(--sidebar-background);
 }
@@ -477,18 +540,18 @@ input {
   background-color: var(--nav-background);
   color: var(--dark-text-color);
   border-radius: 8px;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s ease;
 }
 
 .file-label svg {
   fill: var(--dark-text-color);
   vertical-align: middle;
   margin-bottom: 4px;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s ease;
 }
 
 .file-label:hover, .file-label:hover svg {
-  background-color: var(--light-gray);
+  background-color: var(--hover-color);
 }
 
 .file-input {
@@ -560,9 +623,13 @@ input {
   vertical-align: middle;
 }
 
+.preview-container {
+  max-height: 200px;
+}
+
 .preview-container img {
   max-width: 100%;
-  max-height: 250px;
+  max-height: 200px;
   cursor: pointer;
 }
 

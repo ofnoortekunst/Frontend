@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   } else {
                       pBar.style.width = '100%';
                       pText.innerText = '100%';
-                      fName.innerText = `File Name: ${file.name}`;
+                      fName.innerText = `Faili nimi: ${file.name}`;
                       pContainer.innerHTML = 
                           `<img src="${reader.result}" 
                                 alt="Preview" id="previewImage">`;
