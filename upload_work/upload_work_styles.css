@@ -11,6 +11,8 @@
   --gray: #737373;
   --gray-between: #acacac;
   --light-gray: #dcdcdc;
+  --red: #ff5e4c;
+  --dark-red: #c0392b;
 }
 
 * {
@@ -421,4 +423,173 @@ nav svg {
 .container {
   width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  gap: 30px;
+  border-bottom: 2px solid var(--gray-between);
+  padding: 1rem;
+}
+
+input {
+  border: 2px solid var(--dark-text-color);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+
+/* Uploading files */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  background-color: var(--sidebar-background);
+}
+
+.app-subtitle {
+  color: var(--text-color);
+  background-color: var(--sidebar-background);
+}
+
+.file-label {
+  cursor: pointer;
+  display: flexbox;
+  padding: 7px;
+  background-color: var(--nav-background);
+  color: var(--dark-text-color);
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.file-label svg {
+  fill: var(--dark-text-color);
+  vertical-align: middle;
+  margin-bottom: 4px;
+  transition: background-color 0.3s;
+}
+
+.file-label:hover, .file-label:hover svg {
+  background-color: var(--light-gray);
+}
+
+.file-input {
+  display: none;
+}
+
+.progress-container {
+  position: relative;
+  height: 20px;
+  background-color: var(--sidebar-background);
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background-color: var(--hover-color);
+  border-radius: 5px;
+  transition: width 0.3s;
+}
+
+.progress-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  height: 20px;
+  color: var(--text-color);
+  background-color: transparent;
+  font-size: 14px;
+  display: none;
+}
+
+.file-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  background-color: var(--sidebar-background);
+}
+
+.file-name {
+  color: var(--text-color);
+  background-color: var(--sidebar-background);
+}
+
+.clear-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 12px;
+  background-color: var(--red);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: none;
+}
+
+.clear-button:hover {
+  background-color: var(--dark-red);
+}
+
+.clear-button svg {
+  fill: var(--text-color);
+  background-color: transparent;
+  vertical-align: middle;
+}
+
+.preview-container img {
+  max-width: 100%;
+  max-height: 250px;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.close {
+  color: var(--text-color);
+  font-size: 35px;
+  font-weight: 500;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  cursor: pointer;
 }
