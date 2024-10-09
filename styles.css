@@ -541,7 +541,7 @@ nav svg {
 .footer {
   width: 100vw;
   display: flex;
-  height: 200px;
+  height: 150px;
   flex-direction: column;
   background: rgb(2,0,36);
   background: linear-gradient(0deg, rgb(136, 136, 136) 0%, rgba(220,220,220,1) 30%); 
