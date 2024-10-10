@@ -492,8 +492,10 @@ form {
     gap: 10px;
   }
 
-  legend {
-    margin: 0 auto;
+  .upper-section form {
+    border-bottom: 2px solid var(--gray-between);
+    padding-bottom: 35px;
+    width: 100%;
   }
 
   fieldset {
@@ -553,7 +555,7 @@ input {
   font-size: 18px;
   background-color: var(--hover-color);
   color: var(--text-color);
-  width: 100px;
+  width: 200px;
   height: 40px;
   border-radius: 20px;
   cursor: pointer;
