@@ -329,6 +329,7 @@ nav svg {
 .upload-work-button:hover svg {
   transform: rotate(90deg);
   background-color: var(--dark-hover-color);
+
 }.upload-work-button {
   background-color: var(--hover-color);
   width: 45px;
@@ -367,7 +368,7 @@ nav svg {
     position: fixed;
     top: 0;
     right: -100%;
-    z-index: 20;
+    z-index: 4;
     width: 300px;
     margin-right: 0;
     background-color: var(--sidebar-background);
@@ -386,7 +387,16 @@ nav svg {
   }
 
   .upload-work-button {
-    margin-left: 30px;
+    justify-content: flex-start;
+    padding: 23px 30px;
+    width: 298px;
+    height: 27px;
+    background-color: transparent;
+  }
+
+  .upload-work-button:hover {
+    transform: scale(1);
+    background-color: transparent;
   }
 
   .close-sidebar-btn svg {
@@ -431,7 +441,7 @@ nav svg {
 
   .sidebar-active-nav {
     display: flex;
-    z-index: 10;
+    z-index: 4;
   }
 
   .open-sidebar-btn, .close-sidebar-btn {
@@ -457,7 +467,7 @@ nav svg {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 19;
+    z-index: 3;
     background-color: transparent;
   }
 }

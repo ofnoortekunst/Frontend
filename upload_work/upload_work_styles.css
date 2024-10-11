@@ -200,7 +200,7 @@ nav svg {
     position: fixed;
     top: 0;
     right: -100%;
-    z-index: 20;
+    z-index: 4;
     width: 300px;
     margin-right: 0;
     background-color: var(--sidebar-background);
@@ -219,7 +219,16 @@ nav svg {
   }
 
   .upload-work-button {
-    margin-left: 30px;
+    justify-content: flex-start;
+    padding: 23px 30px;
+    width: 298px;
+    height: 27px;
+    background-color: transparent;
+  }
+
+  .upload-work-button:hover {
+    transform: scale(1);
+    background-color: transparent;
   }
 
   .close-sidebar-btn svg {
@@ -264,7 +273,7 @@ nav svg {
 
   .sidebar-active-nav {
     display: flex;
-    z-index: 10;
+    z-index: 4;
   }
 
   .open-sidebar-btn, .close-sidebar-btn {
@@ -290,7 +299,7 @@ nav svg {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 19;
+    z-index: 3;
     background-color: transparent;
   }
 }
@@ -504,6 +513,10 @@ form {
     align-items: center;
     gap: 0.5em;
   }
+
+  legend {
+    margin: 0 auto;
+  }
 }
 
 fieldset {
@@ -670,8 +683,10 @@ input {
   display: none;
 }
 
-.clear-button:hover {
-  background-color: var(--dark-red);
+@media (hover:hover) {
+  .clear-button:hover {
+    background-color: var(--dark-red);
+  }
 }
 
 .clear-button svg {
@@ -703,6 +718,7 @@ input {
   top: 0;
   width: 100%;
   height: 100%;
+  z-index: 5;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.9);
 }
@@ -714,8 +730,9 @@ input {
   max-height: 80%;
 }
 
-.close {
-  color: var(--text-color);
+.modal span svg {
+  fill: var(--text-color);
+  background-color: transparent;
   font-size: 35px;
   font-weight: 500;
   position: absolute;

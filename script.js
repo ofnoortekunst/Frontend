@@ -15,6 +15,7 @@ function checkWidth() {
   const instaContent = document.querySelector('.insta-content');
   const tiktokContent = document.querySelector('.tiktotk-content');
   const gmailContent = document.querySelector('.gmail-content');
+  const navBarLinks = document.querySelector('.links-container');
 
   if (window.innerWidth <= 1090) {
     sidebar.classList.add('close');
@@ -40,6 +41,12 @@ function checkWidth() {
     tiktokContent.innerHTML = '<svg class="tiktok-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50"><path d="M41,4H9C6.243,4,4,6.243,4,9v32c0,2.757,2.243,5,5,5h32c2.757,0,5-2.243,5-5V9C46,6.243,43.757,4,41,4z M37.006,22.323 c-0.227,0.021-0.457,0.035-0.69,0.035c-2.623,0-4.928-1.349-6.269-3.388c0,5.349,0,11.435,0,11.537c0,4.709-3.818,8.527-8.527,8.527 s-8.527-3.818-8.527-8.527s3.818-8.527,8.527-8.527c0.178,0,0.352,0.016,0.527,0.027v4.202c-0.175-0.021-0.347-0.053-0.527-0.053 c-2.404,0-4.352,1.948-4.352,4.352s1.948,4.352,4.352,4.352s4.527-1.894,4.527-4.298c0-0.095,0.042-19.594,0.042-19.594h4.016 c0.378,3.591,3.277,6.425,6.901,6.685V22.323z"></path></svg>@of_noortekunst';
 
     gmailContent.innerHTML = '<svg class="gmail-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gmail</title><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>of_noortekunst@gmail.com';
+  };
+
+  if (window.innerWidth <= 1085) {
+    navBarLinks.innerHTML = '<label for="sidebar-active" class="close-sidebar-btn"><svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></label><a href="upload_work.html" class="upload-work-button">+ Lae oma töö</a><a href="#" class="home-link"><img class="logo" alt="logo" src="images/pro-logo-transparent.png"></a><a href="#">Kontakt</a><a href="#">Abi</a><a href="#">Seaded</a><a href="#" class="icon"><img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud</a>'
+  } else {
+    navBarLinks.innerHTML = '<label for="sidebar-active" class="close-sidebar-btn"><svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></label><a href="#" class="home-link"><img class="logo" alt="logo" src="images/pro-logo-transparent.png"></a><a href="upload_work.html" class="upload-work-button"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></a><a href="#">Kontakt</a><a href="#">Abi</a><a href="#">Seaded</a><a href="#" class="icon"><img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud</a>'
   };
 };
 checkWidth();
