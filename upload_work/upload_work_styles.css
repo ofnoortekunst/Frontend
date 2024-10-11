@@ -224,6 +224,7 @@ nav svg {
     width: 298px;
     height: 27px;
     background-color: transparent;
+    color: var(--hover-color);
   }
 
   .upload-work-button:hover {
