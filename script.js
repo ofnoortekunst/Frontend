@@ -102,19 +102,3 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.invisible');
 hiddenElements.forEach((el => observer.observe(el)));
-
-// Make the search-bar in the sorting-bar shrink based on the window size.
-function checkSearchBarWidth() {
-  const searchBar = document.querySelector('.search-bar');
-  const searchBarInput = document.querySelector('.search-bar-input');
-
-  if (window.innerWidth <= 626) {
-    searchBar.classList.add('smaller-search');
-    searchBarInput.classList.add('smaller-input');
-  } else {
-    searchBar.classList.remove('smaller-search');
-    searchBarInput.classList.remove('smaller-input');
-  };
-};
-checkSearchBarWidth();
-window.addEventListener('resize', checkSearchBarWidth);
