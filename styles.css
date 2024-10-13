@@ -778,6 +778,7 @@ nav svg {
     width: calc(100% - 38px);
     padding-left: 0.5em;
   }
+
   @media (hover:hover) {
     .search-bar-submit:hover {
       background-color: var(--gray-between);
@@ -791,6 +792,12 @@ nav svg {
   gap: 20px;
   margin-right: 1em;
   margin-left: auto;
+}
+
+@media (max-width: 430px) {
+  .sorting-options {
+    gap: 6px;
+  }
 }
 
 .sorting-options svg {
