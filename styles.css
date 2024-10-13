@@ -705,6 +705,7 @@ nav svg {
 
 .sorting-bar {
   grid-area: sort;
+  height: 40px;
   width: auto;
   background-color: var(--back);
   display: flex;
@@ -714,8 +715,8 @@ nav svg {
 }
 
 .search-bar {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border: 2px solid var(--dark-text-color);
   border-radius: 100vh;
   background-color: var(--back);
@@ -731,10 +732,10 @@ nav svg {
 
 .search-bar-input {
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 425;
-  width: calc(100% - 34px);
-  padding: 0 0.5em;
+  width: 100%;
+  padding: 0;
   border: none;
   outline: none;
   background-color: transparent;
@@ -742,7 +743,7 @@ nav svg {
   top: 0;
   bottom: 0;
   left: 0;
-  line-height: 34px;
+  line-height: 40px;
   opacity: 0;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -774,6 +775,8 @@ nav svg {
   .search-bar-input {
     opacity: 1;
     cursor: initial;
+    width: calc(100% - 38px);
+    padding-left: 0.5em;
   }
   @media (hover:hover) {
     .search-bar-submit:hover {
