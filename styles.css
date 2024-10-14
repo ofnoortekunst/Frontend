@@ -373,7 +373,7 @@ nav svg {
     margin-right: 0;
     background-color: var(--sidebar-background);
     border-left: 2px solid var(--dark-text-color);
-    transition: 0.5s ease-out;
+    transition: 0.3s ease-in-out;
   }
 
   .home-link img {
@@ -792,6 +792,12 @@ nav svg {
   gap: 20px;
   margin-right: 1em;
   margin-left: auto;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.sorting-options.focused {
+  opacity: 0;
 }
 
 @media (max-width: 430px) {

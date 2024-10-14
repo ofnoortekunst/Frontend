@@ -114,11 +114,25 @@ window.addEventListener('resize', checkWidth);
 
 // Change the 'favourite' icon based on if the navbar has gone to the side.
 document.getElementById('sidebar-active').addEventListener('change', function() {
-    const changeColorIcon = document.querySelector('.icon');
-  
-    if (this.checked) {
-      changeColorIcon.innerHTML = '<img alt="bookmark" src="images/bookmark-color-change.png" class="bookmark">Lemmikud';
-    } else {
-      changeColorIcon.innerHTML = '<img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud';
-    }
-  });
+  const changeColorIcon = document.querySelector('.icon');
+
+  if (this.checked) {
+    changeColorIcon.innerHTML = '<img alt="bookmark" src="images/bookmark-color-change.png" class="bookmark">Lemmikud';
+  } else {
+    changeColorIcon.innerHTML = '<img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud';
+  }
+});
+
+const sibling1 = document.querySelector('.search-bar');
+const sibling2 = document.querySelector('.sorting-options');
+
+// Listen for the focusin and focusout events on the first sibling
+sibling1.addEventListener('focusin', () => {
+  // When sibling-1 (or its children) gains focus, add the 'focused' class to sibling-2
+  sibling2.classList.add('focused');
+});
+
+sibling1.addEventListener('focusout', () => {
+  // When sibling-1 (or its children) loses focus, remove the 'focused' class from sibling-2
+  sibling2.classList.remove('focused');
+});

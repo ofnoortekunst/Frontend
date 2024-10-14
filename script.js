@@ -1,5 +1,7 @@
 const toggleButton = document.getElementById('toggle-btn');
 const sidebar = document.getElementById('sidebar');
+const sibling1 = document.querySelector('.search-bar');
+const sibling2 = document.querySelector('.sorting-options');
 
 // Toggle the sidebar button.
 function toggleSidebar() {
@@ -47,6 +49,25 @@ function checkWidth() {
     navBarLinks.innerHTML = '<label for="sidebar-active" class="close-sidebar-btn"><svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></label><a href="upload_work.html" class="upload-work-button">+ Lae oma töö</a><a href="#" class="home-link"><img class="logo" alt="logo" src="images/pro-logo-transparent.png"></a><a href="#">Kontakt</a><a href="#">Abi</a><a href="#">Seaded</a><a href="#" class="icon"><img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud</a>'
   } else {
     navBarLinks.innerHTML = '<label for="sidebar-active" class="close-sidebar-btn"><svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></label><a href="#" class="home-link"><img class="logo" alt="logo" src="images/pro-logo-transparent.png"></a><a href="upload_work.html" class="upload-work-button"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></a><a href="#">Kontakt</a><a href="#">Abi</a><a href="#">Seaded</a><a href="#" class="icon"><img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud</a>'
+  };
+
+  if (window.innerWidth < 620) {
+    // Listen for the focusin and focusout events on the first sibling
+    sibling1.addEventListener('focusin', () => {
+      // When sibling-1 (or its children) gains focus, add the 'focused' class to sibling-2
+      sibling2.classList.add('focused');
+    });
+
+    sibling1.addEventListener('focusout', () => {
+      // When sibling-1 (or its children) loses focus, remove the 'focused' class from sibling-2
+      sibling2.classList.remove('focused');
+    });
+  } else {
+    // Listen for the focusin and focusout events on the first sibling
+    sibling1.addEventListener('focusin', () => {
+      // When sibling-1 (or its children) gains focus, add the 'focused' class to sibling-2
+      sibling2.classList.remove('focused');
+    });
   };
 };
 checkWidth();
