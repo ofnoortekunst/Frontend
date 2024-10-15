@@ -12,6 +12,12 @@ function toggleSidebar() {
   closeAllSubMenus();
 };
 
+document.addEventListener('DOMContentLoaded', function() {
+  const sidebarCheckBox = document.getElementById('sidebar-active');
+
+  sidebarCheckBox.checked = false;
+});
+
 // Automatically close and open the sidebar at a certain width. Scale the icons in the footer.
 function checkWidth() {
   const instaContent = document.querySelector('.insta-content');
