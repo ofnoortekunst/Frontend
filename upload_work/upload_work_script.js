@@ -1,5 +1,6 @@
+const sidebarCheckBox = document.getElementById('sidebar-active');
+
 document.addEventListener('DOMContentLoaded', () => {
-  const sidebarCheckBox = document.getElementById('sidebar-active');
   const fInput = document.getElementById('fileInput');
   const pBar = document.getElementById('progressBar');
   const pText = document.getElementById('progressText');
@@ -80,8 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.style.display = 'none';
     }
   });
-
-  sidebarCheckBox.checked = false;
 });
 
 // Scale the icons in the footer.
@@ -125,3 +124,11 @@ document.getElementById('sidebar-active').addEventListener('change', function() 
     changeColorIcon.innerHTML = '<img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud';
   }
 });
+
+if (document.readyState !== 'loading') {
+  sidebarCheckBox.checked = false;
+} else {
+  document.addEventListener('DOMContentLoaded', function () {
+    sidebarCheckBox.checked = false;
+  });
+};

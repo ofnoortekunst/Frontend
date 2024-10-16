@@ -388,16 +388,15 @@ nav svg {
 
   .upload-work-button {
     justify-content: flex-start;
-    padding: 23px 30px;
+    padding: 23px 15px;
+    margin-right: 7.5px;
     width: 298px;
     height: 27px;
     background-color: transparent;
-    color: var(--hover-color);
-  }
-
-  .upload-work-button:hover {
-    transform: scale(1);
-    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--hover-color);
+    border-radius: 100vh;
+    transition: all 0.2s ease;
   }
 
   .close-sidebar-btn svg {
@@ -455,6 +454,12 @@ nav svg {
   @media (hover:hover) {
     .open-sidebar-btn svg:hover, .close-sidebar-btn svg:hover {
       fill: var(--hover-color);
+    }
+
+    .upload-work-button:hover {
+      transform: scale(1);
+      background-color: transparent;
+      color: var(--hover-color);
     }
   }
 
