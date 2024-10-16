@@ -411,6 +411,10 @@ nav svg {
     cursor: pointer;
   }
 
+  .upload-work-button:hover {
+    transform: scale(1);
+  }
+
   .close-sidebar-btn svg, .close-sidebar-btn {
     background-color: var(--sidebar-background);
   }

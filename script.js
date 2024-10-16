@@ -13,6 +13,8 @@ function toggleSidebar() {
   closeAllSubMenus();
 };
 
+sidebarCheckBox.checked = false;
+
 if (document.readyState !== 'loading') {
   sidebarCheckBox.checked = false;
 } else {

@@ -125,6 +125,8 @@ document.getElementById('sidebar-active').addEventListener('change', function() 
   }
 });
 
+sidebarCheckBox.checked = false;
+
 if (document.readyState !== 'loading') {
   sidebarCheckBox.checked = false;
 } else {
