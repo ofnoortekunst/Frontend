@@ -1,5 +1,3 @@
-const sidebarCheckBox = document.getElementById('sidebar-active');
-
 document.addEventListener('DOMContentLoaded', () => {
   const fInput = document.getElementById('fileInput');
   const pBar = document.getElementById('progressBar');
@@ -124,13 +122,3 @@ document.getElementById('sidebar-active').addEventListener('change', function() 
     changeColorIcon.innerHTML = '<img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud';
   }
 });
-
-sidebarCheckBox.checked = false;
-
-if (document.readyState !== 'loading') {
-  sidebarCheckBox.checked = false;
-} else {
-  document.addEventListener('DOMContentLoaded', function () {
-    sidebarCheckBox.checked = false;
-  });
-};

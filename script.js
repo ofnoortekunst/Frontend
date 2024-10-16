@@ -2,7 +2,6 @@ const toggleButton = document.getElementById('toggle-btn');
 const sidebar = document.getElementById('sidebar');
 const sibling1 = document.querySelector('.search-bar');
 const sibling2 = document.querySelector('.sorting-options');
-const sidebarCheckBox = document.getElementById('sidebar-active')
 
 // Toggle the sidebar button.
 function toggleSidebar() {
@@ -12,18 +11,6 @@ function toggleSidebar() {
 
   closeAllSubMenus();
 };
-
-sidebarCheckBox.checked = false;
-
-if (document.readyState !== 'loading') {
-  sidebarCheckBox.checked = false;
-} else {
-  document.addEventListener('DOMContentLoaded', function () {
-    sidebarCheckBox.checked = false;
-  });
-};
-
-function myInitCode() {}
 
 // Automatically close and open the sidebar at a certain width. Scale the icons in the footer.
 function checkWidth() {
