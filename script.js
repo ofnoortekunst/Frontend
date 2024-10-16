@@ -12,13 +12,6 @@ function toggleSidebar() {
 
   closeAllSubMenus();
 };
-/*
-document.addEventListener('DOMContentLoaded', function() {
-  const sidebarCheckBox = document.getElementById('sidebar-active');
-
-  sidebarCheckBox.checked = false;
-});
-*/
 
 if (document.readyState !== 'loading') {
   sidebarCheckBox.checked = false;
