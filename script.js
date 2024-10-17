@@ -3,6 +3,11 @@ const sidebar = document.getElementById('sidebar');
 const sibling1 = document.querySelector('.search-bar');
 const sibling2 = document.querySelector('.sorting-options');
 
+addEventListener("DOMContentLoaded", (event) => {
+  const sidebarCheckBox = document.getElementById('sidebar-active');
+  sidebarCheckBox.checked = false;
+});
+
 // Toggle the sidebar button.
 function toggleSidebar() {
   sidebar.classList.toggle('close');
@@ -112,4 +117,3 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.invisible');
 hiddenElements.forEach((el => observer.observe(el)));
-

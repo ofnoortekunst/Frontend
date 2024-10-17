@@ -1,3 +1,8 @@
+addEventListener("DOMContentLoaded", (event) => {
+  const sidebarCheckBox = document.getElementById('sidebar-active');
+  sidebarCheckBox.checked = false;
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   const fInput = document.getElementById('fileInput');
   const pBar = document.getElementById('progressBar');
