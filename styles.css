@@ -514,7 +514,7 @@ nav svg {
   border-right: 2px solid var(--dark-text-color);
   border-bottom: 2px solid var(--dark-text-color);
 
-  @media screen and (max-width: 1162px) {
+  @media screen and (max-width: 1210px) {
     display: none;
   }
 }
