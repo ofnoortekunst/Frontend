@@ -98,17 +98,6 @@ function closeAllSubMenus() {
   });
 };
 
-// Change the 'favourite' icon based on if the navbar has gone to the side.
-document.getElementById('sidebar-active').addEventListener('change', function() {
-  const changeColorIcon = document.querySelector('.icon');
-
-  if (this.checked) {
-    changeColorIcon.innerHTML = '<img alt="bookmark" src="images/bookmark-color-change.png" class="bookmark">Lemmikud';
-  } else {
-    changeColorIcon.innerHTML = '<img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud';
-  }
-});
-
 // Making the divs in main appear on scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -123,3 +112,4 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.invisible');
 hiddenElements.forEach((el => observer.observe(el)));
+
