@@ -432,9 +432,9 @@ nav svg {
 
 .sub-navbar {
   background-color: var(--nav-background);
-  width: 80%;
-  margin-top: 1vh;
-  padding: 1vh;
+  width: 90%;
+  margin-top: 1rem;
+  padding: 0.5rem;
   position: sticky;
   top: 1vh;
   z-index: 3;
@@ -443,6 +443,15 @@ nav svg {
   border: none;
   border-radius: 100vh;
   box-shadow: 1px 2px 4px var(--gray-between);
+  transition: all 0.2s ease;
+
+  @media (max-width: 350px) {
+    width: 100%;
+    border-radius: 0;
+    top: 0;
+    margin-top: 0;
+    justify-content: space-between;
+  }
 }
 
 .sub-navbar a {
@@ -453,7 +462,7 @@ nav svg {
   transition: all 0.2s ease;
 
   @media (max-width: 670px) {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 
@@ -474,7 +483,6 @@ nav svg {
 .noortekunst-intro {
   height: 85vh;
   width: 100%;
-  padding: 0 5vw;
   background-color: transparent;
   display: flex;
   flex-direction: column;
@@ -492,6 +500,7 @@ nav svg {
   border: none;
   border-radius: 3rem;
   box-shadow: 1px 2px 4px var(--gray-between);
+  padding: 1rem;
   width: 80%;
   height: 50%;
 }
@@ -503,7 +512,7 @@ nav svg {
 
 .noortekunst-intro-logo {
   width: 70%;
-  min-width: 200px;
+  min-width: 250px;
   height: auto;
   mix-blend-mode: multiply;
 }
@@ -511,9 +520,10 @@ nav svg {
 .noortekunst-box p {
   text-align: center;
   background-color: transparent;
+  transition: all 0.2s ease;
 
   @media (max-width: 670px) {
-    font-size: 16px;
+    font-size: 15px;
   } 
 }
 
@@ -526,9 +536,9 @@ nav svg {
   justify-content: center;
   align-items: flex-start;
   gap: 50px;
-  padding: 5vh 5vw;
+  padding: 2rem;
   z-index: 2;
-  margin-bottom: 7vh;
+  margin-bottom: 3rem;
 }
 
 .news h2, .news h3, .news p {
@@ -588,7 +598,7 @@ h3 {
 }
 
 .about-container li {
-  margin-bottom: 1.5vh;
+  margin-bottom: 1rem;
 }
 
 .team {
