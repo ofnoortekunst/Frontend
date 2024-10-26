@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kunst</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Avaleht</title>
+  <link rel="stylesheet" href="home-page/home_styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -37,7 +37,7 @@
         <a href="upload_work.html" class="upload-work-button">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
         </a>
-        <a href="#">Teosed</a>
+        <a href="works.html">Teosed</a>
         <a href="#">Kontakt</a>
         <a href="#">Abi</a>
         <a href="#">Seaded</a>
@@ -45,271 +45,87 @@
       </div>
     </nav>
   </header>
-  <aside id="sidebar">
-    <ul>
-      <button onclick="toggleSidebar();" id="toggle-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-240 200-480l240-240 56 56-183 184 183 184-56 56Zm264 0L464-480l240-240 56 56-183 184 183 184-56 56Z"/></svg>
-      </button>
-      <li class="sidebar-filter">
-        <button onclick="toggleSubMenu(this);" class="dropdown">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-120q-45 0-89-22t-71-58q26 0 53-20.5t27-59.5q0-50 35-85t85-35q50 0 85 35t35 85q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T320-280q0-17-11.5-28.5T280-320q-17 0-28.5 11.5T240-280q0 23-5.5 42T220-202q5 2 10 2h10Zm230-160L360-470l358-358q11-11 27.5-11.5T774-828l54 54q12 12 12 28t-12 28L470-360Zm-190 80Z"/></svg>
-          <span>Tehnika</span>
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg>
-        </button>
-        <ul class="sub-menu">
-          <div>
-            <li class="sidebar-filter-spec"><input type="checkbox">Akrüül</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Õli</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Pastell</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Pliiats</li>
-            <li class="sidebar-filter-spec"><a href="#">Näita veel</a></li>
-          </div>
-        </ul>
-      </li>
-      <li class="sidebar-filter">
-        <button onclick="toggleSubMenu(this);" class="dropdown">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M560-280h200v-200h-80v120H560v80ZM200-480h80v-120h120v-80H200v200Zm-40 320q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-480H160v480Zm0 0v-480 480Z"/></svg>
-          <span>Suurus</span>
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg>
-        </button>
-        <ul class="sub-menu">
-          <div>
-            <li class="sidebar-filter-spec"><input type="checkbox">A3</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">A4</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">A5</li>
-            <li class="sidebar-filter-spec"><a href="#">Näita veel</a></li>
-          </div>
-        </ul>
-      </li>
-      <li class="sidebar-filter">
-        <button onclick="toggleSubMenu(this);" class="dropdown">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M600-120q-118 0-210-67T260-360H120v-80h122q-3-24-2.5-44.5T242-520H120v-80h140q38-106 130-173t210-67q69 0 130.5 24.5T840-748l-57 56q-37-32-83.5-50T600-760q-85 0-152 44.5T347-600h253v80H323q-4 27-3 47.5t3 32.5h277v80H347q34 71 101 115.5T600-200q53 0 99.5-18t83.5-50l57 56q-48 43-109.5 67.5T600-120Z"/></svg>
-          <span>Hind</span>
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg>
-        </button>
-        <ul class="sub-menu">
-          <div>
-            <p class="sidebar-filter-spec">mingi scale asi</p>
-          </div>
-        </ul>
-      </li>
-      <li class="sidebar-filter">
-        <button onclick="toggleSubMenu(this);" class="dropdown">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-480H160v480Zm80-80h480v-320H240v320Zm-80 80v-480 480Z"/></svg>
-          <span>Hor/Ver</span>
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg>
-        </button>
-        <ul class="sub-menu">
-          <div>
-            <li class="sidebar-filter-spec"><input type="checkbox">Vertikaalselt</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Horisontaalselt</li>
-          </div>
-        </ul>
-      </li>
-      <li class="sidebar-filter">
-        <button onclick="toggleSubMenu(this);" class="dropdown">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg>
-          <span>Aasta</span>
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg>
-        </button>
-        <ul class="sub-menu">
-          <div>
-            <li class="sidebar-filter-spec"><input type="checkbox">2024</li>
-          </div>
-        </ul>
-      </li>
-      <li class="sidebar-filter">
-        <button onclick="toggleSubMenu(this);" class="dropdown">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M0-240v-63q0-43 44-70t116-27q13 0 25 .5t23 2.5q-14 21-21 44t-7 48v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780Zm-455-80h311q-10-20-55.5-35T480-370q-55 0-100.5 15T325-320ZM160-440q-33 0-56.5-23.5T80-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-440Zm640 0q-33 0-56.5-23.5T720-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-440Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm0-80q17 0 28.5-11.5T520-600q0-17-11.5-28.5T480-640q-17 0-28.5 11.5T440-600q0 17 11.5 28.5T480-560Zm1 240Zm-1-280Z"/></svg>
-          <span>Kooliaste</span>
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg>
-        </button>
-        <ul class="sub-menu">
-          <div>
-            <li class="sidebar-filter-spec"><input type="checkbox">Algklass</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Põhikool</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Gümnaasium</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Kõrgkool</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Muu</li>
-          </div>
-        </ul>
-      </li>
-      <li class="sidebar-filter">
-        <button onclick="toggleSubMenu(this);" class="dropdown">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M80 0v-160h800V0H80Zm504-480L480-584 320-424l103 104 161-160Zm-47-160 103 103 160-159-104-104-159 160Zm-84-29 216 216-189 190q-24 24-56.5 24T367-263l-27 23H140l126-125q-24-24-25-57.5t23-57.5l189-189Zm0 0 187-187q24-24 56.5-24t56.5 24l104 103q24 24 24 56.5T857-640L669-453 453-669Z"/></svg>
-          <span>Pind</span>
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg>
-        </button>
-        <ul class="sub-menu">
-          <div>
-            <li class="sidebar-filter-spec"><input type="checkbox">Paber</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Papp</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Lõuend</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Muu</li>
-          </div>
-        </ul>
-      </li>
-    </ul>
-  </aside>
-  <div class="sorting-bar">
-    <div class="search-bar">
-      <input type="text" placeholder="Autor/Teos" class="search-bar-input" aria-label="search">
-      <button class="search-bar-submit" aria-label="submit-search">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
-      </button>
-    </div>
-    <div class="sorting-options">
-      <button>
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg>
-        Hind
-      </button>
-      <button>
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg>
-        Populaarsus
-      </button>
-      <button>
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg>
-        A-Z
-      </button>
-    </div>
-  </div>
   <main>
-    <div class="art-container invisible">
-      <div class="art-pic"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
+    <img alt="background-image" src="images/potential-background-image.jpg" class="background-image">
+    <div class="sub-navbar">
+      <a href="#noortekunst-intro">noorteKunst</a>
       <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
+      <a href="#news">Uudised</a>
       <hr>
-      <div class="price-and-like">
-        <p class="beginning-price">Alghind 30€</p>
-        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
+      <a href="#about">Meist</a>
+      <hr>
+      <a href="#team">Meeskond</a>
+    </div>
+    <div class="noortekunst-intro" id="noortekunst-intro">
+      <div class="noortekunst-box">
+        <img alt="noortekunst-logo" src="images/pro-logo-transparent.png" class="noortekunst-intro-logo">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem assumenda quas optio laborum doloremque architecto ipsa, placeat rerum omnis ducimus?
+        </p>
       </div>
     </div>
-    <div class="art-container invisible">
-      <div class="art-pic"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <p class="beginning-price">Alghind 30€</p>
-        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
+    <div class="news" id="news">
+      <h2>Uudised</h2>
+      <div class="news-container">
+        <div class="news-content">
+          <h3>Lorem, ipsum dolor.</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque sapiente quam similique ducimus. Sapiente modi explicabo non autem, porro voluptatem nobis doloremque cupiditate nisi quam odit ea, voluptatum architecto voluptas.</p>
+        </div>
+        <div class="news-content">
+          <h3>Lorem, ipsum.</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam hic quasi est possimus voluptatum ullam autem dolores ad rerum nam illo, dolor, distinctio in cupiditate. Necessitatibus neque repellat fuga aliquam officia maxime animi saepe nemo, alias, enim laborum. Commodi, cupiditate aliquid architecto excepturi dolores libero.</p>
+        </div>
+        <div class="news-content">
+          <h3>Lorem, ipsum.</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam hic quasi est possimus voluptatum ullam autem dolores ad rerum nam illo, dolor, distinctio in cupiditate. Necessitatibus neque repellat fuga aliquam officia maxime animi saepe nemo, alias, enim laborum. Commodi, cupiditate aliquid architecto excepturi dolores libero.</p>
+        </div>
       </div>
     </div>
-    <div class="art-container invisible">
-      <div class="art-pic"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <p class="beginning-price">Alghind 30€</p>
-        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
+    <div class="about" id="about">
+      <h2>Meist</h2>
+      <div class="about-container">
+        <div class="about-content">
+          <h3>Kes me oleme?</h3>
+          <p>Oleme Tallinna Mustamäe riigigümnaasiumi õpilasfirma ning meie eesmärk on ühendada noori loojaid ja kunstihuvilisi.</p>
+        </div>
+        <div class="about-content">
+          <h3>noorteKunst'i võimalused</h3>
+          <ul>
+            <li>Aitab alustavatel kunstnikel oma teoseid levitada ja näidata suuremale publikule.</li>
+            <li>Valmistab tulevikuks ette ja aitab oma karjäärile aluse rajada.</li>
+            <li>Annab kunstihuvilistele võimaluse avastada ja toetada noori kunstnikke.</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="art-container invisible">
-      <div class="art-pic"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <p class="beginning-price">Alghind 30€</p>
-        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
-      </div>
-    </div>
-    <div class="art-container invisible">
-      <div class="art-pic"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <p class="beginning-price">Alghind 30€</p>
-        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
-      </div>
-    </div>
-    <div class="art-container invisible">
-      <div class="art-pic"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <p class="beginning-price">Alghind 30€</p>
-        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
-      </div>
-    </div>
-    <div class="art-container invisible">
-      <div class="art-pic"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <p class="beginning-price">Alghind 30€</p>
-        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
-      </div>
-    </div>
-    <div class="art-container invisible">
-      <div class="art-pic"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <p class="beginning-price">Alghind 30€</p>
-        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
-      </div>
-    </div>
-    <div class="art-container invisible">
-      <div class="art-pic"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <p class="beginning-price">Alghind 30€</p>
-        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
-      </div>
-    </div>
-    <div class="art-container invisible">
-      <div class="art-pic"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <p class="beginning-price">Alghind 30€</p>
-        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
-      </div>
-    </div>
-    <div class="art-container invisible">
-      <div class="art-pic"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <p class="beginning-price">Alghind 30€</p>
-        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
-      </div>
-    </div>
-    <div class="art-container invisible">
-      <div class="art-pic"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <p class="beginning-price">Alghind 30€</p>
-        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
+    <div class="team" id="team">
+      <h2>Meeskond</h2>
+      <div class="team-container">
+        <div class="team-content">
+          <h3>Lukas Jääger</h3>
+          <p>Firmajuht, veebilehe front-end</p>
+        </div>
+        <div class="team-content">
+          <h3>Arno Kõrts</h3>
+          <p>Tootejuht, veebilehe back-end</p>
+        </div>
+        <div class="team-content">
+          <h3>Joonatan Orgse</h3>
+          <p>Meedia, turundus</p>
+        </div>
+        <div class="team-content">
+          <h3>Karin-Kitty Repson</h3>
+          <p>Õpilasfirma juhendaja</p>
+        </div>
+        <div class="team-content">
+          <h3>Veiko Jääger</h3>
+          <p>Õpilasfirma kooliväline mentor</p>
+        </div>
       </div>
     </div>
   </main>
-  <a href="#" class="back-to-top">
+  <button onclick="scrollToTop();" class="back-to-top">
     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg>
-  </a>
+  </button>
   <footer>
     <div class="footer">
       <div class="socials-container">
@@ -324,7 +140,7 @@
       </div>
     </div>
   </footer>
-
-  <script type="text/javascript" src="script.js" defer></script>
+  
+  <script type="text/javascript" src="home-page/home_script.js" defer></script>
 </body>
 </html>
