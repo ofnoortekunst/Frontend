@@ -22,7 +22,9 @@ function checkWidth() {
   const instaContent = document.querySelector('.insta-content');
   const tiktokContent = document.querySelector('.tiktotk-content');
   const gmailContent = document.querySelector('.gmail-content');
-  const navBarLinks = document.querySelector('.links-container');
+  const favButton = document.querySelector('.change');
+  const uploadWork = document.querySelector('.upload-work-button');
+
 
   if (window.innerWidth <= 1090) {
     sidebar.classList.add('close');
@@ -51,9 +53,11 @@ function checkWidth() {
   };
 
   if (window.innerWidth <= 1085) {
-    navBarLinks.innerHTML = '<label for="sidebar-active" class="close-sidebar-btn"><svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></label><a href="upload_work.html" class="upload-work-button">+ Lae oma töö</a><a href="works.html">Teosed</a><a href="index.html" class="home-link"><img class="logo" alt="logo" src="images/pro-logo-transparent.png"></a><a href="#">Kontakt</a><a href="#">Abi</a><a href="#">Seaded</a><a href="#" class="icon"><img alt="bookmark" src="images/bookmark-color-change.png" class="bookmark">Lemmikud</a>'
+    favButton.innerHTML = '<img alt="bookmark" src="images/bookmark-color-change.png" class="bookmark">Lemmikud';
+    uploadWork.innerHTML = '+ Lae oma töö';
   } else {
-    navBarLinks.innerHTML = '<label for="sidebar-active" class="close-sidebar-btn"><svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></label><a href="index.html" class="home-link"><img class="logo" alt="logo" src="images/pro-logo-transparent.png"></a><a href="upload_work.html" class="upload-work-button"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></a><a href="works.html">Teosed</a><a href="#">Kontakt</a><a href="#">Abi</a><a href="#">Seaded</a><a href="#" class="icon"><img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud</a>'
+    favButton.innerHTML = '<img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud';
+    uploadWork.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>';
   };
 
   if (window.innerWidth < 620) {
@@ -121,4 +125,9 @@ hiddenElements.forEach((el => observer.observe(el)));
 // Scroll to top button function
 function scrollToTop() {
   window.scrollTo(0,0);
+};
+
+// Scroll to bottom function
+function scrollToBottom() {
+  window.scrollTo(0, document.body.scrollHeight);
 };
