@@ -33,6 +33,7 @@ html {
   line-height: 1.5rem;
   color: var(--dark-text-color);
   scroll-behavior: smooth;
+  background-color: var(--nav-background);
 }
 
 body {
