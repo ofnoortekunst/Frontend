@@ -1,8 +1,3 @@
-addEventListener("DOMContentLoaded", (event) => {
-  const sidebarCheckBox = document.getElementById('sidebar-active');
-  sidebarCheckBox.checked = false;
-});
-
 document.addEventListener('DOMContentLoaded', () => {
   const fInput = document.getElementById('fileInput');
   const pBar = document.getElementById('progressBar');
@@ -119,7 +114,18 @@ function checkWidth() {
 checkWidth();
 window.addEventListener('resize', checkWidth);
 
+// Scroll to top button function
+function scrollToTop() {
+  window.scrollTo(0,0);
+};
+
 // Scroll to bottom function
 function scrollToBottom() {
   window.scrollTo(0, document.body.scrollHeight);
+};
+
+// Hide sidebar onclick
+function hideSideBar() {
+  const sidebarCheckBox = document.getElementById('sidebar-active');
+  sidebarCheckBox.checked = false;
 };

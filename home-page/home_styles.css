@@ -21,11 +21,11 @@
   margin: 0;
   padding: 0;
   background-color: var(--back);
+  -webkit-tap-highlight-color: transparent;
 }
 
 html, body {
   height: 100%;
-  background-color: var(--back);
 }
 
 html {
@@ -39,6 +39,7 @@ html {
 }
 
 body {
+  background-color: var(--nav-background);
   z-index: 2;
   min-height: 100vh;
   display: grid;
@@ -62,6 +63,8 @@ header {
 }
 
 main {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -131,16 +134,6 @@ nav svg {
 #sidebar-active {
   display: none;
 }
-
-input[type="checkbox"] {
-  -webkit-tap-highlight-color: transparent; /* Disable gray effect */
-}
-
-/* Also remove focus outline */
-input[type="checkbox"]:focus {
-  outline: none;
-}
-
 
 .open-sidebar-btn, .close-sidebar-btn {
   display: none;

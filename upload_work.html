@@ -33,15 +33,15 @@
           <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
         </label>
 
-        <a href="index.html" class="home-link"><img class="logo" alt="logo" src="images/pro-logo-transparent.png"></a>
-        <a href="upload_work.html" class="upload-work-button">
+        <a onclick="hideSideBar();" href="index.html" class="home-link"><img class="logo" alt="logo" src="images/pro-logo-transparent.png"></a>
+        <a onclick="hideSideBar();" href="upload_work.html" class="upload-work-button">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
         </a>
-        <a href="works.html">Teosed</a>
-        <p onclick="scrollToBottom();">Kontakt</p>
-        <a href="#">Abi</a>
-        <a href="#">Seaded</a>
-        <a href="favourites_page.html" class="icon change"><img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud</a>
+        <a onclick="hideSideBar();" href="works.html">Teosed</a>
+        <p onclick="scrollToBottom(); hideSideBar();">Kontakt</p>
+        <a onclick="hideSideBar();" href="#">Abi</a>
+        <a onclick="hideSideBar();" href="#">Seaded</a>
+        <a onclick="hideSideBar();" href="favourites_page.html" class="icon change"><img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud</a>
       </div>
     </nav>
   </header>
@@ -171,6 +171,9 @@
     </div>
     <button class="publish-button">Lae üles</button>
   </main>
+  <button onclick="scrollToTop();" class="back-to-top">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg>
+  </button>
   <footer>
     <div class="footer">
       <div class="socials-container">

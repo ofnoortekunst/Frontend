@@ -21,6 +21,7 @@
   margin: 0;
   padding: 0;
   background-color: var(--back);
+  -webkit-tap-highlight-color: transparent;
 }
 
 html, body {
@@ -133,16 +134,6 @@ nav svg {
 #sidebar-active {
   display: none;
 }
-
-input[type="checkbox"] {
-  -webkit-tap-highlight-color: transparent; /* Disable gray effect */
-}
-
-/* Also remove focus outline */
-input[type="checkbox"]:focus {
-  outline: none;
-}
-
 
 .open-sidebar-btn, .close-sidebar-btn {
   display: none;
@@ -769,4 +760,40 @@ input {
   top: 15px;
   right: 25px;
   cursor: pointer;
+}
+
+/* Back to top button */
+
+.back-to-top {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 1px 2px 4px var(--gray-between);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.back-to-top svg{
+  fill: var(--dark-text-color);
+  transition: all 0.3s ease;
+}
+
+@media (hover:hover) {
+  .back-to-top:hover {
+    transform: scale(1.1);
+  }
+
+  .back-to-top:hover svg {
+    fill: var(--hover-color);
+    transform: translateY(-2px);
+  }
 }

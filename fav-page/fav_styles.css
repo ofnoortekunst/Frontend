@@ -19,11 +19,11 @@
   margin: 0;
   padding: 0;
   background-color: var(--back);
+  -webkit-tap-highlight-color: transparent;
 }
 
 html, body {
   height: 100%;
-  background-color: var(--back);
 }
 
 html {

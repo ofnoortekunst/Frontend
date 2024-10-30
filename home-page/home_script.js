@@ -1,8 +1,3 @@
-addEventListener("DOMContentLoaded", (event) => {
-  const sidebarCheckBox = document.getElementById('sidebar-active');
-  sidebarCheckBox.checked = false;
-});
-
 function checkWidth() {
   const instaContent = document.querySelector('.insta-content');
   const tiktokContent = document.querySelector('.tiktotk-content');
@@ -59,3 +54,8 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.invisible');
 hiddenElements.forEach((el => observer.observe(el)));
+
+function hideSideBar() {
+  const sidebarCheckBox = document.getElementById('sidebar-active');
+  sidebarCheckBox.checked = false;
+};

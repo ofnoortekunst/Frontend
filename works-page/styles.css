@@ -19,6 +19,7 @@
   margin: 0;
   padding: 0;
   background-color: var(--back);
+  -webkit-tap-highlight-color: transparent;
 }
 
 html, body {
@@ -270,15 +271,6 @@ nav svg {
 
 #sidebar-active {
   display: none;
-}
-
-input[type="checkbox"] {
-  -webkit-tap-highlight-color: transparent; /* Disable gray effect */
-}
-
-/* Also remove focus outline */
-input[type="checkbox"]:focus {
-  outline: none;
 }
 
 .open-sidebar-btn, .close-sidebar-btn {
@@ -719,7 +711,7 @@ input[type="checkbox"]:focus {
 
 .invisible {
   opacity: 0;
-  transition: all 0.7s;
+  transition: all 0.5s;
 }
 
 .visible {
