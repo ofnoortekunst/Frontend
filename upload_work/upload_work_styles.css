@@ -511,11 +511,6 @@ form {
   gap: 1rem;
 }
 
-fieldset {
-  width: 100%;
-  max-width: 5000px;
-}
-
 @media (max-width: 850px) {
   .container {
     width: 95vw;
@@ -541,7 +536,8 @@ fieldset {
   }
 
   legend {
-    margin: 0 auto;
+    margin-left: calc(50%);
+    transform: translateX(-50%);
   }
 }
 
