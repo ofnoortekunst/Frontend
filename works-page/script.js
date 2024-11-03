@@ -2,6 +2,10 @@ const toggleButton = document.getElementById('toggle-btn');
 const sidebar = document.getElementById('sidebar');
 const sibling1 = document.querySelector('.search-bar');
 const sibling2 = document.querySelector('.sorting-options');
+const openModalButtons = document.querySelectorAll('[data-modal-target]');
+const closeModalButtons = document.querySelectorAll('[data-close-button]');
+const settingsOverlay = document.getElementById('settings-overlay');
+
 
 // Toggle the sidebar button.
 function toggleSidebar() {
@@ -131,4 +135,48 @@ function scrollToBottom() {
 function hideSideBar() {
   const sidebarCheckBox = document.getElementById('sidebar-active');
   sidebarCheckBox.checked = false;
+};
+
+// For each modal that is created in the beginning of this js, when it's clicked it saves a modal variable which is used for the openModal() function.
+openModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal =  document.querySelector(button.dataset.modalTarget);
+    openModal(modal);
+  })
+});
+
+// Same as the open but this time the variable is used for the closeModal() function.
+closeModalButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const modal = button.closest('.settings-modal');
+    closeModal(modal);
+  })
+});
+
+// When the settingsOverlay is clicked it selects all modals with the settings-active class and closes them.
+settingsOverlay.addEventListener('click', () => {
+  const modals = document.querySelectorAll('.settings-modal.settings-active');
+  modals.forEach(modal => {
+    closeModal(modal);
+  })
+})
+
+// Takes the modal from openModalButtons and adds settings-active class, same for the settingsOverlay.
+function openModal(modal) {
+  if (modal == null) {
+    return;
+  } else {
+    modal.classList.add('settings-active');
+    settingsOverlay.classList.add('settings-active');
+  };
+};
+
+// Takes the modal from closeModalButtons and removes settings-active class, same for the settingsOverlay.
+function closeModal(modal) {
+  if (modal == null) {
+    return;
+  } else {
+    modal.classList.remove('settings-active');
+    settingsOverlay.classList.remove('settings-active');
+  };
 };

@@ -679,6 +679,153 @@ input[type="checkbox"]:focus {
 }
 
 
+/* Pop up settings */
+
+.settings-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 0.2s ease;
+  padding: 20px;
+  border-radius: 20px;
+  z-index: 10;
+  background-color: var(--back);
+  width: 500px;
+  max-width: 80%;
+}
+
+.settings-modal.settings-active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.settings-modal hr {
+  margin-bottom: 20px;
+  border: 1px solid var(--gray-between);
+  border-radius: 100vh;
+}
+
+.settings-title {
+  font-size: 20px;
+}
+
+.settings-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.settings-modal-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.settings-modal-main label {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.settings-modal-main button {
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--dark-text-color);
+  cursor: pointer;
+}
+
+.settings-modal-header .close-settings-button {
+  border: none;
+  background-color: var(--back);
+  cursor: pointer;
+  outline: none;
+}
+
+.settings-modal-header .close-settings-button svg {
+  fill: var(--dark-text-color);
+  vertical-align: middle;
+  margin-bottom: 3.5px;
+  transition: all 0.2s ease;
+}
+
+.settings-modal-main a {
+  text-decoration: none;
+  color: var(--dark-text-color);
+  transition: all 0.2s ease;
+}
+
+.light-mode-hover button, .profile-hover {
+  transition: all 0.2s ease;
+}
+
+.light-mode-hover button {
+  width: 100%;
+  text-align: left;
+}
+
+.settings-modal-main div {
+  display: flex;
+  gap: 10px;
+}
+
+.settings-modal-main div label {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+#settings-overlay {
+  z-index: 9;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+#settings-overlay.settings-active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+@media (hover:hover) {
+  .settings-modal-header .close-settings-button:hover {
+    svg {
+      fill: var(--hover-color);
+    }
+  }
+
+  .profile-hover:hover {
+    color: var(--hover-color);
+  }
+  
+  .light-mode-hover:hover button {
+    color: var(--hover-color);
+    cursor: pointer;
+  }
+
+  .settings-modal-main div label:hover {
+    color: var(--hover-color);
+  }
+}
+
+.icon-in-settings {
+  vertical-align: middle;
+  fill: var(--dark-text-color);
+  margin-bottom: 3.5px;
+  margin-right: 7px;
+}
+
+.language {
+  cursor: default;
+}
+
+
 /* Art containers and stuff inside it */
 
 .art-container {
