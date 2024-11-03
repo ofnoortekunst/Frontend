@@ -511,6 +511,11 @@ form {
   gap: 1rem;
 }
 
+fieldset {
+  width: 100%;
+  max-width: 5000px;
+}
+
 @media (max-width: 850px) {
   .container {
     width: 95vw;
