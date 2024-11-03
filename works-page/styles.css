@@ -12,6 +12,31 @@
   --gray: #737373;
   --gray-between: #acacac;
   --light-gray: #dcdcdc;
+  --insta-color: #FB7833;
+  --tiktok-color: #69C9D0;
+  --gmail-color: #EA4335;
+  --black: black;
+  --place-holder-color: #737373;
+  --nav-border: #15154b;
+}
+
+.darkmode {
+  --sidebar-background: #535C91;
+  --nav-background: #1B1A55;
+  --hover-color: rgb(99, 219, 217);
+  --dark-hover-color: rgb(26, 224, 221);
+  --back: #070F2B;
+  --hover-background: #efefef;
+  --dark-text-color: white;
+  --text-color: white;
+  --gray: #dcdcdc;
+  --gray-between: #acacac;
+  --light-gray: #535C91;
+  --insta-color: #FB7833;
+  --tiktok-color: #69C9D0;
+  --gmail-color: #EA4335;
+  --black: black;
+  --nav-border: #535C91;
 }
 
 * {
@@ -80,7 +105,7 @@ nav {
   justify-content: flex-end;
   align-items: center;
   color: var(--dark-text-color);
-  border-bottom: 2px solid var(--dark-text-color);
+  border-bottom: 2px solid var(--nav-border);
 }
 
 body.sidebar-collapsed {
@@ -289,7 +314,7 @@ nav svg {
   top: 0;
   left: 0;
   background-color: var(--nav-background);
-  border-bottom: 1px solid var(--dark-text-color);
+  border-bottom: 1px solid var(--nav-border);
   z-index: 10;
 }
 
@@ -298,7 +323,6 @@ nav svg {
   height: auto;
   cursor: pointer;
   margin: auto;
-  mix-blend-mode: multiply;
 }
 
 .static-a {
@@ -370,6 +394,16 @@ nav svg {
   background-color: var(--dark-hover-color);
 }
 
+.bookmark {
+  margin-bottom: 0;
+}
+
+.bookmark svg {
+  vertical-align: middle;
+  fill: var(--dark-text-color);
+  margin-top: 5px;
+}
+
 @media (max-width: 1085px) {
   .links-container {
     flex-direction: column;
@@ -381,8 +415,13 @@ nav svg {
     width: 300px;
     margin-right: 0;
     background-color: var(--sidebar-background);
-    border-left: 2px solid var(--dark-text-color);
+    border-left: 2px solid var(--nav-border);
     transition: 0.3s ease-in-out;
+  }
+
+  .bookmark svg {
+    fill: var(--text-color);
+    background-color: var(--sidebar-background);
   }
 
   .home-link img {
@@ -496,14 +535,6 @@ nav svg {
   cursor: pointer;
   width: 350px;
   height: auto;
-  mix-blend-mode: multiply;
-}
-
-.bookmark {
-  width: 12px;
-  height: auto;
-  margin-right: 5px;
-  margin-bottom: 2px;
 }
 
 
@@ -519,8 +550,8 @@ nav svg {
   height: 80px;
   background-color: var(--nav-background);
   color: var(--dark-text-color);
-  border-right: 2px solid var(--dark-text-color);
-  border-bottom: 2px solid var(--dark-text-color);
+  border-right: 2px solid var(--nav-border);
+  border-bottom: 2px solid var(--nav-border);
 
   @media screen and (max-width: 1210px) {
     display: none;
@@ -533,7 +564,7 @@ nav svg {
   justify-content: center;
   width: 51px;
   height: 51px;
-  border: 2px solid black;
+  border: 2px solid var(--black);
   border-radius: 25.5px;
   cursor: pointer;
 }
@@ -572,12 +603,12 @@ nav svg {
   display: flex;
   height: 150px;
   flex-direction: column;
-  background: rgb(2,0,36);
+  background-color: var(--dark-text-color);
   background: linear-gradient(0deg, rgb(136, 136, 136) 0%, rgba(220,220,220,1) 30%); 
   grid-area: footer;
   justify-content: center;
   align-items: center;
-  border-top: 2px solid var(--dark-text-color);
+  border-top: 2px solid var(--nav-border);
 }
 
 .socials-container {
@@ -586,7 +617,7 @@ nav svg {
   background-color: transparent;
   align-items: center;
   height: 40%;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--black);
 }
 
 .socials-container a svg, .socials-container p svg {
@@ -604,7 +635,7 @@ nav svg {
 
 .socials-container a, .socials-container p {
   background-color: transparent;
-  color: black;
+  color: var(--black);
   transition: all 0.3s ease;
 }
 
@@ -624,6 +655,7 @@ nav svg {
   height: auto;
   transition: all 0.3s ease;
   cursor: pointer;
+  background-color: transparent;
   mix-blend-mode: multiply;
 }
 
@@ -636,17 +668,17 @@ nav svg {
     transform: scale(1.1);
 
     .insta-icon {
-      fill: #FB7833;
+      fill: var(--insta-color);
       transform: scale(1.1);
     }
 
     .tiktok-icon {
-      fill: #69C9D0;
+      fill: var(--tiktok-color);
       transform: scale(1.1);
     }
 
     .gmail-icon {
-      fill: #EA4335;
+      fill: var(--gmail-color);
       transform: scale(1.1);
     }
   }
@@ -681,6 +713,7 @@ nav svg {
 
 .settings-title {
   font-size: 20px;
+  color: var(--dark-text-color);
 }
 
 .settings-modal-header {
@@ -699,6 +732,11 @@ nav svg {
 .settings-modal-main label {
   font-size: 16px;
   font-weight: 400;
+  color: var(--dark-text-color);
+}
+
+.settings-modal-main input:first-of-type {
+  margin-left: 1rem;
 }
 
 .settings-modal-main button {
@@ -730,18 +768,40 @@ nav svg {
   transition: all 0.2s ease;
 }
 
-.light-mode-hover button, .profile-hover {
+.light-mode-hover, .profile-hover {
   transition: all 0.2s ease;
 }
 
-.light-mode-hover button {
-  width: 100%;
-  text-align: left;
+.light-mode-hover {
+  border: none;
+  background-color: var(--light-gray);
+  border-radius: 100vh;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.light-mode-hover svg {
+  background-color: var(--light-gray);
 }
 
 .settings-modal-main div {
   display: flex;
   gap: 10px;
+}
+
+#theme-switch svg:last-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+  display: block;
 }
 
 .settings-modal-main div label {
@@ -778,9 +838,8 @@ nav svg {
     color: var(--hover-color);
   }
   
-  .light-mode-hover:hover button {
-    color: var(--hover-color);
-    cursor: pointer;
+  .light-mode-hover:hover svg {
+    fill: var(--hover-color);
   }
 
   .settings-modal-main div label:hover {
@@ -795,8 +854,15 @@ nav svg {
   margin-right: 7px;
 }
 
+#theme-switch svg {
+  margin-bottom: 0;
+  margin-right: 0;
+  transition: all 0.2s ease;
+}
+
 .language {
   cursor: default;
+  color: var(--dark-text-color);
 }
 
 
@@ -815,6 +881,10 @@ nav svg {
 
 .name-and-author, .specifications, .price-and-like, .beginning-price, .amount-of-likes {
   background-color: transparent;
+}
+
+.name-and-author, .specifications, .amount-of-likes, .beginning-price {
+  color: var(--dark-text-color);
 }
 
 .name-and-author {
@@ -853,7 +923,7 @@ nav svg {
 .art-pic {
   width: 280px;
   height: 280px;
-  background-color: black;
+  background-color: var(--black);
 }
 
 .invisible {
@@ -899,6 +969,7 @@ nav svg {
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 400;
+  color: var(--dark-text-color);
   width: 100%;
   padding: 0;
   border: none;
@@ -912,6 +983,15 @@ nav svg {
   opacity: 0;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+::placeholder {
+  color: var(--place-holder-color);
+  opacity: 1;
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+  color: var(--place-holder-color);
 }
 
 .search-bar-submit {
