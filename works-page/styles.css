@@ -18,25 +18,27 @@
   --black: black;
   --place-holder-color: #737373;
   --nav-border: #15154b;
+  --footer-background: linear-gradient(0deg, rgb(136, 136, 136) 0%, rgba(220,220,220,1) 30%);
 }
 
 .darkmode {
-  --sidebar-background: #535C91;
-  --nav-background: #1B1A55;
-  --hover-color: rgb(99, 219, 217);
-  --dark-hover-color: rgb(26, 224, 221);
-  --back: #070F2B;
+  --sidebar-background: #1F1B24;
+  --nav-background: #1F1B24;
+  --hover-color: #cea7ff;
+  --dark-hover-color: #BB86FC;
+  --back: #121212;
   --hover-background: #efefef;
-  --dark-text-color: white;
-  --text-color: white;
+  --dark-text-color: #FFFFFF;
+  --text-color: #FFFFFF;
   --gray: #dcdcdc;
-  --gray-between: #acacac;
-  --light-gray: #535C91;
+  --gray-between: #cea7ff;
+  --light-gray: #1F1B24;
   --insta-color: #FB7833;
   --tiktok-color: #69C9D0;
   --gmail-color: #EA4335;
   --black: black;
-  --nav-border: #535C91;
+  --nav-border: #1F1B24;
+  --footer-background: #1F1B24;
 }
 
 * {
@@ -62,7 +64,7 @@ html {
 }
 
 body {
-  background-color: var(--back);
+  background-color: var(--nav-background);
   z-index: 2;
   min-height: 100vh;
   transition: grid-template-columns 0.3s ease-in-out;
@@ -323,11 +325,13 @@ nav svg {
   height: auto;
   cursor: pointer;
   margin: auto;
+  background-color: transparent;
+  mix-blend-mode: multiply;
 }
 
 .static-a {
   padding: 0;
-  background-color: var(--nav-background);
+  background-color: transparent;
   z-index: 10;
 }
 
@@ -604,7 +608,7 @@ nav svg {
   height: 150px;
   flex-direction: column;
   background-color: var(--dark-text-color);
-  background: linear-gradient(0deg, rgb(136, 136, 136) 0%, rgba(220,220,220,1) 30%); 
+  background: var(--footer-background); 
   grid-area: footer;
   justify-content: center;
   align-items: center;
@@ -617,7 +621,7 @@ nav svg {
   background-color: transparent;
   align-items: center;
   height: 40%;
-  border-bottom: 2px solid var(--black);
+  border-bottom: 2px solid var(--gray-between);
 }
 
 .socials-container a svg, .socials-container p svg {
@@ -627,6 +631,7 @@ nav svg {
   background-color: transparent;
   vertical-align: middle;
   transition: all 0.3s ease;
+  fill: var(--dark-text-color);
 }
 
 .socials-container a {
@@ -635,7 +640,7 @@ nav svg {
 
 .socials-container a, .socials-container p {
   background-color: transparent;
-  color: var(--black);
+  color: var(--dark-text-color);
   transition: all 0.3s ease;
 }
 
@@ -774,17 +779,16 @@ nav svg {
 
 .light-mode-hover {
   border: none;
-  background-color: var(--light-gray);
   border-radius: 100vh;
   width: 35px;
   height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.light-mode-hover svg {
-  background-color: var(--light-gray);
+  margin-right: auto;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  cursor: pointer;
 }
 
 .settings-modal-main div {
@@ -856,7 +860,7 @@ nav svg {
 
 #theme-switch svg {
   margin-bottom: 0;
-  margin-right: 0;
+  margin-right: 10.5px;
   transition: all 0.2s ease;
 }
 
@@ -940,13 +944,13 @@ nav svg {
 
 .sorting-bar {
   grid-area: sort;
-  height: 40px;
+  height: 50px;
   width: auto;
   background-color: var(--back);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10px;
+  padding-top: 10px;
 }
 
 .search-bar {
