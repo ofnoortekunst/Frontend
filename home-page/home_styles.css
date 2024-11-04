@@ -2,9 +2,11 @@
 
 :root {
   --sidebar-background: #15154b;
+  --sidebar-border: #15154b;
   --nav-background: #FAFAFF;
   --hover-color: #a16ae8;
   --dark-hover-color: #915fd1;
+  --about-us-color: #a16ae8;
   --back: white;
   --hover-background: #efefef;
   --dark-text-color: #15154b;
@@ -12,8 +14,35 @@
   --gray: #737373;
   --gray-between: #acacac;
   --light-gray: #dcdcdc;
-  --red: #ff5e4c;
-  --dark-red: #c0392b;
+  --insta-color: #FB7833;
+  --tiktok-color: #69C9D0;
+  --gmail-color: #EA4335;
+  --black: black;
+  --place-holder-color: #737373;
+  --nav-border: #15154b;
+  --footer-background: #dcdcdc;
+}
+
+.darkmode {
+  --sidebar-background: #1F1B24;
+  --sidebar-border: #121212;
+  --nav-background: #1F1B24;
+  --hover-color: #BB86FC;
+  --dark-hover-color: #ae6cff;
+  --about-us-color: #913dff;
+  --back: #121212;
+  --hover-background: #efefef;
+  --dark-text-color: #FFFFFF;
+  --text-color: #FFFFFF;
+  --gray: #dcdcdc;
+  --gray-between: #cea7ff;
+  --light-gray: #1F1B24;
+  --insta-color: #FB7833;
+  --tiktok-color: #69C9D0;
+  --gmail-color: #EA4335;
+  --black: black;
+  --nav-border: #1F1B24;
+  --footer-background: black;
 }
 
 * {
@@ -22,6 +51,14 @@
   padding: 0;
   background-color: var(--back);
   -webkit-tap-highlight-color: transparent;
+}
+
+.css-transitions-only-after-page-load * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+   transition: none !important;
 }
 
 html, body {
@@ -79,7 +116,7 @@ nav {
   justify-content: flex-end;
   align-items: center;
   color: var(--dark-text-color);
-  border-bottom: 2px solid var(--dark-text-color);
+  border-bottom: 2px solid var(--nav-border);
 }
 
 footer {
@@ -151,7 +188,7 @@ nav svg {
   top: 0;
   left: 0;
   background-color: var(--nav-background);
-  border-bottom: 1px solid var(--dark-text-color);
+  border-bottom: 1px solid var(--nav-border);
   z-index: 10;
 }
 
@@ -160,12 +197,13 @@ nav svg {
   height: auto;
   cursor: pointer;
   margin: auto;
+  background-color: transparent;
   mix-blend-mode: multiply;
 }
 
 .static-a {
   padding: 0;
-  background-color: var(--nav-background);
+  background-color: transparent;
   z-index: 10;
 }
 
@@ -230,6 +268,16 @@ nav svg {
 .upload-work-button:hover svg {
   transform: rotate(90deg);
   background-color: var(--dark-hover-color);
+}
+
+.bookmark {
+  margin-bottom: 0;
+}
+
+.bookmark svg {
+  vertical-align: middle;
+  fill: var(--dark-text-color);
+  margin-top: 5px;
 }
 
 @media (max-width: 1085px) {
@@ -243,8 +291,13 @@ nav svg {
     width: 300px;
     margin-right: 0;
     background-color: var(--sidebar-background);
-    border-left: 2px solid var(--dark-text-color);
+    border-left: 2px solid var(--nav-border);
     transition: 0.3s ease-in-out;
+  }
+
+  .bookmark svg {
+    fill: var(--text-color);
+    background-color: var(--sidebar-background);
   }
 
   .home-link img {
@@ -358,14 +411,6 @@ nav svg {
   cursor: pointer;
   width: 350px;
   height: auto;
-  mix-blend-mode: multiply;
-}
-
-.bookmark {
-  width: 12px;
-  height: auto;
-  margin-right: 5px;
-  margin-bottom: 2px;
 }
 
 
@@ -381,8 +426,8 @@ nav svg {
   height: 80px;
   background-color: var(--nav-background);
   color: var(--dark-text-color);
-  border-right: 2px solid var(--dark-text-color);
-  border-bottom: 2px solid var(--dark-text-color);
+  border-right: 2px solid var(--nav-border);
+  border-bottom: 2px solid var(--nav-border);
 
   @media screen and (max-width: 1210px) {
     display: none;
@@ -395,7 +440,440 @@ nav svg {
   justify-content: center;
   width: 51px;
   height: 51px;
-  border: 2px solid black;
+  border: 2px solid var(--black);
+  border-radius: 25.5px;
+  cursor: pointer;
+}
+
+.pf-pic {
+  width: 47px;
+  height: 47px;
+  border-radius: 23.5px;
+  object-fit: contain;
+}
+
+.user-info {
+  width: 200px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--nav-background);
+}
+
+.name {
+  font-size: 16px;
+  background-color: var(--nav-background);
+}
+
+.status {
+  background-color: var(--nav-background);
+  font-size: 12px;
+  color: var(--gray);
+}
+
+
+/* Footer stuff */
+
+.footer {
+  width: 100vw;
+  display: flex;
+  height: 150px;
+  flex-direction: column;
+  background-color: var(--dark-text-color);
+  background: var(--footer-background); 
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid var(--nav-border);
+}
+
+.socials-container {
+  display: flex;
+  gap: 45px;
+  background-color: transparent;
+  align-items: center;
+  height: 40%;
+  border-bottom: 2px solid var(--gray-between);
+}
+
+.socials-container a svg, .socials-container p svg {
+  height: 32px;
+  width: 32px;
+  margin-right: 10px;
+  background-color: transparent;
+  vertical-align: middle;
+  transition: all 0.3s ease;
+  fill: var(--dark-text-color);
+}
+
+.socials-container a {
+  cursor: pointer;
+}
+
+.socials-container a, .socials-container p {
+  background-color: transparent;
+  color: var(--dark-text-color);
+  transition: all 0.3s ease;
+}
+
+.logo-container {
+  height: 40%;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+
+.logo-container p {
+  background-color: transparent;
+}
+
+.dark-logo-footer {
+  width: 250px;
+  height: auto;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+@media (hover:hover) {
+  .dark-logo-footer:hover {
+    transform: scale(1.1);
+  }
+
+  .socials-container a:hover, .socials-container p:hover {
+    transform: scale(1.1);
+
+    .insta-icon {
+      fill: var(--insta-color);
+      transform: scale(1.1);
+    }
+
+    .tiktok-icon {
+      fill: var(--tiktok-color);
+      transform: scale(1.1);
+    }
+
+    .gmail-icon {
+      fill: var(--gmail-color);
+      transform: scale(1.1);
+    }
+  }
+}/* The navbar and navbar -> sidebar on the right */
+
+.links-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--nav-background);
+  font-size: 20px;
+  gap: 30px;
+  margin-right: 0.8em;
+}
+
+nav a, nav p {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--dark-text-color);
+  transition: all 0.2s ease 0s;
+  background-color: var(--nav-background);
+}
+
+nav p {
+  cursor: pointer;
+}
+
+@media (hover:hover) {
+  nav a:hover, nav p:hover {
+    color: var(--hover-color);
+  }
+}
+
+nav .home-link {
+  margin-right: auto;
+}
+
+nav svg {
+  fill: var(--text-color);
+  background-color: var(--nav-background);
+  padding-bottom: 5px;
+}
+
+#sidebar-active {
+  display: none;
+}
+
+.open-sidebar-btn, .close-sidebar-btn {
+  display: none;
+  background-color: var(--nav-background);
+  fill: var(--dark-text-color);
+}
+
+.sidebar-active-nav {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: var(--nav-background);
+  border-bottom: 1px solid var(--nav-border);
+  z-index: 10;
+}
+
+.logo-static {
+  width: 250px;
+  height: auto;
+  cursor: pointer;
+  margin: auto;
+  background-color: transparent;
+  mix-blend-mode: multiply;
+}
+
+.static-a {
+  padding: 0;
+  background-color: transparent;
+  z-index: 10;
+}
+
+.upload-work-button {
+  background-color: var(--hover-color);
+  width: 45px;
+  height: 35px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  transition: all 0.2s ease;
+}
+
+.upload-work-button svg {
+  fill: var(--text-color);
+  vertical-align: middle;
+  background-color: var(--hover-color);
+  padding: 0;
+  transition: transform 0.3s ease, background-color 0.2s ease;
+}
+
+.upload-work-button:hover {
+  transform: scale(1.1);
+  background-color: var(--dark-hover-color);
+}
+
+.upload-work-button:hover svg {
+  transform: rotate(90deg);
+  background-color: var(--dark-hover-color);
+
+}
+
+.upload-work-button {
+  background-color: var(--hover-color);
+  width: 45px;
+  height: 35px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  transition: all 0.2s ease;
+}
+
+.upload-work-button svg {
+  fill: var(--text-color);
+  vertical-align: middle;
+  background-color: var(--hover-color);
+  padding: 0;
+  transition: transform 0.3s ease, background-color 0.2s ease;
+}
+
+.upload-work-button:hover {
+  transform: scale(1.1);
+  background-color: var(--dark-hover-color);
+}
+
+.upload-work-button:hover svg {
+  transform: rotate(90deg);
+  background-color: var(--dark-hover-color);
+}
+
+.bookmark {
+  margin-bottom: 0;
+}
+
+.bookmark svg {
+  vertical-align: middle;
+  fill: var(--dark-text-color);
+  margin-top: 5px;
+}
+
+@media (max-width: 1085px) {
+  .links-container {
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 4;
+    width: 300px;
+    margin-right: 0;
+    background-color: var(--sidebar-background);
+    border-left: 2px solid var(--nav-border);
+    transition: 0.3s ease-in-out;
+  }
+
+  .bookmark svg {
+    fill: var(--text-color);
+    background-color: var(--sidebar-background);
+  }
+
+  .home-link img {
+    display: none;
+  }
+
+  .home-link::after {
+      content: 'Avaleht';
+      font-size: 20px;
+      font-weight: 500;
+  }
+
+  .upload-work-button {
+    justify-content: flex-start;
+    padding: 23px 15px;
+    margin-right: 7.5px;
+    width: 298px;
+    height: 27px;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--hover-color);
+    border-radius: 100vh;
+    transition: all 0.2s ease;
+  }
+
+  .close-sidebar-btn svg {
+    fill: var(--text-color);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .open-sidebar-btn svg {
+    fill: var(--dark-text-color);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .upload-work-button:hover {
+    transform: scale(1);
+  }
+
+  .close-sidebar-btn svg, .close-sidebar-btn {
+    background-color: var(--sidebar-background);
+  }
+
+  nav a, nav p {
+    background-color: var(--sidebar-background);
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: flex-start;
+    color: var(--text-color);
+  }
+
+  nav .logo {
+    width: 250px;
+    height: auto;
+  }
+
+  nav {
+    position: relative;
+    height: 60px;
+  }
+
+  header {
+    height: 60px;
+  }
+
+  .sidebar-active-nav {
+    display: flex;
+    z-index: 4;
+  }
+
+  .open-sidebar-btn, .close-sidebar-btn {
+    padding-right: 20px;
+    padding-left: 20px;
+    display: block;
+    margin-top: 15px;
+  }
+
+  @media (hover:hover) {
+    .open-sidebar-btn svg:hover, .close-sidebar-btn svg:hover {
+      fill: var(--hover-color);
+    }
+
+    .upload-work-button:hover {
+      transform: scale(1);
+      background-color: transparent;
+      color: var(--hover-color);
+    }
+  }
+
+  #sidebar-active:checked ~ .links-container {
+    right: 0;
+  }
+
+  #sidebar-active:checked ~ #overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: transparent;
+  }
+}
+
+
+.logo {
+  cursor: pointer;
+  width: 350px;
+  height: auto;
+}
+
+
+/* Profile section in the header */
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 8px;
+  width: 250px;
+  height: 80px;
+  background-color: var(--nav-background);
+  color: var(--dark-text-color);
+  border-right: 2px solid var(--nav-border);
+  border-bottom: 2px solid var(--nav-border);
+
+  @media screen and (max-width: 1210px) {
+    display: none;
+  }
+}
+
+.pfp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 51px;
+  height: 51px;
+  border: 2px solid var(--black);
   border-radius: 25.5px;
   cursor: pointer;
 }
@@ -439,6 +917,7 @@ nav svg {
   border-radius: 20px;
   z-index: 10;
   background-color: var(--back);
+  box-shadow: var(--gray-between) 0px 1px 5px 0px;
   width: 500px;
   max-width: 80%;
 }
@@ -455,6 +934,7 @@ nav svg {
 
 .settings-title {
   font-size: 20px;
+  color: var(--dark-text-color);
 }
 
 .settings-modal-header {
@@ -473,6 +953,11 @@ nav svg {
 .settings-modal-main label {
   font-size: 16px;
   font-weight: 400;
+  color: var(--dark-text-color);
+}
+
+.settings-modal-main input:first-of-type {
+  margin-left: 1rem;
 }
 
 .settings-modal-main button {
@@ -504,18 +989,39 @@ nav svg {
   transition: all 0.2s ease;
 }
 
-.light-mode-hover button, .profile-hover {
+.light-mode-hover, .profile-hover {
   transition: all 0.2s ease;
 }
 
-.light-mode-hover button {
-  width: 100%;
-  text-align: left;
+.light-mode-hover {
+  border: none;
+  border-radius: 100vh;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  cursor: pointer;
 }
 
 .settings-modal-main div {
   display: flex;
   gap: 10px;
+}
+
+#theme-switch svg:last-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+  display: block;
 }
 
 .settings-modal-main div label {
@@ -552,9 +1058,8 @@ nav svg {
     color: var(--hover-color);
   }
   
-  .light-mode-hover:hover button {
-    color: var(--hover-color);
-    cursor: pointer;
+  .light-mode-hover:hover svg {
+    fill: var(--hover-color);
   }
 
   .settings-modal-main div label:hover {
@@ -569,8 +1074,15 @@ nav svg {
   margin-right: 7px;
 }
 
+#theme-switch svg {
+  margin-bottom: 0;
+  margin-right: 10.5px;
+  transition: all 0.2s ease;
+}
+
 .language {
   cursor: default;
+  color: var(--dark-text-color);
 }
 
 
@@ -678,7 +1190,6 @@ nav svg {
   width: 70%;
   min-width: 250px;
   height: auto;
-  mix-blend-mode: multiply;
 }
 
 .noortekunst-box p {
@@ -744,21 +1255,21 @@ h3 {
 }
 
 .about {
-  background-color: var(--hover-color);
+  background-color: var(--about-us-color);
   color: var(--text-color);
   align-items: flex-end;
 }
 
 .about h2, .about h3, .about p, .about li, .about ul {
-  background-color: var(--hover-color);
+  background-color: var(--about-us-color);
 }
 
 .about-content {
-  background-color: var(--hover-color);
+  background-color: var(--about-us-color);
 }
 
 .about-container {
-  background-color: var(--hover-color);
+  background-color: var(--about-us-color);
 }
 
 .about-container li {
@@ -794,13 +1305,11 @@ h3 {
   display: flex;
   height: 150px;
   flex-direction: column;
-  background: rgb(2,0,36);
-  background: linear-gradient(0deg, rgb(136, 136, 136) 0%, rgba(220,220,220,1) 30%); 
-  grid-area: footer;
+  background-color: var(--dark-text-color);
+  background: var(--footer-background); 
   justify-content: center;
   align-items: center;
-  border-top: 2px solid var(--dark-text-color);
-  z-index: 3;
+  border-top: 2px solid var(--nav-border);
 }
 
 .socials-container {
@@ -809,7 +1318,7 @@ h3 {
   background-color: transparent;
   align-items: center;
   height: 40%;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--gray-between);
 }
 
 .socials-container a svg, .socials-container p svg {
@@ -819,6 +1328,7 @@ h3 {
   background-color: transparent;
   vertical-align: middle;
   transition: all 0.3s ease;
+  fill: var(--dark-text-color);
 }
 
 .socials-container a {
@@ -827,7 +1337,7 @@ h3 {
 
 .socials-container a, .socials-container p {
   background-color: transparent;
-  color: black;
+  color: var(--dark-text-color);
   transition: all 0.3s ease;
 }
 
@@ -838,7 +1348,7 @@ h3 {
   background-color: transparent;
 }
 
-.logo-container a {
+.logo-container p {
   background-color: transparent;
 }
 
@@ -847,7 +1357,7 @@ h3 {
   height: auto;
   transition: all 0.3s ease;
   cursor: pointer;
-  mix-blend-mode: multiply;
+  background-color: transparent;
 }
 
 @media (hover:hover) {
@@ -859,17 +1369,17 @@ h3 {
     transform: scale(1.1);
 
     .insta-icon {
-      fill: #FB7833;
+      fill: var(--insta-color);
       transform: scale(1.1);
     }
 
     .tiktok-icon {
-      fill: #69C9D0;
+      fill: var(--tiktok-color);
       transform: scale(1.1);
     }
 
     .gmail-icon {
-      fill: #EA4335;
+      fill: var(--gmail-color);
       transform: scale(1.1);
     }
   }

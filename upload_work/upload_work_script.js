@@ -2,6 +2,7 @@ const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const settingsOverlay = document.getElementById('settings-overlay');
 
+
 document.addEventListener('DOMContentLoaded', () => {
   const fInput = document.getElementById('fileInput');
   const pBar = document.getElementById('progressBar');
@@ -90,7 +91,6 @@ function checkWidth() {
   const instaContent = document.querySelector('.insta-content');
   const tiktokContent = document.querySelector('.tiktotk-content');
   const gmailContent = document.querySelector('.gmail-content');
-  const favButton = document.querySelector('.change');
   const uploadWork = document.querySelector('.upload-work-button');
   
   if (window.innerWidth <= 896) {
@@ -108,10 +108,8 @@ function checkWidth() {
   };
 
   if (window.innerWidth <= 1085) {
-    favButton.innerHTML = '<img alt="bookmark" src="images/bookmark-color-change.png" class="bookmark">Lemmikud';
     uploadWork.innerHTML = '+ Lae oma töö';
   } else {
-    favButton.innerHTML = '<img alt="bookmark" src="images/pro-bookmark.png" class="bookmark">Lemmikud';
     uploadWork.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>';
   };
 };
@@ -177,3 +175,54 @@ function closeModal(modal) {
     settingsOverlay.classList.remove('settings-active');
   };
 };
+
+
+// Dark mode stuff
+
+const mainLogo = document.querySelector('.home-link');
+const sidebarActiveLogo = document.querySelector('.static-a');
+const footer = document.querySelector('.logo-container');
+
+// Enables darkmode and saves active status into localStorage.
+const enableDarkmode = () => {
+  document.body.classList.add('darkmode');
+  localStorage.setItem('darkmode', 'active');
+
+  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/dark-mode-logo.png">';
+  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/dark-mode-logo.png">';
+
+  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo-darkmode.png">';
+};
+
+// Disables darkmodeand saves inactive into localStorage.
+const disableDarkmode = () => {
+  document.body.classList.remove('darkmode');
+  localStorage.setItem('darkmode', 'inactive');
+
+  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/pro-logo-transparent.png">';
+  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/pro-logo-transparent.png">';
+
+  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo.png">';
+};
+
+// Get darkmode from local storage.
+let darkmode = localStorage.getItem('darkmode');
+const themeSwitch = document.getElementById('theme-switch');
+
+// Check if darkmode is active or not when the page loads.
+if (darkmode === 'active') {
+  enableDarkmode();
+};
+
+// When themeSwitch is clicked it takes darkmode from localStorage and if its not active it enables it and if its active it disables it.
+themeSwitch.addEventListener('click', () => {
+  darkmode = localStorage.getItem('darkmode');
+  // Toggle between enabling and disabling dark mode based on current state.
+  darkmode !== 'active' ? enableDarkmode() : disableDarkmode();
+});
+
+
+// Make sure that transitions won't be applied before the page hasn't loaded fully.
+$(document).ready(() => {
+  setTimeout(() => $(".css-transitions-only-after-page-load").removeClass("css-transitions-only-after-page-load"), 10);
+});

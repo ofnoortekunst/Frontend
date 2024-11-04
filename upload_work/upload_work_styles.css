@@ -1,7 +1,6 @@
-/* Main stuff*/
-
 :root {
   --sidebar-background: #15154b;
+  --sidebar-border: #15154b;
   --nav-background: #FAFAFF;
   --hover-color: #a16ae8;
   --dark-hover-color: #915fd1;
@@ -12,8 +11,34 @@
   --gray: #737373;
   --gray-between: #acacac;
   --light-gray: #dcdcdc;
-  --red: #ff5e4c;
-  --dark-red: #c0392b;
+  --insta-color: #FB7833;
+  --tiktok-color: #69C9D0;
+  --gmail-color: #EA4335;
+  --black: black;
+  --place-holder-color: #737373;
+  --nav-border: #15154b;
+  --footer-background: #dcdcdc;
+}
+
+.darkmode {
+  --sidebar-background: #1F1B24;
+  --sidebar-border: #121212;
+  --nav-background: #1F1B24;
+  --hover-color: #BB86FC;
+  --dark-hover-color: #ae6cff;
+  --back: #121212;
+  --hover-background: #efefef;
+  --dark-text-color: #FFFFFF;
+  --text-color: #FFFFFF;
+  --gray: #dcdcdc;
+  --gray-between: #cea7ff;
+  --light-gray: #1F1B24;
+  --insta-color: #FB7833;
+  --tiktok-color: #69C9D0;
+  --gmail-color: #EA4335;
+  --black: black;
+  --nav-border: #1F1B24;
+  --footer-background: black;
 }
 
 * {
@@ -24,9 +49,16 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+.css-transitions-only-after-page-load * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+   transition: none !important;
+}
+
 html, body {
   height: 100%;
-  background-color: var(--back);
 }
 
 html {
@@ -40,6 +72,7 @@ html {
 }
 
 body {
+  background-color: var(--nav-background);
   z-index: 2;
   min-height: 100vh;
   display: grid;
@@ -69,7 +102,7 @@ nav {
   justify-content: flex-end;
   align-items: center;
   color: var(--dark-text-color);
-  border-bottom: 2px solid var(--dark-text-color);
+  border-bottom: 2px solid var(--nav-border);
 }
 
 main {
@@ -112,7 +145,7 @@ nav a, nav p {
 }
 
 nav p {
-  cursor: pointer;;
+  cursor: pointer;
 }
 
 @media (hover:hover) {
@@ -151,7 +184,7 @@ nav svg {
   top: 0;
   left: 0;
   background-color: var(--nav-background);
-  border-bottom: 1px solid var(--dark-text-color);
+  border-bottom: 1px solid var(--nav-border);
   z-index: 10;
 }
 
@@ -160,13 +193,46 @@ nav svg {
   height: auto;
   cursor: pointer;
   margin: auto;
+  background-color: transparent;
   mix-blend-mode: multiply;
 }
 
 .static-a {
   padding: 0;
-  background-color: var(--nav-background);
+  background-color: transparent;
   z-index: 10;
+}
+
+.upload-work-button {
+  background-color: var(--hover-color);
+  width: 45px;
+  height: 35px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  transition: all 0.2s ease;
+}
+
+.upload-work-button svg {
+  fill: var(--text-color);
+  vertical-align: middle;
+  background-color: var(--hover-color);
+  padding: 0;
+  transition: transform 0.3s ease, background-color 0.2s ease;
+}
+
+.upload-work-button:hover {
+  transform: scale(1.1);
+  background-color: var(--dark-hover-color);
+}
+
+.upload-work-button:hover svg {
+  transform: rotate(90deg);
+  background-color: var(--dark-hover-color);
+
 }
 
 .upload-work-button {
@@ -200,6 +266,16 @@ nav svg {
   background-color: var(--dark-hover-color);
 }
 
+.bookmark {
+  margin-bottom: 0;
+}
+
+.bookmark svg {
+  vertical-align: middle;
+  fill: var(--dark-text-color);
+  margin-top: 5px;
+}
+
 @media (max-width: 1085px) {
   .links-container {
     flex-direction: column;
@@ -211,8 +287,13 @@ nav svg {
     width: 300px;
     margin-right: 0;
     background-color: var(--sidebar-background);
-    border-left: 2px solid var(--dark-text-color);
+    border-left: 2px solid var(--nav-border);
     transition: 0.3s ease-in-out;
+  }
+
+  .bookmark svg {
+    fill: var(--text-color);
+    background-color: var(--sidebar-background);
   }
 
   .home-link img {
@@ -238,10 +319,6 @@ nav svg {
     transition: all 0.2s ease;
   }
 
-  .upload-work-button:hover {
-    transform: scale(1);
-  }
-
   .close-sidebar-btn svg {
     fill: var(--text-color);
     transition: all 0.2s ease;
@@ -252,6 +329,10 @@ nav svg {
     fill: var(--dark-text-color);
     transition: all 0.2s ease;
     cursor: pointer;
+  }
+
+  .upload-work-button:hover {
+    transform: scale(1);
   }
 
   .close-sidebar-btn svg, .close-sidebar-btn {
@@ -300,6 +381,7 @@ nav svg {
     }
 
     .upload-work-button:hover {
+      transform: scale(1);
       background-color: transparent;
       color: var(--hover-color);
     }
@@ -325,14 +407,6 @@ nav svg {
   cursor: pointer;
   width: 350px;
   height: auto;
-  mix-blend-mode: multiply;
-}
-
-.bookmark {
-  width: 12px;
-  height: auto;
-  margin-right: 5px;
-  margin-bottom: 2px;
 }
 
 
@@ -348,10 +422,10 @@ nav svg {
   height: 80px;
   background-color: var(--nav-background);
   color: var(--dark-text-color);
-  border-right: 2px solid var(--dark-text-color);
-  border-bottom: 2px solid var(--dark-text-color);
+  border-right: 2px solid var(--nav-border);
+  border-bottom: 2px solid var(--nav-border);
 
-  @media screen and (max-width: 1162px) {
+  @media screen and (max-width: 1210px) {
     display: none;
   }
 }
@@ -362,7 +436,7 @@ nav svg {
   justify-content: center;
   width: 51px;
   height: 51px;
-  border: 2px solid black;
+  border: 2px solid var(--black);
   border-radius: 25.5px;
   cursor: pointer;
 }
@@ -406,6 +480,7 @@ nav svg {
   border-radius: 20px;
   z-index: 10;
   background-color: var(--back);
+  box-shadow: var(--gray-between) 0px 1px 5px 0px;
   width: 500px;
   max-width: 80%;
 }
@@ -422,6 +497,7 @@ nav svg {
 
 .settings-title {
   font-size: 20px;
+  color: var(--dark-text-color);
 }
 
 .settings-modal-header {
@@ -440,6 +516,11 @@ nav svg {
 .settings-modal-main label {
   font-size: 16px;
   font-weight: 400;
+  color: var(--dark-text-color);
+}
+
+.settings-modal-main input:first-of-type {
+  margin-left: 1rem;
 }
 
 .settings-modal-main button {
@@ -471,18 +552,39 @@ nav svg {
   transition: all 0.2s ease;
 }
 
-.light-mode-hover button, .profile-hover {
+.light-mode-hover, .profile-hover {
   transition: all 0.2s ease;
 }
 
-.light-mode-hover button {
-  width: 100%;
-  text-align: left;
+.light-mode-hover {
+  border: none;
+  border-radius: 100vh;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  cursor: pointer;
 }
 
 .settings-modal-main div {
   display: flex;
   gap: 10px;
+}
+
+#theme-switch svg:last-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+  display: block;
 }
 
 .settings-modal-main div label {
@@ -519,9 +621,8 @@ nav svg {
     color: var(--hover-color);
   }
   
-  .light-mode-hover:hover button {
-    color: var(--hover-color);
-    cursor: pointer;
+  .light-mode-hover:hover svg {
+    fill: var(--hover-color);
   }
 
   .settings-modal-main div label:hover {
@@ -536,8 +637,15 @@ nav svg {
   margin-right: 7px;
 }
 
+#theme-switch svg {
+  margin-bottom: 0;
+  margin-right: 10.5px;
+  transition: all 0.2s ease;
+}
+
 .language {
   cursor: default;
+  color: var(--dark-text-color);
 }
 
 
@@ -548,12 +656,11 @@ nav svg {
   display: flex;
   height: 150px;
   flex-direction: column;
-  background: rgb(2,0,36);
-  background: linear-gradient(0deg, rgb(136, 136, 136) 0%, rgba(220,220,220,1) 30%); 
-  grid-area: footer;
+  background-color: var(--dark-text-color);
+  background: var(--footer-background); 
   justify-content: center;
   align-items: center;
-  border-top: 2px solid var(--dark-text-color);
+  border-top: 2px solid var(--nav-border);
 }
 
 .socials-container {
@@ -562,7 +669,7 @@ nav svg {
   background-color: transparent;
   align-items: center;
   height: 40%;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--gray-between);
 }
 
 .socials-container a svg, .socials-container p svg {
@@ -572,6 +679,7 @@ nav svg {
   background-color: transparent;
   vertical-align: middle;
   transition: all 0.3s ease;
+  fill: var(--dark-text-color);
 }
 
 .socials-container a {
@@ -580,7 +688,7 @@ nav svg {
 
 .socials-container a, .socials-container p {
   background-color: transparent;
-  color: black;
+  color: var(--dark-text-color);
   transition: all 0.3s ease;
 }
 
@@ -591,7 +699,7 @@ nav svg {
   background-color: transparent;
 }
 
-.logo-container a {
+.logo-container p {
   background-color: transparent;
 }
 
@@ -600,7 +708,7 @@ nav svg {
   height: auto;
   transition: all 0.3s ease;
   cursor: pointer;
-  mix-blend-mode: multiply;
+  background-color: transparent;
 }
 
 @media (hover:hover) {
@@ -612,17 +720,17 @@ nav svg {
     transform: scale(1.1);
 
     .insta-icon {
-      fill: #FB7833;
+      fill: var(--insta-color);
       transform: scale(1.1);
     }
 
     .tiktok-icon {
-      fill: #69C9D0;
+      fill: var(--tiktok-color);
       transform: scale(1.1);
     }
 
     .gmail-icon {
-      fill: #EA4335;
+      fill: var(--gmail-color);
       transform: scale(1.1);
     }
   }
@@ -656,6 +764,10 @@ form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+legend {
+  color: var(--dark-text-color);
 }
 
 @media (max-width: 850px) {
@@ -707,6 +819,7 @@ fieldset:last-child {
 fieldset label {
   font-size: 16px;
   font-weight: 400;
+  color: var(--dark-text-color);
 }
 
 input {
@@ -714,6 +827,15 @@ input {
   border-radius: 10px;
   padding: 5px;
   outline: none;
+}
+
+::placeholder {
+  color: var(--place-holder-color);
+  opacity: 1;
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+  color: var(--place-holder-color);
 }
 
 .upper-section input {
@@ -783,18 +905,14 @@ input {
   background-color: var(--nav-background);
   color: var(--dark-text-color);
   border-radius: 8px;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .file-label svg {
   fill: var(--dark-text-color);
+  background-color: transparent;
   vertical-align: middle;
   margin-bottom: 4px;
-  transition: background-color 0.2s ease;
-}
-
-.file-label:hover, .file-label:hover svg {
-  background-color: var(--hover-color);
 }
 
 .file-input {
@@ -856,9 +974,21 @@ input {
   display: none;
 }
 
+.clear-button svg {
+  transition: all 0.2s ease;
+}
+
 @media (hover:hover) {
-  .clear-button:hover {
-    background-color: var(--dark-red);
+  .clear-button:hover svg {
+    fill: var(--hover-color);
+  }
+
+  .file-label:hover {
+    border: 2px solid var(--hover-color);
+  }
+
+  .modal span svg:hover {
+    fill: var(--hover-color);
   }
 }
 
@@ -893,7 +1023,7 @@ input {
   height: 100%;
   z-index: 5;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
@@ -912,6 +1042,7 @@ input {
   top: 15px;
   right: 25px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 /* Back to top button */

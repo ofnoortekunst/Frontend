@@ -2,6 +2,7 @@
 
 :root {
   --sidebar-background: #15154b;
+  --sidebar-border: #15154b;
   --nav-background: #FAFAFF;
   --hover-color: #a16ae8;
   --dark-hover-color: #915fd1;
@@ -18,14 +19,15 @@
   --black: black;
   --place-holder-color: #737373;
   --nav-border: #15154b;
-  --footer-background: linear-gradient(0deg, rgb(136, 136, 136) 0%, rgba(220,220,220,1) 30%);
+  --footer-background: #dcdcdc;
 }
 
 .darkmode {
   --sidebar-background: #1F1B24;
+  --sidebar-border: #121212;
   --nav-background: #1F1B24;
-  --hover-color: #cea7ff;
-  --dark-hover-color: #BB86FC;
+  --hover-color: #BB86FC;
+  --dark-hover-color: #ae6cff;
   --back: #121212;
   --hover-background: #efefef;
   --dark-text-color: #FFFFFF;
@@ -38,7 +40,7 @@
   --gmail-color: #EA4335;
   --black: black;
   --nav-border: #1F1B24;
-  --footer-background: #1F1B24;
+  --footer-background: black;
 }
 
 * {
@@ -47,6 +49,14 @@
   padding: 0;
   background-color: var(--back);
   -webkit-tap-highlight-color: transparent;
+}
+
+.css-transitions-only-after-page-load * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+   transition: none !important;
 }
 
 html, body {
@@ -87,6 +97,7 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
   justify-content: center;
+  background-color: var(--back);
 }
 
 header {
@@ -128,6 +139,7 @@ footer {
   width: 250px;
   padding: 5px 0px;
   background-color: var(--sidebar-background);
+  border-top: 2px solid var(--sidebar-border);
   grid-area: sidebar;
   top: 0;
   align-self: start;
@@ -609,7 +621,6 @@ nav svg {
   flex-direction: column;
   background-color: var(--dark-text-color);
   background: var(--footer-background); 
-  grid-area: footer;
   justify-content: center;
   align-items: center;
   border-top: 2px solid var(--nav-border);
@@ -651,7 +662,7 @@ nav svg {
   background-color: transparent;
 }
 
-.logo-container a {
+.logo-container p {
   background-color: transparent;
 }
 
@@ -661,7 +672,6 @@ nav svg {
   transition: all 0.3s ease;
   cursor: pointer;
   background-color: transparent;
-  mix-blend-mode: multiply;
 }
 
 @media (hover:hover) {
@@ -702,6 +712,7 @@ nav svg {
   border-radius: 20px;
   z-index: 10;
   background-color: var(--back);
+  box-shadow: var(--gray-between) 0px 1px 5px 0px;
   width: 500px;
   max-width: 80%;
 }
