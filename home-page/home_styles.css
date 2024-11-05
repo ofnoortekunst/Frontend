@@ -123,6 +123,8 @@ nav {
 
 footer {
   z-index: 3;
+  width: 100%;
+  grid-area: footer;
 }
 
 
