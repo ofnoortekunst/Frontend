@@ -21,6 +21,7 @@
   --place-holder-color: #737373;
   --nav-border: #15154b;
   --footer-background: #dcdcdc;
+  --sidebar-while-opened: #15154b;
 }
 
 .darkmode {
@@ -43,6 +44,7 @@
   --black: black;
   --nav-border: #1F1B24;
   --footer-background: black;
+  --sidebar-while-opened: #121212;
 }
 
 * {
@@ -291,7 +293,7 @@ nav svg {
     width: 300px;
     margin-right: 0;
     background-color: var(--sidebar-background);
-    border-left: 2px solid var(--nav-border);
+    border-left: 2px solid var(--sidebar-while-opened);
     transition: 0.3s ease-in-out;
   }
 
