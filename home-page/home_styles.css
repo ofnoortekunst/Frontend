@@ -76,7 +76,7 @@ html {
 }
 
 body {
-  background-color: red;
+  background-color: var(--nav-background);
   z-index: 2;
   min-height: 100vh;
   display: grid;
