@@ -192,6 +192,12 @@ const enableDarkmode = () => {
   sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/dark-mode-logo.png">';
 
   footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo-darkmode.png">';
+
+  document.body.classList.add('css-transitions-only-after-page-load'); // Disable transitions
+
+  setTimeout(() => {
+    document.body.classList.remove('css-transitions-only-after-page-load');
+  }, 50); // 50ms delay should be sufficient
 };
 
 // Disables darkmodeand saves inactive into localStorage.
@@ -203,6 +209,12 @@ const disableDarkmode = () => {
   sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/pro-logo-transparent.png">';
 
   footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo.png">';
+
+  document.body.classList.add('css-transitions-only-after-page-load'); // Disable transitions
+
+  setTimeout(() => {
+    document.body.classList.remove('css-transitions-only-after-page-load');
+  }, 50); // 50ms delay should be sufficient
 };
 
 // Get darkmode from local storage.

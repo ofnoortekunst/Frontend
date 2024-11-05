@@ -125,6 +125,12 @@ const enableDarkmode = () => {
   document.getElementById('noortekunst-logo').src="images/dark-mode-logo.png";
 
   document.getElementById('background-img').src="images/dark-mountains.avif";
+
+  document.body.classList.add('css-transitions-only-after-page-load'); // Disable transitions
+
+  setTimeout(() => {
+    document.body.classList.remove('css-transitions-only-after-page-load');
+  }, 50); // 50ms delay should be sufficient
 };
 
 // Disables darkmodeand saves inactive into localStorage.
@@ -140,6 +146,12 @@ const disableDarkmode = () => {
   document.getElementById('noortekunst-logo').src="images/pro-logo-transparent.png";
 
   document.getElementById('background-img').src="images/potential-background-image.jpg";
+
+  document.body.classList.add('css-transitions-only-after-page-load'); // Disable transitions
+
+  setTimeout(() => {
+    document.body.classList.remove('css-transitions-only-after-page-load');
+  }, 50); // 50ms delay should be sufficient
 };
 
 // Get darkmode from local storage.
