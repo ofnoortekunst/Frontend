@@ -894,6 +894,7 @@ nav svg {
   gap: 1em;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .name-and-author, .specifications, .price-and-like, .beginning-price, .amount-of-likes {
