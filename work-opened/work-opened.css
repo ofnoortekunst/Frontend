@@ -744,7 +744,7 @@ nav svg {
 /* Stuff in main */
 
 .container-in-main {
-  flex-grow: 1;
+  height: auto;
   width: 100%;
   padding: 1.5rem;
 }
