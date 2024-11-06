@@ -2,6 +2,25 @@ const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const settingsOverlay = document.getElementById('settings-overlay');
 
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('myModal');
+  const cModal = document.getElementById('closeModal');
+  const uImage = document.getElementById('uploadedImageModal');
+  const pContainer = document.getElementById('previewContainer');
+  pContainer.addEventListener('click', () => {
+    modal.style.display = 'block';
+    uImage.src = document.getElementById('previewImage').src;
+  });
+  cModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+});
+
 
 // Scale the icons in the footer.
 function checkWidth() {
