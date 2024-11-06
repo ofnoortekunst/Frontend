@@ -121,6 +121,10 @@ main {
   align-items: center;
 }
 
+footer {
+  grid-area: footer;
+}
+
 
 /* The navbar and navbar -> sidebar on the right */
 
