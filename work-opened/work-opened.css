@@ -744,21 +744,21 @@ nav svg {
 /* Stuff in main */
 
 .container-in-main {
-  height: 100%;
+  flex-grow: 1;
   width: 100%;
   padding: 1.5rem;
 }
 
 .big-art-container {
   aspect-ratio: 16 / 9;
-  max-width: 80%;
+  max-width: 75%;
   margin: 0 auto;
   background-color: var(--black);
 }
 
 .text-about-author {
   aspect-ratio: 16 / 4;
-  max-width: 80%;
+  max-width: 75%;
   margin: 0 auto;
   background-color: var(--back);
 }
@@ -862,6 +862,10 @@ nav svg {
 }
 
 @media (max-width: 745px) {
+  .big-art-container {
+    max-width: 90%;
+  }
+
   .art-specs {
     display: flex;
     flex-direction: column;
