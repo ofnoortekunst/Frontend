@@ -864,21 +864,21 @@ nav svg {
 
 @media (max-width: 745px) {
   .big-art-container {
-    max-width: 90%;
+    max-width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .art-specs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 5rem;
   }
 
-  .art-specification {
-    text-align: center;
+  .art-specs hr {
+    width: 100%;
   }
 
   .specs {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .work-title {
@@ -887,7 +887,7 @@ nav svg {
   }
 
   .top-spec button, .price-in-spec {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
 
   .price-in-spec {
