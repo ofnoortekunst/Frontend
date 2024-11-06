@@ -751,14 +751,14 @@ nav svg {
 }
 
 .big-art-container {
-  height: 1000px;
+  aspect-ratio: 16 / 9;
   max-width: 75%;
   margin: 0 auto;
   background-color: var(--black);
 }
 
 .text-about-author {
-  aspect-ratio: 16 / 4;
+  height: auto;
   max-width: 75%;
   margin: 0 auto;
   background-color: var(--back);
@@ -894,6 +894,10 @@ nav svg {
     margin-right: auto;
     margin-left: 0;
     text-align: start;
+  }
+
+  .text-about-author {
+    max-width: 90%;
   }
 }
 
