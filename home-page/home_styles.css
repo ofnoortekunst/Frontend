@@ -432,10 +432,6 @@ nav svg {
   color: var(--dark-text-color);
   border-right: 2px solid var(--nav-border);
   border-bottom: 2px solid var(--nav-border);
-
-  @media screen and (max-width: 1210px) {
-    display: none;
-  }
 }
 
 .pfp {
@@ -473,6 +469,25 @@ nav svg {
   background-color: var(--nav-background);
   font-size: 12px;
   color: var(--gray);
+}
+
+@media (max-width: 1210px) {
+  .name, .status {
+    display: none;
+  }
+
+  .profile {
+    width: 80px;
+    gap: 0;
+    border-right: none;
+  }
+}
+
+@media (max-width: 1085px) {
+  .profile {
+    height: 60px;
+    border-right: none;
+  }
 }
 
 
@@ -865,10 +880,6 @@ nav svg {
   color: var(--dark-text-color);
   border-right: 2px solid var(--nav-border);
   border-bottom: 2px solid var(--nav-border);
-
-  @media screen and (max-width: 1210px) {
-    display: none;
-  }
 }
 
 .pfp {
@@ -906,6 +917,25 @@ nav svg {
   background-color: var(--nav-background);
   font-size: 12px;
   color: var(--gray);
+}
+
+@media (max-width: 1215px) {
+  .name, .status {
+    display: none;
+  }
+
+  .profile {
+    width: 80px;
+    gap: 0;
+    border-right: none;
+  }
+}
+
+@media (max-width: 1085px) {
+  .profile {
+    height: 60px;
+    border-right: none;
+  }
 }
 
 
