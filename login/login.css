@@ -527,7 +527,7 @@ nav svg {
 
 .login-container, .register-container {
   padding: 1rem;
-  width: 35vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -629,21 +629,62 @@ nav svg {
   transform: translateX(100vw);
 }
 
-@media (max-width: 1155px) {
+@media (max-width: 1200px) {
   .image-and-desc {
     display: none;
   }
 
   .login-container {
-    transform: translateX(-24vw);
+    transform: translateX(-26vw);
   }
 
   #register-button:checked ~ .register-container {
-    transform: translateX(25vw);
+    transform: translateX(23vw);
   }
 
   .login-container, .register-container {
-    width: 80%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .login-register-box {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-container, .register-container {
+    width: 70%;
+  }
+
+  .register-container {
+    transform: translateX(0);
+    display: none;
+  }
+
+  .login-container {
+    transform: translate(0);
+  }
+
+  #register-button:checked ~ .register-container {
+    transform: translate(0);
+    display: flex;
+  }
+  
+  .image-and-desc {
+    display: none;
+  }
+  
+  #register-button:checked ~ .login-container {
+    transform: translateX(0);
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .login-container, .register-container {
+    width: 100%;
   }
 }
 
