@@ -596,6 +596,10 @@ nav svg {
   color: var(--dark-text-color);
 }
 
+#artist-form fieldset label {
+  line-height: 1.75rem;
+}
+
 .login-button, .register-button, .load-works {
   width: 100%;
   text-align: center;
