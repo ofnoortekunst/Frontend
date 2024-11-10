@@ -16,6 +16,7 @@
   --insta-color: #FB7833;
   --tiktok-color: #69C9D0;
   --gmail-color: #EA4335;
+  --dark-red: #cf3a2d;
   --black: black;
   --place-holder-color: #737373;
   --nav-border: #15154b;
@@ -39,6 +40,7 @@
   --insta-color: #FB7833;
   --tiktok-color: #69C9D0;
   --gmail-color: #EA4335;
+  --dark-red: #cf3a2d;
   --black: black;
   --nav-border: #1F1B24;
   --footer-background: black;
@@ -495,6 +497,9 @@ nav svg {
   display: flex;
   align-items: center;
   gap: 3rem;
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
 }
 
 .image-and-desc  {
@@ -502,33 +507,41 @@ nav svg {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
   background-color: transparent;
+  transform: translateX(15vw);
 }
 
 .image-and-desc p {
   font-weight: 400;
   color: var(--dark-text-color);
   font-style: italic;
+  text-align: center;
 }
 
 .image-and-desc img {
   width: 30vw;
+  min-width: 300px;
   height: auto;
 }
 
 .login-container, .register-container {
   padding: 1rem;
-  width: 30vw;
+  width: 35vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-radius: 20px;
   box-shadow: var(--gray-between) 0px 1px 5px 0px;
+  transition: all 0.5s ease;
+}
+
+.login-container {
+  transform: translateX(-15vw);
 }
 
 .register-container {
-  display: none;
+  transform: translateX(-100vw);
 }
 
 .login-container h1, .register-container h1 {
@@ -540,6 +553,10 @@ nav svg {
 
 .login-container form fieldset legend, .register-container form fieldset legend, .login-container form fieldset input, .register-container form fieldset input {
   color: var(--dark-text-color);
+}
+
+.register-container form:first-of-type fieldset {
+  margin-bottom: 1rem;
 }
 
 .login-container form fieldset, .register-container form fieldset {
@@ -557,7 +574,6 @@ nav svg {
   border: 1px solid var(--dark-text-color);
   border-radius: 100vh;
   padding: 5px 1rem;
-  margin-bottom: 1rem;
   outline: none;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
@@ -565,12 +581,17 @@ nav svg {
   color: var(--dark-text-color);
 }
 
+.login-container form fieldset input, .register-container form fieldset div {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
 .register-container form fieldset label {
   font-weight: 400;
   color: var(--dark-text-color);
 }
 
-.login-button, .register-button {
+.login-button, .register-button, .load-works {
   text-align: center;
   margin-top: 1rem;
   font-family: 'Poppins', sans-serif;
@@ -581,16 +602,15 @@ nav svg {
   padding: 5px;
   cursor: pointer;
   transition: all 0.2s ease;
+  color: var(--back);
 }
 
 .login-button {
   background-color: var(--hover-color);
-  color: var(--text-color);
 }
 
 .register-button {
   background-color: var(--dark-text-color);
-  color: var(--back);
 }
 
 #register-button {
@@ -598,16 +618,33 @@ nav svg {
 }
 
 #register-button:checked ~ .register-container {
-  display: flex;
-  transform: translate(-30vw);
+  transform: translateX(-18vw);
 }
 
 #register-button:checked ~ .image-and-desc {
-  transform: translate(40vw);
+  transform: translateX(50vw);
 }
 
 #register-button:checked ~ .login-container {
-  display: none;
+  transform: translateX(100vw);
+}
+
+@media (max-width: 1155px) {
+  .image-and-desc {
+    display: none;
+  }
+
+  .login-container {
+    transform: translateX(-24vw);
+  }
+
+  #register-button:checked ~ .register-container {
+    transform: translateX(25vw);
+  }
+
+  .login-container, .register-container {
+    width: 80%;
+  }
 }
 
 @media (hover:hover) {
@@ -617,8 +654,52 @@ nav svg {
 
   .register-button:hover {
     background-color: var(--gray);
-    color: var(--text-color);
   }
+
+  .load-works:hover {
+    background-color: var(--dark-red);
+  }
+}
+
+
+/* Form things in main */
+
+#interested-form, #artist-form {
+  display: none;
+}
+
+#interested-form.selected, #artist-form.selected {
+  display: flex;
+}
+
+#interested-form fieldset div label, #artist-form fieldset div label {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+#interested-form fieldset div input, #artist-form fieldset div input {
+  margin-top: 0.5rem;
+}
+
+#interested-form fieldset div, #artist-form fieldset div {
+  margin-bottom: 1.5rem;
+}
+
+.sub-text {
+  font-size: 14px;
+  color: var(--gray-between);
+  font-weight: 400;
+  margin-top: 0.25rem;
+}
+
+.load-works {
+  background-color: var(--gmail-color);
+  width: 100%;
+}
+
+#artist-form fieldset div label a {
+  color: var(--hover-color);
+  font-weight: 400;
 }
 
 

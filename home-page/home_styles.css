@@ -1188,6 +1188,16 @@ nav svg {
   .sub-navbar a:hover {
     color: var(--hover-color);
   }
+
+  .login-button:hover {
+    background-color: var(--dark-hover-color);
+    transform: scale(1.03);
+  }
+
+  .register-button:hover {
+    background-color: var(--gray);
+    transform: scale(1.03);
+  }
 } 
 
 .noortekunst-intro {
@@ -1236,7 +1246,7 @@ nav svg {
   } 
 }
 
-.news, .about, .team {
+.news, .about, .team, .join {
   width: 100%;
   background-color: var(--sidebar-background);
   color: var(--text-color);
@@ -1263,19 +1273,19 @@ h3 {
   font-weight: 475;
 }
 
-.news-container p, .about-container p, .about-container li, .team p {
+.news-container p, .about-container p, .about-container li, .team p, .join-container p {
   font-size: 18px;
   font-weight: 400;
 }
 
-.news-content, .about-content, .team-content {
+.news-content, .about-content, .team-content, .join-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
   background-color: var(--sidebar-background);
 }
 
-.news-container, .about-container, .team-container {
+.news-container, .about-container, .team-container, .join-container {
   background-color: var(--sidebar-background);
   width: 100%;
   height: 100%;
@@ -1329,6 +1339,35 @@ h3 {
 
 .team-container {
   background-color: var(--back);
+}
+
+.join, .join-container, .join-content {
+  background-color: var(--light-gray);
+  color: var(--dark-text-color);
+}
+
+.join h2, .join p {
+  background-color: var(--light-gray);
+}
+
+.register-button, .login-button {
+  border-radius: 100vh;
+  border: none;
+  color: var(--back);
+  padding: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.register-button {
+  background-color: var(--dark-text-color);
+}
+
+.login-button {
+  background-color: var(--hover-color);
 }
 
 

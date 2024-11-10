@@ -154,8 +154,31 @@ themeSwitch.addEventListener('click', () => {
   darkmode !== 'active' ? enableDarkmode() : disableDarkmode();
 });
 
+// Show 'looja' or 'huviline' sections based on radio
+const radioButtons = document.querySelectorAll("input[name='role']");
 
-// Make sure that transitions won't be applied before the page hasn't loaded fully.
-$(document).ready(() => {
-  setTimeout(() => $(".css-transitions-only-after-page-load").removeClass("css-transitions-only-after-page-load"), 10);
+const findSelected = ()  => {
+  const selected = document.querySelector("input[name='role']:checked").value;
+
+  if (selected === 'interested') {
+    document.getElementById('interested-form').classList.add('selected');
+    document.getElementById('artist-form').classList.remove('selected');
+  } else {
+    document.getElementById('artist-form').classList.add('selected');
+    document.getElementById('interested-form').classList.remove('selected');
+  };
+};
+
+radioButtons.forEach(radioBtn => {
+  radioBtn.addEventListener("change", findSelected);
+});
+
+// Open the page onclick
+function openPage(pageUrl){
+  window.location.href = pageUrl;
+}
+
+document.getElementById('close-forms').addEventListener('click', () => {
+  document.getElementById('artist-form').classList.remove('selected');
+  document.getElementById('interested-form').classList.remove('selected');
 });

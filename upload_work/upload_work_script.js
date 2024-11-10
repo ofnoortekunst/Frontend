@@ -232,9 +232,3 @@ themeSwitch.addEventListener('click', () => {
   // Toggle between enabling and disabling dark mode based on current state.
   darkmode !== 'active' ? enableDarkmode() : disableDarkmode();
 });
-
-
-// Make sure that transitions won't be applied before the page hasn't loaded fully.
-$(document).ready(() => {
-  setTimeout(() => $(".css-transitions-only-after-page-load").removeClass("css-transitions-only-after-page-load"), 10);
-});

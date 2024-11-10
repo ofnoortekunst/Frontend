@@ -86,12 +86,12 @@
         <p>Eesti esimene noortele loodud veebigalerii</p>
       </div>
       <div class="register-container">
-        <h1>Registreeru</h1>
+        <h1>Loo konto</h1>
         <form method="post">
           <fieldset>
             <legend>Roll:</legend>
             <div>
-              <input type="radio" id="interested" name="role" value="interested" checked>
+              <input type="radio" id="interested" name="role" value="interested">
               <label for="interested">Kunstihuviline</label>
             </div>
             <div>
@@ -100,17 +100,66 @@
             </div>
           </fieldset>
         </form>
+        <form method="post" id="interested-form">
+          <fieldset>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" placeholder="email" required>
+            </div>
+            <div>
+              <label for="name">Kasutajanimi:</label>
+              <input type="text" id="name" name="name" placeholder="kasutajanimi" required>
+            </div>
+            <div>
+              <label for="psw">Salasõna:</label>
+              <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna" required>
+              <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
+            </div>
+            <div>
+              <label for="psw-again">Sisesta salasõna uuesti:</label>
+              <input type="password" id="psw-again" name="psw-again" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna uuesti" required>
+              <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
+            </div>
+          </fieldset>
+        </form>
+        <form method="post" id="artist-form">
+          <fieldset>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" placeholder="email" required>
+            </div>
+            <div>
+              <label for="name">Nimi:</label>
+              <input type="text" id="name" name="name" placeholder="kasutajanimi" required>
+              <p class="sub-text">Proovi valida püsiv nimi mille järgi inimesed sind tulevikus ära tunneksid.</p>
+            </div>
+            <div>
+              <label for="psw">Salasõna:</label>
+              <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna" required>
+              <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
+            </div>
+            <div>
+              <label for="psw-again">Sisesta salasõna uuesti:</label>
+              <input type="password" id="psw-again" name="psw-again" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna uuesti" required>
+              <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
+            </div>
+            <div>
+              <label>Et looja staatus saada pead kohe alguses juba 3 tööd esitama. <a href="#">Miks?</a></label>
+              <button class="load-works" onclick="openPage('upload_work.html');">0/3</button>
+            </div>
+          </fieldset>
+        </form>
         <button class="register-button">Loo konto</button>
-        <label class="login-button" for="register-button">Logi sisse</label>
+        <label class="login-button" id="close-forms" for="register-button">Logi sisse</label>
       </div>
       <div class="login-container">
         <h1>Logi sisse</h1>
         <form method="post">
           <fieldset>
             <legend>Email:</legend>
-            <input id="email" name="email" type="email" required>
+            <input id="email" name="email" type="email" placeholder="email" required>
             <legend>Salasõna:</legend>
-            <input id="password" name="password" type="password" required>
+            <input id="password" name="password" type="password" placeholder="salasõna" required>
           </fieldset>
         </form>
         <button class="login-button">Logi sisse</button>
