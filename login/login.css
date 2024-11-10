@@ -579,7 +579,15 @@ nav svg {
   font-weight: 400;
   font-size: 16px;
   color: var(--dark-text-color);
+  margin: 0 auto;
+  width: 100%;
 }
+
+.logo-container form fieldset input[type=radio], .register-container form fieldset input[type=radio] {
+  width: auto;
+}
+
+
 
 .login-container form fieldset input, .register-container form fieldset div {
   margin-bottom: 1rem;
@@ -592,7 +600,9 @@ nav svg {
 }
 
 .login-button, .register-button, .load-works {
+  width: 100%;
   text-align: center;
+  margin: 0 auto;
   margin-top: 1rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
