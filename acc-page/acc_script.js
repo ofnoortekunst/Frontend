@@ -154,36 +154,12 @@ themeSwitch.addEventListener('click', () => {
   darkmode !== 'active' ? enableDarkmode() : disableDarkmode();
 });
 
-// Show 'looja' or 'huviline' sections based on radio
-const radioButtons = document.querySelectorAll("input[name='role']");
-
-const findSelected = ()  => {
-  const selected = document.querySelector("input[name='role']:checked").value;
-
-  if (selected === 'interested') {
-    document.getElementById('interested-form').classList.add('selected');
-    document.getElementById('artist-form').classList.remove('selected');
-  } else {
-    document.getElementById('artist-form').classList.add('selected');
-    document.getElementById('interested-form').classList.remove('selected');
-  };
-};
-
-radioButtons.forEach(radioBtn => {
-  radioBtn.addEventListener("change", findSelected);
-});
-
 // Open the page onclick
 function openPage(pageUrl){
   window.location.href = pageUrl;
 }
 
-document.getElementById('close-forms').addEventListener('click', () => {
-  document.getElementById('artist-form').classList.remove('selected');
-  document.getElementById('interested-form').classList.remove('selected');
-});
-
-// Toggle password visibility (login)
+// Toggle password visibility
 function showPass() {
   let pass = document.getElementById('password');
   if (pass.type === 'password') {
@@ -193,19 +169,9 @@ function showPass() {
   };
 };
 
-// Toggle password visibility (interested form)
-function showPassInterested() {
-  let pass = document.getElementById('psw-i');
-  if (pass.type === 'password') {
-    pass.type = "text";
-  } else {
-    pass.type = "password";
-  };
-};
-
-// Toggle password visibility (artist form)
-function showPassArtist() {
-  let pass = document.getElementById('psw-a');
+// Toggle password visibility
+function showPass() {
+  let pass = document.getElementById('psw-new');
   if (pass.type === 'password') {
     pass.type = "text";
   } else {

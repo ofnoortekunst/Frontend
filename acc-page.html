@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Logi sisse/registreeru</title>
-  <link rel="stylesheet" href="login/login.css">
+  <link rel="stylesheet" href="acc-page/acc_styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -79,103 +79,34 @@
   </div>
   <div id="settings-overlay"></div>
   <main>
-    <div class="login-register-box">
-      <input type="checkbox" id="register-button">
-      <div class="image-and-desc">
-        <img alt="logo" src="images/logo-white-background.png">
-        <p>Eesti esimene noortele loodud veebigalerii</p>
+    <div class="acc-container">
+      
+      <h1>Konto</h1>
+      <h2>Nimi</h2>
+      <p>Märt Madis</p>
+      <div class="spec-section">
+        <input type="text" id="new-name">
+        <button class="sub-button">Salvestsa uus nimi.</button>
       </div>
-      <div class="register-container">
-        <h1>Loo konto</h1>
-        <form method="post">
-          <fieldset>
-            <legend>Roll:</legend>
-            <div>
-              <input type="radio" id="interested" name="role" value="interested">
-              <label for="interested">Kunstihuviline</label>
-            </div>
-            <div>
-              <input type="radio" id="artist" name="role" value="artist">
-              <label for="artist">Looja</label>
-            </div>
-          </fieldset>
-        </form>
-        <form method="post" id="interested-form">
-          <fieldset>
-            <div>
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" placeholder="email" required>
-            </div>
-            <div>
-              <label for="name">Nimi:</label>
-              <input type="text" id="name" name="name" placeholder="kasutajanimi" required>
-            </div>
-            <div>
-              <label for="psw">Salasõna:</label>
-              <input type="password" id="psw-i" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna" required>
-              <label id="pass-toggle">
-                <input type="checkbox" for="psw-i" onclick="showPassInterested();">
-                Näita salasõna
-              </label>
-              <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
-            </div>
-            <div>
-              <label for="psw-again">Sisesta salasõna uuesti:</label>
-              <input type="password" id="psw-again" name="psw-again" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna uuesti" required>
-              <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
-            </div>
-          </fieldset>
-        </form>
-        <form method="post" id="artist-form">
-          <fieldset>
-            <div>
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" placeholder="email" required>
-            </div>
-            <div>
-              <label for="name">Nimi:</label>
-              <input type="text" id="name" name="name" placeholder="kasutajanimi" required>
-              <p class="sub-text">Proovi valida püsiv nimi mille järgi inimesed sind tulevikus ära tunneksid.</p>
-            </div>
-            <div>
-              <label for="psw">Salasõna:</label>
-              <input type="password" id="psw-a" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna" required>
-              <label id="pass-toggle">
-                <input type="checkbox" for="psw-a" onclick="showPassArtist();">
-                Näita salasõna
-              </label>
-              <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
-            </div>
-            <div>
-              <label for="psw-again">Sisesta salasõna uuesti:</label>
-              <input type="password" id="psw-again" name="psw-again" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna uuesti" required>
-              <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
-            </div>
-            <div>
-              <label>Et looja staatus saada pead kohe alguses juba 3 tööd esitama. <a href="#">Miks?</a></label>
-              <button class="load-works" onclick="openPage('upload_work.html');">0/3</button>
-            </div>
-          </fieldset>
-        </form>
-        <button class="register-button">Loo konto</button>
-        <label class="login-button" id="close-forms" for="register-button">Logi sisse</label>
-      </div>
-      <div class="login-container">
-        <h1>Logi sisse</h1>
-        <form method="post">
-          <fieldset>
-            <legend>Email:</legend>
-            <input id="email" name="email" type="email" placeholder="email" required>
-            <legend>Salasõna:</legend>
-            <input id="password" name="password" type="password" placeholder="salasõna" class="login-pass" required>
-            <label id="pass-toggle">
-              <input type="checkbox" for="password" onclick="showPass();">
-              Näita salasõna
-            </label>
-          </fieldset>
-        </form>
-        <button class="login-button">Logi sisse</button>
-        <label class="register-button" for="register-button">Registreeru</label>
+      <h2>Salasõna</h2>
+      <legend>Vana salasõna:</legend>
+      <input id="password" name="password" type="password" class="login-pass">
+      <label id="pass-toggle">
+        <input type="checkbox" for="password" onclick="showPass();">
+        Näita salasõna
+      </label>
+      <legend>Uus salasõna:</legend>
+      <input id="psw-new" name="password" type="password" class="login-pass">
+      <label id="pass-toggle">
+        <input type="checkbox" for="psw-new" onclick="showPass();">
+        Näita salasõna
+      </label>
+      <button class="sub-button">Muuda salasõna</button>
+      <h2>Email</h2>
+      <p>madisiopr@jdn.oew</p>
+      <div class="spec-section">
+        <input type="email" id="new-email">
+      <button class="sub-button">Muuda meiliaadressi</button>
       </div>
     </div>
   </main>
@@ -197,6 +128,6 @@
     </div>
   </footer>
 
-  <script type="text/javascript" src="login/login.js" defer></script>
+  <script type="text/javascript" src="acc-page/acc_script.js" defer></script>
 </body>
 </html>
