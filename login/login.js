@@ -212,3 +212,29 @@ function showPassArtist() {
     pass.type = "password";
   };
 };
+
+// Login form 'show pass'
+let password = document.getElementById('password');
+let toggle = document.getElementById('show-password');
+let pswA = document.getElementById('psw-a');
+let toggleA = document.getElementById('show-password-a');
+let pswI = document.getElementById('psw-i');
+let toggleI = document.getElementById('show-password-i');
+
+toggle.addEventListener("click", handleToggleClick, false);
+toggleA.addEventListener("click", handleToggleClick, false);
+toggleI.addEventListener("click", handleToggleClick, false);
+
+function handleToggleClick(event) {
+  if (this.checked) {
+    console.warn("Change input 'type' to: text");
+    pswA.type = "text";
+    pswI.type = "text";
+    password.type = "text";
+  } else {
+    console.warn("Change input 'type' to: password");
+    pswA.type = "password";
+    pswI.type = "password";
+    password.type = "password";
+  }
+}

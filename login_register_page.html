@@ -113,8 +113,8 @@
             <div>
               <label for="psw">Salasõna:</label>
               <input type="password" id="psw-i" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna" required>
-              <label id="pass-toggle">
-                <input type="checkbox" for="psw-i" onclick="showPassInterested();">
+              <label id="pass-toggle" for="show-password-i">
+                <input type="checkbox" id="show-password-i" for="psw-i">
                 Näita salasõna
               </label>
               <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
@@ -140,8 +140,8 @@
             <div>
               <label for="psw">Salasõna:</label>
               <input type="password" id="psw-a" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna" required>
-              <label id="pass-toggle">
-                <input type="checkbox" for="psw-a" onclick="showPassArtist();">
+              <label id="pass-toggle" for="show-password-a">
+                <input type="checkbox" id="show-password-a" for="psw-a">
                 Näita salasõna
               </label>
               <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
@@ -168,8 +168,8 @@
             <input id="email" name="email" type="email" placeholder="email" required>
             <legend>Salasõna:</legend>
             <input id="password" name="password" type="password" placeholder="salasõna" class="login-pass" required>
-            <label id="pass-toggle">
-              <input type="checkbox" for="password" onclick="showPass();">
+            <label id="pass-toggle" for="show-password">
+              <input type="checkbox" id="show-password" for="password">
               Näita salasõna
             </label>
           </fieldset>
