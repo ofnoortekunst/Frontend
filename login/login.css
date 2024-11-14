@@ -737,6 +737,11 @@ nav svg {
   vertical-align: middle;
 }
 
+.login-register-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
 
 /* Form things in main */
 
@@ -746,6 +751,7 @@ nav svg {
 
 #interested-form.selected, #artist-form.selected {
   display: flex;
+  flex-direction: column;
 }
 
 #interested-form fieldset div label, #artist-form fieldset div label {
@@ -787,6 +793,10 @@ nav svg {
 
 #interested-form fieldset #pass-toggle input, #artist-form fieldset #pass-toggle input  {
   margin: 0;
+}
+
+#interested-form fieldset, #artist-form fieldset {
+  width: 100%;
 }
 
 

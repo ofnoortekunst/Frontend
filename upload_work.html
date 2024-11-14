@@ -79,53 +79,53 @@
   </div>
   <div id="settings-overlay"></div>
   <main>
-    <div class="upper-section">
-      <div class="container">
-        <div class="card">
-          <h3 class="app-subtitle">
-                Lae oma teos
-          </h3>
-          <label for="fileInput" class="file-label">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-200h80v-167l64 64 56-57-160-160-160 160 57 56 63-63v167ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
-            Vali fail
-          </label>
-          <input type="file" id="fileInput" class="file-input" />
-          <div class="progress-container">
-              <div class="progress-bar" id="progressBar"></div>
-              <div class="progress-text" id="progressText"></div>
+    <form>
+      <div class="upper-section">
+        <div class="container">
+          <div class="card">
+            <h3 class="app-subtitle">
+                  Lae oma teos
+            </h3>
+            <label for="fileInput" class="file-label">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-200h80v-167l64 64 56-57-160-160-160 160 57 56 63-63v167ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
+              Vali fail
+            </label>
+            <input type="file" id="fileInput" class="file-input" />
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+                <div class="progress-text" id="progressText"></div>
+            </div>
+            <div class="file-details">
+                <div class="file-name" id="fileName"></div>
+                <button class="clear-button" id="clearButton">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </button>
+            </div>
+            <div class="preview-container" id="previewContainer"></div>
           </div>
-          <div class="file-details">
-              <div class="file-name" id="fileName"></div>
-              <button class="clear-button" id="clearButton">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-              </button>
-          </div>
-          <div class="preview-container" id="previewContainer"></div>
+        </div>
+        <div class="modal" id="myModal">
+            <span class="close" id="closeModal">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </span>
+            <img class="modal-content" id="uploadedImageModal">
+        </div>
+        <div class="column-top">
+          <fieldset>
+            <legend>Pealkiri:</legend>
+            <div>
+              <input type="text" name="pealkiri" class="form-control">
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Hind:</legend>
+            <div>
+              <input type="number" placeholder="€" id="price">
+            </div>
+          </fieldset>
         </div>
       </div>
-      <div class="modal" id="myModal">
-          <span class="close" id="closeModal">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-          </span>
-          <img class="modal-content" id="uploadedImageModal">
-      </div>
-      <form>
-        <fieldset>
-          <legend>Pealkiri:</legend>
-          <div>
-            <input type="text" name="pealkiri" class="form-control">
-          </div>
-        </fieldset>
-        <fieldset>
-          <legend>Hind:</legend>
-          <div>
-            <input type="number" placeholder="€" id="price">
-          </div>
-        </fieldset>
-      </form>
-    </div>
-    <div class="bottom-section">
-      <form>
+      <div class="bottom-section">
         <fieldset>
           <legend>Tehnika:</legend>
           <div>
@@ -200,9 +200,9 @@
           </div>
         </fieldset>
         <hr>
-      </form>
-    </div>
-    <button class="publish-button">Lae üles</button>
+      </div>
+      <input type="submit" class="publish-button" value="Lae üles" />
+    </form>
   </main>
   <button onclick="scrollToTop();" class="back-to-top">
     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg>

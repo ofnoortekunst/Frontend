@@ -125,6 +125,10 @@
               <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
             </div>
           </fieldset>
+          <div class="login-register-buttons">
+            <input type="submit" class="register-button" value="Loo konto" />
+            <label class="login-button" id="close-forms-i" for="register-button">Konto olemas</label>
+          </div>
         </form>
         <form method="post" id="artist-form">
           <fieldset>
@@ -156,9 +160,11 @@
               <button class="load-works" onclick="openPage('upload_work.html');">0/3</button>
             </div>
           </fieldset>
+          <div class="login-register-buttons">
+            <input type="submit" class="register-button" value="Loo konto" />
+            <label class="login-button" id="close-forms-a" for="register-button">Konto juba olemas</label>
+          </div>
         </form>
-        <button class="register-button">Loo konto</button>
-        <label class="login-button" id="close-forms" for="register-button">Logi sisse</label>
       </div>
       <div class="login-container">
         <h1>Logi sisse</h1>
@@ -173,9 +179,11 @@
               Näita salasõna
             </label>
           </fieldset>
+          <div class="login-register-buttons">
+            <input type="submit" class="login-button" value="Logi sisse" />
+            <label class="register-button" for="register-button">Pole kontot?</label>
+          </div>
         </form>
-        <button class="login-button">Logi sisse</button>
-        <label class="register-button" for="register-button">Registreeru</label>
       </div>
     </div>
   </main>

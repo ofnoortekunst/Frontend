@@ -178,42 +178,19 @@ function openPage(pageUrl){
   window.location.href = pageUrl;
 }
 
-document.getElementById('close-forms').addEventListener('click', () => {
+// Close forms from artist page
+document.getElementById('close-forms-a').addEventListener('click', () => {
   document.getElementById('artist-form').classList.remove('selected');
   document.getElementById('interested-form').classList.remove('selected');
 });
 
-// Toggle password visibility (login)
-function showPass() {
-  let pass = document.getElementById('password');
-  if (pass.type === 'password') {
-    pass.type = "text";
-  } else {
-    pass.type = "password";
-  };
-};
+// Close forms form interested page
+document.getElementById('close-forms-i').addEventListener('click', () => {
+  document.getElementById('artist-form').classList.remove('selected');
+  document.getElementById('interested-form').classList.remove('selected');
+});
 
-// Toggle password visibility (interested form)
-function showPassInterested() {
-  let pass = document.getElementById('psw-i');
-  if (pass.type === 'password') {
-    pass.type = "text";
-  } else {
-    pass.type = "password";
-  };
-};
-
-// Toggle password visibility (artist form)
-function showPassArtist() {
-  let pass = document.getElementById('psw-a');
-  if (pass.type === 'password') {
-    pass.type = "text";
-  } else {
-    pass.type = "password";
-  };
-};
-
-// Login form 'show pass'
+// Show password
 let password = document.getElementById('password');
 let toggle = document.getElementById('show-password');
 let pswA = document.getElementById('psw-a');
