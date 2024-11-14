@@ -821,9 +821,13 @@ fieldset label {
 
 input {
   border: 2px solid var(--dark-text-color);
-  border-radius: 10px;
-  padding: 5px;
+  border-radius: 100vh;
+  padding: 5px 0.8rem;
   outline: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--dark-text-color);
 }
 
 ::placeholder {
@@ -833,10 +837,6 @@ input {
 
 ::-ms-input-placeholder { /* Edge 12 -18 */
   color: var(--place-holder-color);
-}
-
-.upper-section fieldset legend {
-  width: 100%;
 }
 
 .upper-section fieldset div {
@@ -930,17 +930,13 @@ form .bottom-section hr:last-child {
     gap: 0.5em;
   }
 
-  legend, .column-top fieldset legend {
+  legend {
     margin-left: calc(50%);
     transform: translateX(-50%);
   }
 
   .bottom-section legend {
     margin-bottom: 0;
-  }
-
-  .upper-section fieldset legend {
-    text-align: center;
   }
 
   form .bottom-section hr {
