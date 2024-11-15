@@ -546,6 +546,10 @@ main p, main label {
   transition: all 0.2s ease;
 }
 
+.btn {
+  margin-top: 0.5rem;
+}
+
 legend {
   color: var(--dark-text-color);
 }
@@ -602,7 +606,7 @@ main hr {
   }
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1060px) {
   .acc-container {
     align-items: center;
     width: 100%;
@@ -621,7 +625,7 @@ main hr {
     margin: 0.5rem;
   }
 
-  div {
+  main div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -634,6 +638,10 @@ main hr {
 
   main label {
     margin-bottom: 0.5rem;
+  }
+
+  #password, #psw-new {
+    margin-bottom: 0;
   }
 }
 

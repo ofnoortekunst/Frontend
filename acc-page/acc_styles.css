@@ -544,6 +544,10 @@ main p, main label {
   transition: all 0.2s ease;
 }
 
+.btn {
+  margin-top: 0.5rem;
+}
+
 legend {
   color: var(--dark-text-color);
 }
