@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Logi sisse/registreeru</title>
+  <title>Konto</title>
   <link rel="stylesheet" href="acc-page/acc_styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -80,33 +80,51 @@
   <div id="settings-overlay"></div>
   <main>
     <div class="acc-container">
-      
-      <h1>Konto</h1>
-      <h2>Nimi</h2>
-      <p>Märt Madis</p>
-      <div class="spec-section">
-        <input type="text" id="new-name">
-        <button class="sub-button">Salvestsa uus nimi.</button>
+      <div>
+        <h1>Konto</h1>
+        <div class="person-card">
+          <img src="images/pfp.jpg" alt="profile-pic" id="profile-pic">
+          <label for="input-file" class="change-something">Muuda  profiilipilti</label>
+          <input type="file" accept="images/jpeg, images/png, images/jpg" id="input-file">
+        </div>
       </div>
-      <h2>Salasõna</h2>
-      <legend>Vana salasõna:</legend>
-      <input id="password" name="password" type="password" class="login-pass">
-      <label id="pass-toggle">
-        <input type="checkbox" for="password" onclick="showPass();">
-        Näita salasõna
-      </label>
-      <legend>Uus salasõna:</legend>
-      <input id="psw-new" name="password" type="password" class="login-pass">
-      <label id="pass-toggle">
-        <input type="checkbox" for="psw-new" onclick="showPass();">
-        Näita salasõna
-      </label>
-      <button class="sub-button">Muuda salasõna</button>
-      <h2>Email</h2>
-      <p>madisiopr@jdn.oew</p>
-      <div class="spec-section">
-        <input type="email" id="new-email">
-      <button class="sub-button">Muuda meiliaadressi</button>
+      <hr>
+      <div>
+        <h2>Nimi</h2>
+        <p>Märt Madis (kunstihuviline)</p>
+        <div class="spec-section">
+          <label  for="new-name" class="change-something">Muuda nime</label>
+          <input type="text" id="new-name" placeholder="nimi">
+          <button class="sub-button">Salvestsa uus nimi.</button>
+        </div>
+      </div>
+      <hr>
+      <div class="password-sec">
+        <h2>Salasõna</h2>
+        <label for="password" class="change-something">Muuda salasõna</label>
+        <legend>Vana salasõna:</legend>
+        <input id="password" name="password" type="password" class="login-pass" placeholder="salasõna">
+        <label id="pass-toggle-1" for="show-pass-1">
+          <input type="checkbox" for="password" id="show-pass-1">
+          Näita salasõna
+        </label>
+        <legend>Uus salasõna:</legend>
+        <input id="psw-new" name="password" type="password" class="login-pass" placeholder="salasõna uuesti">
+        <label id="pass-toggle-2" for="show-pass-2">
+          <input type="checkbox" for="psw-new" id="show-pass-2">
+          Näita salasõna
+        </label>
+        <button class="sub-button">Salvesta uus salasõna</button>
+      </div>
+      <hr>
+      <div>
+        <h2>Email</h2>
+        <p>madisiopr@jdn.oew</p>
+        <div class="spec-section">
+          <label for="new-email" class="change-something">Muuda emaili</label>
+          <input type="email" id="new-email" placeholder="email">
+          <button class="sub-button">Muuda meiliaadressi</button>
+        </div>
       </div>
     </div>
   </main>

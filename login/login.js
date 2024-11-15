@@ -198,20 +198,36 @@ let toggleA = document.getElementById('show-password-a');
 let pswI = document.getElementById('psw-i');
 let toggleI = document.getElementById('show-password-i');
 
-toggle.addEventListener("click", handleToggleClick, false);
-toggleA.addEventListener("click", handleToggleClick, false);
-toggleI.addEventListener("click", handleToggleClick, false);
+toggle.addEventListener("click", handleToggleClick1, false);
+toggleA.addEventListener("click", handleToggleClick2, false);
+toggleI.addEventListener("click", handleToggleClick3, false);
 
-function handleToggleClick(event) {
+function handleToggleClick1(event) {
   if (this.checked) {
     console.warn("Change input 'type' to: text");
-    pswA.type = "text";
-    pswI.type = "text";
     password.type = "text";
   } else {
     console.warn("Change input 'type' to: password");
-    pswA.type = "password";
-    pswI.type = "password";
     password.type = "password";
   }
-}
+};
+
+function handleToggleClick2(event) {
+  if (this.checked) {
+    console.warn("Change input 'type' to: text");
+    pswA.type = "text";
+  } else {
+    console.warn("Change input 'type' to: password");
+    pswA.type = "password";
+  }
+};
+
+function handleToggleClick3(event) {
+  if (this.checked) {
+    console.warn("Change input 'type' to: text");
+    pswI.type = "text";
+  } else {
+    console.warn("Change input 'type' to: password");
+    pswI.type = "password";
+  }
+};
