@@ -608,17 +608,25 @@ main hr {
 
 @media (max-width: 1060px) {
   .acc-container {
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     padding: 1rem;
   }
 
   .person-card {
-    align-items: center;
+    align-items: flex-start;
   }
 
   h1, h2 {
-    text-align: center;
+    text-align: left;
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  .password-sec h2 {
+    margin-bottom: 1.5rem;
   }
 
   .sub-button, .change-something, input {
@@ -628,11 +636,11 @@ main hr {
   main div {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .password-sec {
-    align-items: center;
+    align-items: flex-start;
     gap: 0.5rem;
   }
 
@@ -642,6 +650,10 @@ main hr {
 
   #password, #psw-new {
     margin-bottom: 0;
+  }
+
+  .change-something, input, .sub-button {
+    margin-left: 0;
   }
 }
 

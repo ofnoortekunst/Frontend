@@ -232,3 +232,9 @@ themeSwitch.addEventListener('click', () => {
   // Toggle between enabling and disabling dark mode based on current state.
   darkmode !== 'active' ? enableDarkmode() : disableDarkmode();
 });
+
+
+// Open the artwork onclick
+function openPage(pageUrl){
+  window.location.href = pageUrl;
+}

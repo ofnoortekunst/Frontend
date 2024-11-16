@@ -170,7 +170,7 @@ themeSwitch.addEventListener('click', () => {
 });
 
 
-// Make sure that transitions won't be applied before the page hasn't loaded fully.
-$(document).ready(() => {
-  setTimeout(() => $(".css-transitions-only-after-page-load").removeClass("css-transitions-only-after-page-load"), 10);
-});
+// Open the artwork onclick
+function openPage(pageUrl){
+  window.location.href = pageUrl;
+}
