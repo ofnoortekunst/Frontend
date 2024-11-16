@@ -790,10 +790,17 @@ nav svg {
 }
 
 .work-title {
+  display: flex;
   font-size: 26px;
   font-weight: 550;
   color: var(--dark-text-color);
   background-color: transparent;
+}
+
+.author-button {
+  color: var(--hover-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .price-in-spec {
@@ -880,6 +887,10 @@ nav svg {
   .modal span svg:hover {
     fill: var(--hover-color);
   }
+
+  .author-button:hover {
+    color: var(--dark-hover-color);
+  }
 }
 
 @media (max-width: 745px) {
@@ -903,7 +914,7 @@ nav svg {
 
   .work-title {
     width: 100%;
-    text-align: center;
+    justify-content: center;
   }
 
   .top-spec button, .price-in-spec {
