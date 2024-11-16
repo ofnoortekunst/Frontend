@@ -728,6 +728,10 @@ nav svg {
   width: 100%;
 }
 
+h1 {
+  font-size: 28px;
+}
+
 .person-card {
   display: flex;
   flex-direction: column;
