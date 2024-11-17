@@ -526,7 +526,7 @@ h2:last-of-type {
 }
 
 .question {
-  border: 2px solid var(--dark-text-color);
+  border: none;
   padding: 1rem;
   border-radius: 10px;
   box-shadow: var(--gray-between) 0px 1px 5px 0px;
