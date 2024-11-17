@@ -504,7 +504,7 @@ nav svg {
 }
 
 h1 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: var(--dark-text-color);
   font-size: 28px;
 }
@@ -515,9 +515,12 @@ h2 {
   font-size: 20px;
 }
 
+h2:last-of-type {
+  margin-bottom: 0;
+}
+
 .question-container {
   display: grid;
-  margin-top: 1.5rem;
   gap: 1rem;
   grid-template-columns: repeat(2, 1fr);
 }
