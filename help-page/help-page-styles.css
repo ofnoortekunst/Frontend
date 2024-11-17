@@ -580,12 +580,6 @@ textarea {
   width: 30%;
 }
 
-main hr {
-  width: 100%;
-  border: 1px solid var(--gray-between);
-  border-radius: 100vh;
-}
-
 @media (hover:hover) {
   .sub-button:hover {
     background-color: var(--dark-hover-color);
