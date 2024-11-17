@@ -529,6 +529,7 @@ h2:last-of-type {
   border: 2px solid var(--dark-text-color);
   padding: 1rem;
   border-radius: 10px;
+  box-shadow: var(--gray-between) 0px 1px 5px 0px;
 }
 
 legend {
