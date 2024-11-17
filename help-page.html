@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lae oma töö</title>
-  <link rel="stylesheet" href="upload_work/upload_work_styles.css">
+  <title>Abi</title>
+  <link rel="stylesheet" href="help-page/help-page-styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -79,130 +79,34 @@
   </div>
   <div id="settings-overlay"></div>
   <main>
-    <form method="post">
-      <div class="upper-section">
-        <div class="container">
-          <div class="card">
-            <h3 class="app-subtitle">
-                  Lae oma teos
-            </h3>
-            <label for="fileInput" class="file-label">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-200h80v-167l64 64 56-57-160-160-160 160 57 56 63-63v167ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
-              Vali fail
-            </label>
-            <input type="file" id="fileInput" class="file-input" />
-            <div class="progress-container">
-                <div class="progress-bar" id="progressBar"></div>
-                <div class="progress-text" id="progressText"></div>
-            </div>
-            <div class="file-details">
-                <div class="file-name" id="fileName"></div>
-                <button class="clear-button" id="clearButton">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-                </button>
-            </div>
-            <div class="preview-container" id="previewContainer"></div>
-          </div>
+    <div class="help-container">
+      <h1>Abi</h1>
+      <p>Siin võid leida vastuseid küsimustele ja segadust tekitavatele probleemidele.</p>
+      <div class="question-container">
+        <div class="question">
+          <h2>Miks on loojana vaja kohe alguses 3 teost postitada?</h2>
+          <p>Soovime luua ruumi aktiivsetele kunstnikele ja tagada, et platvormil jagatav sisu on inspireeriv. Kolme teose esitamine aitab näidata teie pühendumust loomingule.
+
+          Kui teil pole veel kolme teost, võtke aega oma portfoolio täiendamiseks ja tulge tagasi, kui olete valmis!</p>
         </div>
-        <div class="modal" id="myModal">
-            <span class="close" id="closeModal">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-            </span>
-            <img class="modal-content" id="uploadedImageModal">
-        </div>
-        <div class="column-top">
-          <fieldset>
-            <legend>Pealkiri:</legend>
-            <div>
-              <input type="text" name="pealkiri" class="form-control">
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Hind:</legend>
-            <div>
-              <input type="number" placeholder="€" id="price">
-            </div>
-          </fieldset>
+        <div class="question">
+          <h2>Kuidas tume režiim sisse lülitada?</h2>
+          <p>
+            Mine seadetesse ja seal kohe "Seaded" sõna kõrval on kuu sümbol, vajutage seda ja tumerežiim on sees.
+          </p>
         </div>
       </div>
-      <div class="bottom-section">
-        <fieldset>
-          <legend>Tehnika:</legend>
-          <div>
-            <input type="radio" id="acrylic" name="technique" value="acrylic" checked>
-            <label for="acrylic">Akrüül</label>
-          </div>
-          <div>
-            <input type="radio" id="oil" name="technique" value="oil">
-            <label for="oil">Õli</label>
-          </div>
-          <div>
-            <input type="radio" id="pastel" name="technique" value="pastel">
-            <label for="pastel">Pastell</label>
-          </div>
-          <div>
-            <input type="radio" id="pencil" name="technique" value="pencil">
-            <label for="pencil">Pliiats</label>
-          </div>
-          <div>
-            <input type="text" id="art-technique" placeholder="Muu">
-          </div>
-        </fieldset>
-        <hr>
-        <fieldset>
-          <legend>Pind:</legend>
-          <div>
-            <input type="radio" id="paper" name="surface" value="paper" checked>
-            <label for="paper">Paber</label>
-          </div>
-          <div>
-            <input type="radio" id="cardboard" name="surface" value="cardboard">
-            <label for="cardboard">Papp</label>
-          </div>
-          <div>
-            <input type="radio" id="canvass" name="surface" value="canvass">
-            <label for="canvass">Lõuend</label>
-          </div>
-          <div>
-            <input type="radio" id="other" name="other">
-            <label for="other">Muu</label>
-          </div>
-        </fieldset>
-        <hr>
-        <fieldset>
-          <legend>Suurus:</legend>
-          <div>
-            <input type="radio" id="a3" name="size" value="a3" checked>
-            <label for="a3">A3</label>
-          </div>
-          <div>
-            <input type="radio" id="a4" name="size" value="a4">
-            <label for="a4">A4</label>
-          </div>
-          <div>
-            <input type="radio" id="a5" name="size" value="a5">
-            <label for="a5">A5</label>
-          </div>
-          <div>
-            <input type="text" placeholder="Muu, näiteks 25x45 (cm)" id="art-size">
-          </div>
-        </fieldset>
-        <hr>
-        <fieldset>
-          <legend>Suund:</legend>
-          <div>
-            <input type="radio" id="horizontal" name="direction" value="horizontal" checked>
-            <label for="horizontal">Horisontaalselt</label>
-          </div>
-          <div>
-            <input type="radio" id="vertical" name="direction" value="vertical">
-            <label for="vertical">Vertikaalselt</label>
-          </div>
-        </fieldset>
-        <hr>
-      </div>
-      <input type="submit" class="publish-button" value="Lae üles" />
-    </form>
+      <h2>Kui teil endal tekib mingi küsimus, saate meile meili saata ja üritame ühe nädala jooksul vastata.</h2>
+      <form>
+        <legend>Teie nimi</legend>
+        <input type="text" name="name" id="name" placeholder="nimi">
+        <legend>Teie meiliaadress</legend>
+        <input type="email" name="email" id="email" placeholder="meiliaadress">
+        <legend>Teie küsimus</legend>
+        <textarea></textarea>
+        <input type="submit" class="sub-button" value="Saada">
+      </form>
+    </div>
   </main>
   <button onclick="scrollToTop();" class="back-to-top">
     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg>
@@ -222,6 +126,6 @@
     </div>
   </footer>
 
-  <script type="text/javascript" src="upload_work/upload_work_script.js" defer></script>
+  <script type="text/javascript" src="help-page/help-page-script.js" defer></script>
 </body>
 </html>
