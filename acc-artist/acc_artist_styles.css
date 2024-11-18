@@ -559,7 +559,7 @@ legend {
   display: none;
 }
 
-input, .sub-button, .bio {
+main input, .sub-button, .bio {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -641,7 +641,7 @@ main hr {
     margin-bottom: 1.5rem;
   }
 
-  .sub-button, .change-something, input {
+  .sub-button, .change-something, main input {
     margin: 0.5rem;
   }
 

@@ -510,13 +510,13 @@ h1 {
 }
 
 h2 {
-  margin-bottom: 0.75rem;
   color: var(--dark-text-color);
   font-size: 20px;
+  margin-bottom: 0;
 }
 
-h2:last-of-type {
-  margin-bottom: 0;
+.question h2 {
+  margin-bottom: 0.75rem;
 }
 
 .question-container {
