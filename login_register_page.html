@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Logi sisse/registreeru</title>
+  <title>Logi sisse/Loo konto</title>
+  <link rel="icon" type="image/jpg" href="images/html-icon.jpg">
   <link rel="stylesheet" href="login/login.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -112,17 +113,16 @@
             </div>
             <div>
               <label for="psw">Salasõna:</label>
-              <input type="password" id="psw-i" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna" required>
+              <input type="password" id="psw-i" name="psw" placeholder="salasõna" required>
               <label id="pass-toggle" for="show-password-i">
                 <input type="checkbox" id="show-password-i" for="psw-i">
                 Näita salasõna
               </label>
-              <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
+              <p class="sub-text">Proovi valida võimalikult tugev salasõna</p>
             </div>
             <div>
               <label for="psw-again">Sisesta salasõna uuesti:</label>
-              <input type="password" id="psw-again" name="psw-again" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna uuesti" required>
-              <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
+              <input type="password" id="psw-again" name="psw-again" placeholder="salasõna uuesti" required>
             </div>
           </fieldset>
           <div class="login-register-buttons">
@@ -139,21 +139,20 @@
             <div>
               <label for="name">Nimi:</label>
               <input type="text" id="name" name="name" placeholder="kasutajanimi" required>
-              <p class="sub-text">Proovi valida püsiv nimi mille järgi inimesed sind tulevikus ära tunneksid.</p>
+              <p class="sub-text">Proovi valida püsiv nimi mille järgi inimesed sind tulevikus ära tunneksid</p>
             </div>
             <div>
               <label for="psw">Salasõna:</label>
-              <input type="password" id="psw-a" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna" required>
+              <input type="password" id="psw-a" name="psw" placeholder="salasõna" required>
               <label id="pass-toggle" for="show-password-a">
                 <input type="checkbox" id="show-password-a" for="psw-a">
                 Näita salasõna
               </label>
-              <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
+              <p class="sub-text">Proovi valida võimalikult tugev salasõna</p>
             </div>
             <div>
               <label for="psw-again">Sisesta salasõna uuesti:</label>
-              <input type="password" id="psw-again" name="psw-again" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="salasõna uuesti" required>
-              <p class="sub-text">Vähemalt 8 sümbolit, 1 number,  1 suur- ja 1 väiketäht</p>
+              <input type="password" id="psw-again" name="psw-again" placeholder="salasõna uuesti" required>
             </div>
             <div>
               <label>Et looja staatus saada pead kohe alguses juba 3 tööd esitama. <a href="help-page.html">Miks?</a></label>

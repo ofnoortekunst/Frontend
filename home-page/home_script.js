@@ -174,3 +174,29 @@ themeSwitch.addEventListener('click', () => {
 function openPage(pageUrl){
   window.location.href = pageUrl;
 }
+
+// Cookies
+const cookieBox = document.querySelector('.cookies');
+const cookieButtons = document.querySelectorAll('.cookie-button');
+
+// Function to show cookie div and act accordingly whether they've been accepted or not.
+const executeCookieCodes = () => {
+  if (document.cookie.includes('noorteKunst')) return;
+
+  cookieBox.classList.add('show-cookies');
+
+  cookieButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      cookieBox.classList.remove ('show-cookies');
+
+      if (button.id == 'accept-cookies') {
+        // Cookies have been accepted so set them for 30 days.
+        // 60 = 1min, 60 = 1h, 24 = 1day, 30 = 30days
+        document.cookie = "CookieBy = noorteKunst; max-age=" + 60 * 60 * 24 * 30;
+      };
+    });
+  });
+};
+
+// When the page is loaded the executeCookieCodes function will run.
+window.addEventListener('load', executeCookieCodes)

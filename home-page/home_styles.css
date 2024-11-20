@@ -17,6 +17,7 @@
   --insta-color: #FB7833;
   --tiktok-color: #69C9D0;
   --gmail-color: #EA4335;
+  --dark-red: #cb4033;
   --black: black;
   --place-holder-color: #737373;
   --nav-border: #15154b;
@@ -41,6 +42,7 @@
   --insta-color: #FB7833;
   --tiktok-color: #69C9D0;
   --gmail-color: #EA4335;
+  --dark-red: #cb4033;
   --black: black;
   --nav-border: #1F1B24;
   --footer-background: black;
@@ -1117,6 +1119,92 @@ nav svg {
 .language {
   cursor: default;
   color: var(--dark-text-color);
+}
+
+
+/* Cookie div */
+
+.cookies {
+  position: fixed;
+  bottom: 50px;
+  right: -370px;
+  z-index: 4;
+  max-width: 345px;
+  width: 100%;
+  background-color: var(--back);
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  box-shadow: 1px 2px 4px var(--gray-between);
+  transition: right 0.3s ease;
+}
+
+.cookies.show-cookies {
+  right: 20px;
+}
+
+.cookie-data, .cookie-buttons {
+  background-color: var(--back);
+}
+
+.cookies h2 {
+  font-size: 28px;
+}
+
+.cookies h2 svg {
+  fill: var(--dark-text-color);
+  vertical-align: middle;
+}
+
+.cookies p, .cookies a {
+  font-weight: 400;
+}
+
+.cookies h2, .cookies p, .cookies a {
+  background-color: var(--back);
+  color: var(--dark-text-color);
+}
+
+.cookies a {
+  color: var(--hover-color);
+}
+
+.cookie-data {
+  margin: 1rem 0;
+}
+
+.cookie-button {
+  border-radius: 100vh;
+  border: none;
+  color: var(--back);
+  padding: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#accept-cookies {
+  background-color: var(--hover-color);
+}
+
+#decline-cookies {
+  background-color: var(--gmail-color);
+  margin-top: 0.5rem;
+}
+
+@media (hover:hover) {
+  #accept-cookies:hover {
+    background-color: var(--dark-hover-color);
+  }
+
+  #decline-cookies:hover {
+    background-color: var(--dark-red);
+  }
 }
 
 
