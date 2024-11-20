@@ -602,7 +602,10 @@ nav svg {
 
 .login-button, .register-button, .load-works {
   width: 100%;
-  text-align: center;
+  height: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   margin-top: 1rem;
   font-family: 'Poppins', sans-serif;
