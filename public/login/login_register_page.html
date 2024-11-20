@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lae oma töö</title>
+<<<<<<< HEAD:login_register_page.html
+  <title>Logi sisse/Loo konto</title>
   <link rel="icon" type="image/jpg" href="images/html-icon.jpg">
-  <link rel="stylesheet" href="upload_work/upload_work_styles.css">
+  <link rel="stylesheet" href="login/login.css">
+=======
+  <title>Logi sisse/registreeru</title>
+  <link rel="stylesheet" href="/login/login.css">
+>>>>>>> 45d28c4401699115c0f183756343c87ae7c04823:public/login/login_register_page.html
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -13,7 +18,7 @@
 <body class="">
   <header>
     <div class="profile">
-      <div class="pfp" onclick="openPage('acc-page-interested.html');"><img alt="profile-picture" class="pf-pic" src="images/pfp.jpg"></div>
+      <div class="pfp" onclick="openPage('acc-page-interested.html');"><img alt="profile-picture" class="pf-pic" src="/images/pfp.jpg"></div>
       <div class="user-info">
         <p class="name">Lorem, ipsum.</p>
         <p class="status">Ostja</p>
@@ -22,7 +27,7 @@
     <nav>
       <input type="checkbox" id="sidebar-active">
       <div class="sidebar-active-nav">
-        <a href="index.html" class="static-a"><img alt="logo-static" class="logo-static" src="images/pro-logo-transparent.png"></a>
+        <a href="index.html" class="static-a"><img alt="logo-static" class="logo-static" src="/images/pro-logo-transparent.png"></a>
       </div>
       <label for="sidebar-active" class="open-sidebar-btn">
         <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
@@ -34,7 +39,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
         </label>
 
-        <a onclick="hideSideBar();" href="index.html" class="home-link"><img class="logo" alt="logo" src="images/pro-logo-transparent.png"></a>
+        <a onclick="hideSideBar();" href="index.html" class="home-link"><img class="logo" alt="logo" src="/images/pro-logo-transparent.png"></a>
         <a onclick="hideSideBar();" href="upload_work.html" class="upload-work-button">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
         </a>
@@ -80,130 +85,111 @@
   </div>
   <div id="settings-overlay"></div>
   <main>
-    <form method="post">
-      <div class="upper-section">
-        <div class="container">
-          <div class="card">
-            <h3 class="app-subtitle">
-                  Lae oma teos
-            </h3>
-            <label for="fileInput" class="file-label">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-200h80v-167l64 64 56-57-160-160-160 160 57 56 63-63v167ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
-              Vali fail
+    <div class="login-register-box">
+      <input type="checkbox" id="register-button">
+      <div class="image-and-desc">
+        <img alt="logo" src="/images/logo-white-background.png">
+        <p>Eesti esimene noortele loodud veebigalerii</p>
+      </div>
+      <div class="register-container">
+        <h1>Loo konto</h1>
+        <form method="post">
+          <fieldset>
+            <legend>Roll:</legend>
+            <div>
+              <input type="radio" id="interested" name="role" value="interested">
+              <label for="interested">Kunstihuviline</label>
+            </div>
+            <div>
+              <input type="radio" id="artist" name="role" value="artist">
+              <label for="artist">Looja</label>
+            </div>
+          </fieldset>
+        </form>
+        <form method="post" id="interested-form">
+          <fieldset>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" placeholder="email" required>
+            </div>
+            <div>
+              <label for="name">Nimi:</label>
+              <input type="text" id="name" name="name" placeholder="kasutajanimi" required>
+            </div>
+            <div>
+              <label for="psw">Salasõna:</label>
+              <input type="password" id="psw-i" name="psw" placeholder="salasõna" required>
+              <label id="pass-toggle" for="show-password-i">
+                <input type="checkbox" id="show-password-i" for="psw-i">
+                Näita salasõna
+              </label>
+              <p class="sub-text">Proovi valida võimalikult tugev salasõna</p>
+            </div>
+            <div>
+              <label for="psw-again">Sisesta salasõna uuesti:</label>
+              <input type="password" id="psw-again" name="psw-again" placeholder="salasõna uuesti" required>
+            </div>
+          </fieldset>
+          <div class="login-register-buttons">
+            <input type="submit" class="register-button" value="Loo konto" />
+            <label class="login-button" id="close-forms-i" for="register-button">Konto olemas</label>
+          </div>
+        </form>
+        <form method="post" id="artist-form">
+          <fieldset>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" placeholder="email" required>
+            </div>
+            <div>
+              <label for="name">Nimi:</label>
+              <input type="text" id="name" name="name" placeholder="kasutajanimi" required>
+              <p class="sub-text">Proovi valida püsiv nimi mille järgi inimesed sind tulevikus ära tunneksid</p>
+            </div>
+            <div>
+              <label for="psw">Salasõna:</label>
+              <input type="password" id="psw-a" name="psw" placeholder="salasõna" required>
+              <label id="pass-toggle" for="show-password-a">
+                <input type="checkbox" id="show-password-a" for="psw-a">
+                Näita salasõna
+              </label>
+              <p class="sub-text">Proovi valida võimalikult tugev salasõna</p>
+            </div>
+            <div>
+              <label for="psw-again">Sisesta salasõna uuesti:</label>
+              <input type="password" id="psw-again" name="psw-again" placeholder="salasõna uuesti" required>
+            </div>
+            <div>
+              <label>Et looja staatus saada pead kohe alguses juba 3 tööd esitama. <a href="help-page.html">Miks?</a></label>
+              <button class="load-works" onclick="openPage('upload_work.html');">0/3</button>
+            </div>
+          </fieldset>
+          <div class="login-register-buttons">
+            <input type="submit" class="register-button" value="Loo konto" />
+            <label class="login-button" id="close-forms-a" for="register-button">Konto juba olemas</label>
+          </div>
+        </form>
+      </div>
+      <div class="login-container">
+        <h1>Logi sisse</h1>
+        <form method="post">
+          <fieldset>
+            <legend>Email:</legend>
+            <input id="email" name="email" type="email" placeholder="email" required>
+            <legend>Salasõna:</legend>
+            <input id="password" name="password" type="password" placeholder="salasõna" class="login-pass" required>
+            <label id="pass-toggle" for="show-password">
+              <input type="checkbox" id="show-password" for="password">
+              Näita salasõna
             </label>
-            <input type="file" id="fileInput" class="file-input" />
-            <div class="progress-container">
-                <div class="progress-bar" id="progressBar"></div>
-                <div class="progress-text" id="progressText"></div>
-            </div>
-            <div class="file-details">
-                <div class="file-name" id="fileName"></div>
-                <button class="clear-button" id="clearButton">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-                </button>
-            </div>
-            <div class="preview-container" id="previewContainer"></div>
-          </div>
-        </div>
-        <div class="modal" id="myModal">
-            <span class="close" id="closeModal">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-            </span>
-            <img class="modal-content" id="uploadedImageModal">
-        </div>
-        <div class="column-top">
-          <fieldset>
-            <legend>Pealkiri:</legend>
-            <div>
-              <input type="text" name="pealkiri" class="form-control">
-            </div>
           </fieldset>
-          <fieldset>
-            <legend>Hind:</legend>
-            <div>
-              <input type="number" placeholder="€" id="price">
-            </div>
-          </fieldset>
-        </div>
+          <div class="login-register-buttons">
+            <input type="submit" class="login-button" value="Logi sisse" />
+            <label class="register-button" for="register-button">Pole kontot?</label>
+          </div>
+        </form>
       </div>
-      <div class="bottom-section">
-        <fieldset>
-          <legend>Tehnika:</legend>
-          <div>
-            <input type="radio" id="acrylic" name="technique" value="acrylic" checked>
-            <label for="acrylic">Akrüül</label>
-          </div>
-          <div>
-            <input type="radio" id="oil" name="technique" value="oil">
-            <label for="oil">Õli</label>
-          </div>
-          <div>
-            <input type="radio" id="pastel" name="technique" value="pastel">
-            <label for="pastel">Pastell</label>
-          </div>
-          <div>
-            <input type="radio" id="pencil" name="technique" value="pencil">
-            <label for="pencil">Pliiats</label>
-          </div>
-          <div>
-            <input type="text" id="art-technique" placeholder="Muu">
-          </div>
-        </fieldset>
-        <hr>
-        <fieldset>
-          <legend>Pind:</legend>
-          <div>
-            <input type="radio" id="paper" name="surface" value="paper" checked>
-            <label for="paper">Paber</label>
-          </div>
-          <div>
-            <input type="radio" id="cardboard" name="surface" value="cardboard">
-            <label for="cardboard">Papp</label>
-          </div>
-          <div>
-            <input type="radio" id="canvass" name="surface" value="canvass">
-            <label for="canvass">Lõuend</label>
-          </div>
-          <div>
-            <input type="radio" id="other" name="other">
-            <label for="other">Muu</label>
-          </div>
-        </fieldset>
-        <hr>
-        <fieldset>
-          <legend>Suurus:</legend>
-          <div>
-            <input type="radio" id="a3" name="size" value="a3" checked>
-            <label for="a3">A3</label>
-          </div>
-          <div>
-            <input type="radio" id="a4" name="size" value="a4">
-            <label for="a4">A4</label>
-          </div>
-          <div>
-            <input type="radio" id="a5" name="size" value="a5">
-            <label for="a5">A5</label>
-          </div>
-          <div>
-            <input type="text" placeholder="Muu, näiteks 25x45 (cm)" id="art-size">
-          </div>
-        </fieldset>
-        <hr>
-        <fieldset>
-          <legend>Suund:</legend>
-          <div>
-            <input type="radio" id="horizontal" name="direction" value="horizontal" checked>
-            <label for="horizontal">Horisontaalselt</label>
-          </div>
-          <div>
-            <input type="radio" id="vertical" name="direction" value="vertical">
-            <label for="vertical">Vertikaalselt</label>
-          </div>
-        </fieldset>
-        <hr>
-      </div>
-      <input type="submit" class="publish-button" value="Lae üles" />
-    </form>
+    </div>
   </main>
   <button onclick="scrollToTop();" class="back-to-top">
     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg>
@@ -218,11 +204,11 @@
         <p class="gmail-content"><svg class="gmail-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gmail</title><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>of_noortekunst@gmail.com</p>
       </div>
       <div class="logo-container">
-        <img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo.png">
+        <img class="dark-logo-footer" alt="dark-logo" src="/images/footer-logo.png">
       </div>
     </div>
   </footer>
 
-  <script type="text/javascript" src="upload_work/upload_work_script.js" defer></script>
+  <script type="text/javascript" src="login/login.js" defer></script>
 </body>
 </html>
