@@ -3,7 +3,7 @@ rewrites: async () => {
   return [
     {
       source: "/",
-      destination: "/home-page/home_page.html",
+      destination: "/home-page/index.html",
     },
     {
       source: "/acc-page-interested.html",
@@ -31,7 +31,7 @@ rewrites: async () => {
     },
     {
       source: "/index.html",
-      destination: "/home-page/home_page.html",
+      destination: "/home-page/index.html",
     },
     {
       source: "/login.html",
