@@ -49,6 +49,10 @@ rewrites: async () => {
       source: "/works.html",
       destination: "/works-page/works.html",
     },
+    {
+      source: "/privacy.html",
+      destination: "/privacy/privacy.html",
+    },
   ]
 },
 assetPrefix: "." 
