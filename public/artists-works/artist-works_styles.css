@@ -16,6 +16,7 @@
   --insta-color: #FB7833;
   --tiktok-color: #69C9D0;
   --gmail-color: #EA4335;
+  --dark-red: #cf3a2d;
   --black: black;
   --place-holder-color: #737373;
   --nav-border: #15154b;
@@ -39,6 +40,7 @@
   --insta-color: #FB7833;
   --tiktok-color: #69C9D0;
   --gmail-color: #EA4335;
+  --dark-red: #cf3a2d;
   --black: black;
   --nav-border: #1F1B24;
   --footer-background: black;
@@ -774,6 +776,11 @@ nav svg {
   gap: 1rem;
 }
 
+.settings-modal-main.delete-confirmation {
+  flex-direction: row;
+  justify-content: center;
+}
+
 .settings-modal-main label {
   font-size: 16px;
   font-weight: 400;
@@ -791,6 +798,10 @@ nav svg {
   font-size: 18px;
   color: var(--dark-text-color);
   cursor: pointer;
+}
+
+.settings-modal-main.delete-confirmation button {
+  color: var(--back);
 }
 
 .settings-modal-header .close-settings-button {
@@ -957,11 +968,57 @@ nav svg {
   gap: 50px;
 }
 
+.amount-of-likes {
+  margin-left: auto;
+  border: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
 .amount-of-likes svg {
   vertical-align: middle;
   margin-bottom: 7px;
   fill: var(--dark-text-color);
   background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.delete-work-button {
+  background-color: var(--gmail-color);
+  border-radius: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 33px;
+  width: 33px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.yes-delete, .no-delete {
+  width: 50%;
+  border-radius: 100vh;
+  border: none;
+  padding: 5px;
+  transition: all 0.2s ease;
+}
+
+.yes-delete {
+  background-color: var(--gmail-color);
+}
+
+.no-delete {
+  background-color: var(--hover-color);
+}
+
+.delete-work-button svg {
+  fill: var(--back);
+  background-color: var(--gmail-color);
+  vertical-align: middle;
+  width: 22px;
+  transition: all 0.2s ease;
 }
 
 .art-pic {
@@ -977,6 +1034,25 @@ nav svg {
 
 .visible {
   opacity: 1;
+}
+
+@media (hover:hover) {
+  .amount-of-likes:hover svg, .amount-of-likes:hover{
+    fill: var(--hover-color);
+    color: var(--hover-color);
+  }
+
+  .delete-work-button:hover, .delete-work-button:hover svg {
+    background-color: var(--dark-red);
+  }
+
+  .yes-delete:hover {
+    background-color: var(--dark-red);
+  }
+
+  .no-delete:hover {
+    background-color: var(--dark-hover-color);
+  }
 }
 
 

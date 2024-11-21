@@ -19,7 +19,7 @@ rewrites: async () => {
     },
     {
       source: "/artist-works.html",
-      destination: "/artist-works/artist-works.html",
+      destination: "/artists-works/artist-works.html",
     },
     {
       source: "/fav-page.html",
