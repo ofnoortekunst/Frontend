@@ -46,7 +46,7 @@ rewrites: async () => {
       destination: "/work-opened/work-opened.html",
     },
     {
-      source: "/works-page.html",
+      source: "/works.html",
       destination: "/works-page/works.html",
     },
   ]
