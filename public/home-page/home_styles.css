@@ -869,6 +869,10 @@ nav svg {
   opacity: 1;
 }
 
+.invisible-id-divs {
+  visibility: hidden;
+}
+
 .background-image {
   width: 100%;
   height: 100%;
@@ -963,6 +967,7 @@ nav svg {
 .noortekunst-box p {
   font-size: 24px;
   color: var(--dark-text-color);
+  line-height: normal;
 }
 
 .noortekunst-intro-logo {

@@ -513,10 +513,12 @@ h2 {
   color: var(--dark-text-color);
   font-size: 20px;
   margin-bottom: 0;
+  margin-top: 3rem;
 }
 
 .question h2 {
   margin-bottom: 0.75rem;
+  margin-top: 0;
 }
 
 .question-container {
@@ -545,6 +547,7 @@ form {
 main p {
   color: var(--dark-text-color);
   font-weight: 400;
+  line-height: normal;
 }
 
 main input, .sub-button, textarea {
