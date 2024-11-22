@@ -785,6 +785,7 @@ nav svg {
     width: 100%;
     bottom: 0;
     max-width: 700px;
+    right: -700px;
   }
 }
 
