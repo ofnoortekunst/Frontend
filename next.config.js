@@ -3,7 +3,7 @@ rewrites: async () => {
   return [
     {
       source: "/",
-      destination: "/home_page/index.html",
+      destination: "/index.html",
     },
     {
       source: "/acc_page_interested",
