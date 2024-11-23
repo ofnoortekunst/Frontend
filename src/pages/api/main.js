@@ -4,7 +4,7 @@ import fs from 'fs';
 
 // vars
 
-const filename = './pages/home-page/home_page.html';
+const filename = './pages/home-page/home_page';
 
 // export
 
