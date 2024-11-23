@@ -7,47 +7,51 @@ rewrites: async () => {
     },
     {
       source: "/acc_page_interested",
-      destination: "/acc_interested/acc_page_interested.html",
+      destination: "/acc_page_interested.html",
     },
     {
       source: "/acc_artist",
-      destination: "/acc_artist/acc_page_artist.html",
+      destination: "/acc_page_artist.html",
     },
     {
       source: "/artist_page",
-      destination: "/artist-page/artist_page.html",
+      destination: "/artist_page.html",
     },
     {
       source: "/artist_works",
-      destination: "/artist_works/artist_works.html",
+      destination: "/artist_works.html",
     },
     {
       source: "/favourites_page",
-      destination: "/favourites_page/favourites_page.html",
+      destination: "/favourites_page.html",
     },
     {
       source: "/help_page",
-      destination: "/help_page/help_page.html",
+      destination: "/help_page.html",
     },
     {
       source: "/index",
-      destination: "/home_page/index.html",
+      destination: "/index.html",
     },
     {
       source: "/login_register_page",
-      destination: "/login/login_register_page.html",
+      destination: "/login_register_page.html",
     },
     {
       source: "/upload_work",
-      destination: "/upload_work/upload_work.html",
+      destination: "/upload_work.html",
     },
     {
       source: "/work_opened",
-      destination: "/work_opened/work_opened.html",
+      destination: "/work_opened.html",
     },
     {
       source: "/works",
-      destination: "/works_page/works.html",
+      destination: "/works.html",
+    },
+    {
+    source: '/public/:path*',
+    destination: '/:path*',
     },
   ]
 },
