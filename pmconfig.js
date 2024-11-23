@@ -3,7 +3,7 @@ module.exports = {
     {
       name: 'noortekunst-dev', // App name
       script: 'npm', // Path to the Next.js binary
-      args: 'start', // Run in "start" mode for production
+      args: 'run start', // Run in "start" mode for production
       cwd: '/data02/virt133817/website', // Current working directory
       watch: true,
       env: {
