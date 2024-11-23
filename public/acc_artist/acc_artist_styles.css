@@ -586,6 +586,10 @@ main input, .sub-button, .bio {
   transition: all 0.2s ease;
 }
 
+.sub-button.delete-acc {
+  background-color: var(--gmail-color);
+}
+
 .password-sec {
   display: flex;
   flex-direction: column;
@@ -606,6 +610,10 @@ main hr {
 @media (hover:hover) {
   .sub-button:hover {
     background-color: var(--dark-hover-color);
+  }
+
+  .sub-button.delete-acc:hover {
+    background-color: var(--dark-red);
   }
 
   .change-something:hover {

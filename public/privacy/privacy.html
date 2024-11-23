@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Logi sisse/Loo konto</title>
-  <link rel="icon" type="image/jpg" href="images/html-icon.jpg">
-  <link rel="stylesheet" href="login/login.css">
+  <title>Privaatsus</title>
+  <link rel="icon" type="image/jpg" href="/images/html-icon.jpg">
+  <link rel="stylesheet" href="/privacy/privacy.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -13,7 +13,7 @@
 <body class="">
   <header>
     <div class="profile">
-      <div class="pfp" onclick="openPage('acc_page-interested');"><img alt="profile-picture" class="pf-pic" src="/images/pfp.jpg"></div>
+      <div class="pfp" onclick="openPage('acc-page-interested.html');"><img alt="profile-picture" class="pf-pic" src="/images/pfp.jpg"></div>
       <div class="user-info">
         <p class="name">Lorem, ipsum.</p>
         <p class="status">Ostja</p>
@@ -35,14 +35,14 @@
         </label>
 
         <a onclick="hideSideBar();" href="index.html" class="home-link"><img class="logo" alt="logo" src="/images/pro-logo-transparent.png"></a>
-        <a onclick="hideSideBar();" href="upload_work" class="upload-work-button">
+        <a onclick="hideSideBar();" href="upload_work.html" class="upload-work-button">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
         </a>
-        <a onclick="hideSideBar();" href="works">Teosed</a>
+        <a onclick="hideSideBar();" href="works.html">Teosed</a>
         <p onclick="scrollToBottom(); hideSideBar();">Kontakt</p>
-        <a onclick="hideSideBar();" href="help_page">Abi</a>
+        <a onclick="hideSideBar();" href="help-page.html">Abi</a>
         <p onclick="hideSideBar();" data-modal-target="#settings-modal">Seaded</p>
-        <a onclick="hideSideBar();" href="favourites_page" class="bookmark">
+        <a onclick="hideSideBar();" href="favourites_page.html" class="bookmark">
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Zm80-122 200-86 200 86v-518H280v518Zm0-518h400-400Z"/></svg>
         Lemmikud</a>
       </div>
@@ -80,109 +80,23 @@
   </div>
   <div id="settings-overlay"></div>
   <main>
-    <div class="login-register-box">
-      <input type="checkbox" id="register-button">
-      <div class="image-and-desc">
-        <img alt="logo" src="/images/logo-white-background.png">
-        <p>Eesti esimene noortele loodud veebigalerii</p>
+    <div class="privacy-container">
+      <h1>Privaatsus</h1>
+      <div class="sub-div">
+        <h2>Küpsised</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur amet eaque rem sapiente dolorem nesciunt. Enim libero veritatis temporibus perferendis cupiditate voluptate saepe, impedit, provident natus consequatur qui modi ab. Veritatis modi aspernatur ipsam est laudantium quia dignissimos cupiditate illo culpa amet corporis doloremque rem aperiam eaque, obcaecati mollitia quisquam et fugiat libero perspiciatis dolorum quas quo? Quo, beatae vitae unde sit deleniti, id, saepe fugiat rem error voluptate iure nostrum praesentium ex voluptatibus temporibus obcaecati ipsam modi? Natus numquam vitae deleniti reiciendis! Numquam ipsum quisquam, sit culpa quo unde magnam rerum saepe ducimus inventore in alias cum tempora odit adipisci repellendus dolor id veritatis hic laborum voluptatibus iure qui fugiat? Ipsa, iste ab, praesentium eum delectus doloribus dicta reprehenderit beatae aspernatur incidunt vel. Provident molestias, voluptate excepturi adipisci totam corrupti quas nam deserunt sunt aspernatur eaque autem rerum recusandae minus numquam dolores odit quibusdam enim distinctio iure veritatis! Magni ratione culpa consequatur aliquam perferendis assumenda error, ab possimus sed. Cumque, quae doloribus labore adipisci omnis laboriosam necessitatibus alias, neque quia repellendus nobis ipsam repellat repudiandae, eveniet ut dolore similique possimus fugit minus vel! In officiis, error fugiat dolores explicabo consequatur quasi nisi sint porro odit officia! Quam expedita, quibusdam suscipit nobis dolores impedit vero nihil nulla atque iure ratione iusto odit eos veritatis, maxime autem quod? Consequatur accusantium suscipit libero ex obcaecati ipsa quidem dolor a, vero quibusdam corporis maxime enim expedita earum vitae praesentium vel dolorum et quaerat, necessitatibus eaque! Corrupti minus laudantium deserunt asperiores ad odio iusto, facere optio nostrum ipsum, obcaecati error cum, minima perspiciatis maxime magni ducimus deleniti quia corporis. Nesciunt illo laboriosam hic fugit alias adipisci voluptatum et culpa praesentium dolorum sed dicta aspernatur quidem quo, est tempora excepturi fuga, deserunt provident aperiam? Consectetur, similique exercitationem? Nulla dolorum exercitationem saepe consequatur eum natus debitis?</p>
+        <div class="spec-section">
+          <button class="sub-button cookie-button" id="accept">Nõustun</button>
+          <button class="sub-button cookie-button" id="delete-cookie">Kustuta küsised</button>
+        </div>
       </div>
-      <div class="register-container">
-        <h1>Loo konto</h1>
-        <form method="post">
-          <fieldset>
-            <legend>Roll:</legend>
-            <div>
-              <input type="radio" id="interested" name="role" value="interested">
-              <label for="interested">Kunstihuviline</label>
-            </div>
-            <div>
-              <input type="radio" id="artist" name="role" value="artist">
-              <label for="artist">Looja</label>
-            </div>
-          </fieldset>
-        </form>
-        <form method="post" id="interested-form">
-          <fieldset>
-            <div>
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" placeholder="email" required>
-            </div>
-            <div>
-              <label for="name">Nimi:</label>
-              <input type="text" id="name" name="name" placeholder="kasutajanimi" required>
-            </div>
-            <div>
-              <label for="psw">Salasõna:</label>
-              <input type="password" id="psw-i" name="psw" placeholder="salasõna" required>
-              <label id="pass-toggle" for="show-password-i">
-                <input type="checkbox" id="show-password-i" for="psw-i">
-                Näita salasõna
-              </label>
-              <p class="sub-text">Proovi valida võimalikult tugev salasõna</p>
-            </div>
-            <div>
-              <label for="psw-again">Sisesta salasõna uuesti:</label>
-              <input type="password" id="psw-again" name="psw-again" placeholder="salasõna uuesti" required>
-            </div>
-          </fieldset>
-          <div class="login-register-buttons">
-            <input type="submit" class="register-button" value="Loo konto" />
-            <label class="login-button" id="close-forms-i" for="register-button">Konto olemas</label>
-          </div>
-        </form>
-        <form method="post" id="artist-form">
-          <fieldset>
-            <div>
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" placeholder="email" required>
-            </div>
-            <div>
-              <label for="name">Nimi:</label>
-              <input type="text" id="name" name="name" placeholder="kasutajanimi" required>
-              <p class="sub-text">Proovi valida püsiv nimi mille järgi inimesed sind tulevikus ära tunneksid</p>
-            </div>
-            <div>
-              <label for="psw">Salasõna:</label>
-              <input type="password" id="psw-a" name="psw" placeholder="salasõna" required>
-              <label id="pass-toggle" for="show-password-a">
-                <input type="checkbox" id="show-password-a" for="psw-a">
-                Näita salasõna
-              </label>
-              <p class="sub-text">Proovi valida võimalikult tugev salasõna</p>
-            </div>
-            <div>
-              <label for="psw-again">Sisesta salasõna uuesti:</label>
-              <input type="password" id="psw-again" name="psw-again" placeholder="salasõna uuesti" required>
-            </div>
-            <div>
-              <label>Et looja staatus saada pead kohe alguses juba 3 tööd esitama. <a href="help_page">Miks?</a></label>
-              <button class="load-works" onclick="openPage('upload_work');">0/3</button>
-            </div>
-          </fieldset>
-          <div class="login-register-buttons">
-            <input type="submit" class="register-button" value="Loo konto" />
-            <label class="login-button" id="close-forms-a" for="register-button">Konto juba olemas</label>
-          </div>
-        </form>
-      </div>
-      <div class="login-container">
-        <h1>Logi sisse</h1>
-        <form method="post">
-          <fieldset>
-            <legend>Email:</legend>
-            <input id="email" name="email" type="email" placeholder="email" required>
-            <legend>Salasõna:</legend>
-            <input id="password" name="password" type="password" placeholder="salasõna" class="login-pass" required>
-            <label id="pass-toggle" for="show-password">
-              <input type="checkbox" id="show-password" for="password">
-              Näita salasõna
-            </label>
-          </fieldset>
-          <div class="login-register-buttons">
-            <input type="submit" class="login-button" value="Logi sisse" />
-            <label class="register-button" for="register-button">Pole kontot?</label>
-          </div>
-        </form>
+      <hr>
+      <div class="sub-div">
+        <h2>Tingimused</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores maiores quaerat eligendi, repellat dolor quis quae omnis perferendis nam cumque, architecto hic cum quasi error tempora magni nesciunt aperiam earum officiis incidunt dolorem reprehenderit eveniet iure! Repellat blanditiis vero autem, explicabo ipsam eveniet at. Deserunt dolorum, repellendus quis quia placeat fugit fugiat ducimus molestiae reprehenderit iure dolorem, delectus consectetur reiciendis! Suscipit quia non qui illum inventore fuga quasi perferendis. Perferendis rem alias fuga cum consectetur totam, ipsa fugiat rerum iure sunt ratione harum illum minus, numquam in placeat voluptas voluptatibus beatae doloribus, nobis delectus temporibus quas omnis. Doloribus, ab blanditiis dicta reiciendis illo nesciunt recusandae voluptas qui eum praesentium odit saepe aliquam corrupti earum omnis aut quasi ea neque ullam itaque! Corrupti dicta nulla magnam, exercitationem sequi enim doloribus, mollitia, soluta amet modi corporis magni ducimus. Consectetur dolorum necessitatibus modi, excepturi ad consequuntur atque vitae explicabo quis doloremque, facilis aperiam aliquam id dolorem minima odit eaque voluptatem labore aspernatur veniam iusto iure omnis nemo in. Molestiae, illo sapiente molestias, ex laborum consequuntur eum porro autem unde, blanditiis sit nostrum eos illum qui commodi? Doloremque, tempora obcaecati illum aut consequatur explicabo mollitia a accusantium dolores inventore cupiditate aliquam debitis, veniam accusamus autem ab, sed deleniti atque eveniet. Ea minus aut vitae molestias quisquam sed corporis dolor nostrum aliquam eaque! Magnam quam ipsum minima eaque nisi saepe! Dolores neque provident odit, voluptatibus necessitatibus esse assumenda officiis odio repudiandae ullam rerum quo veniam cupiditate enim quisquam, voluptatem autem excepturi obcaecati labore ipsam saepe illo corrupti explicabo magnam? Nesciunt possimus quibusdam, repellendus debitis placeat eligendi necessitatibus. Voluptas illo odit nam voluptate earum quasi rem neque harum quae facere doloribus magnam expedita impedit, ducimus, cumque rerum ab! Reprehenderit quae quia quo. Sunt nulla eius quae ut omnis illo doloribus, maiores exercitationem labore, iure, ipsam accusamus.</p>
+        <div class="spec-section">
+          <button class="sub-button">Saan aru</button>
+        </div>
       </div>
     </div>
   </main>
@@ -204,6 +118,6 @@
     </div>
   </footer>
 
-  <script type="text/javascript" src="login/login.js" defer></script>
+  <script type="text/javascript" src="/privacy/privacy.js" defer></script>
 </body>
 </html>

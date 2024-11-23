@@ -779,11 +779,22 @@ nav svg {
   align-items: flex-start;
   justify-content: center;
   box-shadow: 1px 2px 4px var(--gray-between);
-  transition: right 0.3s ease;
+  transition: all 0.3s ease;
+
+  @media (max-width: 700px) {
+    width: 100%;
+    bottom: 0;
+    max-width: 700px;
+    right: -700px;
+  }
 }
 
 .cookies.show-cookies {
   right: 20px;
+
+  @media (max-width: 700px) {
+    right: 0;
+  }
 }
 
 .cookie-data, .cookie-buttons {
@@ -857,6 +868,10 @@ nav svg {
 
 .visible {
   opacity: 1;
+}
+
+.invisible-id-divs {
+  visibility: hidden;
 }
 
 .background-image {
@@ -953,6 +968,7 @@ nav svg {
 .noortekunst-box p {
   font-size: 24px;
   color: var(--dark-text-color);
+  line-height: normal;
 }
 
 .noortekunst-intro-logo {
