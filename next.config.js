@@ -3,35 +3,35 @@ rewrites: async () => {
   return [
     {
       source: "/",
-      destination: "/home-page/index.html",
+      destination: "/home_page/index.html",
     },
     {
       source: "/acc_page_interested",
-      destination: "/acc-interested/acc-page-interested.html",
+      destination: "/acc_interested/acc_page_interested.html",
     },
     {
       source: "/acc_artist",
-      destination: "/acc-artist/acc-page/artist.html",
+      destination: "/acc_artist/acc_page_artist.html",
     },
     {
       source: "/artist_page",
-      destination: "/artist-page/artist-page.html",
+      destination: "/artist-page/artist_page.html",
     },
     {
       source: "/artist_works",
-      destination: "/artist-works/artist-works.html",
+      destination: "/artist_works/artist_works.html",
     },
     {
       source: "/favourites_page",
-      destination: "/fav-page/favourites_page.html",
+      destination: "/favfourites_page/favourites_page.html",
     },
     {
       source: "/help_page",
-      destination: "/help-page/help-page.html",
+      destination: "/help_page/help_page.html",
     },
     {
       source: "/index.html",
-      destination: "/home-page/index.html",
+      destination: "/home_page/index.html",
     },
     {
       source: "/login",
@@ -43,15 +43,11 @@ rewrites: async () => {
     },
     {
       source: "/work_opened",
-      destination: "/work-opened/work-opened.html",
+      destination: "/work_opened/work_opened.html",
     },
     {
       source: "/works",
-      destination: "/works-page/works.html",
-    },
-    {
-      source: "/index.html",
-      destination: "/",
+      destination: "/works_page/works.html",
     },
   ]
 },
