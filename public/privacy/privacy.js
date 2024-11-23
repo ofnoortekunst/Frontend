@@ -105,12 +105,12 @@ const enableDarkmode = () => {
   document.body.classList.add('darkmode');
   localStorage.setItem('darkmode', 'active');
 
-  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/dark-mode-logo.png">';
-  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/dark-mode-logo.png">';
+  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/dark-mode-logo.avif">';
+  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/dark-mode-logo.avif">';
 
-  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo-darkmode.png">';
+  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo-darkmode.avif">';
 
-  loginLogo.innerHTML = '<img alt="logo" src="images/dark-back-darkmode-logo.png"><p>Eesti esimene noortele loodud veebigalerii</p>';
+  loginLogo.innerHTML = '<img alt="logo" src="images/dark-back-darkmode-logo.avif"><p>Eesti esimene noortele loodud veebigalerii</p>';
 
   document.body.classList.add('css-transitions-only-after-page-load'); // Disable transitions
 
@@ -124,12 +124,12 @@ const disableDarkmode = () => {
   document.body.classList.remove('darkmode');
   localStorage.setItem('darkmode', 'inactive');
 
-  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/pro-logo-transparent.png">';
-  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/pro-logo-transparent.png">';
+  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/pro-logo-transparent.avif">';
+  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/pro-logo-transparent.avif">';
 
-  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo.png">';
+  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo.avif">';
 
-  loginLogo.innerHTML = '<img alt="logo" src="images/logo-white-background.png"><p>Eesti esimene noortele loodud veebigalerii</p>';
+  loginLogo.innerHTML = '<img alt="logo" src="images/logo-white-background.avif"><p>Eesti esimene noortele loodud veebigalerii</p>';
 
   document.body.classList.add('css-transitions-only-after-page-load'); // Disable transitions
 

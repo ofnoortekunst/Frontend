@@ -117,12 +117,12 @@ const enableDarkmode = () => {
   document.body.classList.add('darkmode');
   localStorage.setItem('darkmode', 'active');
 
-  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/dark-mode-logo.png">';
-  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/dark-mode-logo.png">';
+  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/dark-mode-logo.avif">';
+  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/dark-mode-logo.avif">';
 
-  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo-darkmode.png">';
+  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo-darkmode.avif">';
 
-  document.getElementById('noortekunst-logo').src="images/dark-mode-logo.png";
+  document.getElementById('noortekunst-logo').src="images/dark-mode-logo.avif";
 
   document.getElementById('background-img').src="images/dark-mountains.avif";
 
@@ -138,14 +138,14 @@ const disableDarkmode = () => {
   document.body.classList.remove('darkmode');
   localStorage.setItem('darkmode', 'inactive');
 
-  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/pro-logo-transparent.png">';
-  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/pro-logo-transparent.png">';
+  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/pro-logo-transparent.avif">';
+  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/pro-logo-transparent.avif">';
 
-  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo.png">';
+  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo.avif">';
 
-  document.getElementById('noortekunst-logo').src="images/pro-logo-transparent.png";
+  document.getElementById('noortekunst-logo').src="images/pro-logo-transparent.avif";
 
-  document.getElementById('background-img').src="images/potential-background-image.jpg";
+  document.getElementById('background-img').src="images/potential-background-image.avif";
 
   document.body.classList.add('css-transitions-only-after-page-load'); // Disable transitions
 
