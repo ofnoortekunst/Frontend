@@ -7,6 +7,7 @@ module.exports = {
       cwd: './', // Current working directory
       exec_mode: 'cluster', // Run multiple instances
       instances: 'max', // Max number of instances based on CPU cores
+      watch: true,
       env: {
         NODE_ENV: 'development', // Set environment to development
       },
