@@ -6,27 +6,27 @@ rewrites: async () => {
       destination: "/home-page/index.html",
     },
     {
-      source: "/acc-page-interested.html",
+      source: "/acc_page_interested",
       destination: "/acc-interested/acc-page-interested.html",
     },
     {
-      source: "/acc-artist.html",
+      source: "/acc_artist",
       destination: "/acc-artist/acc-page/artist.html",
     },
     {
-      source: "/artist-page.html",
+      source: "/artist_page",
       destination: "/artist-page/artist-page.html",
     },
     {
-      source: "/artist-works.html",
+      source: "/artist_works",
       destination: "/artist-works/artist-works.html",
     },
     {
-      source: "/fav-page.html",
+      source: "/favourites_page",
       destination: "/fav-page/favourites_page.html",
     },
     {
-      source: "/help-page.html",
+      source: "/help_page",
       destination: "/help-page/help-page.html",
     },
     {
@@ -34,20 +34,24 @@ rewrites: async () => {
       destination: "/home-page/index.html",
     },
     {
-      source: "/login.html",
+      source: "/login",
       destination: "/login/login_register_page.html",
     },
     {
-      source: "/upload_work.html",
+      source: "/upload_work",
       destination: "/upload_work/upload_work.html",
     },
     {
-      source: "/work-opened.html",
+      source: "/work_opened",
       destination: "/work-opened/work-opened.html",
     },
     {
-      source: "/works.html",
+      source: "/works",
       destination: "/works-page/works.html",
+    },
+    {
+      source: "/index.html",
+      destination: "/",
     },
   ]
 },

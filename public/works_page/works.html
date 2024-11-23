@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minu teosed</title>
+  <title>Kunst</title>
   <link rel="icon" type="image/jpg" href="images/html-icon.jpg">
-  <link rel="stylesheet" href="artists-works/artist-works_styles.css">
+  <link rel="stylesheet" href="works-page/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -13,7 +13,7 @@
 <body class="">
   <header>
     <div class="profile">
-      <div class="pfp" onclick="openPage('acc-page-interested.html');"><img alt="profile-picture" class="pf-pic" src="/images/pfp.jpg"></div>
+      <div class="pfp" onclick="openPage('acc_page_interested');"><img alt="profile-picture" class="pf-pic" src="/images/pfp.jpg"></div>
       <div class="user-info">
         <p class="name">Lorem, ipsum.</p>
         <p class="status">Ostja</p>
@@ -35,14 +35,14 @@
         </label>
 
         <a onclick="hideSideBar();" href="index.html" class="home-link"><img class="logo" alt="logo" src="/images/pro-logo-transparent.png"></a>
-        <a onclick="hideSideBar();" href="upload_work.html" class="upload-work-button">
+        <a onclick="hideSideBar();" href="upload_work" class="upload-work-button">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
         </a>
-        <a onclick="hideSideBar();" href="works.html">Teosed</a>
+        <a onclick="hideSideBar();" href="works">Teosed</a>
         <p onclick="scrollToBottom(); hideSideBar();">Kontakt</p>
-        <a onclick="hideSideBar();" href="help-page.html">Abi</a>
+        <a onclick="hideSideBar();" href="help_page">Abi</a>
         <p onclick="hideSideBar();" data-modal-target="#settings-modal">Seaded</p>
-        <a onclick="hideSideBar();" href="favourites_page.html" class="bookmark">
+        <a onclick="hideSideBar();" href="favourites_page" class="bookmark">
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Zm80-122 200-86 200 86v-518H280v518Zm0-518h400-400Z"/></svg>
         Lemmikud</a>
       </div>
@@ -99,7 +99,7 @@
       <li class="sidebar-filter">
         <button onclick="toggleSubMenu(this);" class="dropdown">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h640v-480H160v480Zm80-80h480v-320H240v320Zm-80 80v-480 480Z"/></svg>
-          <span>Hor/Ver</span>
+          <span>Suund</span>
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-360 280-560h400L480-360Z"/></svg>
         </button>
         <ul class="sub-menu">
@@ -176,9 +176,6 @@
       </button>
     </div>
   </div>
-  <h1 class="my-works">
-    Minu teosed
-  </h1>
   <div class="settings-modal" id="settings-modal">
     <div class="settings-modal-header">
       <div class="settings-title">Seaded</div>
@@ -211,7 +208,7 @@
   </div>
   <div id="settings-overlay"></div>
   <main>
-    <div class="art-container invisible">
+    <div class="art-container invisible" onclick="openPage('work_opened');">
       <div class="art-pic"></div>
       <p class="name-and-author">"Portree" - Mari Vilde</p>
       <hr>
@@ -222,7 +219,7 @@
         <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
       </div>
     </div>
-    <div class="art-container invisible">
+    <div class="art-container invisible" onclick="openPage('work_opened');">
       <div class="art-pic"></div>
       <p class="name-and-author">"Portree" - Mari Vilde</p>
       <hr>
@@ -233,7 +230,106 @@
         <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
       </div>
     </div>
-    <div class="art-container invisible">
+    <div class="art-container invisible" onclick="openPage('work_opened');">
+      <div class="art-pic"></div>
+      <p class="name-and-author">"Portree" - Mari Vilde</p>
+      <hr>
+      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
+      <hr>
+      <div class="price-and-like">
+        <p class="beginning-price">Alghind 30€</p>
+        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
+      </div>
+    </div>
+    <div class="art-container invisible" onclick="openPage('work_opened');">
+      <div class="art-pic"></div>
+      <p class="name-and-author">"Portree" - Mari Vilde</p>
+      <hr>
+      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
+      <hr>
+      <div class="price-and-like">
+        <p class="beginning-price">Alghind 30€</p>
+        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
+      </div>
+    </div>
+    <div class="art-container invisible" onclick="openPage('work_opened');">
+      <div class="art-pic"></div>
+      <p class="name-and-author">"Portree" - Mari Vilde</p>
+      <hr>
+      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
+      <hr>
+      <div class="price-and-like">
+        <p class="beginning-price">Alghind 30€</p>
+        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
+      </div>
+    </div>
+    <div class="art-container invisible" onclick="openPage('work_opened');">
+      <div class="art-pic"></div>
+      <p class="name-and-author">"Portree" - Mari Vilde</p>
+      <hr>
+      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
+      <hr>
+      <div class="price-and-like">
+        <p class="beginning-price">Alghind 30€</p>
+        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
+      </div>
+    </div>
+    <div class="art-container invisible" onclick="openPage('work_opened');">
+      <div class="art-pic"></div>
+      <p class="name-and-author">"Portree" - Mari Vilde</p>
+      <hr>
+      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
+      <hr>
+      <div class="price-and-like">
+        <p class="beginning-price">Alghind 30€</p>
+        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
+      </div>
+    </div>
+    <div class="art-container invisible" onclick="openPage('work_opened');">
+      <div class="art-pic"></div>
+      <p class="name-and-author">"Portree" - Mari Vilde</p>
+      <hr>
+      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
+      <hr>
+      <div class="price-and-like">
+        <p class="beginning-price">Alghind 30€</p>
+        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
+      </div>
+    </div>
+    <div class="art-container invisible" onclick="openPage('work_opened');">
+      <div class="art-pic"></div>
+      <p class="name-and-author">"Portree" - Mari Vilde</p>
+      <hr>
+      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
+      <hr>
+      <div class="price-and-like">
+        <p class="beginning-price">Alghind 30€</p>
+        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
+      </div>
+    </div>
+    <div class="art-container invisible" onclick="openPage('work_opened');">
+      <div class="art-pic"></div>
+      <p class="name-and-author">"Portree" - Mari Vilde</p>
+      <hr>
+      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
+      <hr>
+      <div class="price-and-like">
+        <p class="beginning-price">Alghind 30€</p>
+        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
+      </div>
+    </div>
+    <div class="art-container invisible" onclick="openPage('work_opened');">
+      <div class="art-pic"></div>
+      <p class="name-and-author">"Portree" - Mari Vilde</p>
+      <hr>
+      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
+      <hr>
+      <div class="price-and-like">
+        <p class="beginning-price">Alghind 30€</p>
+        <p class="amount-of-likes">18 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z"/></svg></p>
+      </div>
+    </div>
+    <div class="art-container invisible" onclick="openPage('work_opened');">
       <div class="art-pic"></div>
       <p class="name-and-author">"Portree" - Mari Vilde</p>
       <hr>
@@ -263,6 +359,6 @@
     </div>
   </footer>
 
-  <script type="text/javascript" src="artists-works/artist-works_script.js" defer></script>
+  <script type="text/javascript" src="works-page/script.js" defer></script>
 </body>
 </html>

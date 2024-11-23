@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abi</title>
+  <title>Konto</title>
   <link rel="icon" type="image/jpg" href="images/html-icon.jpg">
-  <link rel="stylesheet" href="help-page/help-page-styles.css">
+  <link rel="stylesheet" href="acc-artist/acc_artist_styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -13,7 +13,7 @@
 <body class="">
   <header>
     <div class="profile">
-      <div class="pfp" onclick="openPage('acc-page-interested.html');"><img alt="profile-picture" class="pf-pic" src="/images/pfp.jpg"></div>
+      <div class="pfp" onclick="openPage('acc_page_interested');"><img alt="profile-picture" class="pf-pic" src="/images/pfp.jpg"></div>
       <div class="user-info">
         <p class="name">Lorem, ipsum.</p>
         <p class="status">Ostja</p>
@@ -35,14 +35,14 @@
         </label>
 
         <a onclick="hideSideBar();" href="index.html" class="home-link"><img class="logo" alt="logo" src="/images/pro-logo-transparent.png"></a>
-        <a onclick="hideSideBar();" href="upload_work.html" class="upload-work-button">
+        <a onclick="hideSideBar();" href="upload_work" class="upload-work-button">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
         </a>
-        <a onclick="hideSideBar();" href="works.html">Teosed</a>
+        <a onclick="hideSideBar();" href="works">Teosed</a>
         <p onclick="scrollToBottom(); hideSideBar();">Kontakt</p>
-        <a onclick="hideSideBar();" href="help-page.html">Abi</a>
+        <a onclick="hideSideBar();" href="help_page">Abi</a>
         <p onclick="hideSideBar();" data-modal-target="#settings-modal">Seaded</p>
-        <a onclick="hideSideBar();" href="favourites_page.html" class="bookmark">
+        <a onclick="hideSideBar();" href="favourites_page" class="bookmark">
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Zm80-122 200-86 200 86v-518H280v518Zm0-518h400-400Z"/></svg>
         Lemmikud</a>
       </div>
@@ -80,33 +80,55 @@
   </div>
   <div id="settings-overlay"></div>
   <main>
-    <div class="help-container">
-      <h1>Abi</h1>
-      <p>Siin võid leida vastuseid küsimustele ning segadust tekitavatele probleemidele.</p>
-      <div class="question-container">
-        <div class="question">
-          <h2>Miks on loojana vaja kohe alguses 3 teost postitada?</h2>
-          <p>Soovime luua ruumi aktiivsetele kunstnikele ja tagada, et platvormil jagatav sisu on inspireeriv. Kolme teose esitamine aitab näidata teie pühendumust loomingule.
-
-          Kui teil pole veel kolme teost, võtke aega oma portfoolio täiendamiseks ja tulge tagasi, kui olete valmis!</p>
-        </div>
-        <div class="question">
-          <h2>Kuidas tume režiim sisse lülitada?</h2>
-          <p>
-            Mine seadetesse ja seal kohe "Seaded" sõna kõrval on kuu sümbol, vajutage seda ja tumerežiim on sees.
-          </p>
+    <div class="acc-container">
+      <div>
+        <h1>Konto</h1>
+        <div class="person-card">
+          <img src="/images/pfp.jpg" alt="profile-pic" id="profile-pic">
+          <label for="input-file" class="change-something">Muuda  profiilipilti</label>
+          <button class="change-something btn" onclick="openPage('artist_works');">Minu teosed</button>
+          <input type="file" accept="image/*" id="input-file">
+          <textarea class="bio" placeholder="Bio: mis temaatika huvitab, mis inspireerib..."></textarea>
         </div>
       </div>
-      <h2>Kui teil endal tekib mingi küsimus, saate meile meili saata ja üritame ühe nädala jooksul vastata.</h2>
-      <form>
-        <legend>Teie nimi</legend>
-        <input type="text" name="name" id="name" placeholder="nimi">
-        <legend>Teie meiliaadress</legend>
-        <input type="email" name="email" id="email" placeholder="meiliaadress">
-        <legend>Teie küsimus</legend>
-        <textarea></textarea>
-        <input type="submit" class="sub-button" value="Saada">
-      </form>
+      <hr>
+      <div>
+        <h2>Nimi</h2>
+        <p>Märt Madis (looja)</p>
+        <div class="spec-section">
+          <label  for="new-name" class="change-something">Muuda nime</label>
+          <input type="text" id="new-name" placeholder="nimi">
+          <button class="sub-button">Salvestsa uus nimi.</button>
+        </div>
+      </div>
+      <hr>
+      <div class="password-sec">
+        <h2>Salasõna</h2>
+        <label for="password" class="change-something">Muuda salasõna</label>
+        <legend>Vana salasõna:</legend>
+        <input id="password" name="password" type="password" class="login-pass" placeholder="salasõna">
+        <label id="pass-toggle-1" for="show-pass-1">
+          <input type="checkbox" for="password" id="show-pass-1">
+          Näita salasõna
+        </label>
+        <legend>Uus salasõna:</legend>
+        <input id="psw-new" name="password" type="password" class="login-pass" placeholder="salasõna uuesti">
+        <label id="pass-toggle-2" for="show-pass-2">
+          <input type="checkbox" for="psw-new" id="show-pass-2">
+          Näita salasõna
+        </label>
+        <button class="sub-button">Salvesta uus salasõna</button>
+      </div>
+      <hr>
+      <div>
+        <h2>Email</h2>
+        <p>madisiopr@jdn.oew</p>
+        <div class="spec-section">
+          <label for="new-email" class="change-something">Muuda emaili</label>
+          <input type="email" id="new-email" placeholder="email">
+          <button class="sub-button">Muuda meiliaadressi</button>
+        </div>
+      </div>
     </div>
   </main>
   <button onclick="scrollToTop();" class="back-to-top">
@@ -127,6 +149,6 @@
     </div>
   </footer>
 
-  <script type="text/javascript" src="help-page/help-page-script.js" defer></script>
+  <script type="text/javascript" src="acc-artist/acc_artist_script.js" defer></script>
 </body>
 </html>
