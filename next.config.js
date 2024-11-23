@@ -23,7 +23,7 @@ rewrites: async () => {
     },
     {
       source: "/favourites_page",
-      destination: "/favfourites_page/favourites_page.html",
+      destination: "/favourites_page/favourites_page.html",
     },
     {
       source: "/help_page",
