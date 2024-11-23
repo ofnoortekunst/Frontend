@@ -34,7 +34,7 @@ rewrites: async () => {
       destination: "/home_page/index.html",
     },
     {
-      source: "/login",
+      source: "/login_register_page",
       destination: "/login/login_register_page.html",
     },
     {
