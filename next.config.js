@@ -18,13 +18,8 @@ rewrites: async () => {
       destination: "/artist-page/artist-page.html",
     },
     {
-<<<<<<< HEAD
       source: "/artist_works",
       destination: "/artist-works/artist-works.html",
-=======
-      source: "/artist-works.html",
-      destination: "/artists-works/artist-works.html",
->>>>>>> refs/remotes/origin/master
     },
     {
       source: "/favourites_page",
@@ -39,11 +34,7 @@ rewrites: async () => {
       destination: "/home-page/index.html",
     },
     {
-<<<<<<< HEAD
       source: "/login",
-=======
-      source: "/login_register_page.html",
->>>>>>> refs/remotes/origin/master
       destination: "/login/login_register_page.html",
     },
     {
@@ -59,13 +50,8 @@ rewrites: async () => {
       destination: "/works-page/works.html",
     },
     {
-<<<<<<< HEAD
       source: "/index.html",
       destination: "/",
-=======
-      source: "/privacy.html",
-      destination: "/privacy/privacy.html",
->>>>>>> refs/remotes/origin/master
     },
   ]
 },
