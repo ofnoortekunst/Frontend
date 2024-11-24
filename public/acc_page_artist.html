@@ -85,8 +85,8 @@
         <h1>Konto</h1>
         <div class="person-card">
           <img src="/public/images/pfp.avif" alt="profile-pic" id="profile-pic">
-          <label for="input-file" class="change-something">Muuda  profiilipilti</label>
-          <button class="change-something btn" onclick="openPage('artist_works');">Minu teosed</button>
+          <label for="input-file" class="change-something small">Muuda  profiilipilti</label>
+          <button class="change-something btn small" onclick="openPage('artist_works');">Minu teosed</button>
           <input type="file" accept="image/*" id="input-file">
           <textarea class="bio" placeholder="Bio: mis temaatika huvitab, mis inspireerib..."></textarea>
         </div>
@@ -107,10 +107,13 @@
         <label for="password" class="change-something">Muuda salasõna</label>
         <legend>Vana salasõna:</legend>
         <input id="password" name="password" type="password" class="login-pass" placeholder="salasõna">
-        <label id="pass-toggle-1" for="show-pass-1">
-          <input type="checkbox" for="password" id="show-pass-1">
-          Näita salasõna
-        </label>
+        <div class="show-and-forgot">
+          <label id="pass-toggle-1" for="show-pass-1">
+            <input type="checkbox" for="password" id="show-pass-1">
+            Näita salasõna
+          </label>
+          <a class="sub-text" href="#">Unustasin salasõna</a>
+        </div>
         <legend>Uus salasõna:</legend>
         <input id="psw-new" name="password" type="password" class="login-pass" placeholder="salasõna uuesti">
         <label id="pass-toggle-2" for="show-pass-2">
@@ -126,7 +129,7 @@
         <div class="spec-section">
           <label for="new-email" class="change-something">Muuda emaili</label>
           <input type="email" id="new-email" placeholder="email">
-          <button class="sub-button">Muuda meiliaadressi</button>
+          <button class="sub-button" onclick="openPage('confirm_mail');">Muuda meiliaadressi</button>
         </div>
       </div>
       <hr>

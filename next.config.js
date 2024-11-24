@@ -50,6 +50,14 @@ rewrites: async () => {
       destination: "/works.html",
     },
     {
+      source: "/new_password",
+      destination: "/new_password.html",
+    },
+    {
+      source: "/confirm_mail",
+      destination: "/confirm_mail.html",
+    },
+    {
     source: '/public/:path*',
     destination: '/:path*',
     },

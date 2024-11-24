@@ -537,6 +537,7 @@ main label {
 }
 
 .change-something {
+  font-size: 16px;
   cursor: pointer;
   color: var(--dark-text-color);
   border: 2px solid var(--hover-color);
@@ -615,6 +616,36 @@ main hr {
   border-radius: 100vh;
 }
 
+.small {
+  width: 40%;
+  height: auto;
+}
+
+input[type="checkbox"] {
+  vertical-align: middle;
+  margin-bottom: 3px;
+}
+
+.show-and-forgot {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin: 0;
+  justify-content: space-between;
+}
+
+#pass-toggle-1, #pass-toggle-2 {
+  font-size: 14px;
+}
+
+.sub-text {
+  font-size: 14px;
+  color: var(--gray-between);
+  font-weight: 400;
+  transition: all 0.2s ease;
+}
+
 @media (hover:hover) {
   .sub-button:hover {
     background-color: var(--dark-hover-color);
@@ -627,6 +658,10 @@ main hr {
   .change-something:hover {
     border-color: var(--dark-hover-color);
     background-color: var(--light-gray);
+  }
+
+  .sub-text:hover {
+    color: var(--hover-color);
   }
 }
 

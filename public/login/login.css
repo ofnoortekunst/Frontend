@@ -714,6 +714,10 @@ nav svg {
   .load-works:hover {
     background-color: var(--dark-red);
   }
+
+  .show-and-forgot .sub-text:hover {
+    color: var(--hover-color);
+  }
 }
 
 .login-container form fieldset .login-pass {
@@ -726,7 +730,6 @@ nav svg {
   justify-content: flex-start;
   color: var(--dark-text-color);
   font-weight: 400;
-  font-size: 16px;
 }
 
 #pass-toggle label {
@@ -743,6 +746,17 @@ nav svg {
 .login-register-buttons {
   display: flex;
   flex-direction: column;
+}
+
+.show-and-forgot {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  justify-content: space-between;
+}
+
+.show-and-forgot label {
+  font-size: 14px;
 }
 
 
@@ -775,6 +789,7 @@ nav svg {
   color: var(--gray-between);
   font-weight: 400;
   margin-top: 0.25rem;
+  transition: all 0.2s ease;
 }
 
 .load-works {
@@ -800,6 +815,10 @@ nav svg {
 
 #interested-form fieldset, #artist-form fieldset {
   width: 100%;
+}
+
+.login-container #pass-toggle {
+  gap: 0.5rem;
 }
 
 

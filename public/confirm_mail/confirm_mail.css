@@ -492,215 +492,116 @@ nav svg {
 
 /* Stuff in main */
 
-.acc-container {
+.mail-container {
   background-color: var(--back);
-  width: 70%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  box-shadow: var(--gray-between) 0px 1px 5px 0px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+main p {
+  display: inline;
+  color: var(--hover-color);
+  background-color: var(--back);
+}
+
+#not-mail {
+  color: var(--gray-between);
+  font-size: 18px;
+  margin-bottom: 1.5rem;
+  background-color: var(--back);
+}
+
+#not-mail:visited {
+  color: var(--gray-between);
+}
+
+form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding: 2rem 1rem;
-  gap: 1.5rem;
+  align-items: center;
+  background-color: var(--back);
 }
 
 h1 {
+  text-align: center;
   margin-bottom: 2.5rem;
+  font-size: 28px;
   color: var(--dark-text-color);
 }
 
 h2 {
-  margin-bottom: 1.5rem;
-  color: var(--dark-text-color);
-}
-
-.person-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.person-card img {
-  width: 100px;
-  height: 100px;
-  border-radius: 100vh;
-  margin-bottom: 1rem;
-  object-fit: cover;
-}
-
-main p, main label {
-  color: var(--dark-text-color);
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 0.5rem;
   font-weight: 400;
-  margin-bottom: 1rem;
-}
-
-main label {
-  margin-bottom: 0;
-}
-
-.change-something {
-  font-size: 16px;
-  cursor: pointer;
   color: var(--dark-text-color);
-  border: 2px solid var(--hover-color);
-  font-weight: 500;
-  padding: 5px 1rem;
-  margin-bottom: 0;
-  border-radius: 100vh;
-  background-color: transparent;
-  transition: all 0.2s ease;
 }
 
-.btn {
-  margin-top: 0.5rem;
+input {
+  margin: 0 auto;
 }
 
-legend {
-  color: var(--dark-text-color);
-  margin-top: 1rem;
-}
-
-#input-file {
-  display: none;
-}
-
-main input, .sub-button {
+input[type="number"] {
+  border: 2px solid var(--dark-text-color);
+  border-radius: 5px;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  border: 2px solid var(--dark-text-color);
-  border-radius: 100vh;
-  padding: 5px 1rem;
-  background-color: transparent;
-  outline: none;
-  margin-left: 0;
+  font-size: 18px;
+  width: 80%;
+  padding: 0 0.5rem;
+  letter-spacing: 4rem;
+  text-align: center;
 }
 
-.sub-button {
-  border: none;
-  color: var(--text-color);
-  padding: 7px 1rem;
-  background-color: var(--hover-color);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-top: 0.5rem;
+input[type="submit"] {
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
-}
-
-.sub-button.delete-acc {
-  background-color: var(--gmail-color);
-}
-
-.password-sec {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.password-sec h2 {
-  margin-bottom: 0.8rem;
-}
-
-main hr {
-  width: 100%;
-  border: 1px solid var(--gray-between);
+  font-size: 20px;
+  border: none;
+  margin-top: 1rem;
+  background-color: var(--hover-color);
+  color: var(--back);
+  padding: 5px 1rem;
+  cursor: pointer;
   border-radius: 100vh;
-}
-
-input[type="checkbox"] {
-  vertical-align: middle;
-  margin-bottom: 3px;
-}
-
-.show-and-forgot {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  margin: 0;
-  justify-content: space-between;
-}
-
-#pass-toggle-1, #pass-toggle-2 {
-  font-size: 14px;
-}
-
-.sub-text {
-  font-size: 14px;
-  color: var(--gray-between);
-  font-weight: 400;
   transition: all 0.2s ease;
 }
 
 @media (hover:hover) {
-  .sub-button:hover {
+  input[type="submit"]:hover {
     background-color: var(--dark-hover-color);
   }
+}
 
-  .sub-button.delete-acc:hover {
-    background-color: var(--dark-red);
+@media (max-width: 1085px) {
+  .mail-container {
+    width: 90%;
   }
 
-  .change-something:hover {
-    border-color: var(--dark-hover-color);
-    background-color: var(--light-gray);
+  h1 {
+    font-size: 24px;
   }
 
-  .sub-text:hover {
-    color: var(--hover-color);
+  h2, main p {
+    font-size: 20px;
+  }
+
+  input[type="number"], #not-mail {
+    font-size: 16px;
+  }
+
+  input[type="submit"] {
+    font-size: 18px;
   }
 }
 
-@media (max-width: 900px) {
-  .acc-container {
-    align-items: flex-start;
-    width: 100%;
-    padding: 1rem;
-  }
-
-  .person-card {
-    align-items: flex-start;
-  }
-
-  h1, h2 {
-    text-align: left;
-  }
-
-  h2 {
-    margin-bottom: 2rem;
-  }
-
-  .password-sec h2 {
-    margin-bottom: 1.5rem;
-  }
-
-  .sub-button, .change-something, main input {
-    margin: 0.5rem;
-    margin-left: 0;
-  }
-
-  main div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .password-sec {
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  main label {
-    margin-bottom: 0.5rem;
-  }
-
-  #password, #psw-new {
-    margin-bottom: 0;
-  }
-
-  .change-something, input, .sub-button {
-    margin-left: 0;
-  }
-}
 
 /* Footer stuff */
 
