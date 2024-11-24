@@ -532,6 +532,10 @@ main p, main label {
   margin-bottom: 1rem;
 }
 
+main label {
+  margin-bottom: 0;
+}
+
 .change-something {
   cursor: pointer;
   color: var(--dark-text-color);
@@ -553,6 +557,7 @@ main p, main label {
 
 legend {
   color: var(--dark-text-color);
+  margin-top: 1rem;
 }
 
 #input-file {
@@ -568,6 +573,7 @@ main input, .sub-button, .bio {
   padding: 5px 1rem;
   background-color: transparent;
   outline: none;
+  margin-left: 0;
 }
 
 .bio {
@@ -584,6 +590,8 @@ main input, .sub-button, .bio {
   background-color: var(--hover-color);
   cursor: pointer;
   transition: all 0.2s ease;
+  margin-top: 0.5rem;
+  font-weight: 500;
 }
 
 .sub-button.delete-acc {
@@ -622,7 +630,7 @@ main hr {
   }
 }
 
-@media (max-width: 1060px) {
+@media (max-width: 900px) {
   .acc-container {
     align-items: flex-start;
     width: 100%;
@@ -651,6 +659,7 @@ main hr {
 
   .sub-button, .change-something, main input {
     margin: 0.5rem;
+    margin-left: 0;
   }
 
   main div {
