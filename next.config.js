@@ -58,6 +58,10 @@ rewrites: async () => {
       destination: "/confirm_mail.html",
     },
     {
+      source: "/privacy",
+      destination: "/privacy.html",
+    },
+    {
     source: '/public/:path*',
     destination: '/:path*',
     },

@@ -115,18 +115,25 @@
           <fieldset>
             <legend>Pealkiri:</legend>
             <div>
-              <input type="text" name="pealkiri" class="form-control">
+              <input type="text" name="pealkiri" class="form-control" required>
             </div>
           </fieldset>
           <fieldset>
             <legend>Hind:</legend>
             <div>
-              <input type="number" placeholder="€" id="price">
+              <input type="number" placeholder="€" id="price" required>
             </div>
           </fieldset>
         </div>
       </div>
       <div class="bottom-section">
+        <fieldset>
+          <legend>Teose tutvustus:</legend>
+          <div>
+            <textarea required></textarea>
+          </div>
+        </fieldset>
+        <hr>
         <fieldset>
           <legend>Tehnika:</legend>
           <div>
@@ -165,7 +172,7 @@
             <label for="canvass">Lõuend</label>
           </div>
           <div>
-            <input type="radio" id="other" name="other">
+            <input type="radio" id="other" name="surface" value="other">
             <label for="other">Muu</label>
           </div>
         </fieldset>

@@ -813,13 +813,7 @@ fieldset:last-child {
   border: none;
 }
 
-fieldset label {
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--dark-text-color);
-}
-
-input {
+main input {
   border: 2px solid var(--dark-text-color);
   border-radius: 100vh;
   padding: 5px 1rem;
@@ -828,6 +822,31 @@ input {
   font-size: 16px;
   font-weight: 400;
   color: var(--dark-text-color);
+}
+
+.bottom-section input[type="text"] {
+  width: 300px;
+}
+
+main input[type="radio"] {
+  display: none;
+}
+
+fieldset label {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--dark-text-color);
+  cursor: pointer;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+main input[type="radio"]:checked + label {
+  text-decoration: underline;
+  text-underline-offset: 2.5px;
+  font-weight: 500;
+  text-decoration-color: var(--hover-color);
+  text-decoration-thickness: 2px;
 }
 
 ::placeholder {
@@ -868,7 +887,7 @@ form .bottom-section hr:last-child {
   margin-bottom: 0;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 600px) {
   .upper-section input {
     width: auto;
   }
@@ -889,7 +908,22 @@ form .bottom-section hr:last-child {
   transition: all 0.2s ease;
 }
 
-@media (max-width: 880px) {
+textarea {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  border: 2px solid var(--dark-text-color);
+  border-radius: 100vh;
+  padding: 5px 1rem;
+  background-color: transparent;
+  outline: none;
+  margin-left: 0;
+  height: 150px;
+  width: 500px;
+  border-radius: 1rem;
+}
+
+@media (max-width: 1000px) {
   .column-top {
     width: 100%;
     align-items: center;
@@ -908,11 +942,16 @@ form .bottom-section hr:last-child {
     align-items: center;
   }
 
+  .bottom-section fieldset label {
+    padding: 5px;
+  }
+
   .container {
     width: 95vw;
     padding: 0;
     margin-bottom: 1rem;
   }
+
   .upper-section {
     flex-direction: column;
     margin-bottom: 1em;
@@ -941,6 +980,10 @@ form .bottom-section hr:last-child {
 
   form .bottom-section hr {
     margin: 1.5rem auto;
+  }
+
+  textarea {
+    width: 300px;
   }
 }
 
@@ -1083,7 +1126,7 @@ form .bottom-section hr:last-child {
   cursor: pointer;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 600px) {
   .card {
     width: 90%;
   }
