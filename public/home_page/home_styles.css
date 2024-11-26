@@ -473,13 +473,13 @@ nav svg {
   color: var(--gray);
 }
 
-@media (max-width: 1210px) {
+@media (max-width: 1215px) {
   .name, .status {
     display: none;
   }
 
   .profile {
-    width: 80px;
+    width: 60px;
     gap: 0;
     border-right: none;
   }
