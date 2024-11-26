@@ -756,6 +756,7 @@ input[type="checkbox"] {
 
 .socials-container a {
   cursor: pointer;
+  text-underline-offset: 5px;
 }
 
 .socials-container a, .socials-container p {
@@ -781,6 +782,21 @@ input[type="checkbox"] {
   transition: all 0.3s ease;
   cursor: pointer;
   background-color: transparent;
+}
+
+@media (max-width: 896px) {
+  .footer {
+    height: auto;
+    padding: 1rem;
+  }
+  .socials-container {
+    flex-direction: column;
+    border: none;
+  }
+
+  .logo-container {
+    display: none;
+  }
 }
 
 @media (hover:hover) {
