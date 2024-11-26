@@ -175,6 +175,110 @@ footer {
   color: var(--text-color);
   transition: all 0.2s ease;
   padding-left: 2.5em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-switch {
+  background-color: var(--hover-color);
+  width: 32px;
+  height: 18px;
+  border-radius: 100vh;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.toggle-switch::before {
+  position: absolute;
+  content: '';
+  background-color: var(--text-color);
+  width: 14px;
+  height: 14px;
+  border-radius: 100vh;
+  margin: 2px;
+  transition: all 0.2s ease;
+}
+
+.switch-input:checked + .toggle-switch {
+  background-color: var(--tiktok-color);
+}
+
+.switch-input:checked + .toggle-switch::before {
+  transform: translateX(14px);
+}
+
+.switch-input {
+  display: none;
+}
+
+.toggle-switch-text {
+  display: inline;
+  background-color: var(--sidebar-background);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.range-slider {
+  width: 150px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 20px;
+  background-color: transparent;
+}
+
+.range-input {
+  border-radius: 100vh;
+}
+
+.range-slider .rangeValues {
+  display: block;
+  background-color: transparent;
+  color: var(--text-color);
+  border-radius: 10px;
+  padding: 20px;
+  padding-top: 5px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  border: none;
+  width: 150px;
+  position: absolute;
+  left: 0;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 300px;
+  height: 5px;
+  background: var(--text-color);
+  border: none;
+  border-radius: 100vh;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 100vh;
+  background: var(--hover-color);
+  margin-top: -6.5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ccc;
 }
 
 #sidebar ul {
@@ -217,9 +321,13 @@ footer {
 }
 
 @media (hover:hover) {
-  #sidebar a:hover, #sidebar .dropdown:hover, #sidebar .sidebar-filter-spec:hover, #sidebar span:hover, #toggle-btn svg:hover{
+  #sidebar a:hover, #sidebar .dropdown:hover, #sidebar .sidebar-filter-spec.iii:hover, #sidebar span:hover, #toggle-btn svg:hover{
     color: var(--hover-color);
     fill: var(--hover-color);
+  }
+
+  #sidebar span.rangeValues:hover {
+    color: var(--text-color);
   }
 }
 

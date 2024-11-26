@@ -680,9 +680,6 @@ nav svg {
   .login-container {
     transform: translate(0);
   }
-  .login-container #pass-toggle {
-    gap: 0.25rem;
-  }
 
   #register-button:checked ~ .register-container {
     transform: translate(0);
@@ -741,6 +738,7 @@ nav svg {
 
 #pass-toggle input {
   margin: 0;
+  margin-bottom: 2px;
   padding: 0;
   width: 10%;
   vertical-align: middle;
@@ -822,13 +820,7 @@ nav svg {
 
 .login-container #pass-toggle {
   gap: 0.5rem;
-  width: auto;
-}
-
-@media (max-width: 500px) {
-  .login-container #pass-toggle {
-    gap: 0rem;
-  }
+  width: 140px;
 }
 
 

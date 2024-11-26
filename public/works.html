@@ -61,11 +61,31 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li class="sidebar-filter-spec"><input type="checkbox">Akrüül</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Õli</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Pastell</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Pliiats</li>
-            <li class="sidebar-filter-spec"><a href="#">Näita veel</a></li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="acrylic">
+              <label for="acrylic" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Akrüül</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="oil">
+              <label for="oil" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Õli</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="pastel">
+              <label for="pastel" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Pastell</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="pencil">
+              <label for="pencil" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Pliiats</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="other1">
+              <label for="other1" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Muu</p>
+            </li>
           </div>
         </ul>
       </li>
@@ -77,10 +97,26 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li class="sidebar-filter-spec"><input type="checkbox">A3</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">A4</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">A5</li>
-            <li class="sidebar-filter-spec"><a href="#">Näita veel</a></li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="A3">
+              <label for="A3" class="toggle-switch"></label>
+              <p class="toggle-switch-text">A3</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="A4">
+              <label for="A4" class="toggle-switch"></label>
+              <p class="toggle-switch-text">A4</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="A5">
+              <label for="A5" class="toggle-switch"></label>
+              <p class="toggle-switch-text">A5</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="other2">
+              <label for="other2" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Muu</p>
+            </li>
           </div>
         </ul>
       </li>
@@ -92,7 +128,13 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <p class="sidebar-filter-spec">mingi scale asi</p>
+            <li class="sidebar-filter-spec">
+              <div class="range-slider" id="range-slider">
+                <span class="rangeValues" id="range-values"></span>
+                <input value="0" min="0" max="100" step="1" type="range" class="range-input">
+                <input value="100" min="0" max="100" step="1" type="range" class="range-input">
+              </div>
+            </li>
           </div>
         </ul>
       </li>
@@ -104,8 +146,17 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li class="sidebar-filter-spec"><input type="checkbox">Vertikaalselt</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Horisontaalselt</li>
+            
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="vertical">
+              <label for="vertical" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Vertikaalselt</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="horizontal">
+              <label for="horizontal" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Horisontaalselt</p>
+            </li>
           </div>
         </ul>
       </li>
@@ -117,7 +168,11 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li class="sidebar-filter-spec"><input type="checkbox">2024</li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="2024">
+              <label for="2024" class="toggle-switch"></label>
+              <p class="toggle-switch-text">2024</p>
+            </li>
           </div>
         </ul>
       </li>
@@ -129,11 +184,31 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li class="sidebar-filter-spec"><input type="checkbox">Algklass</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Põhikool</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Gümnaasium</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Kõrgkool</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Muu</li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="school1">
+              <label for="school1" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Algklass</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="school2">
+              <label for="school2" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Põhikool</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="school3">
+              <label for="school3" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Gümnaasium</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="school4">
+              <label for="school4" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Kõrg- ja kutsekool</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="other3">
+              <label for="other3" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Muu</p>
+            </li>
           </div>
         </ul>
       </li>
@@ -145,10 +220,26 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li class="sidebar-filter-spec"><input type="checkbox">Paber</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Papp</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Lõuend</li>
-            <li class="sidebar-filter-spec"><input type="checkbox">Muu</li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="paper">
+              <label for="paper" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Paber</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="cardboard">
+              <label for="cardboard" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Papp</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="canvas">
+              <label for="canvas" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Lõuend</p>
+            </li>
+            <li class="sidebar-filter-spec">
+              <input type="checkbox" class="switch-input" id="other4">
+              <label for="other4" class="toggle-switch"></label>
+              <p class="toggle-switch-text">Muu</p>
+            </li>
           </div>
         </ul>
       </li>
