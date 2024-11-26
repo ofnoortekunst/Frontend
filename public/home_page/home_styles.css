@@ -528,6 +528,7 @@ nav svg {
 
 .socials-container a {
   cursor: pointer;
+  text-underline-offset: 5px;
 }
 
 .socials-container a, .socials-container p {
@@ -553,6 +554,21 @@ nav svg {
   transition: all 0.3s ease;
   cursor: pointer;
   background-color: transparent;
+}
+
+@media (max-width: 896px) {
+  .footer {
+    height: auto;
+    padding: 1rem;
+  }
+  .socials-container {
+    flex-direction: column;
+    border: none;
+  }
+
+  .logo-container {
+    display: none;
+  }
 }
 
 @media (hover:hover) {
@@ -1131,94 +1147,6 @@ h3 {
 
 .login-button {
   background-color: var(--hover-color);
-}
-
-
-/* Footer stuff */
-
-.footer {
-  width: 100vw;
-  display: flex;
-  height: 150px;
-  flex-direction: column;
-  background-color: var(--dark-text-color);
-  background: var(--footer-background); 
-  justify-content: center;
-  align-items: center;
-  border-top: 2px solid var(--nav-border);
-}
-
-.socials-container {
-  display: flex;
-  gap: 45px;
-  background-color: transparent;
-  align-items: center;
-  height: 40%;
-  border-bottom: 2px solid var(--gray-between);
-}
-
-.socials-container a svg, .socials-container p svg {
-  height: 32px;
-  width: 32px;
-  margin-right: 10px;
-  background-color: transparent;
-  vertical-align: middle;
-  transition: all 0.3s ease;
-  fill: var(--dark-text-color);
-}
-
-.socials-container a {
-  cursor: pointer;
-}
-
-.socials-container a, .socials-container p {
-  background-color: transparent;
-  color: var(--dark-text-color);
-  transition: all 0.3s ease;
-}
-
-.logo-container {
-  height: 40%;
-  display: flex;
-  align-items: center;
-  background-color: transparent;
-}
-
-.logo-container p {
-  background-color: transparent;
-}
-
-.dark-logo-footer {
-  width: 250px;
-  height: auto;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  background-color: transparent;
-}
-
-@media (hover:hover) {
-  .dark-logo-footer:hover {
-    transform: scale(1.1);
-  }
-
-  .socials-container a:hover, .socials-container p:hover {
-    transform: scale(1.1);
-
-    .insta-icon {
-      fill: var(--insta-color);
-      transform: scale(1.1);
-    }
-
-    .tiktok-icon {
-      fill: var(--tiktok-color);
-      transform: scale(1.1);
-    }
-
-    .gmail-icon {
-      fill: var(--gmail-color);
-      transform: scale(1.1);
-    }
-  }
 }
 
 
