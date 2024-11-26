@@ -613,6 +613,7 @@ input[type="checkbox"] {
 
 .show-and-forgot {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 1rem;
   width: 100%;
@@ -622,6 +623,14 @@ input[type="checkbox"] {
 
 #pass-toggle-1, #pass-toggle-2 {
   font-size: 14px;
+}
+
+#show-pass-1, #show-pass-2 {
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+  margin-bottom: 3px;
+  margin-right: 5px;
 }
 
 .sub-text {
@@ -691,6 +700,10 @@ input[type="checkbox"] {
 
   main label {
     margin-bottom: 0.5rem;
+  }
+
+  .password-sec label {
+    margin-bottom: 0;
   }
 
   #password, #psw-new {
