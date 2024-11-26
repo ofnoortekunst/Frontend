@@ -824,9 +824,9 @@ nav svg {
   gap: 0.5rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 500px) {
   .login-container #pass-toggle {
-    gap: 0.25rem;
+    gap: 0rem;
   }
 }
 
