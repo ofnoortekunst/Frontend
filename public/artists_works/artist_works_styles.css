@@ -181,7 +181,7 @@ footer {
 }
 
 .toggle-switch {
-  background-color: var(--hover-color);
+  background-color: var(--gray-between);
   width: 32px;
   height: 18px;
   border-radius: 100vh;
@@ -203,7 +203,7 @@ footer {
 }
 
 .switch-input:checked + .toggle-switch {
-  background-color: var(--tiktok-color);
+  background-color: var(--hover-color);
 }
 
 .switch-input:checked + .toggle-switch::before {
@@ -1050,7 +1050,7 @@ nav svg {
 .art-container {
   padding: 1em;
   background-color: var(--light-gray);
-  border-radius: 5%;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -1089,7 +1089,7 @@ nav svg {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 40px;
 }
 
 .amount-of-likes {
@@ -1148,7 +1148,9 @@ nav svg {
 .art-pic {
   width: 280px;
   height: 280px;
+  object-fit: contain;
   background-color: var(--black);
+  cursor: pointer;
 }
 
 .invisible {

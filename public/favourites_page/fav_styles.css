@@ -16,6 +16,7 @@
   --insta-color: #FB7833;
   --tiktok-color: #69C9D0;
   --gmail-color: #EA4335;
+  --dark-red: #cf3a2d;
   --black: black;
   --place-holder-color: #737373;
   --nav-border: #15154b;
@@ -39,6 +40,7 @@
   --insta-color: #FB7833;
   --tiktok-color: #69C9D0;
   --gmail-color: #EA4335;
+  --dark-red: #cf3a2d;
   --black: black;
   --nav-border: #1F1B24;
   --footer-background: black;
@@ -179,7 +181,7 @@ footer {
 }
 
 .toggle-switch {
-  background-color: var(--hover-color);
+  background-color: var(--gray-between);
   width: 32px;
   height: 18px;
   border-radius: 100vh;
@@ -201,7 +203,7 @@ footer {
 }
 
 .switch-input:checked + .toggle-switch {
-  background-color: var(--tiktok-color);
+  background-color: var(--hover-color);
 }
 
 .switch-input:checked + .toggle-switch::before {
@@ -1045,7 +1047,7 @@ nav svg {
 .art-container {
   padding: 1em;
   background-color: var(--light-gray);
-  border-radius: 5%;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -1087,17 +1089,25 @@ nav svg {
   gap: 50px;
 }
 
+.amount-of-likes {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
 .amount-of-likes svg {
   vertical-align: middle;
   margin-bottom: 7px;
   fill: var(--dark-text-color);
   background-color: transparent;
+  transition: all 0.2s ease;
 }
 
 .art-pic {
   width: 280px;
   height: 280px;
+  object-fit: contain;
   background-color: var(--black);
+  cursor: pointer;
 }
 
 .invisible {

@@ -177,7 +177,7 @@ footer {
 }
 
 .toggle-switch {
-  background-color: var(--hover-color);
+  background-color: var(--gray-between);
   width: 32px;
   height: 18px;
   border-radius: 100vh;
@@ -199,7 +199,7 @@ footer {
 }
 
 .switch-input:checked + .toggle-switch {
-  background-color: var(--tiktok-color);
+  background-color: var(--hover-color);
 }
 
 .switch-input:checked + .toggle-switch::before {
@@ -1025,13 +1025,12 @@ nav svg {
 .art-container {
   padding: 1em;
   background-color: var(--light-gray);
-  border-radius: 5%;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   gap: 1em;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
 
 .name-and-author, .specifications, .price-and-like, .beginning-price, .amount-of-likes {
@@ -1068,17 +1067,32 @@ nav svg {
   gap: 50px;
 }
 
+.amount-of-likes {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
 .amount-of-likes svg {
   vertical-align: middle;
   margin-bottom: 7px;
   fill: var(--dark-text-color);
   background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+@media (hover:hover) {
+  .amount-of-likes:hover svg, .amount-of-likes:hover {
+    fill: var(--hover-color);
+    color: var(--hover-color);
+  }
 }
 
 .art-pic {
   width: 280px;
   height: 280px;
+  object-fit: contain;
   background-color: var(--black);
+  cursor: pointer;
 }
 
 .invisible {
