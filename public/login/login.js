@@ -85,7 +85,7 @@ const loginLogo = document.querySelector('.image-and-desc');
 
 // Enables darkmode and saves active status into localStorage.
 const enableDarkmode = () => {
-  document.body.classList.add('darkmode');
+  document.documentElement.classList.add('darkmode');
   localStorage.setItem('darkmode', 'active');
 
   mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/dark-mode-logo.avif">';
@@ -95,16 +95,16 @@ const enableDarkmode = () => {
 
   loginLogo.innerHTML = '<img alt="logo" src="images/dark-back-darkmode-logo.avif"><p>Eesti esimene noortele loodud veebigalerii</p>';
 
-  document.body.classList.add('css-transitions-only-after-page-load'); // Disable transitions
+  document.documentElement.classList.add('css-transitions-only-after-page-load'); // Disable transitions
 
   setTimeout(() => {
-    document.body.classList.remove('css-transitions-only-after-page-load');
+    document.documentElement.classList.remove('css-transitions-only-after-page-load');
   }, 50); // 50ms delay should be sufficient
 };
 
 // Disables darkmodeand saves inactive into localStorage.
 const disableDarkmode = () => {
-  document.body.classList.remove('darkmode');
+  document.documentElement.classList.remove('darkmode');
   localStorage.setItem('darkmode', 'inactive');
 
   mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/pro-logo-transparent.avif">';
@@ -114,10 +114,10 @@ const disableDarkmode = () => {
 
   loginLogo.innerHTML = '<img alt="logo" src="images/logo-white-background.avif"><p>Eesti esimene noortele loodud veebigalerii</p>';
 
-  document.body.classList.add('css-transitions-only-after-page-load'); // Disable transitions
+  document.documentElement.classList.add('css-transitions-only-after-page-load'); // Disable transitions
 
   setTimeout(() => {
-    document.body.classList.remove('css-transitions-only-after-page-load');
+    document.documentElement.classList.remove('css-transitions-only-after-page-load');
   }, 50); // 50ms delay should be sufficient
 };
 

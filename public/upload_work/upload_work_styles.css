@@ -593,6 +593,7 @@ nav svg {
 
 .settings-modal-main div {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -829,7 +830,7 @@ fieldset:last-child {
   border: none;
 }
 
-main input {
+form input {
   border: 2px solid var(--dark-text-color);
   border-radius: 100vh;
   padding: 5px 1rem;
@@ -844,7 +845,7 @@ main input {
   width: 300px;
 }
 
-main input[type="radio"] {
+form input[type="radio"] {
   display: none;
 }
 
@@ -857,7 +858,7 @@ fieldset label {
   padding: 0.5rem 0;
 }
 
-main input[type="radio"]:checked + label {
+form input[type="radio"]:checked + label {
   text-decoration: underline;
   text-underline-offset: 2.5px;
   font-weight: 500;
@@ -1036,10 +1037,11 @@ textarea {
   cursor: pointer;
   display: flexbox;
   padding: 7px;
-  background-color: var(--nav-background);
+  background-color: var(--back);
   color: var(--dark-text-color);
   border-radius: 8px;
   transition: all 0.2s ease;
+  border: 2px solid var(--sidebar-background);
 }
 
 .file-label svg {

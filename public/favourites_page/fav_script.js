@@ -254,3 +254,27 @@ window.onload = function () {
     }
   });
 };
+
+// When the like button is clicked
+document.querySelectorAll('.art-container').forEach(post => {
+  const postId = post.dataset.postId;
+  const rating = post.querySelector('.post-rating'); // Scoped to the current post
+  const button = rating.querySelector('.post-rating-button');
+  const count = rating.querySelector('.post-rating-count');
+
+  button.addEventListener('click', async () => {  
+    if (rating.classList.contains('selected')) {
+      const count = rating.querySelector('.post-rating-count');
+      rating.classList.remove('selected');
+      count.textContent = Math.max(0, Number(count.textContent) - 1);
+      return; // Prevent the fetch request when un-liking
+    } else {
+      count.textContent = Number(count.textContent) + 1;
+      rating.classList.add('selected');
+    }
+
+    // Fetch is only sent when the select is added
+    const response = await fetch(`/posts/${postId}/${"like"}`);
+    const body = await response.json();
+  });
+});

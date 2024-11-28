@@ -179,7 +179,7 @@ footer {
 }
 
 .toggle-switch {
-  background-color: var(--gray-between);
+  background-color: var(--gray);
   width: 32px;
   height: 18px;
   border-radius: 100vh;
@@ -1105,9 +1105,10 @@ h1 {
   width: 250px;
 }
 
-.specifications, .beginning-price, .amount-of-likes, .amount-of-likes svg {
+.specifications, .beginning-price, .post-rating-count {
   font-size: 16px;
   font-weight: 425;
+  background-color: transparent;
 }
 
 .price-and-like {
@@ -1116,25 +1117,52 @@ h1 {
   justify-content: center;
   align-items: center;
   gap: 50px;
-}
-
-.amount-of-likes {
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.amount-of-likes svg {
-  vertical-align: middle;
-  margin-bottom: 7px;
-  fill: var(--dark-text-color);
   background-color: transparent;
+  margin-left: 5%;
+}
+
+.post-ratings-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+}
+
+.post-rating {
+  display: flex;
+  align-items: center;
+  cursor: default;
+  gap: 5px;
+  background-color: transparent;
+}
+
+.post-rating-button {
+  cursor: pointer;
+  color: var(--dark-text-color);
+  background-color: transparent;
+  scale: 0.9;
+  vertical-align: middle;
+  margin-bottom: 2px;
   transition: all 0.2s ease;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.post-rating-count {
+  transition: all 0.2s ease;
+  width: 30px;
+}
+
+.selected > .post-rating-button,
+.selected > .post-rating-count {
+  color: var(--gmail-color);
 }
 
 @media (hover:hover) {
-  .amount-of-likes:hover svg, .amount-of-likes:hover {
-    fill: var(--hover-color);
-    color: var(--hover-color);
+  .post-rating:not(.post-rating.selected) > .post-rating-button:hover {
+    color: var(--black);
   }
 }
 

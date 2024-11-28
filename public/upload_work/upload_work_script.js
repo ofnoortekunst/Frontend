@@ -168,7 +168,7 @@ const footer = document.querySelector('.logo-container');
 
 // Enables darkmode and saves active status into localStorage.
 const enableDarkmode = () => {
-  document.body.classList.add('darkmode');
+  document.documentElement.classList.add('darkmode');
   localStorage.setItem('darkmode', 'active');
 
   mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/dark-mode-logo.avif">';
@@ -176,16 +176,16 @@ const enableDarkmode = () => {
 
   footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo-darkmode.avif">';
 
-  document.body.classList.add('css-transitions-only-after-page-load'); // Disable transitions
+  document.documentElement.classList.add('css-transitions-only-after-page-load'); // Disable transitions
 
   setTimeout(() => {
-    document.body.classList.remove('css-transitions-only-after-page-load');
+    document.documentElement.classList.remove('css-transitions-only-after-page-load');
   }, 50); // 50ms delay should be sufficient
 };
 
 // Disables darkmodeand saves inactive into localStorage.
 const disableDarkmode = () => {
-  document.body.classList.remove('darkmode');
+  document.documentElement.classList.remove('darkmode');
   localStorage.setItem('darkmode', 'inactive');
 
   mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/pro-logo-transparent.avif">';
@@ -193,10 +193,10 @@ const disableDarkmode = () => {
 
   footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo.avif">';
 
-  document.body.classList.add('css-transitions-only-after-page-load'); // Disable transitions
+  document.documentElement.classList.add('css-transitions-only-after-page-load'); // Disable transitions
 
   setTimeout(() => {
-    document.body.classList.remove('css-transitions-only-after-page-load');
+    document.documentElement.classList.remove('css-transitions-only-after-page-load');
   }, 50); // 50ms delay should be sufficient
 };
 
