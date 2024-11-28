@@ -875,7 +875,7 @@ h1 {
   gap: 1rem;
 }
 
-.artist-page h1,.artist-page p {
+.artist-page h1,.artist-page p, .follower-count {
   color: var(--dark-text-color);
 }
 
@@ -887,6 +887,80 @@ h1 {
 
 .author-and-bio p {
   font-weight: 400;
+}
+
+.contact-and-followers {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.followers {
+  background-color: var(--back);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  border-radius: 100vh;
+}
+
+.follower-count {
+  line-height: 0rem;
+  font-size: 20px;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: 500;
+  padding-top: 2.5px;
+  transition: all 0.2s ease;
+}
+
+.material-symbols-outlined {
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+}
+
+.followers hr {
+  height: 30px;
+  border: 1px solid var(--gray-between);
+  border-radius: 100vh;
+}
+
+.follow {
+  width: 70px;
+  height: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  border: 2px solid var(--dark-text-color);
+  border-radius: 100vh;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--dark-text-color);
+  background-color: var(--back);
+  margin-right: 1rem;
+}
+
+h3 {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.followed > .follow {
+  background-color: var(--gmail-color);
+  border: 2px solid var(--gmail-color);
+  color: var(--text-color);
+}
+
+@media (hover:hover) {
+  .follow:hover {
+    background-color: var(--gmail-color);
+  }
 }
 
 
@@ -1103,6 +1177,7 @@ h1 {
   font-size: 0;
   border: 0;
   width: 250px;
+  border-radius: 100vh;
 }
 
 .specifications, .beginning-price, .post-rating-count {
@@ -1302,6 +1377,7 @@ h1 {
 .sorting-options svg {
   vertical-align: middle;
   fill: var(--dark-text-color);
+  transition: all 0.125s ease;
 }
 
 .sorting-options button {
@@ -1317,9 +1393,94 @@ h1 {
 }
 
 @media (hover:hover) {
-  .sorting-options button:hover {
+  .sorting-options button:hover, .sorting-options button:hover svg {
     color: var(--hover-color);
     fill: var(--hover-color);
+  }
+}
+
+.follower-symbol {
+  scale: 0.9;
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+
+.followed-artists {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-scroller {
+  display: none; /* Initially hidden */
+  grid-area: artists;
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  /* Maintain consistent layout */
+  grid-auto-flow: column;
+  grid-auto-columns: 13%;
+  align-items: center;
+}
+
+.media-scroller.showing {
+  background-color: var(--back);
+  grid-area: artists;
+  height: 50px;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  grid-auto-columns: 13%;
+  opacity: 1;
+
+  overflow-x: auto;
+  -ms-overflow-style: none; /* For Internet Explorer: hide the scrollbar */
+  overscroll-behavior-inline: contain;
+}
+
+.media-scroller::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge: hide the scrollbar */
+}
+
+.media-element {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0.25rem;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.artist-name {
+  font-size: 18px;
+  color: var(--dark-text-color);
+  background-color: transparent;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.media-element input[type=checkbox] {
+  display: none;
+}
+
+.media-element input[type=checkbox]:checked + label {
+  text-decoration: underline;
+  text-underline-offset: 2.5px;
+  font-weight: 500;
+  text-decoration-color: var(--hover-color);
+  text-decoration-thickness: 2px;
+}
+
+@media (hover:hover) {
+  .media-element:hover {
+    background-color: var(--light-gray);
   }
 }
 

@@ -1074,6 +1074,7 @@ nav svg {
   font-size: 0;
   border: 0;
   width: 250px;
+  border-radius: 100vh;
 }
 
 .specifications, .beginning-price, .post-rating-count {
@@ -1274,6 +1275,7 @@ nav svg {
 .sorting-options svg {
   vertical-align: middle;
   fill: var(--dark-text-color);
+  transition: all 0.125s ease;
 }
 
 .sorting-options button {
@@ -1289,11 +1291,97 @@ nav svg {
 }
 
 @media (hover:hover) {
-  .sorting-options button:hover {
+  .sorting-options button:hover, .sorting-options button:hover svg {
     color: var(--hover-color);
     fill: var(--hover-color);
   }
 }
+
+.follower-symbol {
+  scale: 0.9;
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+
+.followed-artists {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-scroller {
+  display: none; /* Initially hidden */
+  grid-area: artists;
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  /* Maintain consistent layout */
+  grid-auto-flow: column;
+  grid-auto-columns: 13%;
+  align-items: center;
+}
+
+.media-scroller.showing {
+  background-color: var(--back);
+  grid-area: artists;
+  height: 50px;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  grid-auto-columns: 13%;
+  opacity: 1;
+
+  overflow-x: auto;
+  -ms-overflow-style: none; /* For Internet Explorer: hide the scrollbar */
+  overscroll-behavior-inline: contain;
+}
+
+.media-scroller::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge: hide the scrollbar */
+}
+
+.media-element {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0.25rem;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.artist-name {
+  font-size: 18px;
+  color: var(--dark-text-color);
+  background-color: transparent;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.media-element input[type=checkbox] {
+  display: none;
+}
+
+.media-element input[type=checkbox]:checked + label {
+  text-decoration: underline;
+  text-underline-offset: 2.5px;
+  font-weight: 500;
+  text-decoration-color: var(--hover-color);
+  text-decoration-thickness: 2px;
+}
+
+@media (hover:hover) {
+  .media-element:hover {
+    background-color: var(--light-gray);
+  }
+}
+
 
 
 /* Back to top button */

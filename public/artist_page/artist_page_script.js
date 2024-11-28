@@ -278,3 +278,59 @@ document.querySelectorAll('.art-container').forEach(post => {
     const body = await response.json();
   });
 });
+
+// When the follow button is clicked
+document.querySelectorAll('.author-and-bio').forEach(artist => {
+  const artistId = artist.dataset.artistId;
+  const followers = artist.querySelector('.followers'); // Scoped to the current post
+  const button = followers.querySelector('.follow');
+  const count = followers.querySelector('.follower-count');
+
+  button.addEventListener('click', async () => {  
+    if (followers.classList.contains('followed')) {
+      const count = followers.querySelector('.follower-count');
+      followers.classList.remove('followed');
+      count.textContent = Math.max(0, Number(count.textContent) - 1);
+      return; // Prevent the fetch request when un-following
+    } else {
+      count.textContent = Number(count.textContent) + 1;
+      followers.classList.add('followed');
+    }
+
+    // Fetch is only sent when the follow is added
+    const response = await fetch(`/artists/${artistId}/${"follow"}`);
+    const body = await response.json();
+  });
+});
+
+// Toggle artists in sorting bar
+document.querySelector('.followed-artists').addEventListener('click', () => {
+  const mediaScroller = document.querySelector('.media-scroller');
+  const body = document.body;
+
+  if (mediaScroller.classList.contains('showing')) {
+    mediaScroller.classList.remove('showing');
+
+    // Wait for the transition to complete before hiding it entirely
+    setTimeout(() => {
+      mediaScroller.style.display = 'none';
+    }, 0); // Match this duration with the CSS transition (0.2s)
+  } else {
+    mediaScroller.style.display = 'grid'; // Ensure it's part of the layout
+
+    // Small delay to trigger CSS transitions
+    setTimeout(() => {
+      mediaScroller.classList.add('showing');
+    }, 30);
+  }
+
+  // Update grid template areas dynamically (optional, if further customization is needed)
+  body.style.gridTemplateAreas = `
+    'navbar navbar'
+    'sidebar sort'
+    'sidebar artists'
+    'sidebar fav-tag'
+    'sidebar main'
+    'footer footer'
+  `;
+});

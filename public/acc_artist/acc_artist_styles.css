@@ -672,6 +672,10 @@ input[type="checkbox"] {
     padding: 1rem;
   }
 
+  .small {
+    width: 60%;
+  }
+
   .person-card {
     align-items: flex-start;
   }
