@@ -702,6 +702,9 @@ main hr {
 
   .privacy-warning {
     width: 60%;
+    padding: 1rem;
+    padding-right: 1rem;
+    text-align: center;
   }
 
   .contact-and-logo {
