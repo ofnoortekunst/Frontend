@@ -638,18 +638,56 @@ textarea {
 .footer {
   width: 100vw;
   display: flex;
-  height: 150px;
-  flex-direction: column;
+  height: auto;
   background-color: var(--dark-text-color);
   background: var(--footer-background); 
   justify-content: center;
   align-items: center;
   border-top: 2px solid var(--nav-border);
+  padding: 1rem;
+}
+
+.privacy-warning {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  background-color: transparent;
+  padding: 1rem;
+  padding-right: 0;
+}
+
+.important-text, .privacy-warning label {
+  display: inline;
+  background-color: transparent;
+  font-size: 18px;
+}
+
+.privacy-warning a {
+  color: var(--hover-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.privacy-warning a:visited {
+  color: var(--hover-color);
+}
+
+.contact-and-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  background-color: transparent;
 }
 
 .socials-container {
   display: flex;
-  gap: 45px;
+  gap: 1rem;
+  padding-bottom: 1rem;
   background-color: transparent;
   align-items: center;
   height: 40%;
@@ -682,6 +720,7 @@ textarea {
   display: flex;
   align-items: center;
   background-color: transparent;
+  margin-top: 0.5rem;
 }
 
 .logo-container p {
@@ -696,6 +735,25 @@ textarea {
   background-color: transparent;
 }
 
+.gmail-content {
+  cursor: default;
+}
+
+@media (max-width: 1205px) {
+  .footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .privacy-warning {
+    width: 60%;
+  }
+
+  .contact-and-logo {
+    width: 80%;
+  }
+}
+
 @media (max-width: 896px) {
   .footer {
     height: auto;
@@ -703,6 +761,7 @@ textarea {
   }
   .socials-container {
     flex-direction: column;
+    gap: 1.5rem;
     border: none;
   }
 

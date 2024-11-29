@@ -279,34 +279,3 @@ document.querySelectorAll('.art-container').forEach(post => {
   });
 });
 
-// Toggle artists in sorting bar
-document.querySelector('.followed-artists').addEventListener('click', () => {
-  const mediaScroller = document.querySelector('.media-scroller');
-  const body = document.body;
-
-  if (mediaScroller.classList.contains('showing')) {
-    mediaScroller.classList.remove('showing');
-
-    // Wait for the transition to complete before hiding it entirely
-    setTimeout(() => {
-      mediaScroller.style.display = 'none';
-    }, 0); // Match this duration with the CSS transition (0.2s)
-  } else {
-    mediaScroller.style.display = 'grid'; // Ensure it's part of the layout
-
-    // Small delay to trigger CSS transitions
-    setTimeout(() => {
-      mediaScroller.classList.add('showing');
-    }, 30);
-  }
-
-  // Update grid template areas dynamically (optional, if further customization is needed)
-  body.style.gridTemplateAreas = `
-    'navbar navbar'
-    'sidebar sort'
-    'sidebar artists'
-    'sidebar fav-tag'
-    'sidebar main'
-    'footer footer'
-  `;
-});

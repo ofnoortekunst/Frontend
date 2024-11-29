@@ -178,8 +178,8 @@ footer {
 
 .toggle-switch {
   background-color: var(--gray);
-  width: 32px;
-  height: 18px;
+  width: 34px;
+  height: 20px;
   border-radius: 100vh;
   cursor: pointer;
   display: inline-block;
@@ -191,8 +191,8 @@ footer {
   position: absolute;
   content: '';
   background-color: var(--text-color);
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   border-radius: 100vh;
   margin: 2px;
   transition: all 0.2s ease;
@@ -740,18 +740,56 @@ nav svg {
 .footer {
   width: 100vw;
   display: flex;
-  height: 150px;
-  flex-direction: column;
+  height: auto;
   background-color: var(--dark-text-color);
   background: var(--footer-background); 
   justify-content: center;
   align-items: center;
   border-top: 2px solid var(--nav-border);
+  padding: 1rem;
+}
+
+.privacy-warning {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  background-color: transparent;
+  padding: 1rem;
+  padding-right: 0;
+}
+
+.important-text, .privacy-warning label {
+  display: inline;
+  background-color: transparent;
+  font-size: 18px;
+}
+
+.privacy-warning a {
+  color: var(--hover-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.privacy-warning a:visited {
+  color: var(--hover-color);
+}
+
+.contact-and-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  background-color: transparent;
 }
 
 .socials-container {
   display: flex;
-  gap: 45px;
+  gap: 1rem;
+  padding-bottom: 1rem;
   background-color: transparent;
   align-items: center;
   height: 40%;
@@ -784,6 +822,7 @@ nav svg {
   display: flex;
   align-items: center;
   background-color: transparent;
+  margin-top: 0.5rem;
 }
 
 .logo-container p {
@@ -798,6 +837,25 @@ nav svg {
   background-color: transparent;
 }
 
+.gmail-content {
+  cursor: default;
+}
+
+@media (max-width: 1205px) {
+  .footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .privacy-warning {
+    width: 60%;
+  }
+
+  .contact-and-logo {
+    width: 80%;
+  }
+}
+
 @media (max-width: 896px) {
   .footer {
     height: auto;
@@ -805,6 +863,7 @@ nav svg {
   }
   .socials-container {
     flex-direction: column;
+    gap: 1.5rem;
     border: none;
   }
 
@@ -1271,91 +1330,6 @@ nav svg {
   .sorting-options button:hover, .sorting-options button:hover svg {
     color: var(--hover-color);
     fill: var(--hover-color);
-  }
-}
-
-.follower-symbol {
-  scale: 0.9;
-  vertical-align: middle;
-  margin-bottom: 2px;
-}
-
-.followed-artists {
-  display: flex;
-  gap: 0.25rem;
-  align-items: center;
-  justify-content: center;
-}
-
-.media-scroller {
-  display: none; /* Initially hidden */
-  grid-area: artists;
-  opacity: 0;
-  transition: all 0.3s ease;
-
-  /* Maintain consistent layout */
-  grid-auto-flow: column;
-  grid-auto-columns: 13%;
-  align-items: center;
-}
-
-.media-scroller.showing {
-  background-color: var(--back);
-  grid-area: artists;
-  height: 50px;
-  padding-top: 0.5rem;
-  padding-left: 1rem;
-  display: grid;
-  align-items: center;
-  grid-auto-flow: column;
-  grid-auto-columns: 13%;
-  opacity: 1;
-
-  overflow-x: auto;
-  -ms-overflow-style: none; /* For Internet Explorer: hide the scrollbar */
-  overscroll-behavior-inline: contain;
-}
-
-.media-scroller::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Edge: hide the scrollbar */
-}
-
-.media-element {
-  width: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 0.25rem;
-  border-radius: 5px;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.artist-name {
-  font-size: 18px;
-  color: var(--dark-text-color);
-  background-color: transparent;
-  font-weight: 400;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.media-element input[type=checkbox] {
-  display: none;
-}
-
-.media-element input[type=checkbox]:checked + label {
-  text-decoration: underline;
-  text-underline-offset: 2.5px;
-  font-weight: 500;
-  text-decoration-color: var(--hover-color);
-  text-decoration-thickness: 2px;
-}
-
-@media (hover:hover) {
-  .media-element:hover {
-    background-color: var(--light-gray);
   }
 }
 
