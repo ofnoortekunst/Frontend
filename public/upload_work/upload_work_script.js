@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         };
         reader.onload = () => {
-          const uploadTime = 4000;
+          const uploadTime = 2000;
           const interval = 50;
           const steps = uploadTime / interval;
           let currentStep = 0;
