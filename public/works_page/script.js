@@ -35,18 +35,7 @@ function checkWidth() {
   const uploadWork = document.querySelector('.upload-work-button');
 
 
-  if (window.innerWidth <= 1090) {
-    sidebar.classList.add('close');
-    document.body.classList.add('sidebar-collapsed');
-    toggleButton.classList.add('rotate');
-
-    closeAllSubMenus();
-  } else {
-    sidebar.classList.remove('close');
-    document.body.classList.remove('sidebar-collapsed');
-    toggleButton.classList.remove('rotate');
-  };
-
+  
   if (window.innerWidth <= 1085) {
     uploadWork.innerHTML = '+ Lae oma töö';
   } else {
