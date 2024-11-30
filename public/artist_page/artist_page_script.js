@@ -8,13 +8,27 @@ const settingsOverlay = document.getElementById('settings-overlay');
 
 
 // Toggle the sidebar button.
-function toggleSidebar() {
-  sidebar.classList.toggle('close');
-  document.body.classList.toggle('sidebar-collapsed');
-  toggleButton.classList.toggle('rotate');
-
+function toggleSidebar(explicitClose = false) {
+  if (explicitClose) {
+    sidebar.classList.add('close');
+    document.body.classList.add('sidebar-collapsed');
+    toggleButton.classList.add('rotate');
+  } else {
+    sidebar.classList.toggle('close');
+    document.body.classList.toggle('sidebar-collapsed');
+    toggleButton.classList.toggle('rotate');
+  }
   closeAllSubMenus();
-};
+}
+
+// Disable closing on scroll
+sidebar.addEventListener('touchmove', (event) => {
+  event.stopPropagation();
+}, { passive: false });
+
+sidebar.addEventListener('scroll', (event) => {
+  event.stopPropagation();
+});
 
 // Automatically close and open the sidebar at a certain width. Scale the icons in the footer.
 function checkWidth() {
