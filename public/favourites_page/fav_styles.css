@@ -79,6 +79,7 @@ html {
 
 body {
   background-color: var(--nav-background);
+  overflow-x: hidden;
   z-index: 2;
   min-height: 100vh;
   transition: grid-template-columns 0.3s ease-in-out;
