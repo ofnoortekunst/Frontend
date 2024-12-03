@@ -16,6 +16,7 @@
   --insta-color: #FB7833;
   --tiktok-color: #69C9D0;
   --gmail-color: #EA4335;
+  --dark-red: #d83e30;
   --black: black;
   --place-holder-color: #737373;
   --nav-border: #15154b;
@@ -39,6 +40,7 @@
   --insta-color: #FB7833;
   --tiktok-color: #69C9D0;
   --gmail-color: #EA4335;
+  --dark-red: #d83e30;
   --black: black;
   --nav-border: #1F1B24;
   --footer-background: black;
@@ -1020,11 +1022,19 @@ h3 {
   background-color: var(--gmail-color);
   border: 2px solid var(--gmail-color);
   color: var(--text-color);
+  transition: all 0.2s ease;
 }
 
 @media (hover:hover) {
   .follow:hover {
-    background-color: var(--gmail-color);
+    background-color: var(--hover-color);
+    border-color: var(--hover-color);
+    color: var(--text-color);
+  }
+
+  .followed > .follow:hover {
+    background-color: var(--dark-red);
+    border-color: var(--dark-red);
   }
 }
 

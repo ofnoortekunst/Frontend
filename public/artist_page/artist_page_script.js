@@ -304,11 +304,13 @@ document.querySelectorAll('.author-and-bio').forEach(artist => {
     if (followers.classList.contains('followed')) {
       const count = followers.querySelector('.follower-count');
       followers.classList.remove('followed');
+      button.innerHTML = 'jälgi';
       count.textContent = Math.max(0, Number(count.textContent) - 1);
       return; // Prevent the fetch request when un-following
     } else {
       count.textContent = Number(count.textContent) + 1;
       followers.classList.add('followed');
+      button.innerHTML = 'jälgid';
     }
 
     // Fetch is only sent when the follow is added
