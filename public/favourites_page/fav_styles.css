@@ -1130,6 +1130,7 @@ nav svg {
 .name-and-author {
   font-weight: 550;
   font-size: 22px;
+  text-align: center;
 }
 
 .art-container hr {
@@ -1247,7 +1248,6 @@ nav svg {
   padding: 2px;
   overflow: hidden;
   position: relative;
-  transition: all 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.05);
 }
 
 .search-bar-input {
@@ -1297,6 +1297,7 @@ nav svg {
 
 .search-bar:focus-within {
   width: 250px;
+  position: fixed;
 
   .search-bar-submit {
     background-color: var(--light-gray);
