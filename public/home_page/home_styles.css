@@ -1052,7 +1052,7 @@ nav svg {
   border: none;
   border-radius: 3rem;
   box-shadow: 1px 2px 4px var(--gray-between);
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   gap: 1.5rem;
   width: 80%;
   height: auto;
