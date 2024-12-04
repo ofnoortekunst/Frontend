@@ -2,7 +2,7 @@ const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const settingsOverlay = document.getElementById('settings-overlay');
 
-// Scale the icons in the footer.
+// Change the upload work button in the navbar whether its on the top or right
 function checkWidth() {
   const uploadWork = document.querySelector('.upload-work-button');
 

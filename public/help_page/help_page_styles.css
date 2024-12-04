@@ -20,7 +20,7 @@
   --black: black;
   --place-holder-color: #737373;
   --nav-border: #15154b;
-  --footer-background: #dcdcdc;
+  --footer-background: #FAFAFF;
   --sidebar-while-opened: #15154b;
 }
 
@@ -660,7 +660,7 @@ textarea {
   width: 100vw;
   display: flex;
   height: auto;
-  background: var(--nav-background); 
+  background: var(--footer-background); 
   justify-content: center;
   flex-direction: column;
   gap: 0.5rem;
@@ -750,20 +750,12 @@ textarea {
   margin-top: 0.5rem;
 }
 
-.logo-container p {
-  background-color: transparent;
-}
-
 .dark-logo-footer {
   width: 200px;
   height: auto;
   transition: all 0.3s ease;
   cursor: pointer;
   background-color: transparent;
-}
-
-.gmail-content {
-  cursor: default;
 }
 
 @media (max-width: 896px) {

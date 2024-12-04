@@ -19,7 +19,7 @@
   --black: black;
   --place-holder-color: #737373;
   --nav-border: #15154b;
-  --footer-background: #dcdcdc;
+  --footer-background: #FAFAFF;
   --sidebar-while-opened: #15154b;
 }
 
@@ -700,7 +700,7 @@ nav svg {
   width: 100vw;
   display: flex;
   height: auto;
-  background: var(--nav-background); 
+  background: var(--footer-background); 
   justify-content: center;
   flex-direction: column;
   gap: 0.5rem;
@@ -790,20 +790,12 @@ nav svg {
   margin-top: 0.5rem;
 }
 
-.logo-container p {
-  background-color: transparent;
-}
-
 .dark-logo-footer {
   width: 200px;
   height: auto;
   transition: all 0.3s ease;
   cursor: pointer;
   background-color: transparent;
-}
-
-.gmail-content {
-  cursor: default;
 }
 
 @media (max-width: 896px) {
@@ -883,18 +875,6 @@ form {
   width: 50%;
 }
 
-legend {
-  color: var(--dark-text-color);
-}
-
-fieldset {
-  border: none;
-  display: flex;
-  gap: 30px;
-  padding: 1rem;
-  padding-bottom: 0.1rem;
-}
-
 fieldset:last-child {
   border: none;
 }
@@ -914,8 +894,17 @@ form input {
   width: 300px;
 }
 
-form input[type="radio"] {
-  display: none;
+legend {
+  color: var(--dark-text-color);
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  gap: 30px;
+  padding: 1rem;
+  padding-bottom: 0.1rem;
+  position: relative; /* Ensure relative positioning for the underline */
 }
 
 fieldset label {
@@ -925,14 +914,35 @@ fieldset label {
   cursor: pointer;
   position: relative;
   padding: 0.5rem 0;
+  padding-bottom: 0;
+  text-align: center;
 }
 
+/* Hide radio inputs */
+form input[type="radio"] {
+  display: none;
+}
+
+/* Add underline effect for the active label */
+fieldset label::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* Adjust to fit beneath the text */
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--hover-color);
+  transition: width 0.3s ease-in-out;
+}
+
+/* Only apply underline for the checked label */
+form input[type="radio"]:checked + label::after {
+  width: 100%; /* Full width of the label */
+}
+
+/* Adjust font weight and color for the active label */
 form input[type="radio"]:checked + label {
-  text-decoration: underline;
-  text-underline-offset: 2.5px;
   font-weight: 500;
-  text-decoration-color: var(--hover-color);
-  text-decoration-thickness: 2px;
 }
 
 ::placeholder {
@@ -1031,6 +1041,7 @@ textarea {
 
   .bottom-section fieldset label {
     padding: 5px;
+    padding-bottom: 0;
   }
 
   .container {

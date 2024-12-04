@@ -19,7 +19,7 @@
   --black: black;
   --place-holder-color: #737373;
   --nav-border: #15154b;
-  --footer-background: #dcdcdc;
+  --footer-background: #FAFAFF;
   --sidebar-while-opened: #15154b;
 }
 
@@ -764,7 +764,7 @@ nav svg {
   width: 100vw;
   display: flex;
   height: auto;
-  background: var(--nav-background); 
+  background: var(--footer-background); 
   justify-content: center;
   flex-direction: column;
   gap: 0.5rem;
@@ -854,20 +854,12 @@ nav svg {
   margin-top: 0.5rem;
 }
 
-.logo-container p {
-  background-color: transparent;
-}
-
 .dark-logo-footer {
   width: 200px;
   height: auto;
   transition: all 0.3s ease;
   cursor: pointer;
   background-color: transparent;
-}
-
-.gmail-content {
-  cursor: default;
 }
 
 @media (max-width: 896px) {
@@ -1093,6 +1085,7 @@ nav svg {
 
 .art-container {
   padding: 1em;
+  box-shadow: var(--gray-between) 0.01px 1px 5px 1px;
   background-color: var(--light-gray);
   border-radius: 20px;
   display: flex;
@@ -1184,6 +1177,10 @@ nav svg {
   .post-rating:not(.post-rating.selected) > .post-rating-button:hover {
     color: var(--black);
   }
+
+  .art-container:hover {
+    transform: scale(1.01);
+  }
 }
 
 .art-pic {
@@ -1196,7 +1193,7 @@ nav svg {
 
 .invisible {
   opacity: 0;
-  transition: all 0.5s;
+  transition: opacity 0.5s, transform 0.3s ease;
 }
 
 .visible {
