@@ -690,15 +690,24 @@ nav svg {
   justify-content: center;
   width: 51px;
   height: 51px;
-  border: 2px solid var(--black);
-  border-radius: 25.5px;
+  border-radius: 100vh;
   cursor: pointer;
+  background-color: var(--nav-background);
 }
 
 .pf-pic {
-  width: 47px;
-  height: 47px;
-  border-radius: 23.5px;
+  width: 100%;
+  height: 100%;
+  border-radius: 100vh;
+  object-fit: contain;
+}
+
+.pfp svg, .pfp img {
+  width: 100%;
+  height: 100%;
+  fill: var(--dark-text-color);
+  border: none;
+  background-color: var(--nav-background);
   object-fit: contain;
 }
 
@@ -726,17 +735,29 @@ nav svg {
     display: none;
   }
 
+  .user-info {
+    display: none;
+  }
+
+  .pfp svg {
+    width: 40px;
+  }
+
   .profile {
     width: 60px;
     gap: 0;
     border-right: none;
+    padding: 0;
   }
 }
 
 @media (max-width: 1085px) {
   .profile {
     height: 60px;
-    border-right: none;
+  }
+
+  .user-info {
+    display: none;
   }
 }
 
