@@ -116,12 +116,12 @@ hiddenElements.forEach((el => observer.observe(el)));
 
 // Scroll to top button function
 function scrollToTop() {
-  window.scrollTo(0,0);
+  document.querySelector('header').scrollIntoView({behavior: 'smooth'});
 };
 
 // Scroll to bottom function
 function scrollToBottom() {
-  window.scrollTo(0, document.body.scrollHeight);
+  document.querySelector('footer').scrollIntoView({behavior: 'smooth'});
 };
 
 // Hide sidebar onclick
