@@ -1,0 +1,300 @@
+/* Pop up settings */
+
+.settings-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.2s ease;
+    padding: 20px;
+    border-radius: 20px;
+    z-index: 10;
+    background-color: var(--back);
+    box-shadow: var(--gray-between) 0px 1px 5px 0px;
+    width: 500px;
+    max-width: 80%;
+  }
+  
+  .settings-modal.settings-active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .settings-modal hr {
+    margin-bottom: 20px;
+    border: 1px solid var(--gray-between);
+    border-radius: 100vh;
+  }
+  
+  .settings-title {
+    font-size: 20px;
+    color: var(--dark-text-color);
+  }
+  
+  .settings-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .settings-modal-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .settings-modal-main label {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--dark-text-color);
+  }
+  
+  .settings-modal-main input:first-of-type {
+    margin-left: 1rem;
+  }
+  
+  .settings-modal-main button {
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--dark-text-color);
+    cursor: pointer;
+  }
+  
+  .settings-modal-header .close-settings-button {
+    border: none;
+    background-color: var(--back);
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .settings-modal-header .close-settings-button svg {
+    fill: var(--dark-text-color);
+    vertical-align: middle;
+    margin-bottom: 3.5px;
+    transition: all 0.2s ease;
+  }
+  
+  .settings-modal-main a {
+    text-decoration: none;
+    color: var(--dark-text-color);
+    transition: all 0.2s ease;
+  }
+  
+  .light-mode-hover, .profile-hover {
+    transition: all 0.2s ease;
+  }
+  
+  .light-mode-hover {
+    border: none;
+    border-radius: 100vh;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: 10px;
+    margin-bottom: 2px;
+    cursor: pointer;
+  }
+  
+  .settings-modal-main div {
+    display: flex;
+    gap: 10px;
+  }
+  
+  #theme-switch svg:last-child {
+    display: none;
+  }
+  
+  .darkmode #theme-switch svg:first-child {
+    display: none;
+  }
+  
+  .darkmode #theme-switch svg:last-child {
+    display: block;
+  }
+  
+  .settings-modal-main div label {
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  #settings-overlay {
+    z-index: 9;
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    transition: all 0.2s ease;
+  }
+  
+  #settings-overlay.settings-active {
+    pointer-events: all;
+    opacity: 1;
+  }
+  
+  @media (hover:hover) {
+    .settings-modal-header .close-settings-button:hover {
+      svg {
+        fill: var(--hover-color);
+      }
+    }
+  
+    .profile-hover:hover {
+      color: var(--hover-color);
+    }
+    
+    .light-mode-hover:hover svg {
+      fill: var(--hover-color);
+    }
+  
+    .settings-modal-main div label:hover {
+      color: var(--hover-color);
+    }
+  }
+  
+  .icon-in-settings {
+    vertical-align: middle;
+    fill: var(--dark-text-color);
+    margin-bottom: 3.5px;
+    margin-right: 7px;
+  }
+  
+  #theme-switch svg {
+    margin-bottom: 0;
+    margin-right: 10.5px;
+    transition: all 0.2s ease;
+  }
+  
+  .language {
+    cursor: default;
+    color: var(--dark-text-color);
+  }
+  
+  
+  /* Art containers and stuff inside it */
+  
+  .art-container {
+    padding: 1em;
+    box-shadow: var(--gray-between) 0.01px 1px 5px 1px;
+    background-color: var(--light-gray);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .name-and-author, .specifications, .price-and-like, .beginning-price, .amount-of-likes {
+    background-color: transparent;
+  }
+  
+  .name-and-author, .specifications, .amount-of-likes, .beginning-price {
+    color: var(--dark-text-color);
+  }
+  
+  .name-and-author {
+    font-weight: 550;
+    font-size: 22px;
+    text-align: center;
+  }
+  
+  .art-container hr {
+    height: 2px;
+    background: var(--gray-between);
+    font-size: 0;
+    border: 0;
+    width: 250px;
+    border-radius: 100vh;
+  }
+  
+  .specifications, .beginning-price, .post-rating-count {
+    font-size: 16px;
+    font-weight: 425;
+    background-color: transparent;
+  }
+  
+  .price-and-like {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background-color: transparent;
+    margin-left: 5%;
+  }
+  
+  .post-ratings-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0;
+    background-color: transparent;
+  }
+  
+  .post-rating {
+    display: flex;
+    align-items: center;
+    cursor: default;
+    gap: 5px;
+    background-color: transparent;
+  }
+  
+  .post-rating-button {
+    cursor: pointer;
+    color: var(--dark-text-color);
+    background-color: transparent;
+    scale: 0.9;
+    vertical-align: middle;
+    margin-bottom: 2px;
+    transition: all 0.2s ease;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+  
+  .post-rating-count {
+    transition: all 0.2s ease;
+    width: 30px;
+  }
+  
+  .selected > .post-rating-button,
+  .selected > .post-rating-count {
+    color: var(--gmail-color);
+  }
+  
+  @media (hover:hover) {
+    .post-rating:not(.post-rating.selected) > .post-rating-button:hover {
+      color: var(--black);
+    }
+  
+    .art-container:hover {
+      transform: scale(1.01);
+    }
+  }
+  
+  .art-pic {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    background-color: var(--black);
+    cursor: pointer;
+  }
+  
+  .invisible {
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.3s ease;
+  }
+  
+  .visible {
+    opacity: 1;
+  }
+  

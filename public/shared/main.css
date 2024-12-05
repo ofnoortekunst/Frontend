@@ -1,0 +1,123 @@
+:root {
+  --sidebar-background: #15154b;
+  --sidebar-border: #15154b;
+  --nav-background: #FAFAFF;
+  --hover-color: #a16ae8;
+  --dark-hover-color: #915fd1;
+  --about-us-color: #a16ae8;
+  --back: white;
+  --hover-background: #efefef;
+  --dark-text-color: #15154b;
+  --text-color: white;
+  --gray: #737373;
+  --gray-between: #acacac;
+  --light-gray: #dcdcdc;
+  --insta-color: #FB7833;
+  --tiktok-color: #69C9D0;
+  --gmail-color: #EA4335;
+  --dark-red: #cb4033;
+  --black: black;
+  --place-holder-color: #737373;
+  --nav-border: #15154b;
+  --footer-background: #FAFAFF;
+  --sidebar-while-opened: #15154b;
+}
+
+.darkmode {
+  --sidebar-background: #1F1B24;
+  --sidebar-border: #121212;
+  --nav-background: #1F1B24;
+  --hover-color: #BB86FC;
+  --dark-hover-color: #ae6cff;
+  --about-us-color: #913dff;
+  --back: #121212;
+  --hover-background: #efefef;
+  --dark-text-color: #FFFFFF;
+  --text-color: #FFFFFF;
+  --gray: #dcdcdc;
+  --gray-between: #cea7ff;
+  --light-gray: #1F1B24;
+  --insta-color: #FB7833;
+  --tiktok-color: #69C9D0;
+  --gmail-color: #EA4335;
+  --dark-red: #cb4033;
+  --black: black;
+  --nav-border: #1F1B24;
+  --footer-background: black;
+  --sidebar-while-opened: #121212;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--back);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.css-transitions-only-after-page-load * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+   transition: none !important;
+}
+
+html, body {
+  height: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5rem;
+  color: var(--dark-text-color);
+  scroll-behavior: smooth;
+  background-color: var(--nav-background);
+}
+
+body {
+  background-color: var(--nav-background);
+  z-index: 2;
+  min-height: 100vh;
+  transition: grid-template-columns 0.3s ease-in-out;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+main {
+  grid-area: main;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  background-color: var(--back);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 30px 0px;
+  height: 80px;
+  width: 100vw;
+  background-color: var(--nav-background);
+  grid-area: navbar;
+}
+
+nav {
+  height: 80px;
+  flex-grow: 1;
+  background-color: var(--nav-background);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--dark-text-color);
+  border-bottom: 2px solid var(--nav-border);
+}
