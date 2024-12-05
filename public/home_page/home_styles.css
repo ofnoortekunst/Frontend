@@ -251,7 +251,7 @@ footer {
   border: none;
   border-radius: 3rem;
   box-shadow: 1px 2px 4px var(--gray-between);
-  padding: 2rem 1.5rem;
+  padding: 2rem 1rem;
   gap: 1.5rem;
   width: 80%;
   height: auto;
@@ -264,8 +264,9 @@ footer {
 }
 
 .noortekunst-intro-logo {
-  width: 80%;
+  width: 90%;
   min-width: 250px;
+  max-width: 600px;
   height: auto;
 }
 

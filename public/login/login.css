@@ -30,6 +30,7 @@ main {
 
 .login-register-box {
   padding: 1rem;
+  margin: 3.5rem 0;
   display: flex;
   align-items: center;
   gap: 3rem;
@@ -178,6 +179,10 @@ main {
 
 #register-button {
   display: none;
+}
+
+.login-register-box:has(>#register-button:checked) {
+  margin: 0;
 }
 
 #register-button:checked ~ .register-container {
