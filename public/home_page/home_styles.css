@@ -6,6 +6,7 @@
 @import url(/public/shared/back_to_top_button/back_to_top_button.css);
 
 body {
+  scroll-behavior: smooth;
   background-color: var(--nav-background);
   z-index: 2;
   min-height: 100vh;
