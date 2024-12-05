@@ -186,7 +186,7 @@ toggleA.addEventListener("click", handleToggleClick2, false);
 toggleI.addEventListener("click", handleToggleClick3, false);
 
 function handleToggleClick1(event) {
-  if (this.checked) {
+  if (this.checked && password.type !== 'text') {
     console.warn("Change input 'type' to: text");
     password.type = "text";
   } else {
@@ -196,7 +196,7 @@ function handleToggleClick1(event) {
 };
 
 function handleToggleClick2(event) {
-  if (this.checked) {
+  if (this.checked && pswA.type !== 'text') {
     console.warn("Change input 'type' to: text");
     pswA.type = "text";
   } else {
@@ -206,7 +206,7 @@ function handleToggleClick2(event) {
 };
 
 function handleToggleClick3(event) {
-  if (this.checked) {
+  if (this.checked && pswI.type !== 'text') {
     console.warn("Change input 'type' to: text");
     pswI.type = "text";
   } else {
