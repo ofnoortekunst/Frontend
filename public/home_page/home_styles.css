@@ -19,13 +19,6 @@ body {
 }
 
 header {
-  display: flex;
-  align-items: center;
-  padding: 30px 0px;
-  height: 80px;
-  width: 100vw;
-  background-color: var(--nav-background);
-  grid-area: navbar;
   z-index: 4;
 }
 
@@ -39,21 +32,8 @@ main {
   align-items: center;
 }
 
-nav {
-  height: 80px;
-  flex-grow: 1;
-  background-color: var(--nav-background);
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  color: var(--dark-text-color);
-  border-bottom: 2px solid var(--nav-border);
-}
-
 footer {
   z-index: 3;
-  width: 100%;
-  grid-area: footer;
 }
 
 /* Cookie div */
