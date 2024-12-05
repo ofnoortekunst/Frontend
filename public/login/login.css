@@ -4,6 +4,7 @@
 @import url(/public/shared/navbar_and_sidebar/navbar_and_sidebar.css);
 @import url(/public/shared/footer/footer.css);
 @import url(/public/shared/back_to_top_button/back_to_top_button.css);
+
 body {
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
@@ -23,6 +24,7 @@ main {
   justify-content: center;
   align-items: center;
 }
+
 
 /* Stuff in main */
 
