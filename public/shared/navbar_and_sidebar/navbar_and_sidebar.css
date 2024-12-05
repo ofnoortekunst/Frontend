@@ -136,9 +136,12 @@ nav p {
 }
 
 @media (hover: hover) {
-  nav a:hover,
-  nav p:hover {
+  nav a:hover, nav p:hover {
     color: var(--hover-color);
+  }
+
+  .bookmark:hover svg {
+    fill: var(--hover-color);
   }
 }
 
@@ -261,6 +264,7 @@ nav svg {
   vertical-align: middle;
   fill: var(--dark-text-color);
   margin-top: 5px;
+  transition: all 0.2s ease;
 }
 
 @media (max-width: 1085px) {
@@ -355,8 +359,7 @@ nav svg {
     z-index: 4;
   }
 
-  .open-sidebar-btn,
-  .close-sidebar-btn {
+  .open-sidebar-btn, .close-sidebar-btn {
     padding-right: 20px;
     padding-left: 20px;
     display: block;
@@ -364,8 +367,7 @@ nav svg {
   }
 
   @media (hover: hover) {
-    .open-sidebar-btn svg:hover,
-    .close-sidebar-btn svg:hover {
+    .open-sidebar-btn svg:hover, .close-sidebar-btn svg:hover {
       fill: var(--hover-color);
     }
 

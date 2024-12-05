@@ -258,7 +258,7 @@ footer {
 }
 
 .noortekunst-box p {
-  font-size: 24px;
+  font-size: 22px;
   color: var(--dark-text-color);
   line-height: normal;
 }
@@ -266,7 +266,7 @@ footer {
 .noortekunst-intro-logo {
   width: 90%;
   min-width: 250px;
-  max-width: 600px;
+  max-width: 500px;
   height: auto;
 }
 
