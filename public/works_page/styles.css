@@ -6,7 +6,6 @@
 @import url(/public/shared/art_containers_and_stuff_inside/art_containers_and_stuff_inside.css);
 @import url(/public/shared/back_to_top_button/back_to_top_button.css);
 
-
 body {
   grid-template-areas:
   'navbar navbar'
