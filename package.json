@@ -9,8 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^6.0.1",
+    "dotenv-cli": "^7.4.4",
+    "firebase": "^11.0.2",
+    "firebase-admin": "^13.0.1",
+    "firebase-tools": "^13.28.0",
+    "next": "15.0.3",
+    "nvm": "^0.0.4",
+    "prisma": "^6.0.1",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
-    "next": "15.0.3"
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/react": "19.0.1"
   }
 }

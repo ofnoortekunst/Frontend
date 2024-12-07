@@ -214,3 +214,75 @@ function handleToggleClick3(event) {
     pswI.type = "password";
   }
 };
+
+document.getElementById('login_form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const formData = new FormData(this);
+  const jsonObject = Object.fromEntries(formData.entries());
+
+  // Use fetch to send the POST request
+  fetch('/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jsonObject)
+  })
+  .then(response => {
+      if (response.ok) {
+        window.location.href = "/index.html";
+      }
+  })
+  .catch(error => {
+      console.error('Error:', error);
+  });
+});
+
+document.getElementById('artist-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const formData = new FormData(this);
+  const jsonObject = Object.fromEntries(formData.entries());
+
+  // Use fetch to send the POST request
+  fetch('/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jsonObject)
+  })
+  .then(response => {
+      if (response.ok) {
+        window.location.href = "/index.html";
+      }
+  })
+  .catch(error => {
+      console.error('Error:', error);
+  });
+});
+
+document.getElementById('interested-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const formData = new FormData(this);
+  const jsonObject = Object.fromEntries(formData.entries());
+
+  // Use fetch to send the POST request
+  fetch('/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jsonObject)
+  })
+  .then(response => {
+      if (response.ok) {
+        window.location.href = "/index.html";
+      }
+  })
+  .catch(error => {
+      console.error('Error:', error);
+  });
+});
