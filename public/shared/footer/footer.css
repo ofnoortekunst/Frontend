@@ -2,12 +2,13 @@
 footer {
   width: 100%;
   grid-area: footer;
+  height: auto;
 }
 
 .footer {
   width: 100vw;
   display: flex;
-  height: 100%;
+  height: auto;
   background: var(--footer-background); 
   justify-content: center;
   align-items: center;
