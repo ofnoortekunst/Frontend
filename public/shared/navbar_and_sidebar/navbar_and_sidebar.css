@@ -317,7 +317,7 @@ nav svg {
   height: 80px;
   background-color: var(--nav-background);
   color: var(--dark-text-color);
-  border-left: 2px solid var(--nav-border);
+  border-left: 2px solid var(--profile-border-left);
   border-bottom: 2px solid var(--nav-border);
 }
 
