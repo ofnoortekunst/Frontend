@@ -3,6 +3,9 @@ footer {
   width: 100%;
   grid-area: footer;
   height: auto;
+  position: relative;
+  bottom: 0;
+  left: 0;
 }
 
 .footer {

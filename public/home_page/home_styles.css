@@ -119,7 +119,7 @@ footer {
   border-radius: 100vh;
   border: none;
   color: var(--back);
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -222,12 +222,12 @@ footer {
 
   .login-button:hover {
     background-color: var(--dark-hover-color);
-    transform: scale(1.03);
+    transform: scale(1.01);
   }
 
   .register-button:hover {
     background-color: var(--gray);
-    transform: scale(1.03);
+    transform: scale(1.01);
   }
 } 
 
