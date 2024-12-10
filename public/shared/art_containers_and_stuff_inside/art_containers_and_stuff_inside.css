@@ -6,7 +6,7 @@ html, body {
 
 .art-container {
   padding: 1em;
-  box-shadow: var(--gray-between) 0.01px 1px 5px 1px;
+  box-shadow: var(--gray-between) 0.01px 1px 4px 0px;
   background-color: var(--light-gray);
   border-radius: 20px;
   display: flex;

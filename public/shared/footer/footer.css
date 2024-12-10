@@ -1,6 +1,6 @@
 /* Footer stuff */
 footer {
-  width: 100%;
+  width: 100vw;
   grid-area: footer;
   height: auto;
   position: relative;
@@ -9,7 +9,7 @@ footer {
 }
 
 .footer {
-  width: 100vw;
+  width: 100%;
   display: flex;
   height: auto;
   background: var(--footer-background); 
@@ -28,6 +28,7 @@ footer {
   justify-content: center;
   align-items: center;
   width: 80%;
+  height: auto;
   background-color: transparent;
   padding: 1rem;
   padding-top: 0.5rem;
