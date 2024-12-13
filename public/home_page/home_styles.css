@@ -6,6 +6,7 @@
 @import url(/public/shared/back_to_top_button/back_to_top_button.css);
 
 body {
+  overflow-x: hidden;
   scroll-behavior: smooth;
   background-color: var(--nav-background);
   z-index: 2;
@@ -171,6 +172,7 @@ footer {
   height: 100%;
   object-fit: cover;
   position: fixed;
+  left: 0;
   top: 0;
   z-index: 1;
 }
