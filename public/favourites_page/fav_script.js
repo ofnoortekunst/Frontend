@@ -292,3 +292,27 @@ document.querySelectorAll('.art-container').forEach(post => {
     const body = await response.json();
   });
 });
+
+// Adding functionality for the 'Save' button
+document.querySelectorAll('.art-container').forEach(post => {
+  const postId = post.dataset.postId; // Assuming you have postId for each post container
+  const saveButton = post.querySelector('.save-work');
+
+  saveButton.addEventListener('click', async () => {
+    if (saveButton.classList.contains('selected')) {
+      // If already saved, remove saved state
+      saveButton.classList.remove('selected');
+      saveButton.querySelector('span').textContent = 'Lemmikutes';
+
+      // Optionally send an API request to unsave
+      await fetch(`/posts/${postId}/unsave`, { method: 'POST' });
+    } else {
+      // If not saved, add saved state
+      saveButton.classList.add('selected');
+      saveButton.querySelector('span').textContent = 'Lemmikutesse';
+
+      // Optionally send an API request to save
+      await fetch(`/posts/${postId}/save`, { method: 'POST' });
+    }
+  });
+});

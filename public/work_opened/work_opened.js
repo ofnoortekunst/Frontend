@@ -147,3 +147,53 @@ themeSwitch.addEventListener('click', () => {
 function openPage(pageUrl){
   window.location.href = pageUrl;
 }
+
+// Adding functionality for the 'Like' and 'Save' buttons
+
+// Like button functionality
+const likeButton = document.querySelector('.like-btn');
+if (likeButton) {
+  const likeCount = likeButton.querySelector('span');
+
+  likeButton.addEventListener('click', async () => {
+    const postId = likeButton.dataset.postId; // Assuming the button or parent element has data-post-id
+
+    if (likeButton.classList.contains('selected')) {
+      // If already liked, remove like state
+      likeButton.classList.remove('selected');
+      likeCount.textContent = Math.max(0, Number(likeCount.textContent) - 1);
+
+      // Optionally send an API request to unlike
+      await fetch(`/posts/${postId}/unlike`, { method: 'POST' });
+    } else {
+      // If not liked, add like state
+      likeButton.classList.add('selected');
+      likeCount.textContent = Number(likeCount.textContent) + 1;
+
+      // Optionally send an API request to like
+      await fetch(`/posts/${postId}/like`, { method: 'POST' });
+    }
+  });
+}
+
+// Save button functionality
+const saveButton = document.querySelector('.add-to-favourites');
+if (saveButton) {
+  saveButton.addEventListener('click', async () => {
+    const postId = saveButton.dataset.postId; // Assuming the button or parent element has data-post-id
+
+    if (saveButton.classList.contains('selected')) {
+      // If already saved, remove saved state
+      saveButton.classList.remove('selected');
+
+      // Optionally send an API request to unsave
+      await fetch(`/posts/${postId}/unsave`, { method: 'POST' });
+    } else {
+      // If not saved, add saved state
+      saveButton.classList.add('selected');
+
+      // Optionally send an API request to save
+      await fetch(`/posts/${postId}/save`, { method: 'POST' });
+    }
+  });
+}

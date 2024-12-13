@@ -46,17 +46,41 @@ html, body {
 }
 
 .price-and-like {
+  width: auto;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  gap: 2rem;
+  justify-content: space-between;
   align-items: center;
-  gap: 50px;
   background-color: transparent;
-  margin-left: 5%;
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none;    /* Firefox */
   -ms-user-select: none;     /* Internet Explorer/Edge */
   user-select: none;         /* Standard */
+}
+
+.save-work {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: none;
+  background-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-work svg {
+  fill: var(--dark-text-color);
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.save-work span {
+  background-color: transparent;
+  color: var(--dark-text-color);
 }
 
 .post-ratings-container {
@@ -96,6 +120,7 @@ html, body {
 .selected > .post-rating-button,
 .selected > .post-rating-count {
   color: var(--gmail-color);
+  fill: var(--gmail-color);
 }
 
 @media (hover:hover) {
