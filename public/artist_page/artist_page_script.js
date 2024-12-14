@@ -1,7 +1,7 @@
 const toggleButton = document.getElementById('toggle-btn');
 const sidebar = document.getElementById('sidebar');
 const sibling1 = document.querySelector('.search-bar');
-const sibling2 = document.querySelector('.sorting-options');
+const sibling2 = document.querySelector('.show-sorting');
 const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const settingsOverlay = document.getElementById('settings-overlay');
@@ -52,7 +52,7 @@ function checkWidth() {
     uploadWork.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>';
   };
 
-  if (window.innerWidth < 620) {
+  if (window.innerWidth < 460) {
     // Listen for the focusin and focusout events on the first sibling
     sibling1.addEventListener('focusin', () => {
       // When sibling-1 (or its children) gains focus, add the 'focused' class to sibling-2
@@ -328,17 +328,29 @@ document.querySelectorAll('.art-container').forEach(post => {
     if (saveButton.classList.contains('selected')) {
       // If already saved, remove saved state
       saveButton.classList.remove('selected');
-      saveButton.querySelector('span').textContent = 'Lemmikutesse';
+      saveButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Zm80-122 200-86 200 86v-518H280v518Zm0-518h400-400Z" /></svg><span>Lemmikutesse</span>';
 
       // Optionally send an API request to unsave
       await fetch(`/posts/${postId}/unsave`, { method: 'POST' });
     } else {
       // If not saved, add saved state
       saveButton.classList.add('selected');
-      saveButton.querySelector('span').textContent = 'Lemmikutes';
+      saveButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Z"/></svg><span>Lemmikutes</span>';
 
       // Optionally send an API request to save
       await fetch(`/posts/${postId}/save`, { method: 'POST' });
     }
   });
+});
+
+// Show the sorting when 'sorteeri' is clicked
+const sortingButton = document.querySelector('.show-sorting');
+const sortingOptions = document.querySelector('.sorting-options');
+
+sortingButton.addEventListener('click', () => {
+  if (sortingOptions.classList.contains('display')) {
+    sortingOptions.classList.remove('display');
+  } else {
+    sortingOptions.classList.add('display');
+  }
 });
