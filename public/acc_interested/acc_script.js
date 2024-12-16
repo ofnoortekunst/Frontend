@@ -3,7 +3,8 @@ import {
   getAuth,
   updateEmail,
   onAuthStateChanged,
-  update
+  updatePassword,
+  sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 const firebaseConfig = {
   apiKey: "AIzaSyBxkehsxAYKmu8kPPUEGYZBYjSc_rZVFZE",
