@@ -286,3 +286,35 @@ document.getElementById('interested-form').addEventListener('submit', function(e
       console.error('Error:', error);
   });
 });
+
+// Change some text when login is clicked
+const loginButton = document.getElementById('login-btn-loader');
+
+loginButton.addEventListener('click', () => {
+  loginButton.value = 'Laeb...';
+
+  setTimeout(() => {
+    loginButton.value = 'Logi sisse';
+  }, 2000);
+})
+
+const registerButtonA = document.getElementById('loading-a');
+
+registerButtonA.addEventListener('click', () => {
+  registerButtonA.value = 'Laeb...';
+
+  setTimeout(() => {
+    registerButtonA.value = 'Loo konto';
+  }, 2000);
+})
+
+const registerButtonI = document.getElementById('loading-i');
+
+registerButtonI.addEventListener('click', () => {
+  registerButtonI.value = 'Laeb...';
+
+  setTimeout(() => {
+    registerButtonI.value = 'Loo konto';
+  }, 2000);
+})
+

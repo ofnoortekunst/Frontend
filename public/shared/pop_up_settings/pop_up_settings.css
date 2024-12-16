@@ -58,7 +58,6 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-size: 18px;
-  color: var(--dark-text-color);
   cursor: pointer;
 }
 
@@ -176,4 +175,30 @@
 .language {
   cursor: default;
   color: var(--dark-text-color);
+}
+
+.log-in-out {
+  width: 50%;
+  height: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  border: none;
+  border-radius: 100vh;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--back);
+  margin-top: 1.5rem;
+}
+
+.log-in {
+  background-color: var(--hover-color);
+}
+
+.log-out {
+  background-color: var(--gmail-color);
 }

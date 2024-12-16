@@ -131,6 +131,7 @@ main {
 .register-container form fieldset label {
   font-weight: 400;
   color: var(--dark-text-color);
+  cursor: pointer;
 }
 
 #artist-form fieldset label {
@@ -154,6 +155,10 @@ main {
   cursor: pointer;
   transition: all 0.2s ease;
   color: var(--back);
+}
+
+.login-button:active, .register-button:active {
+  transform: scale(1.01);
 }
 
 .sign-with-gmail svg {
