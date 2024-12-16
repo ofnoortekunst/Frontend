@@ -44,6 +44,7 @@ h1 {
 
 h2 {
   margin-bottom: 1.5rem;
+  font-size: 28px;
   color: var(--dark-text-color);
 }
 
@@ -80,7 +81,7 @@ main hr {
 }
 
 .sub-div {
-  padding: 1rem;
+  padding: 2rem;
   box-shadow: var(--gray-between) 0px 1px 5px 0px;
   border-radius: 10px;
 }

@@ -66,6 +66,10 @@ rewrites: async () => {
       destination: "/upload_work_creating_acc.html",
     },
     {
+      source: "/privacy_policy",
+      destination: "/privacy_policy.html",
+    },
+    {
     source: '/public/:path*',
     destination: '/:path*',
     },
