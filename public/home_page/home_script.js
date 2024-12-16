@@ -35,6 +35,6 @@ const executeCookieCodes = () => {
     });
   });
 };
-
+}
 // When the page is loaded the executeCookieCodes function will run.
-window.addEventListener('load', executeCookieCodes)
+window.addEventListener('load', executeCookieCodes())
