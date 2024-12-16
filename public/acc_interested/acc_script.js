@@ -1,152 +1,151 @@
-const openModalButtons = document.querySelectorAll('[data-modal-target]');
-const closeModalButtons = document.querySelectorAll('[data-close-button]');
-const settingsOverlay = document.getElementById('settings-overlay');
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+import {
+  getAuth,
+  updateEmail,
+  onAuthStateChanged,
+  update
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyBxkehsxAYKmu8kPPUEGYZBYjSc_rZVFZE",
 
-// Scale the icons in the footer.
-function checkWidth() {
-  const uploadWork = document.querySelector('.upload-work-button');
+  authDomain: "noortekunst.firebaseapp.com",
 
-  if (window.innerWidth <= 1085) {
-    uploadWork.innerHTML = '+ Lae oma töö';
-  } else {
-    uploadWork.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>';
-  };
+  projectId: "noortekunst",
+
+  storageBucket: "noortekunst.firebasestorage.app",
+
+  messagingSenderId: "293895391339",
+
+  appId: "1:293895391339:web:54d410d4832a1576a7492e",
+
+  measurementId: "G-WP5PX2R36D",
 };
-checkWidth();
-window.addEventListener('resize', checkWidth);
+var delete_confirm = 0;
+const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
+onAuthStateChanged(auth, async function(user) {
+  if (user) {
+    const worknum = document.getElementById('load-works');
+    const select = document.getElementById('school-select');
+    const baseUrl = window.location.origin;
+    const token = await user.getIdToken();
+        try {
+          var url = `${baseUrl}/api/userworks`;
+          const response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              idToken: token,
+              works: "count"
+            }),
+          });
+  
+          if (response.ok) {
+            const responseData = await response.json();
+            worknum.textContent = responseData.message + "/" + "3";
+          } else {
+            console.error('Failed to fetch worknum data');
+          }
+        } catch (error) {
+          console.error('Error getting ID token or fetching data:', error);
+        }
+        try {
+          var url = `${baseUrl}/api/usergrade`;
+          const response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              idToken: token,
+              grade: "get"
+            }),
+          });
+  
+          if (response.ok) {
+            const responseData = await response.json();
+            select.value = responseData.message;
+          } else {
+            console.error('Failed to fetch school data');
+          }
+        } catch (error) {
+          console.error('Error getting ID token or fetching data:', error);
+        }
+      }
+    });
 
-// Scroll to top button function
-function scrollToTop() {
-  document.querySelector('header').scrollIntoView({behavior: 'smooth'});
-};
-
-// Scroll to bottom function
-function scrollToBottom() {
-  document.querySelector('footer').scrollIntoView({behavior: 'smooth'});
-};
-
-// Hide sidebar onclick
-function hideSideBar() {
-  const sidebarCheckBox = document.getElementById('sidebar-active');
-  sidebarCheckBox.checked = false;
-};
-
-// For each modal that is created in the beginning of this js, when it's clicked it saves a modal variable which is used for the openModal() function.
-openModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal =  document.querySelector(button.dataset.modalTarget);
-    openModal(modal);
-  })
+document.getElementById("delete").addEventListener("click", async function(e) {
+  e.preventDefault();
+  try {
+    if (delete_confirm) {
+      const userDelete = await auth.currentUser.delete();
+    } else {
+      delete_confirm = 1;
+      document.getElementById("error_text_delete").textContent =
+        "Kindel, et tahate kustuta? Vajuta teist korda, et kinnitada.";
+    }
+  } catch (error) {
+    if (error.code == "auth/requires-recent-login") {
+      window.location.href = "/login_register_page?account_relogin"
+    }
+  }
 });
 
-// Same as the open but this time the variable is used for the closeModal() function.
-closeModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = button.closest('.settings-modal');
-    closeModal(modal);
-  })
+document.getElementById('school-select').addEventListener('change', async function() {
+  var selectedValue = document.getElementById('school-select').value;
+  const idToken = await auth.currentUser.getIdToken()
+  const baseUrl = window.location.origin;
+  const url = `${baseUrl}/api/userdata`;
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      idToken: idToken,
+      grade: selectedValue
+    }),
+  });
+  if (response.ok) {
+    const data = await response.json();
+    document.getElementById('grade-change').textContent = `Kooliaste muudetud. ${data.message}`
+  }
+})
+
+document.getElementById("logout").addEventListener("click", (e) => {
+  e.preventDefault();
+  auth.signOut();
+  console.log("logged out");
 });
 
-// When the settingsOverlay is clicked it selects all modals with the settings-active class and closes them.
-settingsOverlay.addEventListener('click', () => {
-  const modals = document.querySelectorAll('.settings-modal.settings-active');
-  modals.forEach(modal => {
-    closeModal(modal);
+document.getElementById("change-email").addEventListener("click", (e) => {
+  e.preventDefault();
+  try {
+    updateEmail(auth.currentUser, document.getElementById("new-email").value);
+  } catch (error) {
+    console.log(error);
+    if (error.code === "requires-recent-login") {
+      window.location.href = "/login_register_page?account_relogin";
+    }
+  }
+});
+
+document.getElementById('sub-button').addEventListener('click', function(e) {
+  e.preventDefault()
+  sendPasswordResetEmail(auth, auth.currentUser.email).then(() => {
+    document.getElementById('error_text_password').textContent = "Saatsime parooli lähtestamise emaili."
   })
 })
 
-// Takes the modal from openModalButtons and adds settings-active class, same for the settingsOverlay.
-function openModal(modal) {
-  if (modal == null) {
-    return;
-  } else {
-    modal.classList.add('settings-active');
-    settingsOverlay.classList.add('settings-active');
-  };
-};
-
-// Takes the modal from closeModalButtons and removes settings-active class, same for the settingsOverlay.
-function closeModal(modal) {
-  if (modal == null) {
-    return;
-  } else {
-    modal.classList.remove('settings-active');
-    settingsOverlay.classList.remove('settings-active');
-  };
-};
-
-
-// Dark mode stuff
-
-const mainLogo = document.querySelector('.home-link');
-const sidebarActiveLogo = document.querySelector('.static-a');
-const footer = document.querySelector('.logo-container');
-const loginLogo = document.querySelector('.image-and-desc');
-
-// Enables darkmode and saves active status into localStorage.
-const enableDarkmode = () => {
-  document.documentElement.classList.add('darkmode');
-  localStorage.setItem('darkmode', 'active');
-
-  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/dark-mode-logo.avif">';
-  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/dark-mode-logo.avif">';
-
-  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo-darkmode.avif">';
-
-  loginLogo.innerHTML = '<img alt="logo" src="images/dark-back-darkmode-logo.avif"><p>Eesti esimene noortele loodud veebigalerii</p>';
-
-  document.documentElement.classList.add('css-transitions-only-after-page-load'); // Disable transitions
-
-  setTimeout(() => {
-    document.documentElement.classList.remove('css-transitions-only-after-page-load');
-  }, 50); // 50ms delay should be sufficient
-};
-
-// Disables darkmodeand saves inactive into localStorage.
-const disableDarkmode = () => {
-  document.documentElement.classList.remove('darkmode');
-  localStorage.setItem('darkmode', 'inactive');
-
-  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/pro-logo-transparent.avif">';
-  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/pro-logo-transparent.avif">';
-
-  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo.avif">';
-
-  loginLogo.innerHTML = '<img alt="logo" src="images/logo-white-background.avif"><p>Eesti esimene noortele loodud veebigalerii</p>';
-
-  document.documentElement.classList.add('css-transitions-only-after-page-load'); // Disable transitions
-
-  setTimeout(() => {
-    document.documentElement.classList.remove('css-transitions-only-after-page-load');
-  }, 50); // 50ms delay should be sufficient
-};
-
-// Get darkmode from local storage.
-let darkmode = localStorage.getItem('darkmode');
-const themeSwitch = document.getElementById('theme-switch');
-
-// Check if darkmode is active or not when the page loads.
-if (darkmode === 'active') {
-  enableDarkmode();
-};
-
-// When themeSwitch is clicked it takes darkmode from localStorage and if its not active it enables it and if its active it disables it.
-themeSwitch.addEventListener('click', () => {
-  darkmode = localStorage.getItem('darkmode');
-  // Toggle between enabling and disabling dark mode based on current state.
-  darkmode !== 'active' ? enableDarkmode() : disableDarkmode();
-});
-
-// Open the page onclick
-function openPage(pageUrl){
-  window.location.href = pageUrl;
-}
+document.getElementById('sub-button').addEventListener('click', (e) => {
+  e.preventDefault()
+  if (!document.getElementById('psw-new').value == document.getElementById('password').value) {
+    document.getElementById('error_text_password').textContent = "Paroolid ei ole samad."
+  }
+  auth.currentUser.updatePassword(document.getElementById())
+})
 
 // Show password
-let toggle1 = document.getElementById('show-pass-1');
-let toggle2 = document.getElementById('show-pass-2');
-let password1 = document.getElementById('password');
-let password2 = document.getElementById('psw-new');
+let toggle1 = document.getElementById("show-pass-1");
+let toggle2 = document.getElementById("show-pass-2");
+let password1 = document.getElementById("password");
+let password2 = document.getElementById("psw-new");
 
 toggle1.addEventListener("click", handleToggleClick1, false);
 toggle2.addEventListener("click", handleToggleClick2, false);
@@ -174,8 +173,8 @@ function handleToggleClick2(event) {
 }
 
 //Profile pic uploading
-let profilePicture = document.getElementById('profile-pic');
-let inputFile = document.getElementById('input-file');
+let profilePicture = document.getElementById("profile-pic");
+let inputFile = document.getElementById("input-file");
 
 inputFile.onchange = () => {
   profilePicture.src = URL.createObjectURL(inputFile.files[0]);

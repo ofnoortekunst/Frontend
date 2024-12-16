@@ -38,3 +38,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# api key
+noortekunst-firebase-adminsdk-qqj7s-81b0305fde.json

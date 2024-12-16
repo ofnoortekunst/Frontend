@@ -1,288 +1,359 @@
-const openModalButtons = document.querySelectorAll('[data-modal-target]');
-const closeModalButtons = document.querySelectorAll('[data-close-button]');
-const settingsOverlay = document.getElementById('settings-overlay');
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
-// Change the upload work button in the navbar whether its on the top or right
-function checkWidth() {
-  const uploadWork = document.querySelector('.upload-work-button');
+const firebaseConfig = {
+  apiKey: "AIzaSyBxkehsxAYKmu8kPPUEGYZBYjSc_rZVFZE",
 
-  if (window.innerWidth <= 1085) {
-    uploadWork.innerHTML = '+ Lae oma töö';
-  } else {
-    uploadWork.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>';
-  };
+  authDomain: "noortekunst.firebaseapp.com",
+
+  projectId: "noortekunst",
+
+  storageBucket: "noortekunst.firebasestorage.app",
+
+  messagingSenderId: "293895391339",
+
+  appId: "1:293895391339:web:54d410d4832a1576a7492e",
+
+  measurementId: "G-WP5PX2R36D",
 };
-checkWidth();
-window.addEventListener('resize', checkWidth);
+const provider = new GoogleAuthProvider();
 
-// Scroll to top button function
-function scrollToTop() {
-  document.querySelector('header').scrollIntoView({behavior: 'smooth'});
-};
+const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
 
-// Scroll to bottom function
-function scrollToBottom() {
-  document.querySelector('footer').scrollIntoView({behavior: 'smooth'});
-};
+function getNameFromEmail(email) {
+  if (!email.includes("@")) {
+    return null;
+  }
 
-// Hide sidebar onclick
-function hideSideBar() {
-  const sidebarCheckBox = document.getElementById('sidebar-active');
-  sidebarCheckBox.checked = false;
-};
+  const namePart = email.split("@")[0];
+  const name = namePart.replace(/[._]/g, " ");
+  return name.charAt(0).toUpperCase() + name.slice(1);
+}
 
-// For each modal that is created in the beginning of this js, when it's clicked it saves a modal variable which is used for the openModal() function.
-openModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal =  document.querySelector(button.dataset.modalTarget);
-    openModal(modal);
-  })
+document.getElementById("email-a").addEventListener("blur", function (e) {
+  const inputValue = this.value;
+  const name = getNameFromEmail(inputValue);
+  const name_field = document.getElementById("name-a");
+  if ((name != null) & (name_field.value === "")) {
+    name_field.value = name;
+  }
+});
+document.getElementById("email-i").addEventListener("blur", function (e) {
+  const inputValue = this.value;
+  const name = getNameFromEmail(inputValue);
+  const name_field = document.getElementById("name-i");
+  if ((name != null) & (name_field.value === "")) {
+    name_field.value = name;
+  }
 });
 
-// Same as the open but this time the variable is used for the closeModal() function.
-closeModalButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const modal = button.closest('.settings-modal');
-    closeModal(modal);
-  })
-});
+const url = window.location.href;
+if (url.includes("?signup")) {
+  const sign_up_label = document.getElementById("close-forms-i");
+  if (sign_up_label) {
+    sign_up_label.click();
+  }
+}
+var returnToSettings = 0
+if (url.includes("?account_relogin")) {
+  document.getElementById("error_text").textContent = "Tähtsate konto sätete muutmiseks logi uuesti sisse."
+  returnToSettings = 1
+}
 
-// When the settingsOverlay is clicked it selects all modals with the settings-active class and closes them.
-settingsOverlay.addEventListener('click', () => {
-  const modals = document.querySelectorAll('.settings-modal.settings-active');
-  modals.forEach(modal => {
-    closeModal(modal);
-  })
-})
-
-// Takes the modal from openModalButtons and adds settings-active class, same for the settingsOverlay.
-function openModal(modal) {
-  if (modal == null) {
-    return;
+function handleToggleClick2(event) {
+  if (this.checked && pswA.type !== "text") {
+    pswA.type = "text";
   } else {
-    modal.classList.add('settings-active');
-    settingsOverlay.classList.add('settings-active');
-  };
-};
-
-// Takes the modal from closeModalButtons and removes settings-active class, same for the settingsOverlay.
-function closeModal(modal) {
-  if (modal == null) {
-    return;
+    pswA.type = "password";
+  }
+}
+function handleToggleClick1(event) {
+  if (this.checked && password.type !== "text") {
+    password.type = "text";
   } else {
-    modal.classList.remove('settings-active');
-    settingsOverlay.classList.remove('settings-active');
-  };
-};
+    password.type = "password";
+  }
+}
 
-
-// Dark mode stuff
-
-const mainLogo = document.querySelector('.home-link');
-const sidebarActiveLogo = document.querySelector('.static-a');
-const footer = document.querySelector('.logo-container');
-const loginLogo = document.querySelector('.image-and-desc');
-
-// Enables darkmode and saves active status into localStorage.
-const enableDarkmode = () => {
-  document.documentElement.classList.add('darkmode');
-  localStorage.setItem('darkmode', 'active');
-
-  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/dark-mode-logo.avif">';
-  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/dark-mode-logo.avif">';
-
-  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo-darkmode.avif">';
-
-  loginLogo.innerHTML = '<img alt="logo" src="images/dark-back-darkmode-logo.avif"><p>Eesti esimene noortele loodud veebigalerii</p>';
-
-  document.documentElement.classList.add('css-transitions-only-after-page-load'); // Disable transitions
-
-  setTimeout(() => {
-    document.documentElement.classList.remove('css-transitions-only-after-page-load');
-  }, 50); // 50ms delay should be sufficient
-};
-
-// Disables darkmodeand saves inactive into localStorage.
-const disableDarkmode = () => {
-  document.documentElement.classList.remove('darkmode');
-  localStorage.setItem('darkmode', 'inactive');
-
-  mainLogo.innerHTML = '<img class="logo" alt="logo" src="images/pro-logo-transparent.avif">';
-  sidebarActiveLogo.innerHTML = '<img alt="logo-static" class="logo-static" src="images/pro-logo-transparent.avif">';
-
-  footer.innerHTML = '<img class="dark-logo-footer" alt="dark-logo" src="images/footer-logo.avif">';
-
-  loginLogo.innerHTML = '<img alt="logo" src="images/logo-white-background.avif"><p>Eesti esimene noortele loodud veebigalerii</p>';
-
-  document.documentElement.classList.add('css-transitions-only-after-page-load'); // Disable transitions
-
-  setTimeout(() => {
-    document.documentElement.classList.remove('css-transitions-only-after-page-load');
-  }, 50); // 50ms delay should be sufficient
-};
-
-// Get darkmode from local storage.
-let darkmode = localStorage.getItem('darkmode');
-const themeSwitch = document.getElementById('theme-switch');
-
-// Check if darkmode is active or not when the page loads.
-if (darkmode === 'active') {
-  enableDarkmode();
-};
-
-// When themeSwitch is clicked it takes darkmode from localStorage and if its not active it enables it and if its active it disables it.
-themeSwitch.addEventListener('click', () => {
-  darkmode = localStorage.getItem('darkmode');
-  // Toggle between enabling and disabling dark mode based on current state.
-  darkmode !== 'active' ? enableDarkmode() : disableDarkmode();
-});
+function handleToggleClick3(event) {
+  if (this.checked && pswI.type !== "text") {
+    pswI.type = "text";
+  } else {
+    pswI.type = "password";
+  }
+}
 
 // Show 'looja' or 'huviline' sections based on radio
 const radioButtons = document.querySelectorAll("input[name='role']");
 
-const findSelected = ()  => {
+const findSelected = () => {
   const selected = document.querySelector("input[name='role']:checked").value;
 
-  if (selected === 'interested') {
-    document.getElementById('interested-form').classList.add('selected');
-    document.getElementById('artist-form').classList.remove('selected');
+  if (selected === "interested") {
+    document.getElementById("interested-form").classList.add("selected");
+    document.getElementById("artist-form").classList.remove("selected");
   } else {
-    document.getElementById('artist-form').classList.add('selected');
-    document.getElementById('interested-form').classList.remove('selected');
-  };
+    document.getElementById("artist-form").classList.add("selected");
+    document.getElementById("interested-form").classList.remove("selected");
+  }
 };
 
-radioButtons.forEach(radioBtn => {
+radioButtons.forEach((radioBtn) => {
   radioBtn.addEventListener("change", findSelected);
 });
 
-// Open the page onclick
-function openPage(pageUrl){
-  window.location.href = pageUrl;
-}
-
 // Close forms from artist page
-document.getElementById('close-forms-a').addEventListener('click', () => {
-  document.getElementById('artist-form').classList.remove('selected');
-  document.getElementById('interested-form').classList.remove('selected');
+document.getElementById("close-forms-a").addEventListener("click", () => {
+  document.getElementById("artist-form").classList.remove("selected");
+  document.getElementById("interested-form").classList.remove("selected");
 });
 
 // Close forms form interested page
-document.getElementById('close-forms-i').addEventListener('click', () => {
-  document.getElementById('artist-form').classList.remove('selected');
-  document.getElementById('interested-form').classList.remove('selected');
+document.getElementById("close-forms-i").addEventListener("click", () => {
+  document.getElementById("artist-form").classList.remove("selected");
+  document.getElementById("interested-form").classList.remove("selected");
 });
 
 // Show password
-let password = document.getElementById('password');
-let toggle = document.getElementById('show-password');
-let pswA = document.getElementById('psw-a');
-let toggleA = document.getElementById('show-password-a');
-let pswI = document.getElementById('psw-i');
-let toggleI = document.getElementById('show-password-i');
+let password = document.getElementById("password");
+let toggle = document.getElementById("show-password");
+let pswA = document.getElementById("psw-a");
+let toggleA = document.getElementById("show-password-a");
+let pswI = document.getElementById("psw-i");
+let toggleI = document.getElementById("show-password-i");
 
 toggle.addEventListener("click", handleToggleClick1, false);
 toggleA.addEventListener("click", handleToggleClick2, false);
 toggleI.addEventListener("click", handleToggleClick3, false);
 
-function handleToggleClick1(event) {
-  if (this.checked && password.type !== 'text') {
-    console.warn("Change input 'type' to: text");
-    password.type = "text";
-  } else {
-    console.warn("Change input 'type' to: password");
-    password.type = "password";
-  }
-};
+document
+  .getElementById("login_form")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-function handleToggleClick2(event) {
-  if (this.checked && pswA.type !== 'text') {
-    console.warn("Change input 'type' to: text");
-    pswA.type = "text";
-  } else {
-    console.warn("Change input 'type' to: password");
-    pswA.type = "password";
-  }
-};
+    try {
+      const email = this.elements["email"].value;
+      const password = this.elements["password"].value;
 
-function handleToggleClick3(event) {
-  if (this.checked && pswI.type !== 'text') {
-    console.warn("Change input 'type' to: text");
-    pswI.type = "text";
-  } else {
-    console.warn("Change input 'type' to: password");
-    pswI.type = "password";
-  }
-};
-
-document.getElementById('login_form').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  const formData = new FormData(this);
-  const jsonObject = Object.fromEntries(formData.entries());
-
-  // Use fetch to send the POST request
-  fetch('/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(jsonObject)
-  })
-  .then(response => {
-      if (response.ok) {
-        window.location.href = "/index.html";
+      const user = await signInWithEmailAndPassword(auth, email, password);
+      if (returnToSettings) {
+        window.location.href = "/acc_page_interested"
+      } else {
+        window.location.href = "/"
       }
-  })
-  .catch(error => {
-      console.error('Error:', error);
+    } catch (error) {
+      // Handle authentication errors
+      const code = error.code;
+      const errorParagraph = document.getElementById("error_text");
+      if (code == "auth/invalid-credential") {
+        errorParagraph.textContent = "Parool või email ei ole õige";
+      } else {
+        console.error(error.message);
+      }
+    }
   });
+
+  document
+  .getElementById("interested-form")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    try {
+      const email = this.elements["email"].value;
+      const password = this.elements["password"].value;
+
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+
+      const idToken = await user.getIdToken();
+
+
+      const formData = Object.fromEntries(new FormData(this).entries());
+
+      const baseUrl = window.location.origin;
+      const url = `${baseUrl}/api/register`;
+
+      const darkmode = localStorage.getItem("darkmode")
+      if (darkmode === null) {
+        darkmode = "inactive"
+      }
+      // Send the data to the server
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formdata: formData,
+          idToken: idToken,
+          darkmode: darkmode,
+        }),
+      });
+
+      if (response.ok) {
+        // Redirect to home page
+        window.location.href = "/";
+      } else {
+        // Display error message
+        document.getElementById("error_text_interested").textContent =
+          "Midagi läks valesti";
+      }
+    } catch (error) {
+      // Handle authentication errors
+      const code = error.code;
+      const errorParagraph = document.getElementById("error_text_interested");
+      if (code === "auth/invalid-credential") {
+        errorParagraph.textContent = "Parool või email ei ole õige";
+      } else if (code === "auth/email-already-in-use") {
+        errorParagraph.textContent = "Konto selle emailiga juba eksisteerib";
+      }
+      else {
+        errorParagraph.textContent = "Midagi läks valesti.";
+        console.error(error.message);
+      }
+      if (auth.currentUser & auth.currentUser.email === email) {
+        await auth.currentUser.delete();
+        errorParagraph.textContent = "Hetkel ei ole võimalik kasutajat teha.";
+      }
+    }
+  });
+
+document.getElementById('forgot-password').addEventListener('click', function(e) {
+  e.preventDefault()
+  sendPasswordResetEmail(auth, auth.currentUser.email).then(() => {
+    document.getElementById('error_text').textContent = "Saatsime parooli lähtestamise emaili."
+  })
+})
+
+  document
+  .getElementById("artist-form")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    try {
+      const email = this.elements["email"].value;
+      const password = this.elements["password"].value;
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      const idToken = await user.getIdToken();
+
+
+      const formData = Object.fromEntries(new FormData(this).entries());
+
+      const baseUrl = window.location.origin;
+      const url = `${baseUrl}/api/register`;
+
+      const darkmode = localStorage.getItem("darkmode")
+      if (darkmode === null) {
+        darkmode = "inactive"
+      }
+      // Send the data to the server
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formdata: formData,
+          idToken: idToken,
+          darkmode: darkmode,
+        }),
+      });
+
+      if (response.ok) {
+        // Redirect to home page
+        window.location.href = "/";
+      } else {
+        // Display error message
+        document.getElementById("error_text_artist").textContent =
+          "Midagi läks valesti";
+      }
+    } catch (error) {
+      // Handle authentication errors
+      const code = error.code;
+      const errorParagraph = document.getElementById("error_text_artist");
+      if (code == "auth/invalid-credential") {
+        errorParagraph.textContent = "Parool või email ei ole õige";
+      } else if (code == "auth/email-already-in-use") {
+        errorParagraph.textContent = "Konto selle emailiga juba eksisteerib";
+      }
+      else {
+        errorParagraph.textContent = "Midagi läks valesti.";
+        console.error(error.message);
+      }
+      const email = this.elements["email"].value;
+      if (auth.currentUser & auth.currentUser.email === email) {
+        await auth.currentUser.delete();
+        errorParagraph.textContent = "Hetkel ei ole võimalik kasutajat teha.";
+      }
+    }
+  });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const googleButton = document.getElementById("Google");
+  if (googleButton) {
+    googleButton.addEventListener("click", async (event) => {
+      event.preventDefault();
+
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        const idToken = await user.getIdToken();
+        const baseUrl = window.location.origin;
+        const url = `${baseUrl}/api/register`;
+        const formData = Object.fromEntries(new FormData(this).entries());
+        const darkmode = localStorage.getItem("darkmode")
+        if (darkmode === null) {
+          darkmode = "inactive"
+        }
+        const response = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            formdata: formData,
+            idToken: idToken,
+            darkmode: darkmode,
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          if (data.message === "success") {
+            if (returnToSettings) {
+              window.location.href = "/acc_page_interested"
+            }
+            else {
+              window.location.href = "/";
+            }
+          } else {
+            console.error("Login failed:", data);
+          }
+        } else {
+          console.error("HTTP error:", response.status, response.statusText);
+        }
+      } catch (error) {
+        console.error("Error during sign-in or fetch:", error);
+      }
+    });
+  } else {
+    console.error("Google button not found");
+  }
 });
 
-document.getElementById('artist-form').addEventListener('submit', function(event) {
-  event.preventDefault();
+document
+  .getElementById("interested-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  const formData = new FormData(this);
-  const jsonObject = Object.fromEntries(formData.entries());
-
-  // Use fetch to send the POST request
-  fetch('/api/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(jsonObject)
-  })
-  .then(response => {
-      if (response.ok) {
-        window.location.href = "/index.html";
-      }
-  })
-  .catch(error => {
-      console.error('Error:', error);
+    const formData = new FormData(this);
+    const jsonObject = Object.fromEntries(formData.entries());
   });
-});
-
-document.getElementById('interested-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  const formData = new FormData(this);
-  const jsonObject = Object.fromEntries(formData.entries());
-
-  // Use fetch to send the POST request
-  fetch('/api/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(jsonObject)
-  })
-  .then(response => {
-      if (response.ok) {
-        window.location.href = "/index.html";
-      }
-  })
-  .catch(error => {
-      console.error('Error:', error);
-  });
-});

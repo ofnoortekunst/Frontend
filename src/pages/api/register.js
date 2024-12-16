@@ -1,23 +1,51 @@
-import firebaseApp from "../../firebaseConfig";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import admin from "./main"
+import { PrismaClient } from '@prisma/client'
 
-const auth = getAuth(firebaseApp)
+const prisma = new PrismaClient()
+
+
 export default async function POST(req, res) {
     if (req.method === "POST") {
-        const { email, psw } = req.body;
-        console.log(email, psw)
-        createUserWithEmailAndPassword(auth, email, psw)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                const uid = user.uid
-                return res.status(200).json({message: 'Registration successful', email})
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                return res.status(400).json()
+        var { formdata, idToken, darkmode } = req.body;
+        try {
+            const decodedToken = await admin.auth().verifyIdToken(idToken);
+            const uid = decodedToken.uid
+            if (darkmode == "inactive") {
+              darkmode = false
+            }
+            else {
+              darkmode = true
+            }
+            const userRecord = await admin.auth().updateUser(uid, {
+              displayName: formdata['name'],
             });
+            var user_grade = formdata['school-select']
+            if (!user_grade) {
+              user_grade = "muu"
+            }
+            const existingUser = await prisma.user.findUnique({
+              where: { User_id: uid },
+          });
+          if (existingUser) {
+            res.status(200).send({ message: "success"});
+          }
+          else {
+            // Create a new user in the database
+            const newUser = await prisma.user.create({
+              data: {
+                  User_id: uid,
+                  Grade: user_grade,
+                  Language: "et",
+                  LightPreference: darkmode,
+              },
+          });
+          res.status(200).send({ message: "success"});
+          }
+          } catch (error) {
+            console.log("Error verifying token:", error.message);
+            res.status(401).send({ error: "Unauthorized" });
+          }
+        
     } else {
         res.status(405).json({ message: 'Registration unsuccessful' });
     }

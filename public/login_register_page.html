@@ -14,6 +14,9 @@
 </head>
 
 <body class="">
+  <script type="module" src="/public/login/login.js" defer></script>
+  <script type="text/javascript" src="/public/shared/shared_main.js" defer></script>
+  <script type="module" src="/public/shared/firebase/profile_info.js" defer></script>
   <header>
     <nav>
       <label for="sidebar-active" class="open-sidebar-btn">
@@ -61,7 +64,7 @@
             d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z" />
         </svg></div>
       <div class="user-info">
-        <p class="name">Mart Riisikas</p>
+        <p class="name">Külastaja</p>
         <p class="status">Huviline</p>
       </div>
     </div>
@@ -110,12 +113,12 @@
     <div class="login-register-box">
       <input type="checkbox" id="register-button">
       <div class="image-and-desc">
-        <img alt="logo" src="/public/images/logo-white-background.avif">
+        <img alt="logo" src="/public/images/logo-white-background.avif" id="noortekunst-logo-black">
         <p>Eesti esimene noortele loodud veebigalerii</p>
       </div>
       <div class="register-container">
         <h1>Loo konto</h1>
-        <form method="post">
+        <form>
           <fieldset>
             <legend>Roll:</legend>
             <div>
@@ -132,15 +135,15 @@
           <fieldset>
             <div>
               <label for="email">Email:</label>
-              <input type="email" id="email" name="email" placeholder="email" required>
+              <input type="email" id="email-i" name="email" placeholder="email" required>
             </div>
             <div>
               <label for="name">Nimi:</label>
-              <input type="text" id="name" name="name" placeholder="kasutajanimi" required>
+              <input type="text" id="name-i" name="name" placeholder="kasutajanimi" required>
             </div>
             <div>
               <label for="psw">Salasõna:</label>
-              <input type="password" id="psw-i" name="psw" placeholder="salasõna" autocomplete="new-password" required>
+              <input type="password" id="psw-i" name="password" placeholder="salasõna" autocomplete="new-password" required>
               <label id="pass-toggle" for="show-password-i">
                 <input type="checkbox" id="show-password-i" for="psw-i">
                 Näita salasõna
@@ -157,6 +160,7 @@
             <input type="checkbox" id="agree-to-terms" required>
             <label for="agree-to-terms">Nõustun <a>kasutajatingimustega</a></label>
           </div>
+          <p style="color:red;" id="error_text_interested"></p>
           <div class="login-register-buttons">
             <input type="submit" class="register-button" value="Loo konto" />
             <label class="login-button" id="close-forms-i" for="register-button">Konto olemas</label>
@@ -166,17 +170,17 @@
           <fieldset>
             <div>
               <label for="email">Email:</label>
-              <input type="email" id="email" name="email" placeholder="email" required>
+              <input type="email" id="email-a" name="email" placeholder="email" required>
             </div>
             <div>
               <label for="name">Nimi:</label>
-              <input type="text" id="name" name="name" placeholder="kasutajanimi" required>
+              <input type="text" id="name-a" name="name" placeholder="kasutajanimi" required>
               <p class="sub-text">Proovi valida püsiv nimi mille järgi inimesed sind tulevikus ära tunneksid</p>
             </div>
             <div class="school-selection">
               <label for="school-select">Mis kooliaste oled?</label>
               <select id="school-select" name="school-select">
-                <option value="">-Vali kooliaste-</option>
+                <option value="other-school">-Vali kooliaste-</option>
                 <option value="beginning-school">Algklassid</option>
                 <option value="middle-school">Põhikool</option>
                 <option value="high-school">Gümnaasium</option>
@@ -187,7 +191,7 @@
             </div>
             <div>
               <label for="psw">Salasõna:</label>
-              <input type="password" id="psw-a" name="psw" placeholder="salasõna" autocomplete="new-password" required>
+              <input type="password" id="psw-a" name="password" placeholder="salasõna" autocomplete="new-password" required>
               <label id="pass-toggle" for="show-password-a">
                 <input type="checkbox" id="show-password-a" for="psw-a">
                 Näita salasõna
@@ -208,6 +212,7 @@
             <input type="checkbox" id="agree-to-terms" required>
             <label for="agree-to-terms">Nõustun <a>kasutajatingimustega</a></label>
           </div>
+          <p style="color:red;" id="error_text_artist"></p>
           <div class="login-register-buttons">
             <input type="submit" class="register-button" value="Loo konto" />
             <label class="login-button" id="close-forms-a" for="register-button">Konto juba olemas</label>
@@ -219,7 +224,7 @@
         <form id="login_form">
           <fieldset>
             <legend>Email:</legend>
-            <input id="email" name="email" type="email" placeholder="email" required>
+            <input id="email-l" name="email" type="email" placeholder="email" required>
             <legend>Salasõna:</legend>
             <input id="password" name="password" type="password" placeholder="salasõna" class="login-pass" required>
             <div class="show-and-forgot">
@@ -227,30 +232,31 @@
                 <input type="checkbox" id="show-password" for="password">
                 Näita salasõna
               </label>
-              <a class="sub-text" href="confirm_mail">Unustasin salasõna</a>
+              <a class="sub-text" href="confirm_mail" id="forgot-password">Unustasin salasõna</a>
             </div>
           </fieldset>
+          <p style="color:red;" id="error_text"></p>
           <div class="login-register-buttons">
             <input type="submit" class="login-button" value="Logi sisse" />
             <label class="register-button" for="register-button">Pole kontot?</label>
-            <button class="sign-with-gmail">
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
-                <path fill="#FFC107"
-                  d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
-                </path>
-                <path fill="#FF3D00"
-                  d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
-                </path>
-                <path fill="#4CAF50"
-                  d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
-                </path>
-                <path fill="#1976D2"
-                  d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
-                </path>
-              </svg>
-              Logi sisse gmailiga</button>
           </div>
         </form>
+        <button class="sign-with-gmail" id="Google">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+            <path fill="#FFC107"
+              d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+            </path>
+            <path fill="#FF3D00"
+              d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+            </path>
+            <path fill="#4CAF50"
+              d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+            </path>
+            <path fill="#1976D2"
+              d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+            </path>
+          </svg>
+          Logi sisse Google kontoga</button>
       </div>
     </div>
   </main>
@@ -296,8 +302,5 @@
       </div>
     </div>
   </footer>
-
-  <script type="text/javascript" src="/public/login/login.js" defer></script>
 </body>
-
 </html>

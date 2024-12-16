@@ -11,26 +11,38 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model User {
-  user_id  Int @unique
-  email    String
-  name     String
-  works    Art[]
-  language String? @default("et")
-  light_preference Boolean @default(true)
+  User_id  String @unique
+  id      Int    @id @default(autoincrement())
+  Works    Art[] @relation("UserWorks")
+  LikedWorks Art[] @relation("UserLikes")
+  Favourites Art[] @relation("UserFavorites")
+  Grade String? @default("none")
+  Language String? @default("et")
+  LightPreference Boolean @default(true)
+  following User[] @relation("UserFollowing")
+  followers User[] @relation("UserFollowing")
 }
 
-
-
 model Art {
-  author User @relation(fields: [authorId], references: [user_id])
+  Author User @relation("UserWorks", fields: [AuthorId], references: [User_id])
   Title String
   Likes Int @default(0)
-  image_reference String
-  id Int @id @default(autoincrement())
+  LikedBy User[] @relation("UserLikes")
+  FavouritedBy User[] @relation("UserFavorites")
+  ImageReference String
+  Id Int @id @default(autoincrement())
   Description String?
   Published Boolean @default(true)
-  authorId Int
+  AuthorId String
+  Technique String @default("muu")
+  Size String
+  Price Decimal @default(0)
+  Orientation String 
+  Year Int @default(2024)
+  UploadDate DateTime @default(now())
+  UpdateDate DateTime @updatedAt
 }
