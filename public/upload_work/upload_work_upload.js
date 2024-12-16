@@ -46,8 +46,6 @@ async function convertFormDataToBase64(formData) {
 document.getElementById("work_upload").addEventListener("submit", async function (event) {
     event.preventDefault();
     const formData = Object.fromEntries(new FormData(this).entries());
-    formData['image'] = JSON.stringify({image: formData['image']});
-    console.log(formData)
     onAuthStateChanged(auth, async function(user) {
     if (user) {
         const idToken = await user.getIdToken();
@@ -59,7 +57,7 @@ document.getElementById("work_upload").addEventListener("submit", async function
         if (darkmode === null) {
             darkmode = "inactive"
         }
-        //const imageProperties = convertFormDataToBase64(formData)
+        const imageProperties = convertFormDataToBase64(formData)
         // Send the data to the server
         const response = await fetch(url, {
             method: "POST",
