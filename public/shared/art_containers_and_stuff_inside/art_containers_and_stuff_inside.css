@@ -46,17 +46,41 @@ html, body {
 }
 
 .price-and-like {
+  width: auto;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  gap: 2rem;
+  justify-content: space-between;
   align-items: center;
-  gap: 50px;
   background-color: transparent;
-  margin-left: 5%;
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none;    /* Firefox */
   -ms-user-select: none;     /* Internet Explorer/Edge */
   user-select: none;         /* Standard */
+}
+
+.save-work {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: none;
+  background-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-work svg {
+  fill: var(--dark-text-color);
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.save-work span {
+  background-color: transparent;
+  color: var(--dark-text-color);
 }
 
 .post-ratings-container {
@@ -96,6 +120,7 @@ html, body {
 .selected > .post-rating-button,
 .selected > .post-rating-count {
   color: var(--gmail-color);
+  fill: var(--gmail-color);
 }
 
 @media (hover:hover) {
@@ -123,4 +148,186 @@ html, body {
 
 .visible {
   opacity: 1;
+}
+
+
+/* The sorting bar above main */
+
+.sorting-bar {
+  grid-area: sort;
+  height: 50px;
+  width: 100%;
+  background-color: var(--back);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.search-bar {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--dark-text-color);
+  border-radius: 100vh;
+  background-color: var(--back);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  padding: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.search-bar-input {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--dark-text-color);
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  line-height: 40px;
+  opacity: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+::placeholder {
+  color: var(--place-holder-color);
+  opacity: 1;
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+  color: var(--place-holder-color);
+}
+
+.search-bar-submit {
+  padding: 3px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 100vh;
+  margin-left: auto;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-bar-submit svg {
+  vertical-align: middle;
+  fill: var(--dark-text-color);
+  background-color: transparent;
+}
+
+.search-bar:focus-within {
+  width: 250px;
+  position: fixed;
+
+  .search-bar-submit {
+    background-color: var(--light-gray);
+  }
+
+  .search-bar-input {
+    opacity: 1;
+    cursor: initial;
+    width: calc(100% - 38px);
+    padding-left: 0.5em;
+  }
+
+  @media (hover:hover) {
+    .search-bar-submit:hover {
+      background-color: var(--gray-between);
+    }
+  }
+}
+
+.show-sorting {
+  display: flex;
+  gap: 0.25rem;
+  border: none;
+  background-color: transparent;
+  margin-right: 1rem;
+  margin-left: auto;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--dark-text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.show-sorting svg {
+  fill: var(--dark-text-color);
+  vertical-align: middle;
+  transition: all 0.1s ease;
+}
+
+.sorting-options {
+  display: none;
+  position: absolute;
+  height: auto;
+  right: 0;
+  top: 130px;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--nav-background);
+  margin-right: 1em;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  box-shadow: var(--gray-between) 0.01px 1px 4px 0px;
+}
+
+.sorting-options.display {
+  display: flex;
+}
+
+@media (max-width: 1085px) {
+  .sorting-options {
+    top: 110px;
+  }
+}
+
+.show-sorting.focused {
+  opacity: 0;
+}
+
+.sorting-options svg {
+  vertical-align: middle;
+  fill: var(--dark-text-color);
+  transition: all 0.125s ease;
+  background-color: var(--nav-background);
+}
+
+.sorting-options button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 425;
+  border: none;
+  cursor: pointer;
+  color: var(--dark-text-color);
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  background-color: var(--nav-background);
+}
+
+@media (hover:hover) {
+  .sorting-options button:hover, .sorting-options button:hover svg {
+    color: var(--hover-color);
+    fill: var(--hover-color);
+  }
+
+  .show-sorting:hover, .show-sorting:hover svg {
+    color: var(--hover-color);
+    fill: var(--hover-color);
+  }
 }

@@ -44,6 +44,7 @@ h1 {
 
 h2 {
   margin-bottom: 1.5rem;
+  font-size: 28px;
   color: var(--dark-text-color);
 }
 
@@ -55,7 +56,7 @@ main p {
 
 .sub-button {
   font-family: 'Poppins', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
   border: 2px solid var(--dark-text-color);
   border-radius: 100vh;
@@ -80,7 +81,7 @@ main hr {
 }
 
 .sub-div {
-  padding: 1rem;
+  padding: 2rem;
   box-shadow: var(--gray-between) 0px 1px 5px 0px;
   border-radius: 10px;
 }

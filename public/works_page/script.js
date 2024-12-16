@@ -54,3 +54,39 @@ document.querySelectorAll('.art-container').forEach(post => {
     const body = await response.json();
   });
 });
+
+// Adding functionality for the 'Save' button
+document.querySelectorAll('.art-container').forEach(post => {
+  const postId = post.dataset.postId; // Assuming you have postId for each post container
+  const saveButton = post.querySelector('.save-work');
+
+  saveButton.addEventListener('click', async () => {
+    if (saveButton.classList.contains('selected')) {
+      // If already saved, remove saved state
+      saveButton.classList.remove('selected');
+      saveButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Zm80-122 200-86 200 86v-518H280v518Zm0-518h400-400Z" /></svg><span>Lemmikutesse</span>';
+
+      // Optionally send an API request to unsave
+      await fetch(`/posts/${postId}/unsave`, { method: 'POST' });
+    } else {
+      // If not saved, add saved state
+      saveButton.classList.add('selected');
+      saveButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Z"/></svg><span>Lemmikutes</span>';
+
+      // Optionally send an API request to save
+      await fetch(`/posts/${postId}/save`, { method: 'POST' });
+    }
+  });
+});
+
+// Show the sorting when 'sorteeri' is clicked
+const sortingButton = document.querySelector('.show-sorting');
+const sortingOptions = document.querySelector('.sorting-options');
+
+sortingButton.addEventListener('click', () => {
+  if (sortingOptions.classList.contains('display')) {
+    sortingOptions.classList.remove('display');
+  } else {
+    sortingOptions.classList.add('display');
+  }
+});

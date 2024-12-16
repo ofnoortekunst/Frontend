@@ -354,6 +354,55 @@ document
   .addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const formData = new FormData(this);
-    const jsonObject = Object.fromEntries(formData.entries());
+  const formData = new FormData(this);
+  const jsonObject = Object.fromEntries(formData.entries());
+
+  // Use fetch to send the POST request
+  fetch('/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jsonObject)
+  })
+  .then(response => {
+      if (response.ok) {
+        window.location.href = "/index.html";
+      }
+  })
+  .catch(error => {
+      console.error('Error:', error);
   });
+});
+
+// Change some text when login is clicked
+const loginButton = document.getElementById('login-btn-loader');
+
+loginButton.addEventListener('click', () => {
+  loginButton.value = 'Laeb...';
+
+  setTimeout(() => {
+    loginButton.value = 'Logi sisse';
+  }, 2000);
+})
+
+const registerButtonA = document.getElementById('loading-a');
+
+registerButtonA.addEventListener('click', () => {
+  registerButtonA.value = 'Laeb...';
+
+  setTimeout(() => {
+    registerButtonA.value = 'Loo konto';
+  }, 2000);
+})
+
+const registerButtonI = document.getElementById('loading-i');
+
+registerButtonI.addEventListener('click', () => {
+  registerButtonI.value = 'Laeb...';
+
+  setTimeout(() => {
+    registerButtonI.value = 'Loo konto';
+  }, 2000);
+})
+

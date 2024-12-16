@@ -43,9 +43,9 @@ footer {
 .cookies {
   position: fixed;
   bottom: 50px;
-  right: -370px;
+  right: -450px;
   z-index: 4;
-  max-width: 345px;
+  max-width: 400px;
   width: 100%;
   background-color: var(--back);
   border-radius: 8px;
@@ -116,16 +116,28 @@ footer {
   }
 }
 
+.cookie-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
 .cookie-button {
   border-radius: 100vh;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--back);
   padding: 0.5rem 1rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
+  height: 40px;
   font-size: 18px;
   cursor: pointer;
   transition: all 0.2s ease;
+  width: auto;
 
   @media (max-width: 700px) {
     font-size: 16px;
@@ -138,7 +150,6 @@ footer {
 
 #decline-cookies {
   background-color: var(--gmail-color);
-  margin-top: 0.5rem;
 }
 
 @media (hover:hover) {
@@ -294,8 +305,13 @@ footer {
   align-items: flex-start;
   gap: 50px;
   padding: 2rem;
+  padding-bottom: 1rem;
   z-index: 2;
   margin-bottom: 3rem;
+}
+
+.team {
+  padding-bottom: 2.5rem;
 }
 
 .news h2, .news h3, .news p {

@@ -20,16 +20,17 @@ hiddenElements.forEach((el => observer.observe(el)));
 const executeCookieCodes = () => {
   if (document.cookie.includes('noorteKunst')) return;
 
+const executeCookieCodes = () => {
   cookieBox.classList.add('show-cookies');
 
   cookieButtons.forEach(button => {
     button.addEventListener('click', () => {
       cookieBox.classList.remove ('show-cookies');
 
-      if (button.id == 'accept-cookies') {
+      if (button.id == 'decline-cookies') {
         // Cookies have been accepted so set them for 30 days.
         // 60 = 1min, 60 = 1h, 24 = 1day, 30 = 30days
-        document.cookie = "CookieBy = noorteKunst; max-age=" + 60 * 60 * 24 * 30;
+        document.cookie = "CookieBy=noorteKunst; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
       };
     });
   });
