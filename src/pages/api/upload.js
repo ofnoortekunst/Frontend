@@ -53,13 +53,13 @@ const saveImage = (imageObj, imageData, saveUser, res) => {
 
       const [result] = await client.safeSearchDetection(imagePath);
       const detections = result.safeSearchAnnotation;
-      if (!detections.adult == "LIKELY" && !detections.adult == "VERY_LIKELY" &&
-         !detections.violence == "LIKELY" && !detections.violence == "VERY_LIKELY" &&
-          !detections.racy == "LIKELY" && !detections.racy == "VERY_LIKELY") {
+      if (detections.adult !== 'LIKELY' && detections.adult !== 'VERY_LIKELY' &&
+        detections.violence !== 'LIKELY' && detections.violence !== 'VERY_LIKELY' &&
+        detections.racy !== 'LIKELY' && detections.racy !== 'VERY_LIKELY') {
         resolve(imagePath);
       } else {
         fs.promises.unlink(imagePath)
-        res.status(406).send({ error: "Content detected as not acceptable." });
+        res.status(406).send({ message: "Content detected as not acceptable. " + "adult: " + detections.adult + " violence: " + detections.violence + " racy: " + detections.racy});
       }
     } catch (err) {
       reject(err);

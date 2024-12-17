@@ -49,7 +49,6 @@ document.getElementById("work_upload").addEventListener("submit", async function
         if (darkmode === null) {
             darkmode = "inactive"
         }
-        console.log(formData.image)
         const name = formData.image.name
         const type = formData.image.type
         formData.imageData = {name: name,
@@ -68,6 +67,9 @@ document.getElementById("work_upload").addEventListener("submit", async function
         if (response.ok) {
             document.getElementById('work_upload').reset();
             window.location.reload();
+        } else {
+          const data = await response.json();
+          console.log(data.message)
         }
     }
     });
