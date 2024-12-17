@@ -73,6 +73,11 @@ onAuthStateChanged(auth, async function(user) {
       }
     });
 
+document.getElementById('newname').addEventListener('click', async function(e) {
+  e.preventDefault()
+  auth.currentUser.displayname = document.getElementById('new-name').value
+})
+
 document.getElementById("delete").addEventListener("click", async function(e) {
   e.preventDefault();
   try {
