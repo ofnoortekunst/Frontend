@@ -4,7 +4,9 @@ import {
   updateEmail,
   onAuthStateChanged,
   updatePassword,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  sendEmailVerification,
+  updateProfile
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 const firebaseConfig = {
   apiKey: "AIzaSyBxkehsxAYKmu8kPPUEGYZBYjSc_rZVFZE",
@@ -75,7 +77,13 @@ onAuthStateChanged(auth, async function(user) {
 
 document.getElementById('newname').addEventListener('click', async function(e) {
   e.preventDefault()
-  auth.currentUser.displayname = document.getElementById('new-name').value
+  try {
+    await updateProfile(auth.currentUser, {
+      displayname: document.getElementById('new-name').value
+    })
+  } catch (error) {
+    console.error(error)
+  }
 })
 
 document.getElementById("delete").addEventListener("click", async function(e) {
@@ -99,7 +107,7 @@ document.getElementById('school-select').addEventListener('change', async functi
   var selectedValue = document.getElementById('school-select').value;
   const idToken = await auth.currentUser.getIdToken()
   const baseUrl = window.location.origin;
-  const url = `${baseUrl}/api/userdata`;
+  const url = `${baseUrl}/api/usergrade`;
   const response = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -120,31 +128,48 @@ document.getElementById("logout").addEventListener("click", (e) => {
   console.log("logged out");
 });
 
-document.getElementById("change-email").addEventListener("click", (e) => {
+document.getElementById("change-email").addEventListener("click", async function(e) {
   e.preventDefault();
   try {
-    updateEmail(auth.currentUser, document.getElementById("new-email").value);
+    await updateEmail(auth.currentUser, document.getElementById("new-email").value);
   } catch (error) {
     console.log(error);
     if (error.code === "requires-recent-login") {
       window.location.href = "/login_register_page?account_relogin";
+    } else if (error.code === "auth/operation-not-allowed") {
+      try {
+        await sendEmailVerification(auth.currentUser);
+        document.getElementById('error_text_email').textContent = "Enne emaili vahetamist kinnitage oma praegune email. Saatsime teate " + auth.currentUser.email
+      } catch (error) {
+        if (error.code == auth/too-many-requests) {
+                  document.getElementById('error_text_email').textContent = "Liiga palju muudatusi."
+        } else {
+        document.getElementById('error_text_email').textContent = "Midagi läks valesti."
+        console.log(error)
+        }
+      }
     }
   }
 });
 
-document.getElementById('sub-button').addEventListener('click', function(e) {
+document.getElementById('forgot-password').addEventListener('click', function(e) {
   e.preventDefault()
   sendPasswordResetEmail(auth, auth.currentUser.email).then(() => {
     document.getElementById('error_text_password').textContent = "Saatsime parooli lähtestamise emaili."
   })
 })
 
-document.getElementById('sub-button').addEventListener('click', (e) => {
+document.getElementById('sub-button').addEventListener('click', async function(e) {
   e.preventDefault()
   if (!document.getElementById('psw-new').value == document.getElementById('password').value) {
     document.getElementById('error_text_password').textContent = "Paroolid ei ole samad."
   }
-  auth.currentUser.updatePassword(document.getElementById())
+  try {
+    await updatePassword(auth.currentUser, document.getElementById('psw-new').value);
+    document.getElementById('error_text_password').textContent = "Parool muudetud"
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 // Show password

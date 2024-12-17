@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `Art` ALTER COLUMN `Hash` DROP DEFAULT;

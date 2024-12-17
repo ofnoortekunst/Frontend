@@ -21,27 +21,19 @@ const firebaseConfig = {
 const firebase = initializeApp(firebaseConfig)
 const auth = getAuth(firebase)
 
-async function convertFormDataToBase64(formData) {
-    const imageFile = formData['image'];
-    
-    if (imageFile && imageFile instanceof File) {
-      const reader = new FileReader();
-      
-      reader.onloadend = function () {
-        const fileProperties = {
-          name: imageFile.name,
-          type: imageFile.type,
-          base64: reader.result
-        };
-  
-        return fileProperties
-      };
-      
-      reader.readAsDataURL(imageFile);
-    } else {
-      console.error("No image file found in FormData");
-    }
-  }
+async function readFileAsBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const base64String = event.target.result.split(',')[1]; // Extract Base64 string
+      resolve(base64String);
+    };
+    reader.onerror = function(error) {
+      reject(new Error(`Error converting to Base64: ${error}`));
+    };
+    reader.readAsDataURL(file);
+  });
+}
 
 document.getElementById("work_upload").addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -57,7 +49,12 @@ document.getElementById("work_upload").addEventListener("submit", async function
         if (darkmode === null) {
             darkmode = "inactive"
         }
-        const imageProperties = convertFormDataToBase64(formData)
+        const name = formData.image.name
+        const type = formData.image.type
+        formData.imageData = {name: name,
+          type: type
+        }
+        formData.image = await readFileAsBase64(formData.image)
         // Send the data to the server
         const response = await fetch(url, {
             method: "POST",
@@ -65,12 +62,14 @@ document.getElementById("work_upload").addEventListener("submit", async function
             body: JSON.stringify({
             formdata: formData,
             idToken: idToken,
-            imageData: imageProperties
             }),
         });
         if (response.ok) {
             document.getElementById('work_upload').reset();
             window.location.reload();
+        } else {
+          const data = await response.json();
+          console.log(data.message)
         }
     }
     });
