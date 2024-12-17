@@ -103,11 +103,13 @@ h1 {
   font-weight: 500;
   padding-top: 2.5px;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .material-symbols-outlined {
   margin-left: 1rem;
   margin-right: 0.5rem;
+  cursor: pointer;
 }
 
 .followers hr {
