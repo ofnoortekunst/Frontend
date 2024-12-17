@@ -17,6 +17,7 @@
   <script type="text/javascript" src="/public/shared/shared_main.js" defer></script>
   <script type="module" src="/public/shared/firebase/profile_info.js" defer></script>
   <script type="text/javascript" src="/public/upload_work/upload_work_script.js" defer></script>
+  <script type="module" src="/public/shared/numWorks.js" defer></script>
   <header>
     <nav>
       <label for="sidebar-active" class="open-sidebar-btn">
@@ -262,7 +263,7 @@
         </fieldset>
         <hr>
       </div>
-      <input type="submit" class="publish-button" value="0/3" />
+      <input type="submit" class="publish-button" value="0/3" id="load-works"/>
     </form>
   </main>
   <button onclick="scrollToTop();" class="back-to-top">

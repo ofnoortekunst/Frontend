@@ -45,6 +45,9 @@ onAuthStateChanged(auth, async function(user) {
   
           if (response.ok) {
             const responseData = await response.json();
+            if (parseInt(responseData.message) > 3) {
+              window.location.href = "/acc_artist"
+            }
             worknum.textContent = responseData.message + "/" + "3";
           } else {
             console.error('Failed to fetch worknum data');

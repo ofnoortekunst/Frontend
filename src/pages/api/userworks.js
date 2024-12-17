@@ -37,6 +37,29 @@ export default async function POST(req, res) {
                     console.log(error)
                     res.status(500).send({ error: "Not Found" });
                   }
+            } else if (works == "all") {
+                try {
+                    const userWorks = await prisma.user.findUnique({
+                        where: {
+                          User_id: user_id,  // Replace 'user_id_value' with the actual user ID you want to query
+                        },
+                        select: {
+                          Works: {
+                            select: {
+                              ImageReference: true,  // Select only the ImageReference field from the user's works
+                            },
+                          },
+                        },
+                      });
+                      
+                      const imageReferences = userWorks?.Works.map(work => 
+                        work.ImageReference.split("public")[1].replace(/\\/g, '/')
+                      ) || [];
+                    res.status(200).send({ message: imageReferences });
+                  } catch (error) {
+                    console.log(error)
+                    res.status(500).send({ error: "Not Found" });
+                  }
             }
           } catch (error) {
             console.log("Error verifying token:", error.message);
