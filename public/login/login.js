@@ -230,8 +230,8 @@ document
 
 document.getElementById('forgot-password').addEventListener('click', function(e) {
   e.preventDefault()
-  sendPasswordResetEmail(auth, auth.currentUser.email).then(() => {
-    document.getElementById('error_text').textContent = "Saatsime parooli lähtestamise emaili."
+  sendPasswordResetEmail(auth, document.getElementById('email-l').value).then(() => {
+    document.getElementById('error_text').textContent = "Saatsime parooli lähtestamise emaili. " + document.getElementById('email-l').value
   })
 })
 
