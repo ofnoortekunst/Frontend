@@ -36,6 +36,7 @@ model Art {
   ImageReference String
   Id Int @id @default(autoincrement())
   Description String?
+  Hash String @unique @default(uuid())
   Published Boolean @default(true)
   AuthorId String
   Technique String @default("muu")
