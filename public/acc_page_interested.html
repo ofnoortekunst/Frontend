@@ -173,7 +173,6 @@
       <hr>
       <div class="password-sec" id="password_sec">
         <h2>Salasõna</h2>
-        <label for="password" class="change-something">Muuda salasõna</label>
         <legend>Uuus salasõna:</legend>
         <input id="password" name="password" type="password" class="login-pass" placeholder="salasõna">
         <div class="show-and-forgot">
@@ -181,7 +180,7 @@
             <input type="checkbox" for="password" id="show-pass-1">
             Näita salasõna
           </label>
-          <a class="sub-text" href="#">Unustasin salasõna</a>
+          <a class="sub-text" href="#" id="forgot-password">Unustasin salasõna</a>
         </div>
         <legend>Korda uus salasõna:</legend>
         <input id="psw-new" name="password" type="password" class="login-pass" placeholder="salasõna uuesti"
@@ -200,7 +199,8 @@
         <div class="spec-section">
           <label for="new-email" class="change-something">Muuda emaili</label>
           <input type="email" id="new-email" placeholder="email">
-          <button class="sub-button" onclick="openPage('confirm_mail?account');" id="change-email">Muuda meiliaadressi</button>
+          <button class="sub-button" id="change-email">Muuda meiliaadressi</button>
+          <p style="color:red;" id="error_text_email"></p>
         </div>
       </div>
       <hr>
