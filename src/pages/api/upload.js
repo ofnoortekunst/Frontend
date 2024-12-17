@@ -73,17 +73,10 @@ export default async function POST(req, res) {
         try {
             const decodedToken = await admin.auth().verifyIdToken(idToken);
             const uid = decodedToken.uid;
-            var size = formdata['size']
-            if (formdata['sizeCustom']) {
-              size = formdata['sizeCustom']
-            }
+            var size = formdata['sizeCustom']  || formdata['size'];
+            var style = formdata['technique2'] || formdata['technique'];
+
             const imageHash = await generateSHA256Hash(formdata.image)
-            const existart = await prisma.art.findUnique({
-              where: {
-                Hash: imageHash,
-              },
-            });
-          if (!existart) {
             const filePath = await saveImage(formdata.image, formdata.imageData, uid, res)
             const newArt = await prisma.art.create({
               data: {
@@ -92,22 +85,37 @@ export default async function POST(req, res) {
                   ImageReference: filePath,
                   Description: formdata['tutvustus'],
                   Size: size,
+                  Technique: style,
                   Hash: imageHash,
                   Price: formdata['Price'],
                   Orientation: formdata['direction']
               },
-            });
+            }).then(prisma.user.update({
+              where: {
+                User_id: uid,
+              },
+              data: {
+                NumWorks: {
+                  increment: 1,
+                }
+              }
+            }))
             console.log(newArt)
             res.status(200).send({ message: "success" });
-          } else {
-            res.status(200).send({ message: "image already exists" });
-          }
           } catch (error) {
-            console.log("Error verifying token:", error.message);
+            console.log(error.message);
             res.status(401).send({ error: "Unauthorized" });
           }
         
     } else {
         res.status(405).json({ message: 'Registration unsuccessful' });
     }
+}
+
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '20mb',
+    },
+  },
 }

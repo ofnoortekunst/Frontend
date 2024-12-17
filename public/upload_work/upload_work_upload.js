@@ -41,7 +41,6 @@ document.getElementById("work_upload").addEventListener("submit", async function
     onAuthStateChanged(auth, async function(user) {
     if (user) {
         const idToken = await user.getIdToken();
-
         const baseUrl = window.location.origin;
         const url = `${baseUrl}/api/upload`;
 
@@ -55,6 +54,7 @@ document.getElementById("work_upload").addEventListener("submit", async function
           type: type
         }
         formData.image = await readFileAsBase64(formData.image)
+        console.log(formData)
         // Send the data to the server
         const response = await fetch(url, {
             method: "POST",

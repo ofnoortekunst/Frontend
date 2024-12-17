@@ -18,6 +18,7 @@ model User {
   User_id  String @unique
   id      Int    @id @default(autoincrement())
   Works    Art[] @relation("UserWorks")
+  NumWorks Int @default(0)
   LikedWorks Art[] @relation("UserLikes")
   Favourites Art[] @relation("UserFavorites")
   Grade String? @default("none")
