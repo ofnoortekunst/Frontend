@@ -70,6 +70,10 @@ rewrites: async () => {
       destination: "/privacy_policy.html",
     },
     {
+      source: "followers_page",
+      destination: "/followers_page.html",
+    },
+    {
     source: '/public/:path*',
     destination: '/:path*',
     },
