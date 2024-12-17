@@ -350,3 +350,48 @@ main .sub-text-school {
     min-width: 150px;
   }
 }
+
+#error-box, #error-box-delete, #approve-box {
+  display: block;
+  margin: 1rem 0;
+  height: auto;
+  width: auto;
+  max-width: 300px;
+  border: 2px solid var(--gmail-color);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 0, 0, 0.4);
+}
+
+#approve-box {
+  background-color: rgba(4, 255, 0, 0.4);
+  border-color: rgb(16, 165, 16);
+}
+
+#error-box p, #error-box-delete p, #approve-box p {
+  background-color: rgba(255, 0, 0, 0.01);
+  font-size: 16px;
+  color: white;
+}
+
+#approve-box p {
+  background-color: rgba(4, 255, 0, 0.01);
+  color: var(--dark-text-color);
+}
+
+#error-box.error {
+  display: block;
+}
+
+#error-box-delete.error {
+  display: block;
+}
+
+#approve-box.approve {
+  display: block;
+}
+
+.name {
+  background-color: var(--back);
+  font-size: 18px;
+}

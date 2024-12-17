@@ -172,6 +172,10 @@ nav svg {
   transition: all 0.2s ease;
 }
 
+.move-up svg {
+  margin-bottom: 1.3px;
+}
+
 @media (max-width: 1085px) {
   .links-container {
     flex-direction: column;
@@ -206,7 +210,7 @@ nav svg {
     justify-content: flex-start;
     padding: 23px 15px;
     margin-right: 7.5px;
-    width: 298px;
+    width: 296px;
     height: 27px;
     background-color: transparent;
     color: var(--text-color);
@@ -325,8 +329,8 @@ nav svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 51px;
-  height: 51px;
+  width: 48px;
+  height: 48px;
   border-radius: 100vh;
   cursor: pointer;
   background-color: var(--nav-background);
@@ -341,7 +345,7 @@ nav svg {
 
 .pfp svg, .pfp img {
   border-radius: 100vh;
-  width: 100%;
+  width: auto;
   height: 100%;
   fill: var(--dark-text-color);
   border: none;
@@ -378,8 +382,13 @@ nav svg {
     display: none;
   }
 
-  .pfp svg {
+  .pfp {
     width: 40px;
+    height: 40px;
+  }
+
+  .pfp svg {
+    width: 35px;
   }
 
   .profile {

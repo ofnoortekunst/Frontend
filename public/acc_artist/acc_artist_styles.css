@@ -112,6 +112,10 @@ main input, .sub-button, .bio {
   margin-left: 0;
 }
 
+main input[type=text], main input[type=password] {
+  width: 300px;
+}
+
 .bio {
   height: 150px;
   width: 500px;
@@ -183,7 +187,7 @@ input[type="checkbox"] {
   margin-right: 5px;
 }
 
-.sub-text {
+.sub-text, .sub-text-static {
   font-size: 14px;
   color: var(--gray-between);
   font-weight: 400;
@@ -191,7 +195,7 @@ input[type="checkbox"] {
 }
 
 .school-selection select {
-  border: 1px solid var(--dark-text-color);
+  border: 2px solid var(--dark-text-color);
   border-radius: 100vh;
   padding: 5px 1rem;
   outline: none;
@@ -200,6 +204,7 @@ input[type="checkbox"] {
   font-size: 16px;
   color: var(--dark-text-color);
   width: 100%;
+  cursor: pointer;
 }
 
 .school-selection {
@@ -308,4 +313,86 @@ input[type="checkbox"] {
   .change-something, input, .sub-button {
     margin-left: 0;
   }
+}
+
+#error-box, #error-box-delete, #approve-box {
+  display: block;
+  margin: 1rem 0;
+  height: auto;
+  width: auto;
+  max-width: 300px;
+  border: 2px solid var(--gmail-color);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 0, 0, 0.4);
+}
+
+#approve-box {
+  background-color: rgba(4, 255, 0, 0.4);
+  border-color: rgb(16, 165, 16);
+}
+
+#error-box p, #error-box-delete p, #approve-box p {
+  background-color: rgba(255, 0, 0, 0.01);
+  font-size: 16px;
+  color: white;
+}
+
+#approve-box p {
+  background-color: rgba(4, 255, 0, 0.01);
+  color: var(--dark-text-color);
+}
+
+#error-box.error {
+  display: block;
+}
+
+#error-box-delete.error {
+  display: block;
+}
+
+#approve-box.approve {
+  display: block;
+}
+
+.name {
+  background-color: var(--back);
+  font-size: 18px;
+}
+
+.username-contact {
+  display: flex;
+  width: 300px;
+  height: auto;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  border: 2px solid var(--dark-text-color);
+  border-radius: 100vh;
+  margin-top: 1rem;
+}
+
+.username-contact span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 100%;
+  padding: 0 0.5rem;
+  border-right: 1px solid var(--gray-between);
+}
+
+.username-contact span svg {
+  width: 20px;
+  height: auto;
+  fill: var(--dark-text-color);
+}
+
+.username-contact input {
+  border: none;
+  width: 100%;
+  padding-left: 0.5rem;
+  font-weight: 400;
+  color: var(--dark-text-color);
 }

@@ -47,7 +47,7 @@
             <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
           </svg>
         </a>
-        <a onclick="hideSideBar();" href="works" class="bookmark">
+        <a onclick="hideSideBar();" href="works" class="bookmark move-up">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
             <path
               d="M160-80q-33 0-56.5-23.5T80-160v-480q0-33 23.5-56.5T160-720h160l160-160 160 160h160q33 0 56.5 23.5T880-640v480q0 33-23.5 56.5T800-80H160Zm0-80h640v-480H160v480Zm80-80h480L570-440 450-280l-90-120-120 160Zm460-200q25 0 42.5-17.5T760-500q0-25-17.5-42.5T700-560q-25 0-42.5 17.5T640-500q0 25 17.5 42.5T700-440ZM404-720h152l-76-76-76 76ZM160-160v-480 480Z" />
@@ -154,6 +154,9 @@
             <option value="other-school">Muu</option>
           </select>
         </div>
+        <div id="approve-box">
+          <p id="grade-change"></p>
+        </div>
       </div>
       <hr>
       <div>
@@ -166,10 +169,33 @@
         </div>
       </div>
       <hr>
-      <div class="password-sec">
+      <div>
+        <h2>Kuidas teiega kontakti võtta?</h2>
+        <p class="sub-text-static">Kui juhtub, et mõnele kunstihuvilisele teie teosed meeldivad, saab ta teiega kontakti
+          võtta
+        </p>
+        <p></p>
+        <div class="spec-section">
+          <div class="school-selection">
+            <select id="contact-select" name="school-select">
+              <option value="nothing">-Vali platvorm-</option>
+              <option value="instagram-contact">Instagram</option>
+              <option value="tiktok-contact">Tiktok</option>
+              <option value="mail-contact">Meil</option>
+              <option value="do-not-show">Ei soovi avaldada</option>
+            </select>
+          </div>
+          <div class="username-contact">
+            <span id="chosen-contact"></span>
+            <input id="username-contact" type="text" placeholder="Kasutajanimi platvormil">
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="password-sec" id="password_sec">
         <h2>Salasõna</h2>
         <label for="password" class="change-something">Muuda salasõna</label>
-        <legend>Vana salasõna:</legend>
+        <legend>Uus salasõna:</legend>
         <input id="password" name="password" type="password" class="login-pass" placeholder="salasõna">
         <div class="show-and-forgot">
           <label id="pass-toggle-1" for="show-pass-1">
@@ -178,13 +204,17 @@
           </label>
           <a class="sub-text" href="#">Unustasin salasõna</a>
         </div>
-        <legend>Uus salasõna:</legend>
-        <input id="psw-new" name="password" type="password" class="login-pass" placeholder="salasõna uuesti">
+        <legend>Korda uus salasõna:</legend>
+        <input id="psw-new" name="password" type="password" class="login-pass" placeholder="salasõna uuesti"
+          autocomplete="new-password">
         <label id="pass-toggle-2" for="show-pass-2">
           <input type="checkbox" for="psw-new" id="show-pass-2">
           Näita salasõna
         </label>
-        <button class="sub-button">Salvesta uus salasõna</button>
+        <div id="error-box">
+          <p id="error_text_password"></p>
+        </div>
+        <button class="sub-button" id="sub-button">Salvesta uus salasõna</button>
       </div>
       <hr>
       <div>
@@ -200,6 +230,9 @@
       <div>
         <button class="sub-button">Logi välja</button>
         <button class="sub-button delete-acc">Kustuta konto</button>
+      </div>
+      <div id="error-box-delete">
+        <p id="error_text_delete"></p>
       </div>
     </div>
   </main>
