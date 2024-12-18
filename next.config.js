@@ -70,7 +70,7 @@ rewrites: async () => {
       destination: "/privacy_policy.html",
     },
     {
-      source: "followers_page",
+      source: "/followers_page",
       destination: "/followers_page.html",
     },
     {
