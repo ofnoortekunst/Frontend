@@ -90,3 +90,9 @@ sortingButton.addEventListener('click', () => {
     sortingOptions.classList.add('display');
   }
 });
+
+window.addEventListener("scroll", () => {
+  if (sortingOptions.classList.contains('display')) {
+    sortingOptions.classList.remove('display');
+  }
+});
