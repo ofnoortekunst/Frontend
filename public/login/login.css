@@ -336,6 +336,10 @@ main {
   .sign-with-gmail:hover {
     text-decoration: underline;
   }
+
+  .login-register-box a:hover {
+    color: var(--dark-hover-color);
+  }
 }
 
 .login-container form fieldset .login-pass {
@@ -352,13 +356,16 @@ main {
 
 #pass-toggle label, .agree-to-terms label {
   width: 100%;
+  cursor: pointer;
+  user-select: none;
 }
 
 #pass-toggle input, .agree-to-terms input {
   margin: 0;
   margin-bottom: 2px;
+  margin-right: 0.5rem;
   padding: 0;
-  width: 10%;
+  width: auto;
   vertical-align: middle;
 }
 
@@ -368,6 +375,7 @@ main {
 
 .agree-to-terms {
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .login-register-buttons {
@@ -411,6 +419,15 @@ main {
   margin-bottom: 1.5rem;
 }
 
+.login-register-box a {
+  color: var(--hover-color);
+  transition: all 0.2s ease;
+}
+
+.login-register-box a:visited {
+  color: var(--hover-color);
+}
+
 .sub-text {
   font-size: 14px;
   color: var(--gray-between);
@@ -438,6 +455,7 @@ main {
 
 #interested-form fieldset #pass-toggle input, #artist-form fieldset #pass-toggle input  {
   margin: 0;
+  margin-right: 0.5rem;
 }
 
 #interested-form fieldset, #artist-form fieldset {
@@ -445,6 +463,9 @@ main {
 }
 
 .login-container #pass-toggle {
-  gap: 0.5rem;
   width: 140px;
+  display: flex;
+  align-items: center;
+  width: auto;
+  justify-content: center;
 }

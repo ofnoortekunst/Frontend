@@ -40,12 +40,29 @@ main {
 h1 {
   margin-bottom: 2.5rem;
   color: var(--dark-text-color);
+  font-size: 28px;
+  line-height: normal;
 }
 
 h2 {
   margin-bottom: 1.5rem;
-  font-size: 28px;
+  font-size: 24px;
   color: var(--dark-text-color);
+}
+
+h3 {
+  margin-bottom: 1rem;
+  font-size: 20px;
+  color: var(--dark-text-color);
+}
+
+.sub-div a {
+  color: var(--hover-color);
+  transition: all 0.2s ease;
+}
+
+.sub-div a:visited {
+  color: var(--hover-color);
 }
 
 main p {
@@ -70,14 +87,9 @@ main p {
   transition: all 0.2s ease;
 }
 
-#delete-cookie {
+.do-not-agree {
   background-color: var(--gmail-color);
-}
-
-main hr {
-  width: 100%;
-  border: 1px solid var(--gray-between);
-  border-radius: 100vh;
+  margin-top: 1rem;
 }
 
 .sub-div {
@@ -91,8 +103,12 @@ main hr {
     background-color: var(--dark-hover-color);
   }
 
-  #delete-cookie:hover {
+  .do-not-agree:hover {
     background-color: var(--dark-red);
+  }
+
+  .sub-div a:hover {
+    color: var(--dark-hover-color);
   }
 }
 
