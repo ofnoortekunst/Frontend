@@ -41,7 +41,7 @@ document.getElementById("work_upload").addEventListener("submit", async function
     onAuthStateChanged(auth, async function(user) {
     if (user) {
         const idToken = await user.getIdToken();
-        const baseUrl = window.location.origin;
+        var baseUrl = window.location.origin;
         if (window.location.href.includes("dev")) {
           baseUrl = "dev." + baseUrl
         }
