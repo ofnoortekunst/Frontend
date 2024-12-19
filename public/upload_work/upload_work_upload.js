@@ -42,7 +42,10 @@ document.getElementById("work_upload").addEventListener("submit", async function
     if (user) {
         const idToken = await user.getIdToken();
         const baseUrl = window.location.origin;
-        const url = `https://dev.noortekunst.ee/api/upload`;
+        if (window.location.href.includes("dev")) {
+          baseUrl = "dev." + baseUrl
+        }
+        const url = baseUrl + `/api/upload`;
 
         const name = formData.image.name
         const type = formData.image.type
