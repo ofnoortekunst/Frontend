@@ -42,9 +42,6 @@ document.getElementById("work_upload").addEventListener("submit", async function
     if (user) {
         const idToken = await user.getIdToken();
         var baseUrl = window.location.origin;
-        if (window.location.href.includes("dev")) {
-          baseUrl = "dev." + baseUrl
-        }
         const url = baseUrl + `/api/upload`;
 
         const name = formData.image.name
