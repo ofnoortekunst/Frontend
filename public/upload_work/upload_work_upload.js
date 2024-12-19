@@ -44,10 +44,6 @@ document.getElementById("work_upload").addEventListener("submit", async function
         const baseUrl = window.location.origin;
         const url = `${baseUrl}/api/upload`;
 
-        const darkmode = localStorage.getItem("darkmode")
-        if (darkmode === null) {
-            darkmode = "inactive"
-        }
         const name = formData.image.name
         const type = formData.image.type
         formData.imageData = {name: name,

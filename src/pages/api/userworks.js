@@ -41,7 +41,7 @@ export default async function POST(req, res) {
                 try {
                     const userWorks = await prisma.user.findUnique({
                         where: {
-                          User_id: user_id,  // Replace 'user_id_value' with the actual user ID you want to query
+                          User_id: user_id,
                         },
                         select: {
                           Works: {
