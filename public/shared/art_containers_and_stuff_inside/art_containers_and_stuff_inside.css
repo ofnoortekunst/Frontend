@@ -131,6 +131,10 @@ html, body {
   .art-container:hover {
     transform: scale(1.01);
   }
+
+  .load-more-btn:hover {
+    background-color: var(--dark-hover-color);
+  }
 }
 
 .art-pic {
@@ -330,4 +334,31 @@ html, body {
     color: var(--hover-color);
     fill: var(--hover-color);
   }
+}
+
+.load-more-div {
+  grid-area: load-more;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  padding-bottom: 2rem;
+}
+
+.load-more-btn {
+  width: auto;
+  height: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  border: none;
+  border-radius: 100vh;
+  padding: 5px 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--back);
+  background-color: var(--hover-color);
 }

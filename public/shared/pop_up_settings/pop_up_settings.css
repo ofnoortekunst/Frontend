@@ -192,7 +192,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   color: var(--back);
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .log-in {
