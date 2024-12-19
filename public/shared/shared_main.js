@@ -52,7 +52,6 @@ function checkWidth() {
     });
   }
 }
-checkWidth();
 window.addEventListener("resize", checkWidth);
 
 // Scroll to top button function
@@ -214,3 +213,7 @@ themeSwitch.addEventListener("click", () => {
   // Toggle between enabling and disabling dark mode based on current state.
   darkmode !== "active" ? enableDarkmode() : disableDarkmode();
 });
+
+window.addEventListener('DOMContentLoaded', (e) => {
+  checkWidth
+})
