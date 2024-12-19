@@ -1,5 +1,5 @@
+import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js'
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js'
 const firebaseConfig = {
 
   apiKey: "AIzaSyBxkehsxAYKmu8kPPUEGYZBYjSc_rZVFZE",
@@ -31,6 +31,9 @@ function getNameFromEmail(email) {
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
+const logoutButton = document.createElement("div");
+logoutButton.innerHTML = '<button class="log-in-out log-out">Logi välja</button>'
+
 const pictureHTML = `<img src="example.jpg" alt="Profile picture" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">`;
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -47,5 +50,9 @@ onAuthStateChanged(auth, (user) => {
     if (user.photoURL) {
       Array.from(document.getElementsByClassName("pfp")).map((pfp) => pfp.innerHTML = `<img src="`+ user.photoURL + `" alt="Profile picture" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">`);
     }
+    Array.from(document.getElementsByClassName('log-in'))[0].replaceWith(logoutButton);
+    Array.from(document.getElementsByClassName('log-out'))[0].addEventListener('click', () => {
+      signOut(auth).then(window.location.href = '/login_register_page');
+  });
   }
 });
