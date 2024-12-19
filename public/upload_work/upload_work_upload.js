@@ -41,8 +41,8 @@ document.getElementById("work_upload").addEventListener("submit", async function
     onAuthStateChanged(auth, async function(user) {
     if (user) {
         const idToken = await user.getIdToken();
-        const baseUrl = window.location.origin;
-        const url = `https://dev.noortekunst.ee/api/upload`;
+        var baseUrl = window.location.origin;
+        const url = baseUrl + `/api/upload`;
 
         const name = formData.image.name
         const type = formData.image.type
