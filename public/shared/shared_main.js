@@ -143,6 +143,11 @@ const enableDarkmode = () => {
   if (logoElement) {
     logoElement.src = "images/dark-mode-logo.avif";
   }
+  var logoElement2 = document.getElementById("noortekunst-logo-black");
+  if (logoElement2) {
+    logoElement2.src = "images/dark-back-darkmode-logo.avif";
+  }
+
   var backgroundImage = document.getElementById("background-img");
   if (backgroundImage) {
     backgroundImage.src = "images/dark-mountains.avif";
@@ -179,7 +184,7 @@ const disableDarkmode = () => {
   }
   var logoElement2 = document.getElementById("noortekunst-logo-black");
   if (logoElement2) {
-    logoElement2.src = "/images/dark-back-darkmode-logo.avif";
+    logoElement2.src = "images/logo-white-background.avif";
   }
 
   var backgroundImage = document.getElementById("background-img");
@@ -214,6 +219,3 @@ themeSwitch.addEventListener("click", () => {
   darkmode !== "active" ? enableDarkmode() : disableDarkmode();
 });
 
-window.addEventListener('DOMContentLoaded', (e) => {
-  checkWidth
-})
