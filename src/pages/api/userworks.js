@@ -63,7 +63,7 @@ export default async function POST(req, res) {
             }
           } catch (error) {
             console.log("Error verifying token:", error.message);
-            res.status(401).send({ error: "Unauthorized" });
+            res.status(401).send({ message: error.message});
           }
     } else {
         res.status(405).json({ message: 'Wrong type' });
