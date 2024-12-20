@@ -179,13 +179,13 @@
           <fieldset>
             <legend>Pealkiri:</legend>
             <div>
-              <input type="text" name="pealkiri" class="form-control" required>
+              <input type="text" name="pealkiri" maxlength="40" class="form-control" required>
             </div>
           </fieldset>
           <fieldset>
             <legend>Teose tutvustus:</legend>
             <div>
-              <textarea required></textarea>
+              <textarea name="tutvustus" maxlength="1000" required></textarea>
             </div>
           </fieldset>
         </div>
@@ -211,7 +211,7 @@
             <label for="pencil">Pliiats</label>
           </div>
           <div>
-            <input type="text" id="art-technique" placeholder="Muu" name="technique2">
+            <input type="text" id="art-technique" maxlength="25" placeholder="Muu" name="technique2">
           </div>
         </fieldset>
         <hr>
@@ -250,7 +250,7 @@
             <label for="a5">A5</label>
           </div>
           <div>
-            <input type="text" placeholder="Muu, näiteks 25x45 (cm)" id="art-size" name="size">
+            <input type="text" maxlength="25" placeholder="Muu, näiteks 25x45 (cm)" id="art-size" name="sizeCustom">
           </div>
         </fieldset>
         <hr>

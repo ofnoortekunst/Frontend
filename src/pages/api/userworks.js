@@ -37,16 +37,19 @@ export default async function POST(req, res) {
                     console.log(error)
                     res.status(500).send({ error: "Not Found" });
                   }
-            } else if (works == "all") {
+            } else if (works) {
                 try {
                     const userWorks = await prisma.user.findUnique({
-                        where: {
-                          User_id: user_id,
-                        },
+                        where: works,
                         select: {
                           Works: {
                             select: {
-                              ImageReference: true,  // Select only the ImageReference field from the user's works
+                              ImageReference: true,
+                              AuthorId: true,
+                              Likes: true,
+                              Size: true,
+                              Technique: true,
+                              Year: true
                             },
                           },
                         },

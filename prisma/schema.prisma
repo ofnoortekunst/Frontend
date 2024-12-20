@@ -36,7 +36,7 @@ model Art {
   FavouritedBy User[] @relation("UserFavorites")
   ImageReference String
   Id Int @id @default(autoincrement())
-  Description String?
+  Description String? @db.VarChar(1000)
   Hash String @unique @default(uuid())
   Published Boolean @default(true)
   AuthorId String
