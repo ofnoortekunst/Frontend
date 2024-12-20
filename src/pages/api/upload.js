@@ -55,8 +55,7 @@ const saveImage = (imageObj, imageData, saveUser, res) => {
       const [result] = await client.safeSearchDetection(imagePath);
       const detections = result.safeSearchAnnotation;
       if (detections.adult !== 'LIKELY' && detections.adult !== 'VERY_LIKELY' &&
-        detections.violence !== 'LIKELY' && detections.violence !== 'VERY_LIKELY' &&
-        detections.racy !== 'LIKELY' && detections.racy !== 'VERY_LIKELY') {
+        detections.violence !== 'LIKELY' && detections.violence !== 'VERY_LIKELY') {
         resolve(savePath);
       } else {
         fs.promises.unlink(imagePath)
@@ -85,6 +84,7 @@ export default async function POST(req, res) {
                   Title: (formdata['pealkiri']).slice(0,40),
                   ImageReference: filePath,
                   Description: formdata['tutvustus'],
+                  Pind: formdata['surface'],
                   Size: size,
                   Technique: style,
                   Hash: imageHash,

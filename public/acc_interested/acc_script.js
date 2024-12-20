@@ -45,8 +45,8 @@ onAuthStateChanged(auth, async function(user) {
   
           if (response.ok) {
             const responseData = await response.json();
-            if (parseInt(responseData.message) > 3) {
-              window.location.href = "/acc_artist"
+            if (parseInt(responseData.message) >= 3) {
+              window.location.href = "/acc_page_artist"
             }
             worknum.textContent = responseData.message + "/" + "3";
           } else {

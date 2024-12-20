@@ -15,7 +15,7 @@
 
 <body class="">
   <script type="module" src="/public/shared/firebase/profile_info.js" defer></script>
-  <script type="text/javascript" src="/public/work_opened/work_opened.js" defer></script>
+  <script type="module" src="/public/work_opened/work_opened.js" defer></script>
   <script type="text/javascript" src="/public/shared/shared_main.js" defer></script>
   <header>
     <nav>
@@ -46,7 +46,7 @@
             <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
           </svg>
         </a>
-        <a onclick="hideSideBar();" href="works" class="bookmark move-up">
+        <a onclick="hideSideBar();" href="works" onmouseover="prefetchAsset('works')" class="bookmark move-up">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
             <path
               d="M160-80q-33 0-56.5-23.5T80-160v-480q0-33 23.5-56.5T160-720h160l160-160 160 160h160q33 0 56.5 23.5T880-640v480q0 33-23.5 56.5T800-80H160Zm0-80h640v-480H160v480Zm80-80h480L570-440 450-280l-90-120-120 160Zm460-200q25 0 42.5-17.5T760-500q0-25-17.5-42.5T700-560q-25 0-42.5 17.5T640-500q0 25 17.5 42.5T700-440ZM404-720h152l-76-76-76 76ZM160-160v-480 480Z" />
@@ -74,7 +74,7 @@
       </div>
     </nav>
     <div class="profile">
-      <div class="pfp" onclick="openPage('acc_page_interested');" id="profile_holder"><svg
+      <div class="pfp" onclick="window.location.href='acc_page_interested'"  onmouseover="prefetchAsset('acc_page_interested')" id="profile_holder"><svg
           xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
           <path
             d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z" />
@@ -136,57 +136,6 @@
   </div>
   <div id="settings-overlay"></div>
   <main>
-    <div class="container-in-main">
-      <div class="image-container">
-        <div class="opened-image"><img src="/public/images/dark-mountains.avif" alt="pilt"></div>
-      </div>
-      <div class="popup-image">
-        <span>&times;</span>
-        <img src="" alt="pilt">
-      </div>
-      <span id="date-uploaded"></span>
-      <div class="text-about-author">
-        <div class="top-spec">
-          <div class="work-title">
-            <p>"Portree" -&nbsp</p>
-            <p class="author-button" onclick="openPage('artist_page');">Mari Vilde</p>
-          </div>
-          <div class="like-and-save">
-            <button class="add-to-favourites">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                fill="#e8eaed">
-                <path
-                  d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Zm80-122 200-86 200 86v-518H280v518Zm0-518h400-400Z" />
-              </svg>
-            </button>
-            <button class="like-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                fill="#e8eaed">
-                <path
-                  d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
-              </svg>
-              <span>18</span>
-            </button>
-          </div>
-        </div>
-        <div class="art-specs">
-          <p class="specs">Looja nägemus:</p>
-          <p class="art-specification">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos fugiat quis, qui
-            iusto delectus quod rerum impedit provident accusamus placeat omnis consectetur voluptatum commodi labore
-            sapiente blanditiis doloribus nesciunt aliquid eveniet vitae molestiae voluptates tempora recusandae. Modi
-            placeat sed reprehenderit."</p>
-          <p class="specs">Täpsustused</p>
-          <p class="art-specification">Akrüül</p>
-          <hr>
-          <p class="art-specification">Paber</p>
-          <hr>
-          <p class="art-specification">150x206 (cm)</p>
-          <hr>
-          <p class="art-specification">Horisontaalselt</p>
-          <p class="art-specification">Kontakt: marivilde9372@gmail.com</p>
-        </div>
-      </div>
-    </div>
   </main>
   <button onclick="scrollToTop();" class="back-to-top">
     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">

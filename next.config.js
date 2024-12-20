@@ -1,8 +1,11 @@
 module.exports = {
+  compiler: {
+    styledComponents: true,
+  },
   rewrites: async () => {
     const routes = [
       "/acc_page_interested",
-      "/acc_artist",
+      "/acc_page_artist",
       "/artist_page",
       "/artist_works",
       "/favourites_page",
@@ -40,7 +43,7 @@ module.exports = {
       },
     ];
 
-    return [...dynamicRewrites, ...staticRewrites, ...darkMode];
+    return [...dynamicRewrites, ...staticRewrites];
   },
   assetPrefix: ".",
 };

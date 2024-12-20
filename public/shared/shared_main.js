@@ -6,11 +6,6 @@ const sidebar = document.getElementById("sidebar");
 const sibling1 = document.querySelector(".search-bar");
 const sibling2 = document.querySelector(".sorting-options");
 
-// Open the artwork onclick
-function openPage(pageUrl) {
-  window.location.href = pageUrl;
-}
-
 function checkWidth() {
   const uploadWork = document.querySelector(".upload-work-button");
 
@@ -219,3 +214,14 @@ themeSwitch.addEventListener("click", () => {
   darkmode !== "active" ? enableDarkmode() : disableDarkmode();
 });
 
+function prefetchAsset(url) {
+  // Create a link tag for prefetching
+  const existingLink = document.querySelector(`link[rel="prefetch"][href="${url}"]`);
+  if (!existingLink) {
+    const prefetchLink = document.createElement('link');
+    prefetchLink.rel = 'prefetch';
+    prefetchLink.href = url;
+    // Append the link to the head to start fetching the asset
+    document.head.appendChild(prefetchLink);
+  }
+}

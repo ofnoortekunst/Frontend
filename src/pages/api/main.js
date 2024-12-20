@@ -5,8 +5,6 @@ if (!admin.apps.length) {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
   });
-} else {
-  console.log("Firebase Admin already initialized");
 }
 
 export default admin;
