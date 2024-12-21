@@ -16,6 +16,18 @@
 </head>
 
 <body class="">
+  <script> const username = localStorage.getItem('userName');
+    if (username) {
+      Array.from(document.getElementsByClassName("name")).map((name) => name.textContent = username);
+    }
+    const pfpUrl = localStorage.getItem('pfpUrl');
+    if (pfpUrl) {
+      Array.from(document.getElementsByClassName("pfp")).map((pfp) => pfp.innerHTML = `<img src="`+ pfpUrl + `" alt="Profile picture" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">`);
+    }
+    const userGrade = localStorage.getItem('userGrade')
+    if (userGrade) {
+        document.getElementById('profile_holder').setAttribute('onclick',"window.location.href='acc_page_artist'");
+    }</script>
   <script type="text/javascript" src="/public/shared/shared_main.js" defer></script>
   <script type="module" src="/public/shared/firebase/profile_info.js" defer></script>
   <script type="text/javascript" src="/public/home_page/home_script.js" defer></script>

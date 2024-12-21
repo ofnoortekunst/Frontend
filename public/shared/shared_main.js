@@ -6,20 +6,6 @@ const sidebar = document.getElementById("sidebar");
 const sibling1 = document.querySelector(".search-bar");
 const sibling2 = document.querySelector(".sorting-options");
 
-const username = localStorage.getItem('userName');
-if (username) {
-  Array.from(document.getElementsByClassName("name")).map((name) => name.textContent = username);
-}
-const pfpUrl = localStorage.getItem('pfpUrl');
-if (pfpUrl) {
-  Array.from(document.getElementsByClassName("pfp")).map((pfp) => pfp.innerHTML = `<img src="`+ pfpUrl + `" alt="Profile picture" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">`);
-}
-const userGrade = localStorage.getItem('userGrade')
-if (userGrade) {
-  console.log('bazinga')
-    document.getElementById('profile_holder').setAttribute('onclick',"window.location.href='acc_page_artist'");
-}
-
 function checkWidth() {
   const uploadWork = document.querySelector(".upload-work-button");
 
