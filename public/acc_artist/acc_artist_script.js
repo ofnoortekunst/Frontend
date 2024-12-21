@@ -96,7 +96,7 @@ document.getElementById('school-select').addEventListener('change', async functi
 
 document.getElementById("logout").addEventListener("click", (e) => {
   e.preventDefault();
-  sessionStorage.clear()
+  localStorage.clear()
   auth.signOut();
   console.log("logged out");
 });

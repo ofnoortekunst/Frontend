@@ -115,7 +115,7 @@ export default async function POST(req, res) {
 export const config = {
   api: {
     bodyParser: {
-      sizeLimit: '20mb',
+      sizeLimit: '30mb',
     },
   },
 }

@@ -7,18 +7,18 @@ const sibling1 = document.querySelector(".search-bar");
 const sibling2 = document.querySelector(".sorting-options");
 
 document.addEventListener("DOMContentLoaded", () => {
-  const username = sessionStorage.getItem('userName');
+  const username = localStorage.getItem('userName');
   if (username) {
       document.querySelectorAll(".name").forEach(name => name.textContent = username);
   }
 
-  const pfpUrl = sessionStorage.getItem('pfpUrl');
+  const pfpUrl = localStorage.getItem('pfpUrl');
   if (pfpUrl) {
       const imgHtml = `<img src="${pfpUrl}" alt="Profile picture" height="24px" width="24px" fill="#e8eaed">`;
       document.querySelectorAll(".pfp").forEach(pfp => pfp.innerHTML = imgHtml);
   }
 
-  const userGrade = sessionStorage.getItem('userGrade');
+  const userGrade = localStorage.getItem('userGrade');
   if (userGrade) {
       const profileHolder = document.getElementById('profile_holder');
       if (profileHolder) {
@@ -234,7 +234,7 @@ if (darkmode === "active") {
   enableDarkmode();
 }
 
-// When themeSwitch is clicked it takes darkmode from sessionStorage and if its not active it enables it and if its active it disables it.
+// When themeSwitch is clicked it takes darkmode from localStorage and if its not active it enables it and if its active it disables it.
 themeSwitch.addEventListener("click", () => {
   darkmode = localStorage.getItem("darkmode");
   // Toggle between enabling and disabling dark mode based on current state.
