@@ -26,7 +26,7 @@ main {
 
 /* Stuff in main */
 
-.privacy-container {
+.privacy-contain {
   background-color: var(--back);
   width: 70%;
   display: flex;
@@ -113,7 +113,7 @@ main p {
 }
 
 @media (max-width: 1060px) {
-  .privacy-container {
+  .privacy-contain {
     align-items: flex-start;
     width: 100%;
     padding: 1rem;

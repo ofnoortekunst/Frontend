@@ -70,7 +70,7 @@ async function getWorks(filter, token, sort, hereid, start, end, refresh) {
               }
               const newDiv = `<div class="art-container" id="${data.id}">
               <div class="art-pic" onclick="window.location.href='${'work_opened?' + data.id}'">
-                <img src="${data.imageReference}" style="position: relative; width: 100%; height: 100%; object-fit: contain">
+                <img src="${data.imageReference}" alt='"${data.title}" - ${data.name}'style="position: relative; width: 100%; height: 100%; object-fit: contain">
               </div>
               <p class="name-and-author">"${data.title}" - ${data.name}</p>
               <hr>
