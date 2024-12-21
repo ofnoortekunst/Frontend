@@ -17,13 +17,17 @@ function checkWidth() {
   }
 
   if (window.innerWidth <= 1090) {
-    sidebar.classList.add("close");
+    if (sidebar) {
+      sidebar.classList.add("close");
+    }
     document.body.classList.add("sidebar-collapsed");
     toggleButton.classList.add("rotate");
 
     closeAllSubMenus();
   } else {
-    sidebar.classList.remove("close");
+    if (sidebar) {
+      sidebar.classList.remove("close");
+    }
     document.body.classList.remove("sidebar-collapsed");
     toggleButton.classList.remove("rotate");
   }
@@ -61,10 +65,12 @@ function scrollToBottom() {
 
 // Close all submenus.
 function closeAllSubMenus() {
+  if (sidebar) {
   Array.from(sidebar.getElementsByClassName("show")).forEach((ul) => {
     ul.classList.remove("show");
     ul.previousElementSibling.classList.remove("rotate");
   });
+}
 }
 
 function hideSideBar() {
