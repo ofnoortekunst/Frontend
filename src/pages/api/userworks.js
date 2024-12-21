@@ -40,8 +40,6 @@ export default async function POST(req, res) {
                       take: end,
                       where: works,
                         select: {
-                          ContactPreference: full,
-                          Contact: full,
                           Name: true,
                           Works: {
                             where: id,
