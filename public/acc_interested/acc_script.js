@@ -27,7 +27,7 @@ var delete_confirm = 0;
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 onAuthStateChanged(auth, async function(user) {
-  const alreadyGrade = localStorage.getItem('userGrade')
+  const alreadyGrade = sessionStorage.getItem('userGrade')
   if (user) {
     const worknum = document.getElementById('load-works');
     const select = document.getElementById('school-select');
@@ -48,7 +48,7 @@ onAuthStateChanged(auth, async function(user) {
           if (response.ok) {
             const responseData = await response.json();
             if (parseInt(responseData.message) >= 3) {
-              localStorage.setItem('userGrade', parseInt(responseData.message))
+              sessionStorage.setItem('userGrade', parseInt(responseData.message))
               window.location.href = "/acc_page_artist"
             }
             worknum.textContent = responseData.message + "/" + "3";
@@ -131,7 +131,7 @@ document.getElementById('school-select').addEventListener('change', async functi
 
 document.getElementById("logout").addEventListener("click", (e) => {
   e.preventDefault();
-  localStorage.clear()
+  sessionStorage.clear()
   auth.signOut();
   console.log("logged out");
 });
