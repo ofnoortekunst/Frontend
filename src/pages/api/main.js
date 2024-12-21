@@ -7,4 +7,15 @@ if (!admin.apps.length) {
   });
 }
 
+// Add authentication helper function
+export async function authenticateUser(idToken) {
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(idToken);
+    return { userId: decodedToken.uid };
+  } catch (error) {
+    console.log("Error verifying token:", error.message);
+    throw new Error("Invalid authentication token");
+  }
+}
+
 export default admin;

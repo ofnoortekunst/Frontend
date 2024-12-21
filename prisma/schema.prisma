@@ -45,7 +45,9 @@ model Art {
   Pind String @default("Paber")
   AuthorId String
   Technique String @default("Muu")
+  OtherTechnique String?
   Size String
+  OtherSize String?
   Price Decimal @default(0)
   Orientation String 
   Year Int @default(2024)

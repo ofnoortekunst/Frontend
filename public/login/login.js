@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const baseUrl = window.location.origin;
         const url = `${baseUrl}/api/register`;
         const formData = Object.fromEntries(new FormData(this).entries());
-        const darkmode = localStorage.getItem("darkmode")
+        var darkmode = localStorage.getItem("darkmode")
         if (darkmode === null) {
           darkmode = "inactive"
         }

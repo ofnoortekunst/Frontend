@@ -27,6 +27,63 @@ var delete_confirm = 0;
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
+// Add auth state observer at the top of the file after auth initialization
+onAuthStateChanged(auth, async function(user) {
+  if (user) {
+    const select = document.getElementById('school-select');
+    const baseUrl = window.location.origin;
+    const token = await user.getIdToken();
+    
+    // Add name check
+    try {
+      const nameResponse = await fetch(`${baseUrl}/api/name`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          idToken: token,
+          name: "get"
+        })
+      });
+      
+      if (nameResponse.ok) {
+        const nameData = await nameResponse.json();
+        document.getElementById('the_nimi').textContent = nameData.message;
+      }
+    } catch (error) {
+      console.error('Error fetching name:', error);
+    }
+
+    // Existing school grade check code...
+    try {
+      var url = `${baseUrl}/api/usergrade`;
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          idToken: token,
+          grade: "get"
+        }),
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        if (responseData.message) {
+          select.value = responseData.message;
+        } else {
+          select.value = "other-school"; // Default value if no grade is set
+        }
+      } else {
+        console.error('Failed to fetch school data');
+        const errorData = await response.json();
+        document.getElementById('grade-change').textContent = errorData.error || 'Viga kooliaste laadimisel';
+      }
+    } catch (error) {
+      console.error('Error getting ID token or fetching data:', error);
+      document.getElementById('grade-change').textContent = 'Viga kooliaste laadimisel';
+    }
+  }
+});
+
 // Show password
 let toggle1 = document.getElementById('show-pass-1');
 let toggle2 = document.getElementById('show-pass-2');
@@ -36,25 +93,29 @@ let password2 = document.getElementById('psw-new');
 toggle1.addEventListener("click", handleToggleClick1, false);
 toggle2.addEventListener("click", handleToggleClick2, false);
 
+// Helper function to handle error message visibility
+function showError(elementId, message) {
+  const errorBox = document.getElementById(elementId).closest('#error-box, #error-box-delete');
+  if (message) {
+    document.getElementById(elementId).textContent = message;
+    errorBox.style.display = 'block';
+  } else {
+    document.getElementById(elementId).textContent = '';
+    errorBox.style.display = 'none';
+  }
+}
+
 document.getElementById('new_name_button').addEventListener('click', async function(e) {
   e.preventDefault()
-  const baseUrl = window.location.origin;
-  var url = `${baseUrl}/api/name`;
   try {
-    const token = await auth.currentUser.getIdToken()
-    const response = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        idToken: token,
-        name: document.getElementById('new_name').value
-      })
-      })
-    if (response.ok) {
-      document.getElementById('the_nimi').textContent = document.getElementById('new_name').value
-    }
+    await updateProfile(auth.currentUser, {
+      displayName: document.getElementById('new_name').value
+    })
+    document.getElementById('the_nimi').textContent = document.getElementById('new_name').value
+    showError('error_text_password', ''); // Clear any existing error
   } catch (error) {
     console.error(error)
+    showError('error_text_password', 'Viga nime muutmisel: ' + error.message);
   }
 })
 
@@ -63,10 +124,10 @@ document.getElementById("delete").addEventListener("click", async function(e) {
   try {
     if (delete_confirm) {
       const userDelete = await auth.currentUser.delete();
+      showError('error_text_delete', '');
     } else {
       delete_confirm = 1;
-      document.getElementById("error_text_delete").textContent =
-        "Kindel, et tahate kustuta? Vajuta teist korda, et kinnitada.";
+      showError('error_text_delete', "Kindel, et tahate kustuta? Vajuta teist korda, et kinnitada.");
     }
   } catch (error) {
     if (error.code == "auth/requires-recent-login") {
@@ -80,17 +141,29 @@ document.getElementById('school-select').addEventListener('change', async functi
   const idToken = await auth.currentUser.getIdToken()
   const baseUrl = window.location.origin;
   const url = `${baseUrl}/api/usergrade`;
-  const response = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      idToken: idToken,
-      grade: selectedValue
-    }),
-  });
-  if (response.ok) {
-    const data = await response.json();
-    document.getElementById('grade-change').textContent = `Kooliaste muudetud. ${data.message}`
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        idToken: idToken,
+        grade: selectedValue
+      }),
+    });
+    
+    if (response.ok) {
+      const data = await response.json();
+      document.getElementById('grade-change').textContent = data.message;
+      document.getElementById('grade-change').style.display = 'block';
+    } else {
+      const errorData = await response.json();
+      document.getElementById('grade-change').textContent = errorData.error || 'Viga kooliaste muutmisel';
+      document.getElementById('grade-change').style.display = 'block';
+    }
+  } catch (error) {
+    console.error('Error updating grade:', error);
+    document.getElementById('grade-change').textContent = 'Viga kooliaste muutmisel';
+    document.getElementById('grade-change').style.display = 'block';
   }
 })
 
@@ -105,22 +178,25 @@ document.getElementById("change-email").addEventListener("click", async function
   e.preventDefault();
   try {
     await updateEmail(auth.currentUser, document.getElementById("new-email").value);
+    showError('error_text_email', "Email edukalt muudetud");
   } catch (error) {
     console.log(error);
-    if (error.code === "requires-recent-login") {
+    if (error.code === "auth/requires-recent-login") {
       window.location.href = "/login_register_page?account_relogin";
     } else if (error.code === "auth/operation-not-allowed") {
       try {
         await sendEmailVerification(auth.currentUser);
-        document.getElementById('error_text_email').textContent = "Enne emaili vahetamist kinnitage oma praegune email. Saatsime teate " + auth.currentUser.email
+        showError('error_text_email', 
+          "Enne emaili vahetamist kinnitage oma praegune email. Saatsime teate " + auth.currentUser.email);
       } catch (error) {
-        if (error.code == auth/too-many-requests) {
-                  document.getElementById('error_text_email').textContent = "Liiga palju muudatusi."
+        if (error.code === "auth/too-many-requests") {
+          showError('error_text_email', "Liiga palju muudatusi.");
         } else {
-        document.getElementById('error_text_email').textContent = "Midagi läks valesti."
-        console.log(error)
+          showError('error_text_email', "Midagi läks valesti: " + error.message);
         }
       }
+    } else {
+      showError('error_text_email', "Viga emaili muutmisel: " + error.message);
     }
   }
 });
@@ -135,13 +211,15 @@ document.getElementById('forgot-password').addEventListener('click', function(e)
 document.getElementById('sub-button').addEventListener('click', async function(e) {
   e.preventDefault()
   if (!document.getElementById('psw-new').value == document.getElementById('password').value) {
-    document.getElementById('error_text_password').textContent = "Paroolid ei ole samad."
+    showError('error_text_password', "Paroolid ei ole samad.");
+    return;
   }
   try {
     await updatePassword(auth.currentUser, document.getElementById('psw-new').value);
-    document.getElementById('error_text_password').textContent = "Parool muudetud"
+    showError('error_text_password', "Parool muudetud");
   } catch (error) {
     console.log(error)
+    showError('error_text_password', "Viga parooli muutmisel: " + error.message);
   }
 })
 

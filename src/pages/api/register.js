@@ -28,7 +28,6 @@ export default async function POST(req, res) {
             const userRecord = await admin.auth().updateUser(uid, {
               displayName: formdata['name'],
             });
-            console.log(getNameFromEmail(decodedToken.email))
             var user_grade = formdata['school-select']
             if (!user_grade) {
               user_grade = "muu"
@@ -46,7 +45,7 @@ export default async function POST(req, res) {
                   User_id: uid,
                   Grade: user_grade,
                   Language: "et",
-                  Name: displayName || getNameFromEmail(decodedToken.email),
+                  Name: formdata['name'] || getNameFromEmail(decodedToken.email),
                   LightPreference: darkmode,
               },
           });

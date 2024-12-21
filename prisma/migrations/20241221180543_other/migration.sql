@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE `Art` ADD COLUMN `OtherPind` VARCHAR(191) NULL,
+    ADD COLUMN `OtherTechnique` VARCHAR(191) NULL,
+    MODIFY `Pind` VARCHAR(191) NOT NULL DEFAULT 'Muu';
