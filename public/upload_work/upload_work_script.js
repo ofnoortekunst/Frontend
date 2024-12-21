@@ -49,9 +49,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
-
-
-// Open the artwork onclick
-function openPage(pageUrl){
-  window.location.href = pageUrl;
-}

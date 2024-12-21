@@ -138,7 +138,7 @@ themeSwitch.addEventListener('click', () => {
 });
 
 // Open the page onclick
-function openPage(pageUrl){
+function window.location.href=pageUrl){
   window.location.href = pageUrl;
 }
 

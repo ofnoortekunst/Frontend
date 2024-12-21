@@ -1,0 +1,6 @@
+-- AlterTable
+ALTER TABLE `Art` MODIFY `Technique` VARCHAR(191) NOT NULL DEFAULT 'Muu',
+    MODIFY `Pind` VARCHAR(191) NOT NULL DEFAULT 'Paber';
+
+-- AlterTable
+ALTER TABLE `User` MODIFY `Grade` VARCHAR(191) NULL DEFAULT 'Muu';

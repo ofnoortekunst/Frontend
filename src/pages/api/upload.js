@@ -33,6 +33,7 @@ function generateSHA256Hash(base64Image) {
 const saveImage = (imageObj, imageData, saveUser, res) => {
   return new Promise(async function(resolve, reject) {
     try {
+      const identifier = crypto.randomUUID()
       const filePath = path.join(
         process.cwd(),  // This gives the current working directory (root of the project)
         'public/images/art',
@@ -40,8 +41,9 @@ const saveImage = (imageObj, imageData, saveUser, res) => {
       );
       const imagePath = path.join(
         filePath,
-        `${crypto.randomUUID()}.${mime.extension(imageData.type)}`
+        `${identifier}.${mime.extension(imageData.type)}`
       );
+      const savePath = ['/art',`${saveUser}`,`${identifier}.${mime.extension(imageData.type)}`].join("/")
 
       // Extract the base64 data
       const base64Data = imageObj;
@@ -50,13 +52,11 @@ const saveImage = (imageObj, imageData, saveUser, res) => {
 
       // Save the file
       await fs.promises.writeFile(imagePath, base64Data, { encoding: 'base64' });
-
       const [result] = await client.safeSearchDetection(imagePath);
       const detections = result.safeSearchAnnotation;
       if (detections.adult !== 'LIKELY' && detections.adult !== 'VERY_LIKELY' &&
-        detections.violence !== 'LIKELY' && detections.violence !== 'VERY_LIKELY' &&
-        detections.racy !== 'LIKELY' && detections.racy !== 'VERY_LIKELY') {
-        resolve(imagePath);
+        detections.violence !== 'LIKELY' && detections.violence !== 'VERY_LIKELY') {
+        resolve(savePath);
       } else {
         fs.promises.unlink(imagePath)
         res.status(406).send({ message: "Content detected as not acceptable. " + "adult: " + detections.adult + " violence: " + detections.violence + " racy: " + detections.racy});
@@ -73,22 +73,22 @@ export default async function POST(req, res) {
         try {
             const decodedToken = await admin.auth().verifyIdToken(idToken);
             const uid = decodedToken.uid;
-            var size = formdata['sizeCustom']  || formdata['size'];
-            var style = formdata['technique2'] || formdata['technique'];
+            var size = (formdata['sizeCustom']  || formdata['size']).slice(0,25);
+            var style = (formdata['technique2'] || formdata['technique']).slice(0,30);
 
             const imageHash = await generateSHA256Hash(formdata.image)
             const filePath = await saveImage(formdata.image, formdata.imageData, uid, res)
             const newArt = await prisma.art.create({
               data: {
                   AuthorId: uid,
-                  Title: formdata['pealkiri'],
+                  Title: (formdata['pealkiri']).slice(0,40),
                   ImageReference: filePath,
                   Description: formdata['tutvustus'],
+                  Pind: formdata['surface'],
                   Size: size,
                   Technique: style,
                   Hash: imageHash,
-                  Price: formdata['Price'],
-                  Orientation: formdata['direction']
+                  Orientation: (formdata['direction']).slice(0,20)
               },
             }).then(prisma.user.update({
               where: {

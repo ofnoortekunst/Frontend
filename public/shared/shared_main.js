@@ -6,10 +6,26 @@ const sidebar = document.getElementById("sidebar");
 const sibling1 = document.querySelector(".search-bar");
 const sibling2 = document.querySelector(".sorting-options");
 
-// Open the artwork onclick
-function openPage(pageUrl) {
-  window.location.href = pageUrl;
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const username = sessionStorage.getItem('userName');
+  if (username) {
+      document.querySelectorAll(".name").forEach(name => name.textContent = username);
+  }
+
+  const pfpUrl = sessionStorage.getItem('pfpUrl');
+  if (pfpUrl) {
+      const imgHtml = `<img src="${pfpUrl}" alt="Profile picture" height="24px" width="24px" fill="#e8eaed">`;
+      document.querySelectorAll(".pfp").forEach(pfp => pfp.innerHTML = imgHtml);
+  }
+
+  const userGrade = sessionStorage.getItem('userGrade');
+  if (userGrade) {
+      const profileHolder = document.getElementById('profile_holder');
+      if (profileHolder) {
+          profileHolder.setAttribute('onclick', "window.location.href='acc_page_artist'");
+      }
+  }
+});
 
 function checkWidth() {
   const uploadWork = document.querySelector(".upload-work-button");
@@ -22,13 +38,17 @@ function checkWidth() {
   }
 
   if (window.innerWidth <= 1090) {
-    sidebar.classList.add("close");
+    if (sidebar) {
+      sidebar.classList.add("close");
+    }
     document.body.classList.add("sidebar-collapsed");
     toggleButton.classList.add("rotate");
 
     closeAllSubMenus();
   } else {
-    sidebar.classList.remove("close");
+    if (sidebar) {
+      sidebar.classList.remove("close");
+    }
     document.body.classList.remove("sidebar-collapsed");
     toggleButton.classList.remove("rotate");
   }
@@ -66,10 +86,12 @@ function scrollToBottom() {
 
 // Close all submenus.
 function closeAllSubMenus() {
+  if (sidebar) {
   Array.from(sidebar.getElementsByClassName("show")).forEach((ul) => {
     ul.classList.remove("show");
     ul.previousElementSibling.classList.remove("rotate");
   });
+}
 }
 
 function hideSideBar() {
@@ -212,10 +234,21 @@ if (darkmode === "active") {
   enableDarkmode();
 }
 
-// When themeSwitch is clicked it takes darkmode from localStorage and if its not active it enables it and if its active it disables it.
+// When themeSwitch is clicked it takes darkmode from sessionStorage and if its not active it enables it and if its active it disables it.
 themeSwitch.addEventListener("click", () => {
   darkmode = localStorage.getItem("darkmode");
   // Toggle between enabling and disabling dark mode based on current state.
   darkmode !== "active" ? enableDarkmode() : disableDarkmode();
 });
 
+function prefetchAsset(url) {
+  // Create a link tag for prefetching
+  const existingLink = document.querySelector(`link[rel="prefetch"][href="${url}"]`);
+  if (!existingLink) {
+    const prefetchLink = document.createElement('link');
+    prefetchLink.rel = 'prefetch';
+    prefetchLink.href = url;
+    // Append the link to the head to start fetching the asset
+    document.head.appendChild(prefetchLink);
+  }
+}

@@ -27,11 +27,13 @@ var delete_confirm = 0;
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 onAuthStateChanged(auth, async function(user) {
+  const alreadyGrade = sessionStorage.getItem('userGrade')
   if (user) {
     const worknum = document.getElementById('load-works');
     const select = document.getElementById('school-select');
     const baseUrl = window.location.origin;
     const token = await user.getIdToken();
+    if (!alreadyGrade) {
         try {
           var url = `${baseUrl}/api/userworks`;
           const response = await fetch(url, {
@@ -45,8 +47,9 @@ onAuthStateChanged(auth, async function(user) {
   
           if (response.ok) {
             const responseData = await response.json();
-            if (parseInt(responseData.message) > 3) {
-              window.location.href = "/acc_artist"
+            if (parseInt(responseData.message) >= 3) {
+              sessionStorage.setItem('userGrade', parseInt(responseData.message))
+              window.location.href = "/acc_page_artist"
             }
             worknum.textContent = responseData.message + "/" + "3";
           } else {
@@ -55,6 +58,7 @@ onAuthStateChanged(auth, async function(user) {
         } catch (error) {
           console.error('Error getting ID token or fetching data:', error);
         }
+      }
         try {
           var url = `${baseUrl}/api/usergrade`;
           const response = await fetch(url, {
@@ -127,6 +131,7 @@ document.getElementById('school-select').addEventListener('change', async functi
 
 document.getElementById("logout").addEventListener("click", (e) => {
   e.preventDefault();
+  sessionStorage.clear()
   auth.signOut();
   console.log("logged out");
 });

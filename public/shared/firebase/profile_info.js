@@ -18,16 +18,6 @@ const firebaseConfig = {
 
 };
 
-function getNameFromEmail(email) {
-  if (!email.includes('@')) {
-    return null;
-  }
-
-  const namePart = email.split('@')[0];
-  const name = namePart.replace(/[._]/g, ' ');
-  return name.charAt(0).toUpperCase() + name.slice(1);
-}
-
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 
@@ -35,23 +25,45 @@ const logoutButton = document.createElement("div");
 logoutButton.innerHTML = '<button class="log-in-out log-out">Logi välja</button>'
 
 const pictureHTML = `<img src="example.jpg" alt="Profile picture" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">`;
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
   if (user) {
-    if (user.displayName) {
-      Array.from(document.getElementsByClassName("name")).map((name) => name.textContent = user.displayName);
-    }
-    else {
-      Array.from(document.getElementsByClassName("name")).map((name) => name.textContent = getNameFromEmail(user.email));
+    const baseUrl = window.location.origin;
+    const testname = sessionStorage.getItem('userName')
+    if (!testname) {
+      try {
+        const token = await auth.currentUser.getIdToken()
+        var url = `${baseUrl}/api/name`;
+        const response = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            idToken: token
+          })
+          })
+        if (response.ok) {
+          var data = await response.json()
+          const the_name = document.getElementById('the_nimi')
+          if (the_name) {
+            the_name.textContent = data.message.Name
+          }
+          sessionStorage.setItem('userName', data.message.Name)
+          Array.from(document.getElementsByClassName("name")).map((name) => name.textContent = data.message.Name);
+        }
+      } catch (error) {
+        console.error(error)
+      }
     }
     var email = document.getElementById('email')
     if (email) {
       email.textContent = user.email
     }
-    if (user.photoURL) {
+    if (user.photoURL && !sessionStorage.getItem('pfpUrl')) {
+      sessionStorage.setItem('pfpUrl', user.photoURL)
       Array.from(document.getElementsByClassName("pfp")).map((pfp) => pfp.innerHTML = `<img src="`+ user.photoURL + `" alt="Profile picture" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">`);
     }
     Array.from(document.getElementsByClassName('log-in'))[0].replaceWith(logoutButton);
     Array.from(document.getElementsByClassName('log-out'))[0].addEventListener('click', () => {
+      sessionStorage.clear()
       signOut(auth).then(window.location.href = '/login_register_page');
   });
   }

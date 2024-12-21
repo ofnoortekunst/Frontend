@@ -18,10 +18,13 @@ model User {
   User_id  String @unique
   id      Int    @id @default(autoincrement())
   Works    Art[] @relation("UserWorks")
+  Name String? @default("teadmatu")
   NumWorks Int @default(0)
+  ContactPreference String? @default("gmail")
+  Contact String?
   LikedWorks Art[] @relation("UserLikes")
   Favourites Art[] @relation("UserFavorites")
-  Grade String? @default("none")
+  Grade String? @default("Muu")
   Language String? @default("et")
   LightPreference Boolean @default(true)
   following User[] @relation("UserFollowing")
@@ -36,11 +39,12 @@ model Art {
   FavouritedBy User[] @relation("UserFavorites")
   ImageReference String
   Id Int @id @default(autoincrement())
-  Description String?
+  Description String? @db.VarChar(1000)
   Hash String @unique @default(uuid())
   Published Boolean @default(true)
+  Pind String @default("Paber")
   AuthorId String
-  Technique String @default("muu")
+  Technique String @default("Muu")
   Size String
   Price Decimal @default(0)
   Orientation String 

@@ -23,6 +23,7 @@ const auth = getAuth(firebaseApp);
 
 document.getElementById('logout').addEventListener('click', e => {
     e.preventDefault();
+    sessionStorage.clear()
     auth.signOut();
     console.log('logged out');
 })

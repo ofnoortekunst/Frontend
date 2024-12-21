@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +14,7 @@
 
 <body class="">
   <script type="module" src="/public/shared/firebase/redirect.js" defer></script>
-  <script type="text/javascript" src="/public/acc_artist/acc_artist_script.js" defer></script>
+  <script type="module" src="/public/acc_artist/acc_artist_script.js" defer></script>
   <script type="text/javascript" src="/public/shared/shared_main.js" defer></script>
   <script type="module" src="/public/shared/firebase/profile_info.js" defer></script>
   <header>
@@ -47,7 +46,7 @@
             <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
           </svg>
         </a>
-        <a onclick="hideSideBar();" href="works" class="bookmark move-up">
+        <a onclick="hideSideBar();" href="works" onmouseover="prefetchAsset('works')" class="bookmark move-up">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
             <path
               d="M160-80q-33 0-56.5-23.5T80-160v-480q0-33 23.5-56.5T160-720h160l160-160 160 160h160q33 0 56.5 23.5T880-640v480q0 33-23.5 56.5T800-80H160Zm0-80h640v-480H160v480Zm80-80h480L570-440 450-280l-90-120-120 160Zm460-200q25 0 42.5-17.5T760-500q0-25-17.5-42.5T700-560q-25 0-42.5 17.5T640-500q0 25 17.5 42.5T700-440ZM404-720h152l-76-76-76 76ZM160-160v-480 480Z" />
@@ -75,7 +74,7 @@
       </div>
     </nav>
     <div class="profile">
-      <div class="pfp" onclick="openPage('acc_page_interested');"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+      <div class="pfp" onclick="window.location.href='acc_page_interested'"  onmouseover="prefetchAsset('acc_page_interested')"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
           viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
           <path
             d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z" />
@@ -142,7 +141,7 @@
         <div class="person-card">
           <img src="/public/images/pfp.avif" alt="profile-pic" id="profile-pic">
           <label for="input-file" class="change-something small">Muuda profiilipilti</label>
-          <button class="change-something btn small" onclick="openPage('artist_works');">Minu teosed</button>
+          <button class="change-something btn small" onclick="window.location.href='artist_works'">Minu teosed</button>
           <input type="file" accept="image/*" id="input-file">
           <textarea maxlength="150" class="bio"
             placeholder="Bio: mis temaatika huvitab, mis inspireerib...(150 sõna)"></textarea>
@@ -166,14 +165,15 @@
         </div>
       </div>
       <hr>
-      <div>
         <h2>Nimi</h2>
-        <p>Märt Madis (looja)</p>
+        <p id="the_nimi"></p>
         <div class="spec-section">
-          <label for="new-name" class="change-something">Muuda nime</label>
-          <input type="text" id="new-name" placeholder="nimi">
-          <button class="sub-button">Salvestsa uus nimi</button>
+          <label for="new-name" class="change-something" id="new_name_value">Muuda nime</label>
+          <input type="text" id="new_name" placeholder="nimi">
+          <button class="sub-button" id="new_name_button">Salvestsa uus nimi</button>
         </div>
+      <div id="error-box">
+        <p id="error_text_password"></p>
       </div>
       <hr>
       <div>
@@ -226,16 +226,16 @@
       <hr>
       <div>
         <h2>Email</h2>
-        <p>madisiopr@jdn.oew</p>
+        <p id="email">madisiopr@jdn.oew</p>
         <div class="spec-section">
           <label for="new-email" class="change-something">Muuda emaili</label>
           <input type="email" id="new-email" placeholder="email">
-          <button class="sub-button" onclick="openPage('confirm_mail');">Muuda meiliaadressi</button>
+          <button class="sub-button" onclick="window.location.href='confirm_mail'">Muuda meiliaadressi</button>
         </div>
       </div>
       <hr>
       <div>
-        <button class="sub-button">Logi välja</button>
+        <button class="sub-button" id="logout">Logi välja</button>
         <button class="sub-button delete-acc">Kustuta konto</button>
       </div>
       <div id="error-box-delete">
