@@ -18,6 +18,7 @@
   <script type="module" src="/public/acc_interested/acc_script.js" defer></script>
   <script type="text/javascript" src="/public/shared/shared_main.js" defer></script>
   <script type="module" src="/public/shared/firebase/profile_info.js" defer></script>
+  <script type="module" src="/public/shared/shared_acc_script.js" defer></script>
   <header>
     <nav>
       <label for="sidebar-active" class="open-sidebar-btn">
@@ -150,11 +151,10 @@
       <div>
         <h2>Hakka loojaks!</h2>
         <p class="sub-heading">Laadige 3 teost, et saada loojaks. <a class="why" href="help_page">Miks?</a></p>
-        <button class="load-works" onclick="window.location.href='upload_work_creating_acc'" onmouseover="prefetchAsset('upload_work_creating_acc')" id="load-works">0/3</button>
+        <button class="load-works" onclick="window.location.href='upload_work'" onmouseover="prefetchAsset('upload_work_creating_acc')" id="load-works">0/3</button>
         <p class="sub-heading">Kooliaste</p>
         <div class="school-selection">
           <select id="school-select" name="school-select">
-            <option value="other-school">-Vali kooliaste-</option>
             <option value="beginning-school">Algklass</option>
             <option value="middle-school">Põhikool</option>
             <option value="high-school">Gümnaasium</option>
@@ -162,7 +162,7 @@
             <option value="other-school">Muu</option>
           </select>
         </div>
-        <div id="approve-box">
+        <div id="approve-box" style="display: none;">
           <p id="grade-change"></p>
         </div>
         <p class="sub-text-school">Kooliaste aitab paremini noorte seas kunsti filtreerida. Kui te seda avalikustada ei
@@ -171,14 +171,15 @@
       <hr>
       <div>
         <h2>Nimi</h2>
-        <p id="name_settings" class="name">Märt Madis (kunstihuviline)</p>
+        <p id="the_nimi"></p>
         <div class="spec-section">
-          <label for="new-name" class="change-something">Muuda nime</label>
-          <input type="text" id="new-name" placeholder="nimi">
-          <button class="sub-button" id="newname">Salvestsa uus nimi</button>
+          <input type="text" id="new_name" placeholder="nimi">
+          <button class="sub-button" id="new_name_button">Salvestsa uus nimi</button>
         </div>
+      <div id="error-box-name" style="display: none;">
+        <p id="error_text_name"></p>
       </div>
-      <hr>
+      <hr style="margin-top: 10px; margin-bottom: 10px;">
       <div class="password-sec" id="password_sec">
         <h2>Salasõna</h2>
         <legend>Uuus salasõna:</legend>
@@ -197,7 +198,7 @@
           <input type="checkbox" for="psw-new" id="show-pass-2">
           Näita salasõna
         </label>
-        <div id="error-box">
+        <div id="error-box" style="display: none;">
           <p id="error_text_password"></p>
         </div>
         <button class="sub-button" id="sub-button">Salvesta uus salasõna</button>
@@ -207,7 +208,6 @@
         <h2>Email</h2>
         <p id="email">madisiopr@jdn.oew</p>
         <div class="spec-section">
-          <label for="new-email" class="change-something">Muuda emaili</label>
           <input type="email" id="new-email" placeholder="email">
           <button class="sub-button" id="change-email">Muuda meiliaadressi</button>
           <p style="color:red;" id="error_text_email"></p>
@@ -218,7 +218,7 @@
         <button class="sub-button" id="logout">Logi välja</button>
         <button class="sub-button delete-acc" id="delete">Kustuta konto</button>
       </div>
-      <div id="error-box-delete">
+      <div id="error-box-delete" style="display: none;">
         <p id="error_text_delete"></p>
       </div>
     </div>

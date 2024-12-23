@@ -29,6 +29,7 @@ model User {
   LightPreference Boolean @default(true)
   following User[] @relation("UserFollowing")
   followers User[] @relation("UserFollowing")
+  Bio String?
 }
 
 model Art {

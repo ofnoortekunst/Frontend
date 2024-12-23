@@ -155,11 +155,12 @@ document
     } catch (error) {
       // Handle authentication errors
       const code = error.code;
-      const errorParagraph = document.getElementById("error_text");
       if (code == "auth/invalid-credential") {
-        errorParagraph.textContent = "Parool või email ei ole õige";
+        document.getElementById('error_text').textContent = "Parool või email ei ole õige";
+        document.getElementById('error-box').style.display = 'block';
       } else {
-        console.error(error.message);
+        document.getElementById('error_text').textContent = "Midagi läks valesti";
+        document.getElementById('error-box').style.display = 'block';
       }
     }
   });
@@ -211,28 +212,41 @@ document
     } catch (error) {
       // Handle authentication errors
       const code = error.code;
-      const errorParagraph = document.getElementById("error_text_interested");
       if (code === "auth/invalid-credential") {
-        errorParagraph.textContent = "Parool või email ei ole õige";
+        document.getElementById('error_text_interested').textContent = "Parool või email ei ole õige";
+        document.getElementById('error-box-interested').style.display = 'block';
       } else if (code === "auth/email-already-in-use") {
-        errorParagraph.textContent = "Konto selle emailiga juba eksisteerib";
+        document.getElementById('error_text_interested').textContent = "Konto selle emailiga juba eksisteerib";
+        document.getElementById('error-box-interested').style.display = 'block';
       }
       else {
-        errorParagraph.textContent = "Midagi läks valesti.";
-        console.error(error.message);
+        document.getElementById('error_text_interested').textContent = "Midagi läks valesti.";
+        document.getElementById('error-box-interested').style.display = 'block';
       }
       if (auth.currentUser & auth.currentUser.email === email) {
         await auth.currentUser.delete();
-        errorParagraph.textContent = "Hetkel ei ole võimalik kasutajat teha.";
+        document.getElementById('error_text_interested').textContent = "Hetkel ei ole võimalik kasutajat teha.";
+        document.getElementById('error-box-interested').style.display = 'block';
       }
     }
   });
 
 document.getElementById('forgot-password').addEventListener('click', function(e) {
   e.preventDefault()
-  sendPasswordResetEmail(auth, document.getElementById('email-l').value).then(() => {
-    document.getElementById('error_text').textContent = "Saatsime parooli lähtestamise emaili. " + document.getElementById('email-l').value
-  })
+  try {
+    sendPasswordResetEmail(auth, document.getElementById('email-l').value).then(() => {
+      document.getElementById('error_text').textContent = "Saatsime parooli lähtestamise emaili. " + document.getElementById('email-l').value
+      document.getElementById('error-box').style.display = 'block';
+    })
+  } catch (error) {
+    if (error.code === "auth/missing-email") {
+      document.getElementById('error_text').textContent = "Õige email puudub";
+      document.getElementById('error-box').style.display = 'block';
+    } else {
+      document.getElementById('error_text').textContent = "Midagi läks valesti";
+      document.getElementById('error-box').style.display = 'block';
+    }
+  }
 })
 
   document
@@ -250,11 +264,10 @@ document.getElementById('forgot-password').addEventListener('click', function(e)
 
 
       const formData = Object.fromEntries(new FormData(this).entries());
-
       const baseUrl = window.location.origin;
       const url = `${baseUrl}/api/register`;
 
-      const darkmode = localStorage.getItem("darkmode")
+      var darkmode = localStorage.getItem("darkmode")
       if (darkmode === null) {
         darkmode = "inactive"
       }
@@ -271,7 +284,7 @@ document.getElementById('forgot-password').addEventListener('click', function(e)
 
       if (response.ok) {
         // Redirect to home page
-        window.location.href = "/";
+        window.location.href = "/upload_work";
       } else {
         // Display error message
         document.getElementById("error_text_artist").textContent =
@@ -280,20 +293,26 @@ document.getElementById('forgot-password').addEventListener('click', function(e)
     } catch (error) {
       // Handle authentication errors
       const code = error.code;
-      const errorParagraph = document.getElementById("error_text_artist");
       if (code == "auth/invalid-credential") {
-        errorParagraph.textContent = "Parool või email ei ole õige";
+        document.getElementById('error_text_artist').textContent = "Parool või email ei ole õige";
+        document.getElementById('error-box-artist').style.display = 'block';
       } else if (code == "auth/email-already-in-use") {
-        errorParagraph.textContent = "Konto selle emailiga juba eksisteerib";
+        document.getElementById('error_text_artist').textContent = "Konto selle emailiga juba eksisteerib";
+        document.getElementById('error-box-artist').style.display = 'block';
       }
       else {
-        errorParagraph.textContent = "Midagi läks valesti.";
         console.error(error.message);
+        if (auth.currentUser) {
+          await auth.currentUser.delete();
+        }
+        document.getElementById('error_text_artist').textContent = "Midagi läks valesti.";
+        document.getElementById('error-box-artist').style.display = 'block';
       }
       const email = this.elements["email"].value;
       if (auth.currentUser & auth.currentUser.email === email) {
         await auth.currentUser.delete();
-        errorParagraph.textContent = "Hetkel ei ole võimalik kasutajat teha.";
+        document.getElementById('error_text_artist').textContent = "Hetkel ei ole võimalik kasutajat teha.";
+        document.getElementById('error-box-artist').style.display = 'block';
       }
     }
   });
@@ -335,13 +354,17 @@ document.addEventListener("DOMContentLoaded", () => {
               window.location.href = "/";
             }
           } else {
-            console.error("Login failed:", data);
+            const data = await response.json();
+            document.getElementById('error_text').textContent = data.message;
+            document.getElementById('error-box').style.display = 'block';
           }
         } else {
-          console.error("HTTP error:", response.status, response.statusText);
+          document.getElementById('error_text').textContent = "Midagi läks valesti";
+          document.getElementById('error-box').style.display = 'block';
         }
       } catch (error) {
-        console.error("Error during sign-in or fetch:", error);
+        document.getElementById('error_text').textContent = "Midagi läks valesti";
+        document.getElementById('error-box').style.display = 'block';
       }
     });
   } else {
@@ -358,7 +381,7 @@ document
   const jsonObject = Object.fromEntries(formData.entries());
 
   // Use fetch to send the POST request
-  fetch('/api/register', {
+  fetch(`${window.location.origin}/api/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -382,7 +405,7 @@ loginButton.addEventListener('click', () => {
   loginButton.value = 'Laeb...';
 
   setTimeout(() => {
-    loginButton.value = 'Logi sisse';
+    loginButton.value = 'Logi sisse 0/3';
   }, 2000);
 })
 

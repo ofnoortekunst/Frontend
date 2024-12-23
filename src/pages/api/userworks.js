@@ -6,9 +6,7 @@ export default async function POST(req, res) {
     if (req.method !== "POST") {
         return res.status(405).json({ message: 'See API endpoint aktsepteerib ainult POST päringuid' });
     }
-
     const { idToken, works, id = {}, sort, start, end, full = false } = req.body;
-
     let user_id = '';
     if (idToken && idToken !== "visitor") {
         try {

@@ -18,4 +18,15 @@ export async function authenticateUser(idToken) {
   }
 }
 
+// Add function to get user claims
+export async function getUserClaims(idToken) {
+  try {
+    const decodedToken = await admin.auth().verifyIdToken(idToken);
+    return decodedToken.admin;
+  } catch (error) {
+    console.log("Error fetching user claims:", error.message);
+    throw new Error("Unable to fetch user claims");
+  }
+}
+
 export default admin;

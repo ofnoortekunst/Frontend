@@ -10,21 +10,21 @@ export default async function POST(req, res) {
         });
     }
 
-    const { idToken, name } = req.body;
+    const { idToken, bio } = req.body;
 
-    if (name) {
+    if (bio) {
         if (!idToken) {
             return res.status(400).json({
-                message: 'Nime muutmiseks peate olema sisse logitud'
+                message: 'Bio muutmiseks peate olema sisse logitud'
             });
         }
 
         try {
             const { userId } = await authenticateUser(idToken);
 
-            if (typeof name !== 'string' || name.length > 50) {
+            if (typeof bio !== 'string' || bio.length > 750) {
                 return res.status(400).json({
-                    message: 'Nimi peab olema tekst ja maksimaalselt 50 tähemärki pikk'
+                    message: 'Bio peab olema tekst ja maksimaalselt 750 tähemärki pikk'
                 });
             }
 
@@ -33,11 +33,11 @@ export default async function POST(req, res) {
                     User_id: userId
                 },
                 data: {
-                    Name: name
+                    Bio: bio
                 }
             });
             return res.status(200).json({ 
-                message: "Nimi edukalt muudetud" 
+                message: "Bio edukalt muudetud" 
             });
         } catch (error) {
             console.log(error.message);
@@ -63,9 +63,9 @@ export default async function POST(req, res) {
                 User_id: userId
             },
             select: {
-                Name: true
+                Bio: true
             }
         });
-        return res.status(200).json({ message: user.Name });
+        return res.status(200).json({ message: user.Bio });
     }
 }

@@ -49,7 +49,7 @@ function createArtworkHTML(data, token) {
         <div class="top-spec">
           <div class="work-title">
             <p>"${data.title}" -&nbsp</p>
-            <p class="author-button" onclick="window.location.href='${data.authorId}'">${data.name}</p>
+            <p class="author-button" onclick="window.location.href='/artist_page?${data.authorId}'">${data.name}</p>
           </div>
           <div class="like-and-save">
             ${createFavoriteButton(data.favorite, token === 'visitor')}

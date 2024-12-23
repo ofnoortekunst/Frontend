@@ -5,7 +5,7 @@ const toggleButton = document.getElementById("toggle-btn");
 const sidebar = document.getElementById("sidebar");
 const sibling1 = document.querySelector(".search-bar");
 const sibling2 = document.querySelector(".sorting-options");
-
+const userAdmin = localStorage.getItem('userAdmin');
 document.addEventListener("DOMContentLoaded", () => {
   const username = localStorage.getItem('userName');
   if (username) {
@@ -24,8 +24,55 @@ document.addEventListener("DOMContentLoaded", () => {
       if (profileHolder) {
           profileHolder.setAttribute('onclick', "window.location.href='acc_page_artist'");
       }
+      var profileRole = document.querySelector('.status');
+      if (profileRole) {
+        if (userAdmin == 'true') {
+          profileRole.textContent = "Admin";
+        } else {
+          profileRole.textContent = "Looja";
+        }
+      }
   }
 });
+if (userAdmin == 'true') {
+  var profileRole = document.querySelector('.status');
+  if (profileRole) {
+    profileRole.textContent = "Admin";
+  }
+}
+async function deleteWork(idToken, artworkId) {
+  const baseUrl = window.location.origin;
+  try {
+    const response = await fetch(`${baseUrl}/api/delete`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        idToken: idToken,
+        artworkId: artworkId,
+      }),
+    });
+
+    if (response.ok) {
+      const responseData = await response.json();
+      console.log('Teos edukalt kustutatud');
+      const artworkDiv = document.getElementById(artworkId);
+      if (artworkDiv) {
+        artworkDiv.remove();
+        console.log(`Div with artworkId ${artworkId} has been deleted.`);
+      } else {
+        console.warn(`No div found with artworkId ${artworkId}.`);
+      }
+      return responseData;
+    } else {
+      const errorData = await response.json();
+      console.error('Teose kustutamisel tekkis viga:', errorData.error);
+      throw new Error(errorData.error);
+    }
+  } catch (error) {
+    console.error('Võrgu viga:', error);
+    throw error;
+  }
+}
 
 function checkWidth() {
   const uploadWork = document.querySelector(".upload-work-button");

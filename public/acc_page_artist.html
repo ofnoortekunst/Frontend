@@ -17,6 +17,7 @@
   <script type="module" src="/public/acc_artist/acc_artist_script.js" defer></script>
   <script type="text/javascript" src="/public/shared/shared_main.js" defer></script>
   <script type="module" src="/public/shared/firebase/profile_info.js" defer></script>
+  <script type="module" src="/public/shared/shared_acc_script.js" defer></script>
   <header>
     <nav>
       <label for="sidebar-active" class="open-sidebar-btn">
@@ -73,8 +74,8 @@
         </p>
       </div>
     </nav>
-    <div class="profile">
-      <div class="pfp" onclick="window.location.href='acc_page_interested'"  onmouseover="prefetchAsset('acc_page_interested')"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+    <div class="profile" id="profile_holder">
+      <div class="pfp" id="profile_holder" onclick="window.location.href='acc_page_interested'"  onmouseover="prefetchAsset('acc_page_interested')"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
           viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
           <path
             d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z" />
@@ -143,16 +144,19 @@
           <label for="input-file" class="change-something small">Muuda profiilipilti</label>
           <button class="change-something btn small" onclick="window.location.href='artist_works'">Minu teosed</button>
           <input type="file" accept="image/*" id="input-file">
-          <textarea maxlength="150" class="bio"
+          <textarea maxlength="750" class="bio" id="bio_text"
             placeholder="Bio: mis temaatika huvitab, mis inspireerib...(150 sõna)"></textarea>
+        </div>
+        <button class="sub-button" id="new_bio_button">Salvestsa uus bio</button>
+        <div id="error-box-bio" style="display: none;">
+          <p id="error_text_bio"></p>
         </div>
       </div>
       <hr>
       <div>
-        <h2>Kooliaste</h2>
+        <p class="sub-heading">Kooliaste</p>
         <div class="school-selection">
           <select id="school-select" name="school-select">
-            <option value="">-Vali kooliaste-</option>
             <option value="beginning-school">Algklass</option>
             <option value="middle-school">Põhikool</option>
             <option value="high-school">Gümnaasium</option>
@@ -160,20 +164,21 @@
             <option value="other-school">Muu</option>
           </select>
         </div>
-        <div id="approve-box">
+        <div id="approve-box" style="display: none;">
           <p id="grade-change"></p>
         </div>
+        <p class="sub-text-school">Kooliaste aitab paremini noorte seas kunsti filtreerida. Kui te seda avalikustada ei
+          soovi, valige 'muu'.</p>
       </div>
       <hr>
         <h2>Nimi</h2>
         <p id="the_nimi"></p>
         <div class="spec-section">
-          <label for="new-name" class="change-something" id="new_name_value">Muuda nime</label>
           <input type="text" id="new_name" placeholder="nimi">
           <button class="sub-button" id="new_name_button">Salvestsa uus nimi</button>
         </div>
-      <div id="error-box">
-        <p id="error_text_password"></p>
+      <div id="error-box-name" style="display: none;">
+        <p id="error_text_name"></p>
       </div>
       <hr>
       <div>
@@ -201,15 +206,14 @@
       <hr>
       <div class="password-sec" id="password_sec">
         <h2>Salasõna</h2>
-        <label for="password" class="change-something">Muuda salasõna</label>
-        <legend>Uus salasõna:</legend>
+        <legend>Uuus salasõna:</legend>
         <input id="password" name="password" type="password" class="login-pass" placeholder="salasõna">
         <div class="show-and-forgot">
           <label id="pass-toggle-1" for="show-pass-1">
             <input type="checkbox" for="password" id="show-pass-1">
             Näita salasõna
           </label>
-          <a class="sub-text" href="#">Unustasin salasõna</a>
+          <a class="sub-text" href="#" id="forgot-password">Unustasin salasõna</a>
         </div>
         <legend>Korda uus salasõna:</legend>
         <input id="psw-new" name="password" type="password" class="login-pass" placeholder="salasõna uuesti"
@@ -218,7 +222,7 @@
           <input type="checkbox" for="psw-new" id="show-pass-2">
           Näita salasõna
         </label>
-        <div id="error-box">
+        <div id="error-box" style="display: none;">
           <p id="error_text_password"></p>
         </div>
         <button class="sub-button" id="sub-button">Salvesta uus salasõna</button>
@@ -228,17 +232,19 @@
         <h2>Email</h2>
         <p id="email">madisiopr@jdn.oew</p>
         <div class="spec-section">
-          <label for="new-email" class="change-something">Muuda emaili</label>
           <input type="email" id="new-email" placeholder="email">
-          <button class="sub-button" onclick="window.location.href='confirm_mail'">Muuda meiliaadressi</button>
+          <button class="sub-button" id="change-email">Muuda meiliaadressi</button>
         </div>
+      </div>
+      <div id="error-box-email" style="display: none;">
+        <p id="error_text_email"></p>
       </div>
       <hr>
       <div>
         <button class="sub-button" id="logout">Logi välja</button>
-        <button class="sub-button delete-acc">Kustuta konto</button>
+        <button class="sub-button delete-acc" id="delete"	>Kustuta konto</button>
       </div>
-      <div id="error-box-delete">
+      <div id="error-box-delete" style="display: none;">
         <p id="error_text_delete"></p>
       </div>
     </div>

@@ -19,7 +19,8 @@
   <script type="text/javascript" src="/public/shared/shared_main.js" defer></script>
   <script type="module" src="/public/shared/firebase/profile_info.js" defer></script>
   <script type="text/javascript" src="/public/shared/sidebar.js" defer></script>
-  <script type="text/javascript" src="/public/artist_page/artist_page_script.js" defer></script>
+  <script type="module" src="/public/artist_page/artist_page_script.js" defer></script>
+  <script type="module" src="/public/shared/userWorks.js" defer></script>
   <header>
     <nav>
       <label for="sidebar-active" class="open-sidebar-btn">
@@ -361,8 +362,8 @@
   </aside>
   <div class="sorting-bar" style="z-index: 1;">
     <div class="search-bar">
-      <input type="text" placeholder="Autor/Teos" class="search-bar-input" aria-label="search">
-      <button class="search-bar-submit" aria-label="submit-search">
+      <input type="text" placeholder="Autor/Teos" class="search-bar-input" aria-label="search" id="search_text">
+      <button class="search-bar-submit" aria-label="submit-search" id="search_button">
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
           <path
             d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
@@ -389,7 +390,7 @@
         </svg>
         Populaarsus
       </button>
-      <button>
+      <button id="alphabetical">
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
           <path d="M480-360 280-560h400L480-360Z" />
         </svg>
@@ -400,10 +401,10 @@
   <div class="artist-page">
     <div class="author-and-bio">
       <div class="pfp-and-name">
-        <div class="person-card">
-          <img src="/public/images/cat-pfp.avif" alt="profile-pic" id="profile-pic">
+        <div class="person-card" id="profile-pic">
+          <img src="images/pfp.avif" alt="Profile picture" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
         </div>
-        <h1>Mari Vilde</h1>
+        <h1 id="artist-name">Mari Vilde</h1>
       </div>
       <div class="contact-and-followers">
         <div class="followers">
@@ -416,8 +417,7 @@
         </div>
         <h3>Kontakt: marivilde2ndo3@mds.dfnk</h3>
       </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus nostrum nulla molestias sint cumque pariatur
-        debitis temporibus nam maxime consectetur mollitia, non ut eveniet, nemo iure id inventore voluptas vitae!</p>
+      <p id="bio_text" style="width: 100%; overflow-wrap: break-word;">Artist bio text.</p>
     </div>
   </div>
   <div class="settings-modal" id="settings-modal">
@@ -471,72 +471,6 @@
   </div>
   <div id="settings-overlay"></div>
   <main>
-    <div class="art-container invisible">
-      <div class="art-pic" onclick="window.location.href='work_opened'"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <button class="save-work">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-            <path
-              d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Zm80-122 200-86 200 86v-518H280v518Zm0-518h400-400Z" />
-          </svg>
-          <span>Lemmikutesse</span>
-        </button>
-        <div class="post-rating">
-          <span class="post-rating-button material-icons">
-            thumb_up
-          </span>
-          <span class="post-rating-count">0</span>
-        </div>
-      </div>
-    </div>
-    <div class="art-container invisible">
-      <div class="art-pic" onclick="window.location.href='work_opened'"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <button class="save-work">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-            <path
-              d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Zm80-122 200-86 200 86v-518H280v518Zm0-518h400-400Z" />
-          </svg>
-          <span>Lemmikutesse</span>
-        </button>
-        <div class="post-rating">
-          <span class="post-rating-button material-icons">
-            thumb_up
-          </span>
-          <span class="post-rating-count">0</span>
-        </div>
-      </div>
-    </div>
-    <div class="art-container invisible">
-      <div class="art-pic" onclick="window.location.href='work_opened'"></div>
-      <p class="name-and-author">"Portree" - Mari Vilde</p>
-      <hr>
-      <p class="specifications">Akrüül - 150x206 - paber - 2023</p>
-      <hr>
-      <div class="price-and-like">
-        <button class="save-work">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-            <path
-              d="M200-120v-640q0-33 23.5-56.5T280-840h400q33 0 56.5 23.5T760-760v640L480-240 200-120Zm80-122 200-86 200 86v-518H280v518Zm0-518h400-400Z" />
-          </svg>
-          <span>Lemmikutesse</span>
-        </button>
-        <div class="post-rating">
-          <span class="post-rating-button material-icons">
-            thumb_up
-          </span>
-          <span class="post-rating-count">0</span>
-        </div>
-      </div>
-    </div>
   </main>
   <div class="load-more-div">
     <button class="load-more-btn">Lae veel teoseid</button>

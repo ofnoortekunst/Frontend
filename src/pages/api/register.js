@@ -16,6 +16,7 @@ function getNameFromEmail(email) {
 export default async function POST(req, res) {
     if (req.method === "POST") {
         var { formdata, idToken, darkmode } = req.body;
+        console.log(formdata)
         try {
             const decodedToken = await admin.auth().verifyIdToken(idToken);
             const uid = decodedToken.uid

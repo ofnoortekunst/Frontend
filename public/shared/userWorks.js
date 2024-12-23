@@ -20,12 +20,14 @@ const firebaseConfig = {
 };
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
-async function getWorks(filter, token, sort, hereid, start, end, refresh) {
+
+async function getWorks(filter, token, sort, hereid, start, end, refresh, isAdmin) {
+  var noWorksMessage = ''
+  var addMessage = false
   if (refresh == false) {
+  } else {
     end = 10
     start = 0
-    refresh = true
-  } else {
     refresh = true
   }
   if (!token) {
@@ -53,10 +55,10 @@ async function getWorks(filter, token, sort, hereid, start, end, refresh) {
         mainElement.innerHTML = ''
       }
       const responseData = await response.json();
-      
+      const loadMoreDiv = document.querySelector('.load-more-div');
       // Add no works found message if array is empty
-      if (responseData.message.length === 0) {
-        const noWorksMessage = `
+      if (responseData.message.length === 0 && refresh == true) {
+        noWorksMessage = `
           <div class="no-works-message">
             <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="currentColor">
               <path d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80l80-80h160l80 80h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm240-200q75 0 127.5-52.5T660-460q0-75-52.5-127.5T480-640q-75 0-127.5 52.5T300-460q0 75 52.5 127.5T480-280Z"/>
@@ -67,21 +69,42 @@ async function getWorks(filter, token, sort, hereid, start, end, refresh) {
         mainElement.innerHTML = noWorksMessage;
         
         // Hide load more button when no works found
-        const loadMoreDiv = document.querySelector('.load-more-div');
         if (loadMoreDiv) {
           loadMoreDiv.style.display = 'none';
         }
         return;
+      } else if (responseData.message.length > 0 && refresh == false) {
+        noWorksMessage = `
+        <div class="no-works-message">
+          <h2>Rohkem teoseid ei leitud</h2>
+          <p>Proovi muuta filtreid või otsingut</p>
+        </div>`;
+        addMessage = true
+        const loadMoreDiv = document.querySelector('.load-more-div');
+        if (loadMoreDiv) {
+          loadMoreDiv.style.display = 'none';
+        }
       }
-      
       // Show load more button when works are found
-      const loadMoreDiv = document.querySelector('.load-more-div');
-      if (loadMoreDiv) {
+      if (loadMoreDiv && responseData.message.length == end) {
         loadMoreDiv.style.display = 'flex';
+      } else {
+        if (loadMoreDiv) {
+          loadMoreDiv.style.display = 'none';
+        }
       }
 
       // Rest of your existing code for displaying works
       responseData.message.forEach(data => {
+        var deleteButton = ''
+        if (isAdmin) {
+         deleteButton = `<p class="delete-work-button" data-modal-target="#delete-work-modal" onclick="deleteWork('${token}', parseInt(${data.id}))">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="red">
+              <path
+                d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+            </svg>
+          </p>`
+        }
         let favorite = '';
         if (data.favorite) {
           favorite = `<button class="save-work selected">
@@ -112,12 +135,7 @@ async function getWorks(filter, token, sort, hereid, start, end, refresh) {
             </span>
             <span class="post-rating-count">${data.likes}</span>
           </div>
-          <p class="delete-work-button" data-modal-target="#delete-work-modal">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-              <path
-                d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
-            </svg>
-          </p>
+          ${deleteButton}
         </div>
         </div>`
         mainElement.insertAdjacentHTML('beforeend', newDiv);
@@ -125,7 +143,9 @@ async function getWorks(filter, token, sort, hereid, start, end, refresh) {
           return;
         }
         var thisdiv = document.getElementById(data.id)
-
+        if (addMessage) {
+          mainElement.insertAdjacentHTML('beforeend', noWorksMessage);
+        }
         const rating = thisdiv.querySelector('.post-rating');
         const button = thisdiv.querySelector('.post-rating-button');
         const saveButton = thisdiv.querySelector('.save-work');
@@ -191,6 +211,7 @@ async function getWorks(filter, token, sort, hereid, start, end, refresh) {
   }
 }
 onAuthStateChanged(auth, async function(user) {
+  var refresh = true
   var thisfilter = {}
   var sort = {Title: 'asc'}
   var hereid = {}
@@ -211,11 +232,11 @@ onAuthStateChanged(auth, async function(user) {
     'other4': 'Muu'
   };
   const schoolLevelMap = {
-    'school1': 'Algklass',
-    'school2': 'Põhikool',
-    'school3': 'Gümnaasium',
-    'school4': 'Kõrg- ja kutsekool',
-    'other3': 'Muu'
+    'school1': 'beginning-school',
+    'school2': 'middle-school',
+    'school3': 'high-school',
+    'school4': 'university',
+    'other3': 'other-school'
   };
   const sizeMap = {
     'A3': 'A3',
@@ -232,25 +253,31 @@ onAuthStateChanged(auth, async function(user) {
   };
   const filterMaps = {
     'Technique': techniqueMap,
-    'Surface': surfaceMap, 
-    'SchoolLevel': schoolLevelMap,
+    'Pind': surfaceMap, 
+    'Grade': schoolLevelMap,
     'Size': sizeMap,
     'Orientation': orientationMap,
     'Year': yearMap
   };
-  var location = window.location.origin
-  switch (window.location.href) {
-    case (`${location}/favourites_page`):
-      thisfilter = { Favourites: true}
-      break;
-  }
   if (user) {
     var token = await user.getIdToken();
+    const claims = await user.getIdTokenResult(); // Get user claims
+    var isAdmin = claims.claims.admin || false; // Check if user is admin
     if (window.location.href == `${location}/artist_works`) {
       thisfilter = {User_id: user.uid}
     }
   } else {
     var token = 'visitor'
+    var isAdmin = false
+  }
+  if (window.location.href.includes('favourites_page')) {
+    hereid.FavouritedBy = {
+      some: {
+        User_id: user.uid
+      }
+    };
+  } else if (window.location.href.includes('artist_page')) {
+    thisfilter.User_id = window.location.href.split('?')[1];
   }
 
   // Add this new code to handle pre-checked checkboxes
@@ -259,7 +286,7 @@ onAuthStateChanged(auth, async function(user) {
     // Initialize filter arrays
     if (!hereid.Technique) hereid.Technique = { in: [] };
     if (!hereid.Surface) hereid.Surface = { in: [] };
-    if (!hereid.SchoolLevel) hereid.SchoolLevel = { in: [] };
+    if (!thisfilter.Grade) thisfilter.Grade = { in: [] };
     if (!hereid.Size) hereid.Size = { in: [] };
     if (!hereid.Orientation) hereid.Orientation = { in: [] };
     if (!hereid.Year) hereid.Year = { in: [] };
@@ -268,17 +295,27 @@ onAuthStateChanged(auth, async function(user) {
     checkedBoxes.forEach(checkbox => {
       const checkid = checkbox.id;
       
-      // Find which filter map contains this checkbox id
-      Object.entries(filterMaps).forEach(([key, map]) => {
-        if (map[checkid]) {
-          hereid[key].in.push(map[checkid]);
-        }
-      });
+      // Special handling for SchoolLevel
+      if (schoolLevelMap[checkid]) {
+        thisfilter.Grade.in.push(schoolLevelMap[checkid]);
+      } else {
+        // Handle other filters
+        Object.entries(filterMaps).forEach(([key, map]) => {
+          if (map[checkid] && key !== 'Grade') {
+            if (!hereid[key]) hereid[key] = { in: [] };
+            hereid[key].in.push(map[checkid]);
+          }
+        });
+      }
     });
 
     // Remove empty filters
     Object.keys(filterMaps).forEach(key => {
-      if (hereid[key].in.length === 0) delete hereid[key];
+      if (key === 'Grade') {
+        if (thisfilter.SchoolLevel?.in.length === 0) delete thisfilter.Grade;
+      } else {
+        if (hereid[key]?.in.length === 0) delete hereid[key];
+      }
     });
   }
 
@@ -296,7 +333,7 @@ onAuthStateChanged(auth, async function(user) {
       </svg>A-Z`
       sort = {Title: 'asc'}
     }
-    getWorks(thisfilter, token, sort, hereid, start, end)
+    getWorks(thisfilter, token, sort, hereid, start, end, refresh, isAdmin)
   })
   //sort popularity
   const sortPopularity = document.getElementById('popularity')
@@ -312,7 +349,7 @@ onAuthStateChanged(auth, async function(user) {
         </svg>Populaarsus`
         sort = {Likes: 'asc'}
       }
-    getWorks(thisfilter, token, sort, hereid, start, end)
+    getWorks(thisfilter, token, sort, hereid, start, end, refresh, isAdmin)
   })
   //search logic
   const filterText = document.getElementById('search_text')
@@ -324,10 +361,10 @@ onAuthStateChanged(auth, async function(user) {
   //load more
   const loadMore = document.getElementsByClassName("load-more-btn")[0]
   loadMore.addEventListener('click', () => {
-    var refresh = true
+    var refresh = false
     start += 10
     end += 10
-    getWorks(thisfilter, token, sort, hereid, start, end, refresh)
+    getWorks(thisfilter, token, sort, hereid, start, end, refresh, isAdmin)
   })
   // Add event listeners to all checkboxes inside the sidebar-filter
   document.querySelectorAll('.sidebar-filter .switch-input').forEach(checkbox => {
@@ -335,36 +372,48 @@ onAuthStateChanged(auth, async function(user) {
       const checkbox = event.target;
       const checkid = checkbox.id;
       const isChecked = checkbox.checked;
-      const labelText = checkbox.closest('.sidebar-filter-spec').querySelector('.toggle-switch-text').textContent;
 
       // Initialize filter arrays if they don't exist
-      const filterKeys = ['Technique', 'Surface', 'SchoolLevel', 'Size', 'Orientation', 'Year'];
+      const filterKeys = ['Technique', 'Pind', 'Size', 'Orientation', 'Year'];
       filterKeys.forEach(key => {
         if (!hereid[key]) {
           hereid[key] = { in: [] };
         }
       });
-
-      for (const [filterKey, filterMap] of Object.entries(filterMaps)) {
-        if (filterMap[checkid]) {
-          const mappedValue = filterMap[checkid];
-          if (isChecked) {
-            hereid[filterKey].in.push(mappedValue);
-          } else {
-            hereid[filterKey].in = hereid[filterKey].in.filter(item => item !== mappedValue);
+      
+      // Special handling for SchoolLevel
+      if (schoolLevelMap[checkid]) {
+        if (!thisfilter.Grade) {
+          thisfilter.Grade = { in: [] };
+        }
+        if (isChecked) {
+          thisfilter.Grade.in.push(schoolLevelMap[checkid]);
+        } else {
+          thisfilter.Grade.in = thisfilter.Grade.in.filter(item => item !== schoolLevelMap[checkid]);
+        }
+        if (thisfilter.Grade.in.length === 0) delete thisfilter.Grade;
+      } else {
+        // Handle other filters
+        for (const [filterKey, filterMap] of Object.entries(filterMaps)) {
+          if (filterMap[checkid] && filterKey !== 'Grade') {
+            if (isChecked) {
+              hereid[filterKey].in.push(filterMap[checkid]);
+            } else {
+              hereid[filterKey].in = hereid[filterKey].in.filter(item => item !== filterMap[checkid]);
+            }
+            break;
           }
-          break;
         }
       }
 
       filterKeys.forEach(key => {
-        if (hereid[key].in.length === 0) delete hereid[key];
+        if (hereid[key]?.in.length === 0) delete hereid[key];
       });
-      // Update works with new filters
-      getWorks(thisfilter, token, sort, hereid, start, end);
+
+      getWorks(thisfilter, token, sort, hereid, start, end, refresh, isAdmin);
     });
   });
-  getWorks(thisfilter, token, sort, hereid, start, end)
+  getWorks(thisfilter, token, sort, hereid, start, end, refresh, isAdmin);
 });
 
 // Show the sorting when 'sorteeri' is clicked
@@ -378,37 +427,3 @@ sortingButton.addEventListener('click', () => {
     sortingOptions.classList.add('display');
   }
 });
-/*
-// Price scale
-function getVals() {
-  // Get slider values
-  let parent = this.parentNode;
-  let slides = parent.querySelectorAll(".range-input");
-  let slide1 = parseFloat(slides[0].value);
-  let slide2 = parseFloat(slides[1].value);
-
-  // Cross Range 
-  if (slide1 > slide2) {
-    let tmp = slide2;
-    slide2 = slide1;
-    slide1 = tmp;
-  }
-
-  let displayElement = document.getElementById("range-values");
-  displayElement.innerHTML = "$" + slide1 + " &nbsp-&nbsp $" + slide2;
-};
-*/
-/*
-window.onload = function () {
-  let sliderSections = document.getElementById("range-slider");
-  let sliders = sliderSections.querySelectorAll(".range-input");
-
-  sliders.forEach((slide) => {
-    if (slide.type === "range") {
-      // Change Value Method
-      slide.oninput = getVals;
-      // Initial Value
-      slide.oninput();
-    }
-  });
-};*/
