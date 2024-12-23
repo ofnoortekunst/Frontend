@@ -186,23 +186,12 @@ let toggle2 = document.getElementById("show-pass-2");
 let password1 = document.getElementById("password");
 let password2 = document.getElementById("psw-new");
 
-// Reset password field type on focus
-password1.addEventListener("focus", () => {
-  password1.type = "password";
-});
-// Reset password field type on focus
-password2.addEventListener("focus", () => {
-  password2.type = "password";
-});
-
 toggle1.addEventListener("click", handleToggleClick1, false);
 toggle2.addEventListener("click", handleToggleClick2, false);
 
 function handleToggleClick1() {
   if (this.checked && password1.type !== "text") {
     password1.type = "text";
-    password1.blur();
-    password1.focus();
   } else {
     password1.type = "password";
     password1.blur();
@@ -213,8 +202,6 @@ function handleToggleClick1() {
 function handleToggleClick2() {
   if (this.checked && password2.type !== "text") {
     password2.type = "text";
-    password2.blur();
-    password2.focus();
   } else {
     password2.type = "password";
     password2.blur();

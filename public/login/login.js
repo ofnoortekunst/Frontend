@@ -74,9 +74,6 @@ if (url.includes("?account_relogin")) {
 function handleToggleClick2() {
   if (this.checked && pswA.type !== "text") {
     pswA.type = "text";
-    // Blur and refocus to ensure iOS redraws the field properly
-    pswA.blur();
-    pswA.focus();
   } else {
     pswA.type = "password";
     // Blur and refocus to ensure iOS redraws the field properly
@@ -87,8 +84,6 @@ function handleToggleClick2() {
 function handleToggleClick1() {
   if (this.checked && password.type !== "text") {
     password.type = "text";
-    password.blur();
-    password.focus();
   } else {
     password.type = "password";
     password.blur();
@@ -99,8 +94,6 @@ function handleToggleClick1() {
 function handleToggleClick3() {
   if (this.checked && pswI.type !== "text") {
     pswI.type = "text";
-    pswI.blur();
-    pswI.focus();
   } else {
     pswI.type = "password";
     pswI.blur();
@@ -146,19 +139,6 @@ let pswA = document.getElementById("psw-a");
 let toggleA = document.getElementById("show-password-a");
 let pswI = document.getElementById("psw-i");
 let toggleI = document.getElementById("show-password-i");
-
-// Reset password field type on focus
-password.addEventListener("focus", () => {
-  password.type = "password";
-});
-// Reset password field type on focus
-pswA.addEventListener("focus", () => {
-  pswA.type = "password";
-});
-// Reset password field type on focus
-pswI.addEventListener("focus", () => {
-  pswI.type = "password";
-});
 
 toggle.addEventListener("click", handleToggleClick1, false);
 toggleA.addEventListener("click", handleToggleClick2, false);
