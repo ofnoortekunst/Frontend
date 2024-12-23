@@ -1,11 +1,14 @@
 import { 
-  auth, 
+  auth,
   showError, 
   initializePasswordToggles, 
   initializeProfilePicUpload,
-  setupCommonEventListeners 
+  setupCommonEventListeners,
 } from '../shared/shared_acc_script.js';
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import { onAuthStateChanged,   updateEmail,
+  sendEmailVerification,
+  updatePassword,
+  sendPasswordResetEmail  } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
 // Initialize shared functionality
 initializePasswordToggles();
