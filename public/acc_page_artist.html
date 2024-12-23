@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,6 @@
 </head>
 
 <body class="">
-  <script type="module" src="/public/shared/firebase/redirect.js" defer></script>
   <script type="module" src="/public/acc_artist/acc_artist_script.js" defer></script>
   <script type="text/javascript" src="/public/shared/shared_main.js" defer></script>
   <script type="module" src="/public/shared/firebase/profile_info.js" defer></script>
@@ -74,8 +74,9 @@
         </p>
       </div>
     </nav>
-    <div class="profile" id="profile_holder">
-      <div class="pfp" id="profile_holder" onclick="window.location.href='acc_page_interested'"  onmouseover="prefetchAsset('acc_page_interested')"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+    <div class="profile">
+      <div class="pfp" onclick="window.location.href='acc_page_interested'"
+        onmouseover="prefetchAsset('acc_page_interested')"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
           viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
           <path
             d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z" />
@@ -171,14 +172,15 @@
           soovi, valige 'muu'.</p>
       </div>
       <hr>
-        <h2>Nimi</h2>
-        <p id="the_nimi"></p>
-        <div class="spec-section">
-          <input type="text" id="new_name" placeholder="nimi">
-          <button class="sub-button" id="new_name_button">Salvestsa uus nimi</button>
-        </div>
-      <div id="error-box-name" style="display: none;">
-        <p id="error_text_name"></p>
+      <h2>Nimi</h2>
+      <p id="the_nimi"></p>
+      <div class="spec-section">
+        <label for="new-name" class="change-something" id="new_name_value">Muuda nime</label>
+        <input type="text" id="new_name" placeholder="nimi">
+        <button class="sub-button" id="new_name_button">Salvestsa uus nimi</button>
+      </div>
+      <div id="error-box">
+        <p id="error_text_password"></p>
       </div>
       <hr>
       <div>
@@ -210,7 +212,7 @@
         <input id="password" name="password" type="password" class="login-pass" placeholder="salasõna">
         <div class="show-and-forgot">
           <label id="pass-toggle-1" for="show-pass-1">
-            <input type="checkbox" for="password" id="show-pass-1">
+            <input type="checkbox" for="password" id="show-pass-1" onclick="handleToggleClick1.call(this)">
             Näita salasõna
           </label>
           <a class="sub-text" href="#" id="forgot-password">Unustasin salasõna</a>
@@ -219,7 +221,7 @@
         <input id="psw-new" name="password" type="password" class="login-pass" placeholder="salasõna uuesti"
           autocomplete="new-password">
         <label id="pass-toggle-2" for="show-pass-2">
-          <input type="checkbox" for="psw-new" id="show-pass-2">
+          <input type="checkbox" for="psw-new" id="show-pass-2" onclick="handleToggleClick2.call(this)">
           Näita salasõna
         </label>
         <div id="error-box" style="display: none;">
@@ -280,7 +282,8 @@
             </svg>kontakt@noortekunst.ee</a>
         </div>
         <div class="logo-container">
-          <img class="dark-logo-footer" alt="dark-logo" src="/public/images/pro-logo-transparent.avif" alt="noortekunst logo header">
+          <img class="dark-logo-footer" alt="dark-logo" src="/public/images/pro-logo-transparent.avif"
+            alt="noortekunst logo header">
         </div>
       </div>
       <div class="privacy-warning">

@@ -71,26 +71,33 @@ if (url.includes("?account_relogin")) {
   returnToSettings = 1
 }
 
-function handleToggleClick2(event) {
+function handleToggleClick2() {
   if (this.checked && pswA.type !== "text") {
     pswA.type = "text";
   } else {
     pswA.type = "password";
+    // Blur and refocus to ensure iOS redraws the field properly
+    pswA.blur();
+    pswA.focus();
   }
 }
-function handleToggleClick1(event) {
+function handleToggleClick1() {
   if (this.checked && password.type !== "text") {
     password.type = "text";
   } else {
     password.type = "password";
+    password.blur();
+    password.focus();
   }
 }
 
-function handleToggleClick3(event) {
+function handleToggleClick3() {
   if (this.checked && pswI.type !== "text") {
     pswI.type = "text";
   } else {
     pswI.type = "password";
+    pswI.blur();
+    pswI.focus();
   }
 }
 

@@ -223,7 +223,7 @@ main .sub-text-school {
 }
 
 .school-selection select {
-  border: 1px solid var(--dark-text-color);
+  border: 2px solid var(--dark-text-color);
   border-radius: 100vh;
   padding: 5px 1rem;
   outline: none;

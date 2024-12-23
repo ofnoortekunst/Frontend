@@ -1,9 +1,10 @@
 /* Main stuff*/
 @import url(/public/shared/main.css);
 @import url(/public/shared/pop_up_settings/pop_up_settings.css);
-@import url(/public/shared/navbar_and_sidebar/navbar_and_sidebar.css);
 @import url(/public/shared/footer/footer.css);
 @import url(/public/shared/back_to_top_button/back_to_top_button.css);
+@import url(/public/shared/navbar_and_sidebar/navbar_and_sidebar.css);
+
 
 body {
   overflow-x: hidden;
