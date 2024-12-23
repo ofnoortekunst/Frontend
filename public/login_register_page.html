@@ -172,7 +172,8 @@
             </div>
             <div>
               <label for="psw">Salasõna:</label>
-              <input id="psw-i" name="password" type="password" placeholder="salasõna" required>
+              <input id="psw-i" name="password" type="password" placeholder="salasõna" autocomplete="new-password"
+                required>
               <label id="pass-toggle" for="show-password-i">
                 <input type="checkbox" id="show-password-i" for="psw-i" onclick="handleToggleClick3.call(this)">
                 Näita salasõna
@@ -225,7 +226,8 @@
             </div>
             <div>
               <label for="psw">Salasõna:</label>
-              <input id="psw-a" name="password" type="password" placeholder="salasõna" required>
+              <input id="psw-a" name="password" type="password" placeholder="salasõna" autocomplete="new-password"
+                required>
               <label id="pass-toggle" for="show-password-a">
                 <input type="checkbox" id="show-password-a" for="psw-a" onclick="handleToggleClick2.call(this)">
                 Näita salasõna
@@ -266,7 +268,8 @@
             <legend>Email:</legend>
             <input id="email-l" name="email" type="email" placeholder="email" required>
             <legend>Salasõna:</legend>
-            <input id="password" name="password" type="password" placeholder="salasõna" class="login-pass" required>
+            <input id="password" name="password" type="password" placeholder="salasõna" class="login-pass"
+              autocomplete="current-password" required>
             <div class="show-and-forgot">
               <label id="pass-toggle" for="show-password">
                 <input type="checkbox" id="show-password" for="password" onclick="handleToggleClick1.call(this)">
