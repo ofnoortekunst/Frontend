@@ -15,7 +15,7 @@ body {
     'sidebar load-more'
     'footer footer';
   grid-template-rows: auto auto 1fr auto auto;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 250px 1fr;
   transition: grid-template-columns 0.3s ease;
 }
 
@@ -31,7 +31,7 @@ body.sidebar-collapsed {
   
   aside#sidebar {
     width: 100%;
-    max-width: 300px;
+    max-width: 250px;
     transition: max-width 0.3s ease;
   }
   
