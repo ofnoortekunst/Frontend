@@ -90,6 +90,14 @@ let toggle2 = document.getElementById('show-pass-2');
 let password1 = document.getElementById('password');
 let password2 = document.getElementById('psw-new');
 
+password1.addEventListener('click', () => {
+  password1.type = 'password';
+}, false);
+
+password2.addEventListener('click', () => {
+  password2.type = 'password';
+}, false);
+
 toggle1.addEventListener("click", handleToggleClick1, false);
 toggle2.addEventListener("click", handleToggleClick2, false);
 

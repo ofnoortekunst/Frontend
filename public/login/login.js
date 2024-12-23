@@ -133,6 +133,18 @@ let toggleA = document.getElementById("show-password-a");
 let pswI = document.getElementById("psw-i");
 let toggleI = document.getElementById("show-password-i");
 
+password.addEventListener('click', () => {
+  password.type = 'password';
+}, false);
+
+pswA.addEventListener('click', () => {
+  pswA.type = 'password';
+}, false);
+
+pswI.addEventListener('click', () => {
+  pswI.type = 'password';
+}, false);
+
 toggle.addEventListener("click", handleToggleClick1, false);
 toggleA.addEventListener("click", handleToggleClick2, false);
 toggleI.addEventListener("click", handleToggleClick3, false);

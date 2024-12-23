@@ -2,6 +2,9 @@
 let password = document.getElementById('password');
 let toggleA = document.getElementById('show-password');
 
+password.addEventListener('click', () => {
+  password.type = 'password';
+}, false);
 
 toggleA.addEventListener("click", handleToggleClick2, false);
 
