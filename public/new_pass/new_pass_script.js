@@ -12,7 +12,11 @@ toggleA.addEventListener("click", handleToggleClick, false);
 function handleToggleClick() {
   if (this.checked && password.type !== "text") {
     password.type = "text";
+    password.blur();
+    password.focus();
   } else {
     password.type = "password";
+    password.blur();
+    password.focus();
   }
 }

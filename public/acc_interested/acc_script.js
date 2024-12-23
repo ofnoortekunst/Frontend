@@ -201,16 +201,24 @@ toggle2.addEventListener("click", handleToggleClick2, false);
 function handleToggleClick1() {
   if (this.checked && password1.type !== "text") {
     password1.type = "text";
+    password1.blur();
+    password1.focus();
   } else {
     password1.type = "password";
+    password1.blur();
+    password1.focus();
   }
 }
 
 function handleToggleClick2() {
   if (this.checked && password2.type !== "text") {
     password2.type = "text";
+    password2.blur();
+    password2.focus();
   } else {
     password2.type = "password";
+    password2.blur();
+    password2.focus();
   }
 }
 
