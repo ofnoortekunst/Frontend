@@ -42,11 +42,13 @@ main {
 h1 {
   margin-bottom: 2.5rem;
   color: var(--dark-text-color);
+  font-size: 28px;
 }
 
 h2 {
   margin-bottom: 1.5rem;
   color: var(--dark-text-color);
+  font-size: 24px;
 }
 
 .person-card {
@@ -187,6 +189,7 @@ input[type="checkbox"] {
 
 #pass-toggle-1, #pass-toggle-2 {
   font-size: 14px;
+  cursor: pointer;
 }
 
 #show-pass-1, #show-pass-2 {
@@ -223,6 +226,10 @@ main .sub-text-school {
   color: var(--hover-color);
 }
 
+main input[type=password], main input[type=text] {
+  width: 300px;
+}
+
 .school-selection select {
   border: 2px solid var(--dark-text-color);
   border-radius: 100vh;
@@ -233,6 +240,8 @@ main .sub-text-school {
   font-size: 16px;
   color: var(--dark-text-color);
   width: 100%;
+  cursor: pointer;
+  height: 37px;
 }
 
 .school-selection {
@@ -262,6 +271,18 @@ main .sub-text-school {
     5px 5px,
     1px 1.5em;
   background-repeat: no-repeat;
+}
+
+.password-sec {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 300px;
+}
+
+.password-sec h2 {
+  margin-bottom: 0.8rem;
 }
 
 
@@ -392,7 +413,7 @@ main .sub-text-school {
   display: block;
 }
 
-.name {
+#the_nimi {
   background-color: var(--back);
   font-size: 18px;
 }

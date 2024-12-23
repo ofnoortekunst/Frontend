@@ -26,6 +26,7 @@ main {
   align-items: center;
 }
 
+
 /* Stuff in main */
 
 .acc-container {
@@ -42,11 +43,13 @@ main {
 h1 {
   margin-bottom: 2.5rem;
   color: var(--dark-text-color);
+  font-size: 28px;
 }
 
 h2 {
   margin-bottom: 1.5rem;
   color: var(--dark-text-color);
+  font-size: 24px;
 }
 
 .person-card {
@@ -99,6 +102,11 @@ legend {
 
 #input-file {
   display: none;
+}
+
+.sub-heading {
+  font-size: 24px;
+  font-weight: bold;
 }
 
 main input, .sub-button, .bio {
@@ -178,6 +186,7 @@ input[type="checkbox"] {
 
 #pass-toggle-1, #pass-toggle-2 {
   font-size: 14px;
+  cursor: pointer;
 }
 
 #show-pass-1, #show-pass-2 {
@@ -206,6 +215,7 @@ input[type="checkbox"] {
   color: var(--dark-text-color);
   width: 100%;
   cursor: pointer;
+  height: 37px;
 }
 
 .school-selection {
@@ -356,7 +366,7 @@ input[type="checkbox"] {
   display: block;
 }
 
-.name {
+#the_nimi {
   background-color: var(--back);
   font-size: 18px;
 }

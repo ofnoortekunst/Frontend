@@ -14,7 +14,6 @@
 </head>
 
 <body class="">
-  <script type="module" src="/public/shared/firebase/redirect.js" defer></script>
   <script type="module" src="/public/acc_interested/acc_script.js" defer></script>
   <script type="text/javascript" src="/public/shared/shared_main.js" defer></script>
   <script type="module" src="/public/shared/firebase/profile_info.js" defer></script>
@@ -181,49 +180,52 @@
         <div id="error-box-name" style="display: none;">
           <p id="error_text_name"></p>
         </div>
-        <hr style="margin-top: 10px; margin-bottom: 10px;">
-        <div class="password-sec" id="password_sec">
-          <h2>Salasõna</h2>
-          <legend>Uuus salasõna:</legend>
-          <input id="password" name="password" type="password" class="login-pass" placeholder="salasõna">
-          <div class="show-and-forgot">
-            <label id="pass-toggle-1" for="show-pass-1">
-              <input type="checkbox" for="password" id="show-pass-1" onclick="handleToggleClick1.call(this)">
-              Näita salasõna
-            </label>
-            <a class="sub-text" href="#" id="forgot-password">Unustasin salasõna</a>
-          </div>
-          <legend>Korda uus salasõna:</legend>
-          <input id="psw-new" name="password" type="password" class="login-pass" placeholder="salasõna uuesti"
-            autocomplete="new-password">
-          <label id="pass-toggle-2" for="show-pass-2">
-            <input type="checkbox" for="psw-new" id="show-pass-2" onclick="handleToggleClick2.call(this)">
+      </div>
+      <hr>
+      <div class="password-sec" id="password_sec">
+        <h2>Salasõna</h2>
+        <legend>Uuus salasõna:</legend>
+        <input id="password" name="password" type="password" class="login-pass" placeholder="salasõna">
+        <div class="show-and-forgot">
+          <label id="pass-toggle-1" for="show-pass-1">
+            <input type="checkbox" for="password" id="show-pass-1" onclick="handleToggleClick1.call(this)">
             Näita salasõna
           </label>
-          <div id="error-box" style="display: none;">
-            <p id="error_text_password"></p>
-          </div>
-          <button class="sub-button" id="sub-button">Salvesta uus salasõna</button>
+          <a class="sub-text" href="#" id="forgot-password">Unustasin salasõna</a>
         </div>
-        <hr>
-        <div>
-          <h2>Email</h2>
-          <p id="email">madisiopr@jdn.oew</p>
-          <div class="spec-section">
-            <input type="email" id="new-email" placeholder="email">
-            <button class="sub-button" id="change-email">Muuda meiliaadressi</button>
-            <p style="color:red;" id="error_text_email"></p>
-          </div>
+        <legend>Korda uus salasõna:</legend>
+        <input id="psw-new" name="password" type="password" class="login-pass" placeholder="salasõna uuesti"
+          autocomplete="new-password">
+        <label id="pass-toggle-2" for="show-pass-2">
+          <input type="checkbox" for="psw-new" id="show-pass-2" onclick="handleToggleClick2.call(this)">
+          Näita salasõna
+        </label>
+        <div id="error-box" style="display: none;">
+          <p id="error_text_password"></p>
         </div>
-        <hr>
-        <div>
-          <button class="sub-button" id="logout">Logi välja</button>
-          <button class="sub-button delete-acc" id="delete">Kustuta konto</button>
+        <button class="sub-button" id="sub-button">Salvesta uus salasõna</button>
+      </div>
+      <hr>
+      <div>
+        <h2>Email</h2>
+        <p id="email">madisiopr@jdn.oew</p>
+        <div class="spec-section">
+          <input type="email" id="new-email" placeholder="email">
+          <button class="sub-button" id="change-email">Muuda meiliaadressi</button>
         </div>
-        <div id="error-box-delete" style="display: none;">
-          <p id="error_text_delete"></p>
+        <div id="error-box" style="display: none;">
+          <p id="error_text_password"></p>
         </div>
       </div>
+      <hr>
+      <div>
+        <button class="sub-button" id="logout">Logi välja</button>
+        <button class="sub-button delete-acc" id="delete">Kustuta konto</button>
+      </div>
+      <div id="error-box-delete" style="display: none;">
+        <p id="error_text_delete"></p>
+      </div>
+    </div>
   </main>
   <button onclick="scrollToTop();" class="back-to-top">
     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
