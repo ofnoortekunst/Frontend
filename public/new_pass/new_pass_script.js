@@ -2,18 +2,17 @@
 let password = document.getElementById('password');
 let toggleA = document.getElementById('show-password');
 
-password.addEventListener('click', () => {
-  password.type = 'password';
-}, false);
+// Reset password field type on focus
+password.addEventListener("focus", () => {
+  password.type = "password";
+});
 
-toggleA.addEventListener("click", handleToggleClick2, false);
+toggleA.addEventListener("click", handleToggleClick, false);
 
-function handleToggleClick2(event) {
-  if (this.checked) {
-    console.warn("Change input 'type' to: text");
+function handleToggleClick() {
+  if (this.checked && password.type !== "text") {
     password.type = "text";
   } else {
-    console.warn("Change input 'type' to: password");
     password.type = "password";
   }
-};
+}

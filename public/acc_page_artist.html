@@ -14,6 +14,7 @@
 </head>
 
 <body class="">
+  <script type="module" src="/public/shared/firebase/redirect.js" defer></script>
   <script type="module" src="/public/acc_artist/acc_artist_script.js" defer></script>
   <script type="text/javascript" src="/public/shared/shared_main.js" defer></script>
   <script type="module" src="/public/shared/firebase/profile_info.js" defer></script>
@@ -207,7 +208,7 @@
         <input id="password" name="password" type="password" class="login-pass" placeholder="salasõna">
         <div class="show-and-forgot">
           <label id="pass-toggle-1" for="show-pass-1">
-            <input type="checkbox" for="password" id="show-pass-1">
+            <input type="checkbox" for="password" id="show-pass-1" onclick="handleToggleClick1.call(this)">
             Näita salasõna
           </label>
           <a class="sub-text" href="#">Unustasin salasõna</a>
@@ -216,7 +217,7 @@
         <input id="psw-new" name="password" type="password" class="login-pass" placeholder="salasõna uuesti"
           autocomplete="new-password">
         <label id="pass-toggle-2" for="show-pass-2">
-          <input type="checkbox" for="psw-new" id="show-pass-2">
+          <input type="checkbox" for="psw-new" id="show-pass-2" onclick="handleToggleClick2.call(this)">
           Näita salasõna
         </label>
         <div id="error-box">

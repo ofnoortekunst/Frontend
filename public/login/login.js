@@ -71,14 +71,14 @@ if (url.includes("?account_relogin")) {
   returnToSettings = 1
 }
 
-function handleToggleClick2(event) {
+function handleToggleClick2() {
   if (this.checked && pswA.type !== "text") {
     pswA.type = "text";
   } else {
     pswA.type = "password";
   }
 }
-function handleToggleClick1(event) {
+function handleToggleClick1() {
   if (this.checked && password.type !== "text") {
     password.type = "text";
   } else {
@@ -86,7 +86,7 @@ function handleToggleClick1(event) {
   }
 }
 
-function handleToggleClick3(event) {
+function handleToggleClick3() {
   if (this.checked && pswI.type !== "text") {
     pswI.type = "text";
   } else {
@@ -133,17 +133,18 @@ let toggleA = document.getElementById("show-password-a");
 let pswI = document.getElementById("psw-i");
 let toggleI = document.getElementById("show-password-i");
 
-password.addEventListener('click', () => {
-  password.type = 'password';
-}, false);
-
-pswA.addEventListener('click', () => {
-  pswA.type = 'password';
-}, false);
-
-pswI.addEventListener('click', () => {
-  pswI.type = 'password';
-}, false);
+// Reset password field type on focus
+password.addEventListener("focus", () => {
+  password.type = "password";
+});
+// Reset password field type on focus
+pswA.addEventListener("focus", () => {
+  pswA.type = "password";
+});
+// Reset password field type on focus
+pswI.addEventListener("focus", () => {
+  pswI.type = "password";
+});
 
 toggle.addEventListener("click", handleToggleClick1, false);
 toggleA.addEventListener("click", handleToggleClick2, false);
